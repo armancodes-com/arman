@@ -1,0 +1,11 @@
+# Ignore folders
+**/.next
+**/.husky
+coverage
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+
+# Ignore files:
+**/*.gitignore
