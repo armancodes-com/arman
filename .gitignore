@@ -7,6 +7,9 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# .next
+# /.next
+.next/
 node_modules
 coverage
 dist
