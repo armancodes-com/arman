@@ -1,0 +1,69 @@
+/* 
+  Different types of typography
+*/
+
+@layer components {
+  .title1 {
+    @apply text-title1 font-normal;
+  }
+
+  .title1-bold {
+    @apply text-title1 font-bold;
+  }
+
+  .title2 {
+    @apply text-title2 font-normal;
+  }
+
+  .title2-bold {
+    @apply text-title2 font-bold;
+  }
+
+  .title3 {
+    @apply text-title3 font-normal;
+  }
+
+  .title3-bold {
+    @apply text-title3 font-bold;
+  }
+
+  .title-span {
+    @apply text-title-span font-normal;
+  }
+
+  .title-span-bold {
+    @apply text-title-span font-bold;
+  }
+
+  .body1 {
+    @apply text-body1 font-normal;
+  }
+
+  .body1-bold {
+    @apply text-body1 font-bold;
+  }
+
+  .body2 {
+    @apply text-body2 font-normal;
+  }
+
+  .body2-bold {
+    @apply text-body2 font-bold;
+  }
+
+  .caption1 {
+    @apply text-caption1 font-normal;
+  }
+
+  .caption1-bold {
+    @apply text-caption1 font-bold;
+  }
+
+  .caption2 {
+    @apply text-caption2 font-normal;
+  }
+
+  .caption2-bold {
+    @apply text-caption2 font-bold;
+  }
+}
