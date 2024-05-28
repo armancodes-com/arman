@@ -23,6 +23,9 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
+    padding: {
+      "10.5": "42px",
+    },
     fontSize: {
       title1: ["32px", "42px"],
       title2: ["32px", "36px"],

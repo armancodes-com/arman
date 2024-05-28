@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import ThemeProvider from "@/components/ThemeProvider";
 import { ubuntu } from "./fonts";
+import Navigation from "@/components/Navigation/Navigation";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,8 +20,10 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <Analytics />
       <SpeedInsights />
-      <body className={ubuntu.className}>
+      <body className={`${ubuntu.className} dark:bg-dark-color bg-white`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Navigation />
+
           <div className={"mx-auto max-w-[800px]"}>{children}</div>
         </ThemeProvider>
       </body>
