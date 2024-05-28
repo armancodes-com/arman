@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Ubuntu } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const inter = Inter({ subsets: ["latin"] });
+const ubuntu = Ubuntu({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,7 +23,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <Analytics />
       <SpeedInsights />
-      <body className={inter.className}>{children}</body>
+      <body className={ubuntu.className}>{children}</body>
     </html>
   );
 }
