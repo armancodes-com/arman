@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "../tailwind/components.css";
+
+html {
+  /* font-family: var(--font-vazir); */
+  -moz-font-feature-settings: "ss01";
+  -webkit-font-feature-settings: "ss01";
+  font-feature-settings: "ss01";
+  scroll-behavior: smooth;
+}
