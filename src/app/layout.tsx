@@ -3,6 +3,7 @@ import { Ubuntu } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import ThemeProvider from "@/components/ThemeProvider";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -23,7 +24,11 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <Analytics />
       <SpeedInsights />
-      <body className={ubuntu.className}>{children}</body>
+      <body className={ubuntu.className}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <div className={"mx-auto max-w-[800px]"}>{children}</div>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
