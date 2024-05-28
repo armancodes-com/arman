@@ -1,14 +1,9 @@
 import type { Metadata } from "next";
-import { Ubuntu } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import ThemeProvider from "@/components/ThemeProvider";
-
-const ubuntu = Ubuntu({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-});
+import { ubuntu } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
