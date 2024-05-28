@@ -4,14 +4,14 @@ import SearchIcon from "@/assets/icons/SearchIcon";
 import MoonIcon from "@/assets/icons/MoonIcon";
 import { useTheme } from "next-themes";
 import Image from "next/image";
-import NavLink from "./NavLink";
+import NavList from "./NavList";
 
 const Navigation = () => {
   const { resolvedTheme } = useTheme();
 
   return (
     <header className="relative top-0 z-20 pt-10.5 md:sticky">
-      <nav className="mx-auto flex max-w-[800px] items-center justify-between border border-red-500">
+      <nav className="mx-auto flex max-w-[800px] flex-wrap items-center justify-between border border-red-500">
         <div className="flex items-center gap-4">
           <Image
             src={
@@ -29,13 +29,9 @@ const Navigation = () => {
           </p>
         </div>
 
-        <ul className="flex items-center gap-x-11">
-          <NavLink href="/">home</NavLink>
-          <NavLink href="/about-me">about me</NavLink>
-          <NavLink href="/articles">articles</NavLink>
-        </ul>
+        <NavList />
 
-        <div className="flex items-center gap-x-12">
+        <div className="flex items-center gap-x-12 sm:order-2">
           <SearchIcon />
           <MoonIcon />
         </div>

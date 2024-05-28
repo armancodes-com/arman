@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <Analytics />
       <SpeedInsights />
-      <body className={`${ubuntu.className} dark:bg-dark-color bg-white`}>
+      <body className={`${ubuntu.className} bg-white dark:bg-dark-color`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navigation />
 
