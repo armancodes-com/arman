@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
-import { Ubuntu } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-
-const ubuntu = Ubuntu({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-});
+import ThemeProvider from "@/components/ThemeProvider";
+import { ubuntu } from "./fonts";
+import Navigation from "@/components/Navigation/Navigation";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,7 +20,13 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <Analytics />
       <SpeedInsights />
-      <body className={ubuntu.className}>{children}</body>
+      <body className={`${ubuntu.className} bg-white dark:bg-dark-color`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Navigation />
+
+          <div className={"mx-auto max-w-[800px]"}>{children}</div>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

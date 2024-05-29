@@ -25,6 +25,7 @@
     "@vercel/speed-insights": "^1.0.10",
     "axios": "^1.7.1",
     "next": "14.2.3",
+    "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18"
   },
