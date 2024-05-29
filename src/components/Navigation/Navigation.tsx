@@ -5,9 +5,17 @@ import MoonIcon from "@/assets/icons/MoonIcon";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import NavList from "./NavList";
+import ThemeSwitcher from "../ThemeSwitcher";
+import { useState } from "react";
 
 const Navigation = () => {
   const { resolvedTheme } = useTheme();
+  const [isThemeSwitcherOpen, setIsThemeSwitcherOpen] =
+    useState<boolean>(false);
+
+  const handleOpenThemeSwitcher = () => {
+    setIsThemeSwitcherOpen(!isThemeSwitcherOpen);
+  };
 
   return (
     <header className="relative top-0 z-20 pt-10.5 md:sticky">
@@ -33,7 +41,16 @@ const Navigation = () => {
 
         <div className="flex items-center gap-x-12 sm:order-2">
           <SearchIcon />
-          <MoonIcon />
+          <div className="relative">
+            <MoonIcon
+              onClick={handleOpenThemeSwitcher}
+              className="cursor-pointer transition-all duration-75 ease-in hover:-rotate-12"
+            />
+            <ThemeSwitcher
+              isOpen={isThemeSwitcherOpen}
+              onClickCLose={handleOpenThemeSwitcher}
+            />
+          </div>
         </div>
       </nav>
     </header>
