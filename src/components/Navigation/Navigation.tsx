@@ -7,11 +7,14 @@ import Image from "next/image";
 import NavList from "./NavList";
 import ThemeSwitcher from "../ThemeSwitcher";
 import { useState } from "react";
+import SunIcon from "@/assets/icons/SunIcon";
 
 const Navigation = () => {
-  const { resolvedTheme } = useTheme();
+  const { resolvedTheme, theme } = useTheme();
   const [isThemeSwitcherOpen, setIsThemeSwitcherOpen] =
     useState<boolean>(false);
+
+  const isLightThemeActive = theme === "light";
 
   const handleOpenThemeSwitcher = () => {
     setIsThemeSwitcherOpen(!isThemeSwitcherOpen);
@@ -42,10 +45,17 @@ const Navigation = () => {
         <div className="flex items-center gap-x-12 sm:order-2">
           <SearchIcon />
           <div className="relative">
-            <MoonIcon
-              onClick={handleOpenThemeSwitcher}
-              className="cursor-pointer transition-all duration-75 ease-in hover:-rotate-12"
-            />
+            {isLightThemeActive ? (
+              <MoonIcon
+                onClick={handleOpenThemeSwitcher}
+                className="cursor-pointer transition-all duration-75 ease-in hover:-rotate-12"
+              />
+            ) : (
+              <SunIcon
+                onClick={handleOpenThemeSwitcher}
+                className="cursor-pointer transition-all duration-75 ease-in hover:-rotate-12"
+              />
+            )}
             <ThemeSwitcher
               isOpen={isThemeSwitcherOpen}
               onClickCLose={handleOpenThemeSwitcher}
