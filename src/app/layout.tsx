@@ -21,7 +21,7 @@ export default function RootLayout({
       <Analytics />
       <SpeedInsights />
       <body className={`${ubuntu.className} bg-bgColor`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="light">
           <Navigation />
 
           <div className={"mx-auto max-w-[800px]"}>{children}</div>

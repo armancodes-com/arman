@@ -3,17 +3,21 @@ import { firaCode } from "./fonts";
 
 export default function Home() {
   return (
-    <main className="pt-14.5">
-      <section className="flex h-[350px] gap-x-14">
-        <article className="flex flex-1 flex-col gap-y-4 py-10">
-          <div className="w-21 rounded-5 block h-1 min-h-1 bg-[#7127BA]"></div>
+    <main className="sm:pt-14.5 min-h-svh">
+      <section className="flex h-full w-full flex-col items-center gap-x-14 md:flex-row">
+        <article className="order-2 flex flex-1 flex-col gap-y-4 px-4 py-10 md:order-1">
+          <div className="w-21 rounded-5 hidden h-1 min-h-1 bg-[#7127BA] md:block"></div>
 
-          <div className={`text-title1 ${firaCode.className} font-bold`}>
+          <div
+            className={`text-xl md:text-title1 ${firaCode.className} font-bold`}
+          >
             <h1>Arman</h1>
-            <h2 className="text-3xl text-primary">Back-end Engineer</h2>
+            <h2 className="text-caption1 text-primary md:text-3xl">
+              Back-end Engineer
+            </h2>
           </div>
 
-          <p className="text-body1 text-text-primary">
+          <p className="text-body2 text-text-primary md:text-body1">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas
             purus viverra accumsan Lorem ipsum dolor sit amet, consectetur
@@ -21,12 +25,15 @@ export default function Home() {
             dolore magna aliqua. Egestas purus viverra accumsan
           </p>
         </article>
-        <figure className="rounded-20 shadow-heroImage2 relative h-[422px] w-[384px] flex-1 rotate-6 overflow-hidden">
+
+        <figure className="rounded-20 shadow-heroImage2 h-[340px] w-[300px] rotate-6 overflow-hidden transition-all duration-100 ease-linear hover:-rotate-2 sm:h-[370px] sm:w-[330px] md:order-2 md:h-[400px] md:w-[360px]">
           <Image
             src={"/images/avatar.webp"}
             alt="hero images"
             fill
             className="h-full w-full object-cover object-center"
+            quality={100}
+            priority
           />
         </figure>
       </section>
