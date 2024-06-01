@@ -26,6 +26,22 @@ const config: Config = {
       padding: {
         "10.5": "42px",
         "13": "50px",
+        "14.5": "58px",
+      },
+      width: {
+        21: "84px",
+        22: "88px",
+      },
+      spacing: {
+        41: "164px",
+        42: "168px",
+        42.5: "170px",
+        43: "172px",
+      },
+      borderRadius: {
+        5: "5px",
+        20: "20px",
+        40: "40px",
       },
       fontSize: {
         title1: ["32px", "42px"],
@@ -36,6 +52,10 @@ const config: Config = {
         body2: ["16px", "25px"],
         caption1: ["18px", "18px"],
         caption2: ["14px", "16px"],
+      },
+      boxShadow: {
+        heroImage: "0px 4px 4px -1px #370C620F",
+        heroImage2: "0px 8px 6px -1px #370C621A",
       },
     },
   },

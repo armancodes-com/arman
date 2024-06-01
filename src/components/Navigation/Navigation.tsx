@@ -10,7 +10,7 @@ const Navigation = () => {
   const { resolvedTheme } = useTheme();
 
   return (
-    <header className="relative top-0 z-20 pt-10.5 md:sticky">
+    <header className="relative top-0 z-20 bg-bgColor pt-10.5 md:sticky">
       <nav className="mx-auto flex max-w-[800px] flex-wrap items-center justify-between">
         <div className="flex items-center gap-4">
           <Image
@@ -32,9 +32,7 @@ const Navigation = () => {
         <NavList />
 
         <div className="flex items-center gap-x-4 sm:order-2">
-          <SearchIcon
-            className={`${resolvedTheme === "light" ? "[&_path]:stroke-gray-1" : "[&_path]:stroke-white"}`}
-          />
+          <SearchIcon className={`[&_path]:stroke-text-primary`} />
           <ThemeSwitcher />
         </div>
       </nav>
