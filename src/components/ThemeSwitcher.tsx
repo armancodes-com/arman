@@ -1,39 +1,26 @@
+import MoonIcon from "@/assets/icons/MoonIcon";
+import SunIcon from "@/assets/icons/SunIcon";
 import { useTheme } from "next-themes";
 
-interface IThemeSwitcherProps {
-  isOpen: boolean;
-  onClickCLose: () => void;
-}
+interface IThemeSwitcherProps {}
 
-const ThemeSwitcher: React.FC<IThemeSwitcherProps> = ({
-  isOpen,
-  onClickCLose,
-}) => {
+const ThemeSwitcher: React.FC<IThemeSwitcherProps> = () => {
   const { theme, setTheme } = useTheme();
+  const isLightThemeActive = theme === "light";
 
   return (
-    <ul
-      className={`p-2 ${isOpen ? "visible opacity-100" : "invisible opacity-0"} absolute -left-28 top-10 z-0 w-32 rounded-lg bg-white shadow-md transition-all duration-200 ease-in-out dark:bg-dark-color`}
-    >
-      <li
-        className={`cursor-pointer py-2 pl-10 pr-4 capitalize text-gray-1 transition-all duration-150 ease-in hover:bg-purple-2 hover:text-gray-1 dark:text-white dark:hover:bg-gray-3 ${theme === "light" ? "font-bold" : "font-normal"}`}
-        onClick={() => {
-          setTheme("light");
-          onClickCLose();
-        }}
-      >
-        light
-      </li>
-      <li
-        className={`cursor-pointer py-2 pl-10 pr-4 capitalize text-gray-1 transition-all duration-150 ease-in hover:bg-purple-2 hover:text-gray-1 dark:text-white dark:hover:bg-gray-3 ${theme === "dark" ? "font-bold" : "font-normal"}`}
-        onClick={() => {
-          setTheme("dark");
-          onClickCLose();
-        }}
-      >
-        dark
-      </li>
-    </ul>
+    <div className="relative flex cursor-pointer items-center gap-2 overflow-hidden">
+      <SunIcon
+        className={`relative ${isLightThemeActive ? "-left-7" : "left-7"} transition-all duration-200 ease-in-out [&_path]:stroke-gray-1
+        `}
+        onClick={() => setTheme("light")}
+      />
+
+      <MoonIcon
+        className={`relative [&_path]:stroke-gray-1 ${!isLightThemeActive ? "left-7" : "left-0"} transition-all duration-200 ease-in-out`}
+        onClick={() => setTheme("dark")}
+      />
+    </div>
   );
 };
 

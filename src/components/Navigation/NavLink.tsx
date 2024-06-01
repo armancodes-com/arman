@@ -13,7 +13,7 @@ const NavLink: React.FC<INavLinkProps> = ({ children, href }) => {
   return (
     <Link
       href={href}
-      className={`cursor-pointer text-caption1 ${path === href ? "font-bold text-primary2 dark:text-dark-primary" : "text-gray-1 dark:text-white"}`}
+      className={`cursor-pointer text-caption1 transition-all duration-75 ease-linear ${path === href ? "text-primary font-bold" : "hover:text-primary text-gray-1"}`}
     >
       {children}
     </Link>

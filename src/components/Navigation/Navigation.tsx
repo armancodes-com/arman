@@ -1,28 +1,17 @@
 "use client";
 
 import SearchIcon from "@/assets/icons/SearchIcon";
-import MoonIcon from "@/assets/icons/MoonIcon";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import NavList from "./NavList";
 import ThemeSwitcher from "../ThemeSwitcher";
-import { useState } from "react";
-import SunIcon from "@/assets/icons/SunIcon";
 
 const Navigation = () => {
-  const { resolvedTheme, theme } = useTheme();
-  const [isThemeSwitcherOpen, setIsThemeSwitcherOpen] =
-    useState<boolean>(false);
-
-  const isLightThemeActive = theme === "light";
-
-  const handleOpenThemeSwitcher = () => {
-    setIsThemeSwitcherOpen(!isThemeSwitcherOpen);
-  };
+  const { resolvedTheme } = useTheme();
 
   return (
     <header className="relative top-0 z-20 pt-10.5 md:sticky">
-      <nav className="mx-auto flex max-w-[800px] flex-wrap items-center justify-between border border-red-500">
+      <nav className="mx-auto flex max-w-[800px] flex-wrap items-center justify-between">
         <div className="flex items-center gap-4">
           <Image
             src={
@@ -35,32 +24,18 @@ const Navigation = () => {
             height={40}
           />
 
-          <p className="text-caption1 font-bold capitalize text-dark-color dark:text-white">
+          <p className="text-caption1 font-bold capitalize text-text-primary">
             Arman
           </p>
         </div>
 
         <NavList />
 
-        <div className="flex items-center gap-x-12 sm:order-2">
-          <SearchIcon />
-          <div className="relative">
-            {isLightThemeActive ? (
-              <MoonIcon
-                onClick={handleOpenThemeSwitcher}
-                className="cursor-pointer transition-all duration-75 ease-in hover:-rotate-12"
-              />
-            ) : (
-              <SunIcon
-                onClick={handleOpenThemeSwitcher}
-                className="cursor-pointer transition-all duration-75 ease-in hover:-rotate-12"
-              />
-            )}
-            <ThemeSwitcher
-              isOpen={isThemeSwitcherOpen}
-              onClickCLose={handleOpenThemeSwitcher}
-            />
-          </div>
+        <div className="flex items-center gap-x-4 sm:order-2">
+          <SearchIcon
+            className={`${resolvedTheme === "light" ? "[&_path]:stroke-gray-1" : "[&_path]:stroke-white"}`}
+          />
+          <ThemeSwitcher />
         </div>
       </nav>
     </header>

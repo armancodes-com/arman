@@ -6,13 +6,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        white: "#fff",
+        bgColor: "var(--main-bg-color)",
+        white: "var(--white-color)",
+        "text-primary": "var(--text-primary)",
+        primary: "var(--primary-color)",
         "dark-color": "#282C33",
-        primary2: "#7127BA",
-        "dark-primary": "#D24DF8",
-        "purple-2": "#F9F3FF",
+        "purple-2": "var(--purple-2)",
         "purple-5": "#553F72",
-        "gray-1": "#282C33",
+        "gray-1": "var(--gray-1)",
         "gray-2": "#ABB2BF",
         "gray-3": "#4E4458",
         "gray-4": "#9C8AAE",
