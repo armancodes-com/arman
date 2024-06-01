@@ -32,9 +32,16 @@ const config: Config = {
         21: "84px",
         22: "88px",
       },
+      spacing: {
+        41: "164px",
+        42: "168px",
+        42.5: "170px",
+        43: "172px",
+      },
       borderRadius: {
         5: "5px",
         20: "20px",
+        40: "40px",
       },
       fontSize: {
         title1: ["32px", "42px"],
