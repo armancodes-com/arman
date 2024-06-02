@@ -31,7 +31,7 @@ const Navigation = () => {
 
         <NavList />
 
-        <div className="flex items-center gap-x-4 sm:order-2">
+        <div className="flex items-center gap-x-12 sm:order-2">
           <SearchIcon className={`[&_path]:stroke-text-primary`} />
           <ThemeSwitcher />
         </div>
