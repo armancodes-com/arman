@@ -11,10 +11,7 @@ const ThemeSwitcher: React.FC<IThemeSwitcherProps> = () => {
   const { setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => {
-    if (window.localStorage) {
-      const initialTheme = localStorage.getItem("theme");
-      setTheme(initialTheme || "light");
-    }
+    setTheme("light");
   }, [setTheme]);
 
   return (
@@ -22,11 +19,17 @@ const ThemeSwitcher: React.FC<IThemeSwitcherProps> = () => {
       <SunIcon
         className={`absolute top-1/2 -translate-y-1/2 transition-all duration-200 ease-in-out [&_path]:stroke-gray-1 ${resolvedTheme === "light" ? "-left-7" : "left-0"}
         `}
+        style={{
+          left: resolvedTheme === "light" ? "-28px" : "0px",
+        }}
         onClick={() => setTheme("light")}
       />
       <MoonIcon
         className={`absolute top-1/2 -translate-y-1/2 transition-all  duration-200 ease-in-out [&_path]:stroke-gray-1 ${resolvedTheme === "dark" ? "left-9" : "left-1"}`}
         onClick={() => setTheme("dark")}
+        style={{
+          left: resolvedTheme === "dark" ? "36px" : "4px",
+        }}
       />
     </div>
   );
