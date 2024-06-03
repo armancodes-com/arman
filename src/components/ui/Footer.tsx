@@ -17,7 +17,7 @@ const Footer = () => {
   const { resolvedTheme } = useTheme();
 
   return (
-    <footer className="border-t border-border-articles bg-bgColor px-4 py-5 md:px-0 md:py-8">
+    <footer className="md:mt-45 mt-25 border-t border-border-articles bg-bgColor px-4 py-5 md:px-0 md:py-8">
       <div className="mx-auto max-w-[800px] space-y-12">
         <div className="flex justify-between">
           <div>
