@@ -61,14 +61,26 @@ html {
     background: var(--ellipse-gradient);
     width: 1000px;
     height: 1000px;
-    filter: blur(90px);
-    right: -10rem;
-    top: 1rem;
+    filter: blur(9rem);
+    top: -10rem;
+    left: -5rem;
   }
 }
 
 @media screen and (min-width: 1140px) {
   .ellipse::before {
-    right: -20rem;
+    width: 1100px;
+    height: 1100px;
+    top: -10rem;
+    left: -1rem;
+  }
+}
+
+@media screen and (min-width: 1350px) {
+  .ellipse::before {
+    /* width: 1200px; */
+    /* height: 1200px; */
+    top: -15rem;
+    left: 2rem;
   }
 }

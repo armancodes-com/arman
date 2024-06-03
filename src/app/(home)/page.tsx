@@ -8,7 +8,7 @@ export default function Home() {
     <main className="min-h-svh pt-4 sm:pt-14.5">
       <HomeHeroSection />
 
-      <Section>
+      <Section hasEllipse>
         <Header title="latest articles" linkText="see all" href="/articles" />
         <ArticlesList />
       </Section>

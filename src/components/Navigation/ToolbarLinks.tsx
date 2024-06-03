@@ -4,28 +4,30 @@ import Link from "next/link";
 
 const ToolbarLinks = () => {
   return (
-    <aside className="left-112 xl:left-106 fixed top-36 z-20 hidden flex-col gap-y-8 rounded-40 border border-primary px-3 py-2 lg:left-36 lg:flex">
-      <div className="group flex h-8 w-8 items-center justify-center">
-        <Link href={"/"}>
-          <GithubIcon className="transition-all duration-100 ease-in group-hover:[&_path]:fill-primary" />
-        </Link>
-      </div>
-      <div className="group flex h-8 w-8 items-center justify-center">
-        <Link href={"/"}>
-          <IconReact className="transition-all duration-100 ease-in group-hover:[&_path]:fill-primary" />
-        </Link>
-      </div>
-      <div className="group flex h-8 w-8 items-center justify-center">
-        <Link href={"/"}>
-          <IconReact className="transition-all duration-100 ease-in group-hover:[&_path]:fill-primary" />
-        </Link>
-      </div>
-      <div className="group flex h-8 w-8 items-center justify-center">
-        <Link href={"/"}>
-          <GithubIcon className="transition-all duration-100 ease-in group-hover:[&_path]:fill-primary" />
-        </Link>
-      </div>
-    </aside>
+    <div className="absolute top-14 hidden h-full xl:-left-28 xl:block">
+      <aside className="sticky top-36 flex flex-col gap-y-8 rounded-40 border border-primary px-3 py-2 ">
+        <div className="group flex h-8 w-8 items-center justify-center">
+          <Link href={"/"}>
+            <GithubIcon className="transition-all duration-100 ease-in group-hover:[&_path]:fill-primary" />
+          </Link>
+        </div>
+        <div className="group flex h-8 w-8 items-center justify-center">
+          <Link href={"/"}>
+            <IconReact className="transition-all duration-100 ease-in group-hover:[&_path]:fill-primary" />
+          </Link>
+        </div>
+        <div className="group flex h-8 w-8 items-center justify-center">
+          <Link href={"/"}>
+            <IconReact className="transition-all duration-100 ease-in group-hover:[&_path]:fill-primary" />
+          </Link>
+        </div>
+        <div className="group flex h-8 w-8 items-center justify-center">
+          <Link href={"/"}>
+            <GithubIcon className="transition-all duration-100 ease-in group-hover:[&_path]:fill-primary" />
+          </Link>
+        </div>
+      </aside>
+    </div>
   );
 };
 

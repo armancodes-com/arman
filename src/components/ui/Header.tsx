@@ -23,7 +23,7 @@ const Header: React.FC<IHeaderProps> = ({ title, linkText, href }) => {
   return (
     <header className="flex items-center justify-between">
       <div
-        className={`${firaCode.className} text-body1 font-bold capitalize leading-4 text-primary md:text-title2`}
+        className={`${firaCode.className} text-body1 font-bold capitalize leading-4 text-primary md:text-title3`}
       >
         <h2 className="tracking-wide">{title}</h2>
         <span className="relative inline-block w-full border border-primary bg-primary before:absolute before:-left-1 before:-top-[4px] before:h-2 before:w-2 before:rounded-full before:bg-primary after:absolute after:-right-1 after:-top-[4px] after:h-2 after:w-2 after:rounded-full after:bg-primary md:border-2 md:before:-top-[6px] md:before:h-3 md:before:w-3 md:after:-top-[6px] md:after:h-3 md:after:w-3"></span>

@@ -12,9 +12,9 @@ const ArticleItem = () => {
     <article className="flex flex-col gap-y-4 border-b border-border-articles pb-10 md:gap-y-6 md:pb-12">
       <Link
         href={"/articles"}
-        className="underline-offset-4 transition-all duration-75 ease-linear hover:underline"
+        className="group underline-offset-4 transition-all duration-75 ease-linear hover:text-primary hover:underline"
       >
-        <h3 className="text-caption1 font-bold tracking-wide text-text-primary md:text-title2 md:font-normal">
+        <h3 className="text-caption1 font-bold tracking-wide text-text-primary group-hover:text-primary md:text-title2 md:font-normal">
           What does it take to become a web developer?
         </h3>
       </Link>
