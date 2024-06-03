@@ -6,6 +6,7 @@ import ThemeProvider from "@/components/ThemeProvider";
 import Navigation from "@/components/Navigation/Navigation";
 import { Ubuntu } from "next/font/google";
 import ToolbarLinks from "@/components/Navigation/ToolbarLinks";
+import Footer from "@/components/ui/Footer";
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi",
@@ -36,6 +37,8 @@ export default function RootLayout({
 
             <ToolbarLinks />
           </div>
+
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
