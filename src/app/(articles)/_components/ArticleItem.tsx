@@ -10,9 +10,14 @@ const alexandria = Alexandria({
 const ArticleItem = () => {
   return (
     <article className="flex flex-col gap-y-4 border-b border-border-articles pb-10 md:gap-y-6 md:pb-12">
-      <h3 className="text-caption1 font-bold tracking-wide text-text-primary md:text-title2 md:font-normal">
-        What does it take to become a web developer?
-      </h3>
+      <Link
+        href={"/articles"}
+        className="underline-offset-4 transition-all duration-75 ease-linear hover:underline"
+      >
+        <h3 className="text-caption1 font-bold tracking-wide text-text-primary md:text-title2 md:font-normal">
+          What does it take to become a web developer?
+        </h3>
+      </Link>
       <p className="text-body2 font-light leading-6 text-text-primary">
         Web development, also known as website development, encompasses a
         variety of tasks and processes involved in creating websites for the
@@ -21,7 +26,7 @@ const ArticleItem = () => {
 
       <Link
         href={"/articles"}
-        className={`flex items-center gap-2 ${alexandria.className} group text-caption2 capitalize leading-4 text-primary md:text-body2`}
+        className={`flex items-center gap-2 ${alexandria.className} text-caption2 capitalize leading-4 text-primary underline-offset-4 hover:underline md:text-body2`}
       >
         read more {">"}
         {">"}
