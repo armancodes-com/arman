@@ -10,7 +10,7 @@ const Navigation = () => {
   const { resolvedTheme } = useTheme();
 
   return (
-    <header className="relative top-0 z-20 bg-bgColor pt-10.5 md:sticky">
+    <header className="relative top-0 z-20 bg-bgColor px-4 py-2 md:sticky md:px-0 md:py-1">
       <nav className="mx-auto flex max-w-[800px] flex-wrap items-center justify-between">
         <div className="flex items-center gap-4">
           <Image
