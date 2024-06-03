@@ -16,7 +16,7 @@ const HomeHeroSection = () => {
           className={`text-xl md:text-title1 ${firaCode.className} font-bold`}
         >
           <h1>Arman</h1>
-          <h2 className={`text-caption1 text-primary md:text-3xl`}>
+          <h2 className={`text-caption1 text-primary md:text-title2`}>
             Back-end Engineer
           </h2>
         </div>
