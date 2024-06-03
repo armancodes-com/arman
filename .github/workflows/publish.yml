@@ -23,32 +23,42 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 22
+          node-version: "22"
 
       - name: Cache dependencies
         id: cache_dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         with:
-          path: node_modules
-          key: node-modules-${{ hashFiles('package-lock.json') }}
+          path: |
+            .next/cache
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
 
       - name: Install dependencies
         shell: bash
-        if: steps.cache_dependencies.outputs.cache-hit != "true"
         run: npm ci
 
+      - name: Run linting checks
+        uses: npm run lint
+
+      - name: Run formatting checks
+        uses: npm run format
+
       - name: Setup Pages
-        uses: actions/configure-pages@v2
+        uses: actions/configure-pages@v5
         with:
           static_site_generator: next
 
       - name: Build with next.js
-        run: npx next build
+        run: next build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
