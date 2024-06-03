@@ -25,6 +25,7 @@ html {
     --text-primary: #282c33;
     --gray-1: #282c33;
     --purple-2: "#ccc";
+    --border-color: "#370C62";
   }
 
   /* If the user's system preference is dark */
@@ -42,5 +43,6 @@ html {
     --text-primary: #fff;
     --gray-1: white;
     --purple-2: "#4E4458";
+    --border-color: "#ABB2BF";
   }
 }
