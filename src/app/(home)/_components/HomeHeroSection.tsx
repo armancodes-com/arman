@@ -26,7 +26,7 @@ const HomeHeroSection = () => {
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas
           purus viverra accumsan Lorem ipsum dolor sit amet, consectetur
           adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Egestas purus viverra accumsan
+          magna aliqua. Egestas purus viverra accumsan sample text
         </p>
       </article>
 
