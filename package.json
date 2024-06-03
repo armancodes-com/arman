@@ -2,6 +2,7 @@
   "name": "arman-portfolio",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://abolfazlcodes.github.io/arman",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -63,6 +64,7 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
     "eslint-plugin-storybook": "^0.8.0",
+    "gh-pages": "^6.1.1",
     "husky": "^9.0.11",
     "jsdom": "^24.0.0",
     "postcss": "^8",
