@@ -3,13 +3,20 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import ThemeProvider from "@/components/ThemeProvider";
-import { ubuntu } from "./fonts";
 import Navigation from "@/components/Navigation/Navigation";
+import { Ubuntu } from "next/font/google";
+import ToolbarLinks from "@/components/Navigation/ToolbarLinks";
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi",
   description: "A Backend-engineer working with PHP.",
 };
+
+const ubuntu = Ubuntu({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+  preload: true,
+});
 
 export default function RootLayout({
   children,
@@ -24,7 +31,11 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navigation />
 
-          <div className={"mx-auto max-w-[800px]"}>{children}</div>
+          <div className={"relative mx-auto max-w-[800px]"}>
+            {children}
+
+            <ToolbarLinks />
+          </div>
         </ThemeProvider>
       </body>
     </html>

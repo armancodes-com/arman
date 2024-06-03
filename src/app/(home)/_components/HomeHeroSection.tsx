@@ -1,4 +1,3 @@
-import ToolbarLinks from "@/components/Navigation/ToolbarLinks";
 import { Fira_Code } from "next/font/google";
 import Image from "next/image";
 
@@ -41,8 +40,6 @@ const HomeHeroSection = () => {
           priority
         />
       </figure>
-
-      <ToolbarLinks />
     </section>
   );
 };

@@ -12,6 +12,7 @@ const config: Config = {
         primary: "var(--primary-color)",
         "dark-color": "#282C33",
         "purple-2": "var(--purple-2)",
+        "border-articles": "var(--border-color)",
         "purple-5": "#553F72",
         "gray-1": "var(--gray-1)",
         "gray-2": "#ABB2BF",
@@ -37,6 +38,8 @@ const config: Config = {
         42: "168px",
         42.5: "170px",
         43: "172px",
+        106: "416px",
+        112: "448px",
       },
       borderRadius: {
         5: "5px",
