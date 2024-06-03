@@ -6,6 +6,7 @@ import ThemeProvider from "@/components/ThemeProvider";
 import Navigation from "@/components/Navigation/Navigation";
 import { Ubuntu } from "next/font/google";
 import ToolbarLinks from "@/components/Navigation/ToolbarLinks";
+import Footer from "@/components/ui/Footer";
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi",
@@ -24,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="light">
       <Analytics />
       <SpeedInsights />
       <body className={`${ubuntu.className} bg-bgColor`}>
@@ -36,6 +37,8 @@ export default function RootLayout({
 
             <ToolbarLinks />
           </div>
+
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
