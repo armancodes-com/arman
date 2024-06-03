@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import ThemeProvider from "@/components/ThemeProvider";
 import Navigation from "@/components/Navigation/Navigation";
 import { Ubuntu } from "next/font/google";
+import ToolbarLinks from "@/components/Navigation/ToolbarLinks";
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi",
@@ -30,7 +31,11 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navigation />
 
-          <div className={"mx-auto max-w-[800px]"}>{children}</div>
+          <div className={"relative mx-auto max-w-[800px]"}>
+            {children}
+
+            <ToolbarLinks />
+          </div>
         </ThemeProvider>
       </body>
     </html>

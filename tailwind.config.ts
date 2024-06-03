@@ -38,6 +38,8 @@ const config: Config = {
         42: "168px",
         42.5: "170px",
         43: "172px",
+        106: "416px",
+        112: "448px",
       },
       borderRadius: {
         5: "5px",
