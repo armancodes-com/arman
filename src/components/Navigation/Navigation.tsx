@@ -32,7 +32,10 @@ const Navigation = () => {
         <NavList />
 
         <div className="flex items-center gap-x-12 sm:order-2">
-          <SearchIcon className={`[&_path]:stroke-text-primary`} />
+          <SearchIcon
+            viewBox="0 0 24 24"
+            className={`h-6 w-6 cursor-pointer [&_path]:stroke-text-primary`}
+          />
           <ThemeSwitcher />
         </div>
       </nav>
