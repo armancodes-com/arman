@@ -1,0 +1,55 @@
+name: publish to github-pages
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js - Cache dependencies - Install dependencies
+        uses: ./.github/workflow/setup-node
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        with:
+          static_site_generator: next
+
+      - name: Build with next.js
+        run: npx next build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Publish to Github Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
