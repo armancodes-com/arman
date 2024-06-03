@@ -47,7 +47,7 @@ jobs:
           cache: ${{ steps.detect-package-manager.outputs.manager }}
 
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v5
         with:
           static_site_generator: next
 
@@ -74,7 +74,8 @@ jobs:
 
       - name: Build with next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
-
+      - name: Static HTML export with Next.js
+        run: ${{ steps.detect-package-manager.outputs.runner }} next export
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
