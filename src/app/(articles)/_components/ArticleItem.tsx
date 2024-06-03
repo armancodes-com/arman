@@ -9,7 +9,7 @@ const alexandria = Alexandria({
 
 const ArticleItem = () => {
   return (
-    <article className="border-border-articles flex flex-col gap-y-4 border-b pb-10 md:gap-y-6 md:pb-12">
+    <article className="flex flex-col gap-y-4 border-b border-border-articles pb-10 md:gap-y-6 md:pb-12">
       <h3 className="text-caption1 font-bold tracking-wide text-text-primary md:text-title2 md:font-normal">
         What does it take to become a web developer?
       </h3>
