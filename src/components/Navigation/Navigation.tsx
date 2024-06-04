@@ -5,6 +5,7 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import NavList from "./NavList";
 import ThemeSwitcher from "../ThemeSwitcher";
+import { logoDark, logoWhite } from "@/constants";
 
 const Navigation = () => {
   const { resolvedTheme } = useTheme();
@@ -14,11 +15,7 @@ const Navigation = () => {
       <nav className="mx-auto flex max-w-[800px] flex-wrap items-center justify-between">
         <div className="flex items-center gap-4">
           <Image
-            src={
-              resolvedTheme === "light"
-                ? "/images/sample-logo.svg"
-                : "/images/sample-logo-white.svg"
-            }
+            src={resolvedTheme === "light" ? logoWhite : logoDark}
             alt="logo"
             width={40}
             height={40}

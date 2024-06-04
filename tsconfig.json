@@ -18,7 +18,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@/public*": ["./public/*"]
     },
     "types": ["vitest", "jsdom", "node", "@testing-library/jest-dom"]
   },
