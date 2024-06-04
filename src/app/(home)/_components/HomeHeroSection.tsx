@@ -1,9 +1,11 @@
+import { NEXT_BASE_PATH } from "@/constants";
 import { Fira_Code } from "next/font/google";
 import Image from "next/image";
 
 const firaCode = Fira_Code({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700", "600"],
+  preload: true,
 });
 
 const HomeHeroSection = () => {
@@ -32,7 +34,8 @@ const HomeHeroSection = () => {
 
       <figure className="h-[320px] w-[250px] rotate-6 overflow-hidden rounded-20 shadow-heroImage2 transition-all duration-100 ease-linear hover:-rotate-2 sm:h-[370px] sm:w-[330px] md:order-2 md:h-[400px] md:w-[360px]">
         <Image
-          src={"/images/hero-img.jpeg"}
+          // src={`/images/hero-img.jpeg`}
+          src={`${NEXT_BASE_PATH}/images/hero-img.jpeg`}
           alt="arman photo"
           fill
           className="h-full w-full object-cover object-center"
