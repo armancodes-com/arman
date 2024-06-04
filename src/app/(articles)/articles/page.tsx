@@ -2,6 +2,8 @@ import Header from "@/components/ui/Header";
 import ArticlesList from "../_components/ArticlesList";
 import Section from "@/components/ui/Section";
 
+import Newsletter from "@/components/ui/Newsletter";
+
 const Page = () => {
   return (
     <main className="min-h-svh">
@@ -9,6 +11,8 @@ const Page = () => {
         <Header title="my articles" />
         <ArticlesList />
       </Section>
+
+      <Newsletter />
     </main>
   );
 };
