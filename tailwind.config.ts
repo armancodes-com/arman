@@ -47,6 +47,7 @@ const config: Config = {
         5: "5px",
         20: "20px",
         40: "40px",
+        80: "80px",
       },
       fontSize: {
         title1: ["32px", "42px"],
