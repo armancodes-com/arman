@@ -13,6 +13,7 @@ const config: Config = {
         "dark-color": "#282C33",
         "purple-2": "var(--purple-2)",
         "border-articles": "var(--border-color)",
+        "text-secondary": "var(--text-secondary)",
         "purple-5": "#553F72",
         "gray-1": "var(--gray-1)",
         "gray-2": "#ABB2BF",
@@ -47,6 +48,7 @@ const config: Config = {
         5: "5px",
         20: "20px",
         40: "40px",
+        80: "80px",
       },
       fontSize: {
         title1: ["32px", "42px"],
