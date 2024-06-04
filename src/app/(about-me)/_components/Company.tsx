@@ -1,3 +1,4 @@
+import { companyLogo } from "@/constants";
 import Image from "next/image";
 
 const Company = () => {
@@ -6,7 +7,7 @@ const Company = () => {
       <div className="flex items-center gap-x-4 md:gap-x-6">
         <figure className="relative h-[50px] w-[50px] overflow-hidden rounded-full border-primary group-hover:border-2 md:h-[80px] md:w-[80px]">
           <Image
-            src={"/images/company-logo.jpg"}
+            src={companyLogo}
             alt="company name"
             fill
             className="h-full w-full object-cover object-center"
