@@ -2,32 +2,51 @@
 /// <reference types="vitest/globals" />
 
 import { defineConfig } from "vitest/config";
+import path from "node:path";
+import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  plugins: [react()],
   test: {
-    environment: "jsdom",
-    setupFiles: "./setup.ts",
     globals: true,
+    alias: [{ find: "@", replacement: path.resolve(__dirname, "./src") }],
+    setupFiles: path.resolve(__dirname, "setup.ts"),
+    environmentMatchGlobs: [["**/*.test.tsx", "jsdom"]],
     reporters: "verbose",
-    isolate: true,
     coverage: {
       provider: "v8",
-      include: [
-        // 'pages/**/*',
-        "src/constants/**/*",
-        "src/ui/**/*",
-        // "src/layouts/**/*",
-        // "src/features/**/*",
-      ],
-      reporter: ["text", "json", "html", "clover"],
-      all: true,
       thresholds: {
-        lines: 80,
-        branches: 80,
-        functions: 80,
-        statements: 80,
+        lines: 90,
+        branches: 90,
+        functions: 90,
+        statements: 90,
       },
+      include: ["src/**/*"],
+      exclude: [
+        "test/**",
+        "**/*.d.ts",
+        "**/*.test.*",
+        "**/*.config.*",
+        "**/snapshot-tests/**",
+        "**/*.solution.tsx",
+        "**/coverage/**",
+      ],
+      all: true,
     },
+    // reporters: "verbose",
+    // isolate: true,
+    // coverage: {
+    //   provider: "v8",
+    //   include: ["src/**/*"],
+    //   reporter: ["text", "json", "html", "clover"],
+    //   all: true,
+    //   thresholds: {
+    //     lines: 80,
+    //     branches: 80,
+    //     functions: 80,
+    //     statements: 80,
+    //   },
+    // },
   },
 });
