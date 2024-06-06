@@ -1,5 +1,5 @@
 import { Fira_Code } from "next/font/google";
-import CustomImage from "@/components/ui/CustomImage";
+import StaticImage from "@/components/ui/StaticImage";
 
 const firaCode = Fira_Code({
   subsets: ["latin"],
@@ -10,7 +10,7 @@ const firaCode = Fira_Code({
 const HomeHeroSection = () => {
   return (
     <section className="relative flex h-full w-full flex-col items-center gap-x-14 md:flex-row">
-      <article className="order-2 flex flex-1 flex-col gap-y-4 px-4 py-10 md:order-1">
+      <article className="animate-in order-2 flex flex-1 flex-col gap-y-4 px-4 py-10 md:order-1">
         <div className="hidden h-1 min-h-1 w-21 rounded-5 bg-[#7127BA] md:block"></div>
 
         <div
@@ -31,11 +31,12 @@ const HomeHeroSection = () => {
         </p>
       </article>
 
-      <CustomImage
+      <StaticImage
         src={"/hero-img.jpeg"}
         alt="hero image"
         placeHolderType="blur"
         fill
+        className="h-full w-full object-cover object-center"
         containerClassName="h-[320px] w-[250px] rotate-6 overflow-hidden rounded-20 shadow-heroImage2 transition-all duration-100 ease-linear hover:-rotate-2 sm:h-[370px] sm:w-[330px] md:order-2 md:h-[400px] md:w-[360px]"
       />
     </section>
