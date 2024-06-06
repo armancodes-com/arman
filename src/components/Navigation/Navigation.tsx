@@ -6,6 +6,7 @@ import Image from "next/image";
 import NavList from "./NavList";
 import ThemeSwitcher from "../ThemeSwitcher";
 import { logoDark, logoWhite } from "@/constants";
+import { NAVIGATION_LINKS } from "@/constants/Navigation.constants";
 
 const Navigation = () => {
   const { resolvedTheme } = useTheme();
@@ -26,7 +27,7 @@ const Navigation = () => {
           </p>
         </div>
 
-        <NavList />
+        <NavList links={NAVIGATION_LINKS} />
 
         <div className="flex items-center gap-x-12 sm:order-2">
           <SearchIcon
