@@ -53,6 +53,7 @@ const StaticImage: React.FC<TStaticImageProps> = async ({
   ...props
 }) => {
   const imageSrc = `./public/images${props?.src}`;
+  const isProduction = process.env.NODE_ENV === "production";
 
   const buffer = await fs.readFile(`${imageSrc}`);
   const { base64, color } = await getPlaiceholder(buffer);
@@ -64,7 +65,7 @@ const StaticImage: React.FC<TStaticImageProps> = async ({
           {...props}
           src={imageSrc.replace(
             "./public/images",
-            process.env.NODE_ENV === "production" ? "/arman/images" : "/images",
+            isProduction ? "/arman/images" : "/images",
           )}
           placeholder="blur"
           blurDataURL={base64}
