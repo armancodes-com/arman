@@ -1,4 +1,4 @@
-interface INavLinksProps {
+export interface INavLinksProps {
   id: number;
   title: string;
   href: string;
