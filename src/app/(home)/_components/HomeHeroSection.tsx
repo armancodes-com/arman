@@ -10,7 +10,7 @@ const firaCode = Fira_Code({
 const HomeHeroSection = () => {
   return (
     <section className="relative flex h-full w-full flex-col items-center gap-x-14 md:flex-row">
-      <article className="order-2 flex flex-1 flex-col gap-y-4 px-4 py-10 md:order-1">
+      <article className="animate-in order-2 flex flex-1 flex-col gap-y-4 px-4 py-10 md:order-1">
         <div className="hidden h-1 min-h-1 w-21 rounded-5 bg-[#7127BA] md:block"></div>
 
         <div

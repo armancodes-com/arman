@@ -2,11 +2,7 @@
   "compilerOptions": {
     "target": "ES2021",
     "useDefineForClassFields": true,
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ESNext"
-    ],
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
@@ -24,38 +20,16 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "@/public*": [
-        "./public/*"
-      ],
-      "$lib/*": [
-        "./src/lib/*"
-      ],
-      "$components/*": [
-        "./src/components/*"
-      ],
-      "test/*": [
-        "./test/*"
-      ]
+      "@/*": ["./src/*"],
+      "@/public*": ["./public/*"],
+      "$lib/*": ["./src/lib/*"],
+      "$components/*": ["./src/components/*"],
+      "test/*": ["./test/*"]
     },
-    "types": [
-      "vitest",
-      "jsdom",
-      "node",
-      "@testing-library/jest-dom"
-    ]
+    "types": ["vitest", "jsdom", "node", "@testing-library/jest-dom"]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"],
   "references": [
     {
       "path": "./tsconfig.node.json"
