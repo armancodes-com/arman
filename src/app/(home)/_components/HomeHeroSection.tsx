@@ -1,6 +1,5 @@
-import { heroImage } from "@/constants";
 import { Fira_Code } from "next/font/google";
-import Image from "next/image";
+import CustomImage from "@/components/ui/CustomImage";
 
 const firaCode = Fira_Code({
   subsets: ["latin"],
@@ -32,16 +31,13 @@ const HomeHeroSection = () => {
         </p>
       </article>
 
-      <figure className="h-[320px] w-[250px] rotate-6 overflow-hidden rounded-20 shadow-heroImage2 transition-all duration-100 ease-linear hover:-rotate-2 sm:h-[370px] sm:w-[330px] md:order-2 md:h-[400px] md:w-[360px]">
-        <Image
-          src={heroImage}
-          alt="arman photo"
-          fill
-          className="h-full w-full object-cover object-center"
-          quality={100}
-          priority
-        />
-      </figure>
+      <CustomImage
+        src={"/hero-img.jpeg"}
+        alt="hero image"
+        placeHolderType="blur"
+        fill
+        containerClassName="h-[320px] w-[250px] rotate-6 overflow-hidden rounded-20 shadow-heroImage2 transition-all duration-100 ease-linear hover:-rotate-2 sm:h-[370px] sm:w-[330px] md:order-2 md:h-[400px] md:w-[360px]"
+      />
     </section>
   );
 };
