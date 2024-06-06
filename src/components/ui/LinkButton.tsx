@@ -37,7 +37,10 @@ const LinkButton: React.FC<ILinkButtonProps> = ({
       </div>
 
       {hasLinkIcon && (
-        <IconLink className="[&_path]:stroke-gray-1 group-hover:[&_path]:stroke-primary" />
+        <IconLink
+          data-testid="LinkButton-icon"
+          className="[&_path]:stroke-gray-1 group-hover:[&_path]:stroke-primary"
+        />
       )}
     </Link>
   );

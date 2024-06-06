@@ -16,7 +16,7 @@ const ubuntu = Ubuntu({
 const Newsletter = () => {
   return (
     <section className="px-4 md:p-0">
-      <article className="bg-tertiary-bg rounded-10 mt-[72px] flex flex-col items-center justify-center gap-3 border border-[#7127BACC] px-6 pb-4 pt-6 text-center dark:border-none md:mt-25 md:gap-6">
+      <article className="mt-[72px] flex flex-col items-center justify-center gap-3 rounded-10 border border-[#7127BACC] bg-tertiary-bg px-6 pb-4 pt-6 text-center dark:border-none md:mt-25 md:gap-6">
         <h3
           className={`${alexandria.className} text-body2 font-semibold text-text-primary md:text-xl md:font-bold`}
         >
