@@ -25,7 +25,7 @@ const Input: React.FC<IInputProps> = ({
         type={type}
         inputMode={inputMode || type === "number" ? "numeric" : "text"}
         className={twMerge(
-          "w-full rounded-80 border border-border-articles bg-transparent px-4 py-2 text-caption2 capitalize leading-7 text-text-primary outline-primary",
+          "w-full rounded-80 border border-border-articles bg-transparent px-4 py-2 text-caption2 leading-7 text-text-primary outline-primary",
           hasSearchIcon && "pl-12",
           className,
         )}

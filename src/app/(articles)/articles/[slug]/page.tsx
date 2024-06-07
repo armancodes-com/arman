@@ -2,6 +2,7 @@ import IconArrowDownCircle from "@/assets/icons/ArrowDownCircle";
 import IconHeart from "@/assets/icons/HeartIcon";
 import IconShare from "@/assets/icons/ShareIcon";
 import BackLink from "@/components/ui/BackLink";
+import Newsletter from "@/components/ui/Newsletter";
 
 import { Alexandria } from "next/font/google";
 
@@ -103,29 +104,6 @@ const Page = () => {
               tincidunt id aliquet.
             </p>
           </div>
-
-          <div className="space-y-3 pt-11 md:pt-20">
-            <h3
-              className={`${alexandria.className} text-body1 capitalize text-gray-2`}
-            >
-              tags
-            </h3>
-
-            <div className="flex flex-wrap items-center gap-4">
-              <span className="bg-text-link rounded-2xl px-4 py-1 text-center text-body2 font-light text-white">
-                web development
-              </span>
-              <span className="bg-text-link rounded-2xl px-4 py-1 text-center text-body2 font-light text-white">
-                web development
-              </span>
-              <span className="bg-text-link rounded-2xl px-4 py-1 text-center text-body2 font-light text-white">
-                web development
-              </span>
-              <span className="bg-text-link rounded-2xl px-4 py-1 text-center text-body2 font-light text-white">
-                web development
-              </span>
-            </div>
-          </div>
         </div>
 
         {/* SIDEBAR OF SINGLE ARTICLES */}
@@ -150,6 +128,33 @@ const Page = () => {
           </div>
         </aside>
       </section>
+
+      {/* TAGS SECTION */}
+      <div className="space-y-3 pt-11 md:pt-20">
+        <h3
+          className={`${alexandria.className} text-body1 capitalize text-gray-2`}
+        >
+          tags
+        </h3>
+
+        <div className="flex flex-wrap items-center gap-4">
+          <span className="bg-text-link rounded-2xl px-4 py-1 text-center text-body2 font-light text-white">
+            web development
+          </span>
+          <span className="bg-text-link rounded-2xl px-4 py-1 text-center text-body2 font-light text-white">
+            web development
+          </span>
+          <span className="bg-text-link rounded-2xl px-4 py-1 text-center text-body2 font-light text-white">
+            web development
+          </span>
+          <span className="bg-text-link rounded-2xl px-4 py-1 text-center text-body2 font-light text-white">
+            web development
+          </span>
+        </div>
+      </div>
+
+      {/* NEWSLETTER SECTION */}
+      <Newsletter />
     </main>
   );
 };
