@@ -25,7 +25,7 @@ const ArticleItem = () => {
       </p>
 
       <Link
-        href={"/articles"}
+        href={"/articles/sample-slug"}
         className={`flex items-center gap-2 ${alexandria.className} text-caption2 capitalize leading-4 text-primary underline-offset-4 hover:underline md:text-body2`}
       >
         read more {">"}
