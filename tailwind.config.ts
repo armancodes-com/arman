@@ -9,6 +9,7 @@ const config: Config = {
         bgColor: "var(--main-bg-color)",
         white: "var(--white-color)",
         "text-primary": "var(--text-primary)",
+        "text-link": "var(--text-link)",
         primary: "var(--primary-color)",
         "dark-color": "#282C33",
         "purple-2": "var(--purple-2)",

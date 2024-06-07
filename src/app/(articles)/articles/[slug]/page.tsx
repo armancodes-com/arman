@@ -53,8 +53,8 @@ const Page = () => {
       </header>
 
       {/* body section */}
-      <section className="flex h-svh border border-red-500 sm:gap-x-6 md:gap-x-14">
-        <div className="w-full space-y-6 border border-blue-500">
+      <section className="flex h-svh sm:gap-x-6 md:gap-x-14">
+        <div className="w-full space-y-6">
           {/* Series Component */}
           <div className="bg-tertiary-bg-2 flex justify-between rounded-10 px-2 py-4 md:pl-6 md:pr-8">
             <div className="flex flex-col space-y-6">
@@ -80,12 +80,29 @@ const Page = () => {
           </div>
 
           {/* CONTENT OF ARTICLE */}
-          <div className="px-6 md:px-0">content ...</div>
+          <div className="">content ...</div>
         </div>
 
         {/* SIDEBAR OF SINGLE ARTICLES */}
-        <aside className="relative hidden w-full max-w-[172px] border border-red-500 sm:block">
-          <div className="sticky top-20 border">sidebar sticky</div>
+        <aside className="relative hidden w-full max-w-[172px] sm:block">
+          <div className="sticky top-20 space-y-3">
+            <header className="pb-2 pr-1">
+              <h3 className="text-body2 leading-9 text-primary">
+                On this blog
+              </h3>
+            </header>
+            <ul className="pt-1">
+              <li className="text-caption2 leading-9 text-text-primary">
+                How It Works
+              </li>
+              <li className="text-text-link text-caption2 leading-9">
+                Why Is This a Big Deal?
+              </li>
+              <li className="text-text-link text-caption2 leading-9">
+                Install Pretty Code
+              </li>
+            </ul>
+          </div>
         </aside>
       </section>
     </main>
