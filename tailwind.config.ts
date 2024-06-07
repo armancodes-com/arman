@@ -22,6 +22,7 @@ const config: Config = {
         "gray-4": "#9C8AAE",
         "gray-9": "#14161A80",
         "border-gray": "#ABB2BF33",
+        "tertiary-bg-2": "var(--bg-tertiary-2)",
       },
       backgroundImage: {
         "gradient-conic":

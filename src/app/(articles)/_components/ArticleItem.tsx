@@ -34,12 +34,18 @@ const ArticleItem = () => {
 
       <div className="flex items-center gap-10">
         <p className="space-x-2 text-text-primary">
-          <span className="text-caption2 font-bold tracking-wide">Date</span>
-          <span className="text-caption2 font-light">10, Oct 2023</span>
+          <span className="text-xs font-bold tracking-wide md:text-caption2">
+            Date
+          </span>
+          <span className="text-xs font-light md:text-caption2">
+            10, Oct 2023
+          </span>
         </p>
         <p className="space-x-2 text-text-primary">
-          <span className="text-caption2 font-bold tracking-wide">Read</span>
-          <span className="text-caption2 font-light">1 Min</span>
+          <span className="text-xs font-bold tracking-wide md:text-caption2">
+            Read
+          </span>
+          <span className="text-xs font-light md:text-caption2">1 Min</span>
         </p>
       </div>
     </article>
