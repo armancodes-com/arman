@@ -88,7 +88,7 @@ jobs:
           LIARA_TOKEN: ${{ secrets.LIARA_API_TOKEN }}
         run: |
           if [ ${{ github.ref }} == 'refs/heads/main' ]; then
-            liara deploy --app="my-production-app" --api-token=${{ secrets.LIARA_API_TOKEN }} --no-app-logs
+            liara deploy --platgorm="node" --app="my-production-app" --api-token=${{ secrets.LIARA_API_TOKEN }} --no-app-logs
           elif [ ${{ github.ref }} == 'refs/heads/test' ]; then
             liara deploy --app="my-test-app" --api-token=${{ secrets.LIARA_API_TOKEN }} --no-app-logs
           elif [ ${{ github.ref }} == 'refs/heads/staging' ]; then
