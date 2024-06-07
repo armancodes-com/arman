@@ -13,10 +13,10 @@ const SidebarLinks = () => {
         </header>
         <ul className="pt-1">
           <SidebarLink />
-          <li className="text-text-link text-caption2 leading-9">
+          <li className="text-caption2 leading-9 text-text-link">
             Why Is This a Big Deal?
           </li>
-          <li className="text-text-link text-caption2 leading-9">
+          <li className="text-caption2 leading-9 text-text-link">
             Install Pretty Code
           </li>
         </ul>
