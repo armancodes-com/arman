@@ -1,9 +1,9 @@
 /* eslint-disable no-irregular-whitespace */
 import IconArrowLeftThin from "@/assets/icons/ArrowLeftThin";
-import Input from "@/components/Inputs/Input";
 import Section from "@/components/ui/Section";
 import Link from "next/link";
-import SearchItem from "../_components/SearchItem";
+import SearchItemList from "../_components/SearchItemList";
+import SearchInput from "../_components/SearchInput";
 
 const Page = () => {
   return (
@@ -16,26 +16,16 @@ const Page = () => {
         <span>back</span>
       </Link>
 
-      <div className="mt-8 md:mt-20">
-        <Input
-          inputMode="email"
-          type="email"
-          className="!rounded-10"
-          hasSearchIcon
-          placeholder="search"
-        />
-      </div>
+      <SearchInput />
 
-      <Section type="common" className="px-0">
+      <Section type="common" className="!px-0">
         <header className="mb-10 mt-6 md:mb-12 md:mt-16">
-          <span className="text-caption2 text-gray-2">{`Found 6 results for 'tec'`}</span>
+          <span className="text-caption2 text-gray-2">
+            Found 6 results for 'tec'
+          </span>
         </header>
 
-        <div className="space-y-8">
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-        </div>
+        <SearchItemList />
       </Section>
     </main>
   );

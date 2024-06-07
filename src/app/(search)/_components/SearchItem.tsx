@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const SearchItem = () => {
   return (
-    <article className="border-border-gray border-b pb-8">
+    <article className="border-b border-border-gray pb-8">
       <header className="space-y-2">
         <Link
           href={"/articles"}
