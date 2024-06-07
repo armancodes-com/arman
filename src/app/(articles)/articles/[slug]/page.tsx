@@ -1,3 +1,5 @@
+// import { allArticles, Article as ArticleType } from "contentlayer/generated";
+
 import BackLink from "@/components/ui/BackLink";
 import Newsletter from "@/components/ui/Newsletter";
 

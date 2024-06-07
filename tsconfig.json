@@ -24,11 +24,18 @@
       "@/public*": ["./public/*"],
       "$lib/*": ["./src/lib/*"],
       "$components/*": ["./src/components/*"],
-      "test/*": ["./test/*"]
+      "test/*": ["./test/*"],
+      "contentlayer/generated": ["./.contentlayer/generated"]
     },
     "types": ["vitest", "jsdom", "node", "@testing-library/jest-dom"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".contentlayer/generated"
+  ],
   "exclude": ["node_modules"],
   "references": [
     {
