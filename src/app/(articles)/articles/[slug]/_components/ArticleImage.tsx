@@ -1,58 +1,58 @@
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 import { twMerge } from "tailwind-merge";
+import { Alexandria } from "next/font/google";
 
-type TArticleImageProps = {
-  src: string;
-  width: number;
-  height: number;
-  alt: string;
+const alexandria = Alexandria({
+  subsets: ["latin"],
+  weight: ["500"],
+  preload: true,
+});
+
+interface IArticleImageProps extends ImageProps {
   caption?: string;
-  breakout?: boolean;
   rounded?: boolean;
-  priority?: boolean;
   reset?: boolean;
-};
+}
 
-const ArticleImage: React.FC<TArticleImageProps> = ({
+const ArticleImage: React.FC<IArticleImageProps> = ({
   src,
   width,
   height,
   alt,
   caption,
-  breakout,
   rounded,
   priority,
+  fill,
   reset,
+  ...props
 }) => {
   return (
     <div
       className={twMerge(
         reset ? "" : "not-prose my-8 w-full",
-        breakout ? "bg-tertiary" : "",
-        (rounded || breakout) && "overflow-hidden rounded-md md:rounded-lg",
+        rounded && "overflow-hidden rounded-10",
       )}
     >
-      <figure
-        className={twMerge("m-0 flex flex-col", breakout ? "gap-4" : "gap-2")}
-      >
+      <figure className={twMerge("m-0 flex flex-col", "gap-2")}>
         <Image
+          {...props}
           src={src}
           width={width}
           height={height}
           alt={alt}
           priority={priority}
+          fill={fill}
           className={twMerge(
             "h-auto w-full",
-            breakout ? "bg-tertiary" : "",
-            (rounded || breakout) &&
-              "bg-tertiary overflow-hidden rounded-md md:rounded-lg",
+            rounded && "overflow-hidden rounded-10",
           )}
         />
         {caption && (
           <figcaption
             className={twMerge(
-              "text-tertiary mx-auto my-2 max-w-md text-center text-xs font-medium leading-tight",
-              breakout && "mx-auto w-full max-w-[700px] px-6 ",
+              "mx-auto my-2 max-w-md text-center text-xs font-medium leading-tight text-text-primary",
+              "mx-auto w-full max-w-[700px] px-6 ",
+              alexandria.className,
             )}
           >
             {caption}

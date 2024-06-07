@@ -31,6 +31,15 @@ const Page = async () => {
           <div
             className={`${alexandria.className} text-body2 font-light md:text-body1`}
           >
+            <ArticleImage
+              src="/images/article-img.webp"
+              width={200}
+              height={10}
+              priority
+              alt="imaeg"
+              caption="this is caption"
+              rounded
+            />
             <p className="text-inherit">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -50,14 +59,6 @@ const Page = async () => {
               diam maecenas sed. Placerat duis ultricies lacus sed turpis
               tincidunt id aliquet.
             </p>
-
-            <ArticleImage
-              src="/images/hero-img.jpeg"
-              width={200}
-              height={200}
-              alt="imaeg"
-              caption="this is the caption"
-            />
           </div>
         </div>
 
