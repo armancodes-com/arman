@@ -53,7 +53,7 @@ const Page = () => {
       </header>
 
       {/* body section */}
-      <section className="flex h-svh sm:gap-x-6 md:gap-x-14">
+      <section className="flex sm:gap-x-6 md:gap-x-14">
         <div className="w-full space-y-6">
           {/* Series Component */}
           <div className="bg-tertiary-bg-2 flex justify-between rounded-10 px-2 py-4 md:pl-6 md:pr-8">
@@ -102,6 +102,29 @@ const Page = () => {
               diam maecenas sed. Placerat duis ultricies lacus sed turpis
               tincidunt id aliquet.
             </p>
+          </div>
+
+          <div className="space-y-3 pt-11 md:pt-20">
+            <h3
+              className={`${alexandria.className} text-body1 capitalize text-gray-2`}
+            >
+              tags
+            </h3>
+
+            <div className="flex flex-wrap items-center gap-4">
+              <span className="bg-text-link rounded-2xl px-4 py-1 text-center text-body2 font-light text-white">
+                web development
+              </span>
+              <span className="bg-text-link rounded-2xl px-4 py-1 text-center text-body2 font-light text-white">
+                web development
+              </span>
+              <span className="bg-text-link rounded-2xl px-4 py-1 text-center text-body2 font-light text-white">
+                web development
+              </span>
+              <span className="bg-text-link rounded-2xl px-4 py-1 text-center text-body2 font-light text-white">
+                web development
+              </span>
+            </div>
           </div>
         </div>
 
