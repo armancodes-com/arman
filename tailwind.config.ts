@@ -9,6 +9,7 @@ const config: Config = {
         bgColor: "var(--main-bg-color)",
         white: "var(--white-color)",
         "text-primary": "var(--text-primary)",
+        "text-link": "var(--text-link)",
         primary: "var(--primary-color)",
         "dark-color": "#282C33",
         "purple-2": "var(--purple-2)",
@@ -22,6 +23,7 @@ const config: Config = {
         "gray-4": "#9C8AAE",
         "gray-9": "#14161A80",
         "border-gray": "#ABB2BF33",
+        "tertiary-bg-2": "var(--bg-tertiary-2)",
       },
       backgroundImage: {
         "gradient-conic":
