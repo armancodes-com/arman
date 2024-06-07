@@ -33,6 +33,9 @@ html {
       rgba(113, 39, 186, 0) 100%
     );
     --bg-tertiary: #fcf9ff;
+    --bg-tertiary-2: #f9f3ff;
+    --text-link: #9c8aae;
+    --text-link-2: #5f6571;
   }
 
   /* If the user's system preference is dark */
@@ -53,6 +56,9 @@ html {
     --purple-2: "#4E4458";
     --border-color: "#ABB2BF";
     --bg-tertiary: #14161a80;
+    --bg-tertiary-2: #14161a80;
+    --text-link: #9c8aae;
+    --text-link-2: #5f6571;
   }
 }
 

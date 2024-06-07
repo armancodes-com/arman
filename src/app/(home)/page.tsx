@@ -3,7 +3,7 @@ import ArticlesList from "../(articles)/_components/ArticlesList";
 import Section from "@/components/ui/Section";
 import Header from "@/components/ui/Header";
 
-export default function Home() {
+export default async function Home() {
   return (
     <main className="min-h-svh pt-4 sm:pt-14.5">
       <HomeHeroSection />

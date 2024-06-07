@@ -1,5 +1,6 @@
 /* eslint-disable no-irregular-whitespace */
 import { Alexandria, Ubuntu } from "next/font/google";
+import Input from "../Inputs/Input";
 
 const alexandria = Alexandria({
   subsets: ["latin"],
@@ -31,11 +32,7 @@ const Newsletter = () => {
 
         <div className="flex w-full flex-col gap-4 px-4 sm:flex-row md:px-13">
           <div className="flex-[4]">
-            <input
-              type="email"
-              className="w-full rounded-80 border border-border-articles bg-transparent px-4 py-2 text-caption2 leading-7 text-text-primary outline-primary"
-              placeholder="your email"
-            />
+            <Input type="email" inputMode="email" placeholder="your email" />
           </div>
           <div className="flex-1">
             <button className="flex w-full items-center justify-center rounded-80 border border-primary px-4 py-2 text-body2 font-medium text-primary">
