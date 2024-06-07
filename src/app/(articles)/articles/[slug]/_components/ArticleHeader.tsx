@@ -1,5 +1,5 @@
 import IconHeart from "@/assets/icons/HeartIcon";
-import IconShare from "@/assets/icons/ShareIcon";
+import ShareButton from "@/components/ui/ShareButton";
 
 const ArticleHeader = () => {
   return (
@@ -27,10 +27,7 @@ const ArticleHeader = () => {
         </div>
 
         <div className="flex items-center gap-9">
-          <IconShare
-            viewBox="0 0 32 32"
-            className="h-6 w-6 cursor-pointer md:h-8 md:w-8 [&_path]:stroke-text-primary"
-          />
+          <ShareButton url="/articles/sample-blog" />
           <IconHeart
             viewBox="0 0 32 32"
             className="h-6 w-6 cursor-pointer md:h-8 md:w-8 [&_path]:stroke-text-primary"

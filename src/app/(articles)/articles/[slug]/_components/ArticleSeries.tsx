@@ -57,7 +57,7 @@ const ArticleSeries = () => {
   return (
     <div className="rounded-10 bg-tertiary-bg-2 px-2 py-4 transition-all delay-150 duration-150 ease-linear md:pl-6 md:pr-8">
       <div
-        className={`flex justify-between ${isSeriesBoxOpen && "border-b border-[#9269BA] pb-6 pt-4"} transition-all delay-150 duration-150 ease-linear`}
+        className={`flex justify-between ${isSeriesBoxOpen && "border-b border-[#9269BA] pb-6 pt-4"} cursor-pointer transition-all delay-150 duration-150 ease-linear`}
         onClick={handleOpenSeriesBox}
       >
         <div className="flex flex-col space-y-6">
