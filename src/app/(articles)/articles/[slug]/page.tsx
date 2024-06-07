@@ -13,7 +13,7 @@ const alexandria = Alexandria({
   preload: true,
 });
 
-const Page = () => {
+const Page = async () => {
   return (
     <main className="min-h-svh !px-4 pt-6 md:px-0 md:pt-11">
       <BackLink href="/articles">back</BackLink>
