@@ -21,6 +21,7 @@ const config: Config = {
         "gray-3": "#4E4458",
         "gray-4": "#9C8AAE",
         "gray-9": "#14161A80",
+        "border-gray": "#ABB2BF33",
       },
       backgroundImage: {
         "gradient-conic":
