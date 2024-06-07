@@ -62,7 +62,7 @@ const StaticImage: React.FC<TStaticImageProps> = async ({
       <figure className={`relative ${containerClassName}`}>
         <Image
           {...props}
-          src={imageSrc.replace("./public/images", "/images")}
+          src={`/images${props?.src}`}
           placeholder="blur"
           blurDataURL={base64}
         />
