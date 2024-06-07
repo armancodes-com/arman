@@ -7,6 +7,7 @@ import NavList from "./NavList";
 import ThemeSwitcher from "../ThemeSwitcher";
 import { logoDark, logoWhite } from "@/constants";
 import { NAVIGATION_LINKS } from "@/constants/Navigation.constants";
+import Link from "next/link";
 
 const Navigation = () => {
   const { resolvedTheme } = useTheme();
@@ -30,10 +31,12 @@ const Navigation = () => {
         <NavList links={NAVIGATION_LINKS} />
 
         <div className="flex items-center gap-x-12 sm:order-2">
-          <SearchIcon
-            viewBox="0 0 24 24"
-            className={`h-6 w-6 cursor-pointer [&_path]:stroke-text-primary`}
-          />
+          <Link href={"/search"} className="cursor-pointer">
+            <SearchIcon
+              viewBox="0 0 24 24"
+              className={`h-6 w-6 cursor-pointer [&_path]:stroke-text-primary`}
+            />
+          </Link>
           <ThemeSwitcher />
         </div>
       </nav>
