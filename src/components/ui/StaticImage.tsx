@@ -53,7 +53,6 @@ const StaticImage: React.FC<TStaticImageProps> = async ({
   ...props
 }) => {
   const imageSrc = `./public/images${props?.src}`;
-  const isProduction = process.env.NODE_ENV === "production";
 
   const buffer = await fs.readFile(`${imageSrc}`);
   const { base64, color } = await getPlaiceholder(buffer);
@@ -63,10 +62,7 @@ const StaticImage: React.FC<TStaticImageProps> = async ({
       <figure className={`relative ${containerClassName}`}>
         <Image
           {...props}
-          src={imageSrc.replace(
-            "./public/images",
-            isProduction ? "/arman/images" : "/images",
-          )}
+          src={imageSrc.replace("./public/images", "")}
           placeholder="blur"
           blurDataURL={base64}
         />
@@ -89,10 +85,7 @@ const StaticImage: React.FC<TStaticImageProps> = async ({
             !color ? "visible opacity-100" : "invisible opacity-0"
           } left-0 top-0 z-10 inline-block rounded transition-all duration-150 ease-in`}
         ></span>
-        <Image
-          {...props}
-          src={imageSrc.replace("./public/images", "/images")}
-        />
+        <Image {...props} src={imageSrc.replace("./public/images", "")} />
       </figure>
     );
   }
