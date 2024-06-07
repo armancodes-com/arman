@@ -6,6 +6,7 @@ import TagsList from "./_components/TagsList";
 import SidebarLinks from "./_components/SidebarLinks";
 import ArticleHeader from "./_components/ArticleHeader";
 import ArticleSeries from "./_components/ArticleSeries";
+import ArticleImage from "./_components/ArticleImage";
 
 const alexandria = Alexandria({
   subsets: ["latin"],
@@ -49,6 +50,14 @@ const Page = async () => {
               diam maecenas sed. Placerat duis ultricies lacus sed turpis
               tincidunt id aliquet.
             </p>
+
+            <ArticleImage
+              src="/images/hero-img.jpeg"
+              width={200}
+              height={200}
+              alt="imaeg"
+              caption="this is the caption"
+            />
           </div>
         </div>
 
