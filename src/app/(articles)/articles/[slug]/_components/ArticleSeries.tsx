@@ -31,7 +31,7 @@ const SeriesLinkItem: React.FC<ISeriesLinkItemProps> = ({ children, href }) => {
   if (!href) {
     return (
       <li
-        className={`${alexandria.className} text-text-link-2 cursor-not-allowed text-caption2 transition-all duration-150 ease-linear`}
+        className={`${alexandria.className} cursor-not-allowed text-caption2 text-text-link-2 transition-all duration-150 ease-linear`}
       >
         {children}
       </li>
