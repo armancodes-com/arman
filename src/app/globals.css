@@ -163,7 +163,7 @@ pre[class*="language-"] {
   }
 }
 .highlight-line {
-  margin-left: -13px;
+  margin-left: -24px;
   margin-right: -24px;
   padding-left: 12px;
   background-color: #008ff519; /* Set highlight bg color */
