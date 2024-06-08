@@ -1,5 +1,7 @@
 /* eslint-disable no-undef */
 /** @type {import('next').NextConfig} */
+import { withContentlayer } from "next-contentlayer";
+
 const nextConfig = {
   reactStrictMode: true,
   basePath: "",
@@ -7,12 +9,12 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "abolfazlcodes.github.io",
+        hostname: "miro.medium.com",
         port: "",
-        pathname: "/arman/**",
+        pathname: "/v2/**",
       },
     ],
   },
 };
 
-export default nextConfig;
+export default withContentlayer(nextConfig);

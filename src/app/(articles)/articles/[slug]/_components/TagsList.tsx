@@ -7,7 +7,11 @@ const alexandria = Alexandria({
   preload: true,
 });
 
-const TagsList = () => {
+interface ITagsListProps {
+  tags: string[];
+}
+
+const TagsList: React.FC<ITagsListProps> = ({ tags }) => {
   return (
     <div className="space-y-3 pt-11 md:pt-20">
       <h3
@@ -17,9 +21,9 @@ const TagsList = () => {
       </h3>
 
       <div className="flex flex-wrap items-center gap-4">
-        <Tag />
-        <Tag />
-        <Tag />
+        {tags.map((tag) => (
+          <Tag key={tag}>{tag}</Tag>
+        ))}
       </div>
     </div>
   );

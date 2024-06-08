@@ -1,3 +1,5 @@
+import { allArticles } from "contentlayer/generated";
+
 import HomeHeroSection from "./_components/HomeHeroSection";
 import ArticlesList from "../(articles)/_components/ArticlesList";
 import Section from "@/components/ui/Section";
@@ -10,7 +12,7 @@ export default async function Home() {
 
       <Section hasEllipse>
         <Header title="latest articles" linkText="see all" href="/articles" />
-        <ArticlesList />
+        <ArticlesList articles={allArticles} />
       </Section>
     </main>
   );

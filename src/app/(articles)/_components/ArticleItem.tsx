@@ -1,3 +1,5 @@
+import { Article as ArticleType } from "contentlayer/generated";
+
 import { Alexandria } from "next/font/google";
 import Link from "next/link";
 
@@ -7,25 +9,29 @@ const alexandria = Alexandria({
   preload: true,
 });
 
-const ArticleItem = () => {
+interface IArticleItemProps {
+  data: ArticleType;
+}
+
+const ArticleItem: React.FC<IArticleItemProps> = ({ data }) => {
+  const { title, summary, publishedAt, slug } = data;
+
   return (
     <article className="flex flex-col gap-y-4 border-b border-border-articles pb-10 md:gap-y-6 md:pb-12">
       <Link
-        href={"/articles/sample-slug"}
+        href={`/articles/${slug}`}
         className="group underline-offset-4 transition-all duration-75 ease-linear hover:text-primary hover:underline"
       >
         <h3 className="text-caption1 font-bold tracking-wide text-text-primary group-hover:text-primary md:text-title2 md:font-normal">
-          What does it take to become a web developer?
+          {title}
         </h3>
       </Link>
       <p className="text-body2 font-light leading-6 text-text-primary">
-        Web development, also known as website development, encompasses a
-        variety of tasks and processes involved in creating websites for the
-        internet…
+        {summary}…
       </p>
 
       <Link
-        href={"/articles/sample-slug"}
+        href={`/articles/${slug}`}
         className={`flex items-center gap-2 ${alexandria.className} text-caption2 capitalize leading-4 text-primary underline-offset-4 hover:underline md:text-body2`}
       >
         read more {">"}
@@ -38,7 +44,13 @@ const ArticleItem = () => {
             Date
           </span>
           <span className="text-xs font-light md:text-caption2">
-            10, Oct 2023
+            {new Date(publishedAt)
+              .toLocaleDateString("en-UK", {
+                day: "2-digit",
+                month: "short",
+                year: "numeric",
+              })
+              ?.replace(" ", ", ")}
           </span>
         </p>
         <p className="space-x-2 text-text-primary">
