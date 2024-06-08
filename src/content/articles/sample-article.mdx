@@ -1,0 +1,126 @@
+---
+title: "sample blog"
+summary: "In software engineering, software design patterns are common solutions for common problems. "
+publishedAt: "2024-5-8"
+tags: ["Portfolio", "Success", "Friendship"]
+---
+
+Working with CSS files that go unused can be a frustrating experience for developers. When a CSS file contains styles that are no longer used in the project, it can make it difficult to find and update the styles that are needed. in the long run. Here are a couple key points to consider:
+
+- Less time thinking of funky names <sup>1</sup>
+
+- Reduce the size of your CSS files <sup>2</sup>
+
+- Editing already existing styles feels safer <sup>3</sup>
+
+<div className="text-gray-2 text-sm mt-8">
+1 - Tailwind helps you save time and effort by eliminating the need to create unique class names for every element in your UI. You no longer have to struggle to come up with abstract or irrelevant names such as "sidebar-inner-wrapper" or "content-container".
+
+2 - making it easier to manage and maintain. Unlike traditional CSS, where you need to create new stylesheets for every new feature, Tailwind's utility classes can be easily reused throughout your project, significantly reducing the need to write new CSS code.
+
+3 - because classes are local to the HTML elements. With global CSS, any change you make can have unforeseen consequences elsewhere in your project, but with Tailwind, you can make changes with confidence, knowing that you won't accidentally break anything.
+
+</div>
+
+### The Power of Reusable Components
+
+One of the key advantages of Tailwind CSS is its promotion of reusable components. Which is now a standard in the front-end world. By using pre-defined classes, Tailwind allows developers to create reusable components that can be easily used throughout the codebase.
+
+```tsx showLineNumbers
+const WeatherList = () => {
+  return (
+    <div className="my-8 flex flex-col gap-2">
+      {data.map((item, index) => (
+        <CityCard key={index} data={item} />
+      ))}
+    </div>
+  );
+};
+```
+
+> The best way to prevent and slow down transmission is to be well-informed. World Health Organization (2014)
+
+We have [contributors](https://github.com/BrianRuizy/covid19-dashboard/graphs/contributors) from all over the world ––Spain, Poland, India, and various places in the USA–– who came together to create something useful and meaningful. Furthermore, the site has accumulated over 10k visits as shown by web analytics. And, the project is still being maintained and improved upon, thanks to the help of developers.
+
+## Data Sources
+
+A large portion of the data comes from one of the original data repositories tracking COVID-19 cases, [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19) CSSE2019-ncov data repository. Additional data was collected from [Our World in Data](https://ourworldindata.org/) GitHub data repository. Lastly, to fill in some requirements we retrieved data for daily cases from [New York Times](https://github.com/nytimes/covid-19-data) COVID GitHub data repository.
+
+For this project, it was crucial to have accurate, and trustworthy datasets.
+This explains why the multiple aforementioned sources were diligently picked.
+In doing so the goal is to provide the most accurate representations of the pandemic, the opposite could have its own repercussions at scale.
+
+<Image
+  rounded
+  width={600}
+  height={400}
+  src="https://miro.medium.com/v2/resize:fit:1400/format:webp/0*4DeT3bxzq-akxL9q.jpg"
+  caption="person reading Covid news"
+/>
+
+### 1. Web scraping with Pandas 🐼
+
+Here we defined a simple function that reads from a specific URL that contains a CSV of raw data, we convert it to a Pandas data frame and return it.
+
+```python showLineNumbers {5}
+import pandas as pd
+
+def confirmed_report():
+  # Returns time series version of total cases confirmed globally
+  df = pd.read_csv('https://raw...CSSEGISandData/...csv')
+  return df
+```
+
+Continuing with the weather theme here, let's create a reusable card component that can be used to display the current weather for a list of cities. With Tailwind, you can style your HTML elements without having to write any CSS rules. This can save you a lot of time, especially if you are working on a large project. Then when you need to reuse this, you don't have to go look for the `styles.css` file and copy it to a new location.
+
+```tsx showLineNumbers
+export default const CityCard = ({item}) => {
+  return (
+    <div
+      className={`flex justify-between rounded-3xl bg-gradient-to-br text-white p-4 lg:px-8
+      ${item.color}
+    `}>
+      <div>
+        <p className="text-xl font-bold">{item.city}</p>
+        <p className="text-sm font-medium mb-5 opacity-75">{item.time}</p>
+        <p className="text-sm font-medium mt-auto">{item.state}</p>
+      </div>
+      <div className="flex flex-col justify-between">
+        <p className="text-5xl">{item.temperature}°</p>
+        <p className="text-sm font-medium mt-auto opacity-75">
+          H:{item.temperature + 7}°
+          L:{item.temperature - 7}°
+        </p>
+      </div>
+    </div>
+  );
+};
+```
+
+### 1. Analyzing mobile telemetry data
+
+Every modern smartphone is equipped with very accurate telemetry systems. For example, the GPS and accelerometer, which we leveraged for location and to track any abrupt movement indicating a pothole on the road.
+
+One of the difficulties with this approach was that logging every high acceleration movement may result in false positives of a road pothole. Below is also a time-series data visualization of the accelerometer data, generated with matplotlib.
+
+```python showLineNumbers {8-11}
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('/home/br/Downloads/testdata.csv')
+df['Time'] = pd.to_datetime(df.Time, format='%Y-%m-%d %H:%M:%S:%f')
+
+columns = [
+  'ACCELEROMETER X (m/s²)',
+  'ACCELEROMETER Y (m/s²)',
+  'ACCELEROMETER Z (m/s²)',
+  'Time'
+]
+
+df[columns].plot(x='Time')
+plt.show()
+```
+
+<figcaption>List component</figcaption>
+
+Continuing with the weather theme here, let's create a reusable card component that can be used to display the current weather for a list of cities. With Tailwind, you can style your HTML elements without having to write any CSS rules. This can save you a lot of time, especially if you are working on a large project. Then when you need to reuse this, you don't have to go look for the `styles.css` file and copy it to a new location.

@@ -3,6 +3,8 @@
 @tailwind utilities;
 @import "../tailwind/components.css";
 
+@import "../../public/prism/one-dark.css";
+
 html {
   /* font-family: var(--font-vazir); */
   -moz-font-feature-settings: "ss01";
@@ -93,4 +95,8 @@ html {
     top: -15rem;
     left: 2rem;
   }
+}
+
+.prose p code {
+  @apply whitespace-pre-line rounded bg-tertiary-bg p-1  font-normal text-text-primary;
 }

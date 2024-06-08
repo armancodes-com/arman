@@ -5,80 +5,186 @@ publishedAt: "2019-11-28"
 tags: ["PHP", "Design Pattern", "Software Engineering", "OOP"]
 ---
 
-# What is the design pattern?
+## What is the design pattern?
 
-In software engineering, software design patterns are common solutions for common problems. Is it a piece of code? Of course, NOT! It could be a description or template which can be used in many different situations to solve a problem.
+**In software engineering, software design patterns are common solutions for common problems.** Is it a piece of code? Of course, NOT! It could be a description or template which can be used in many different situations to solve a problem.
 
-Some people may ask, “Why should we use them?” the answer is, “Because design patterns are both optimized and reusable.
+Some people may ask, “Why should we use them?” the answer is, “Because design patterns are both **optimized and reusable**.
 
 They were generally grouped into three categories:
 
-## Let's Talk about DX
+- [creational patterns](https://en.wikipedia.org/wiki/Creational_pattern)
+- [structural patterns](https://en.wikipedia.org/wiki/Structural_pattern)
+- [behavioral patterns](https://en.wikipedia.org/wiki/Behavioral_pattern)
 
-In design, there's User Interface, User Experience, and Human Interface (as Apple calls it), but let's not forget about the **Developer Experience**. Tailwind is a great example of a tool that makes the developer experience better.
+### What is the Decorator design pattern?
 
-Working with CSS files that go unused can be a frustrating experience for developers. When a CSS file contains styles that are no longer used in the project, it can make it difficult to find and update the styles that are needed. in the long run. Here are a couple key points to consider:
+To simplify the term Decorator Pattern, we can say **they will allow adding new functionalities to a particular object without applying it to other objects of a class.**
 
-- Less time thinking of funky names <sup>1</sup>
+In Wikipedia’s point of view the Decorator pattern:
 
-- Reduce the size of your CSS files <sup>2</sup>
+> Attaches additional responsibilities to an object dynamically keeping the same interface. Decorators provide a flexible alternative to subclassing for extending functionality.
 
-- Editing already existing styles feels safer <sup>3</sup>
+In a nutshell, we will be able to add behaviors to an object, dynamically, without affecting other objects’ behavior from the same class.
 
-<div className="text-gray-2 text-sm mt-8">
-1 - Tailwind helps you save time and effort by eliminating the need to create unique class names for every element in your UI. You no longer have to struggle to come up with abstract or irrelevant names such as "sidebar-inner-wrapper" or "content-container".
+### PROBLEM
 
-2 - making it easier to manage and maintain. Unlike traditional CSS, where you need to create new stylesheets for every new feature, Tailwind's utility classes can be easily reused throughout your project, significantly reducing the need to write new CSS code.
+Suppose we have a swimming pool and it has an online site for selling tickets. Putting the entrance ticket aside, we have several services (Massage, VIP area, etc.) that the customer **may or may not want.**
 
-3 - because classes are local to the HTML elements. With global CSS, any change you make can have unforeseen consequences elsewhere in your project, but with Tailwind, you can make changes with confidence, knowing that you won't accidentally break anything.
-
-</div>
-
-### The Power of Reusable Components
-
-One of the key advantages of Tailwind CSS is its promotion of reusable components. Which is now a standard in the front-end world. By using pre-defined classes, Tailwind allows developers to create reusable components that can be easily used throughout the codebase.
-
-```tsx showLineNumbers
-const WeatherList = () => {
-  return (
-    <div className="my-8 flex flex-col gap-2">
-      {data.map((item, index) => (
-        <CityCard key={index} data={item} />
-      ))}
-    </div>
-  );
-};
+```php
+class EntranceTicket
+{
+    public function getCost()
+    {
+        return 10;
+    }
+}
+echo (new EntranceTicket())->getCost();
+// 10
 ```
 
-> The best way to prevent and slow down transmission is to be well-informed. World Health Organization (2014)
+Now our customer wants to relax, so he/she needs to buy the massage service.
 
-We have [contributors](https://github.com/BrianRuizy/covid19-dashboard/graphs/contributors) from all over the world ––Spain, Poland, India, and various places in the USA–– who came together to create something useful and meaningful. Furthermore, the site has accumulated over 10k visits as shown by web analytics. And, the project is still being maintained and improved upon, thanks to the help of developers.
-
-## Data Sources
-
-A large portion of the data comes from one of the original data repositories tracking COVID-19 cases, [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19) CSSE2019-ncov data repository. Additional data was collected from [Our World in Data](https://ourworldindata.org/) GitHub data repository. Lastly, to fill in some requirements we retrieved data for daily cases from [New York Times](https://github.com/nytimes/covid-19-data) COVID GitHub data repository.
-
-For this project, it was crucial to have accurate, and trustworthy datasets.
-This explains why the multiple aforementioned sources were diligently picked.
-In doing so the goal is to provide the most accurate representations of the pandemic, the opposite could have its own repercussions at scale.
-
-<Image
-  rounded
-  width={600}
-  height={400}
-  src="https://miro.medium.com/v2/resize:fit:1400/format:webp/0*4DeT3bxzq-akxL9q.jpg"
-  caption="person reading Covid news"
-/>
-
-### 1. Web scraping with Pandas 🐼
-
-Here we defined a simple function that reads from a specific URL that contains a CSV of raw data, we convert it to a Pandas data frame and return it.
-
-```python showLineNumbers {5}
-import pandas as pd
-
-def confirmed_report():
-  # Returns time series version of total cases confirmed globally
-  df = pd.read_csv('https://raw...CSSEGISandData/...csv')
-  return df
+```php
+class EntranceTicketAndVIPArea
+{
+    public function getCost()
+    {
+        return 10 + 20;
+    }
+}
+echo (new EntranceTicketAndVIPArea())->getCost();
+// 30
 ```
+
+You might say, “Everything is working perfectly” well you are right but take a look at this:
+
+```php
+class EntranceTicketAndVIPAreaAndMassage
+{
+    public function getCost()
+    {
+        return 10 + 20 + 30;
+    }
+}
+echo (new EntranceTicketAndVIPAreaAndMassage())->getCost();
+// 60
+```
+
+Well, I suppose you already found some problems here. And here are some of them:
+
+- There will be so many compound classes
+
+- We have hard-coded the price of each service
+
+- We cannot possibly extend our services dynamically (We have to change everything manually which won’t follow the Open/Closed principle in SOLID)
+
+### SOLUTION (Decorator Design Pattern)
+
+For the problem above, using the decorator pattern can be good practice. To do so, follow these steps:
+
+1. **Create an interface**
+
+```php
+interface SwimmingPool
+{
+    public function getCost();
+}
+```
+
+2. **Now all classes must implement that interface**
+
+As we said earlier, we have a basic plan for our swimming pool, which is the entrance ticket, so everyone needs to buy this ticket to be able to purchase other services. Here is our entrance ticket class:
+
+```php
+class EntranceTicket implements SwimmingPool
+{
+    public function getCost()
+    {
+        return 10;
+    }
+}
+```
+
+Now for each class **except the main one in our case entrance ticket,** you must do the following steps:
+
+3. **Create a constructor function and inject the interface**
+
+4. **Update the ‘getCost’ method so that the price updates based on the injected object’s price.**
+
+```php
+class Massage implements SwimmingPool
+{
+    protected $swimmingPool;
+    public function __construct(SwimmingPool $swimmingPool)
+    {
+        $this->swimmingPool = $swimmingPool;
+    }
+
+    public function getCost()
+    {
+        return $this->swimmingPool->getCost() + 30;
+    }
+}
+```
+
+Now, this is our final code:
+
+```php
+interface SwimmingPool
+{
+    public function getCost();
+}
+class EntranceTicket implements SwimmingPool
+{
+    public function getCost()
+    {
+        return 10;
+    }
+}
+class Massage implements SwimmingPool
+{
+    protected $swimmingPool;
+    public function __construct(SwimmingPool $swimmingPool)
+    {
+        $this->swimmingPool = $swimmingPool;
+    }
+
+    public function getCost()
+    {
+        return $this->swimmingPool->getCost() + 30;
+    }
+}
+class VIPArea implements SwimmingPool
+{
+    protected $swimmingPool;
+    public function __construct(SwimmingPool $swimmingPool)
+    {
+        $this->swimmingPool = $swimmingPool;
+    }
+
+    public function getCost()
+    {
+        return $this->swimmingPool->getCost() + 20;
+    }
+}
+```
+
+So let’s create the objects:
+
+```php
+echo (new VIPArea(new EntranceTicket()))->getCost();
+// 30
+echo (new Massage(new EntranceTicket()))->getCost();
+// 40
+echo (new VIPArea(new Massage(new EntranceTicket())))->getCost();
+// 60
+```
+
+As you can see in the code above, **we can add functionalities dynamically to our objects without changing the class.**
+
+### Conclusion
+
+Some of you might ask, ‘’Well, we can use inheritance instead’’ You must be careful with inheritance because you may extend a class in which you don’t need all its functionalities.
+
+Thank you for reading this and please don’t hesitate to write your comments.
