@@ -23,6 +23,10 @@ const articleComputedFields: ComputedFields = {
     type: "string",
     resolve: (doc) => `/articles/${getSlug(doc)}/image.png`,
   },
+  shareLink: {
+    type: "string",
+    resolve: (doc) => `/articles/${getSlug(doc)}`,
+  },
 };
 
 export const Article = defineDocumentType(() => ({
@@ -37,6 +41,7 @@ export const Article = defineDocumentType(() => ({
     updatedAt: { type: "string", required: false },
     tags: { type: "json", required: false },
     featured: { type: "boolean", required: false },
+    hasSeries: { type: "boolean", required: false, default: false },
     shortTitle: { type: "string", required: false, default: "" },
   },
   computedFields: articleComputedFields,

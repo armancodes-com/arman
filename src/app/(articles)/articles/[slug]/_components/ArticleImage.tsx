@@ -29,7 +29,7 @@ const ArticleImage: React.FC<IArticleImageProps> = ({
   return (
     <div
       className={twMerge(
-        reset ? "" : "not-prose my-8 w-full",
+        reset ? "" : "not-prose w-full",
         rounded && "overflow-hidden rounded-10",
       )}
     >
