@@ -6,14 +6,14 @@ const nextConfig = {
   reactStrictMode: true,
   basePath: "",
   images: {
-    // remotePatterns: [
-    //   {
-    //     protocol: "https",
-    //     hostname: "abolfazlcodes.github.io",
-    //     port: "",
-    //     pathname: "/arman/**",
-    //   },
-    // ],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "miro.medium.com",
+        port: "",
+        pathname: "/v2/**",
+      },
+    ],
   },
 };
 

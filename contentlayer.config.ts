@@ -17,7 +17,7 @@ const articleComputedFields: ComputedFields = {
   },
   image: {
     type: "string",
-    resolve: (doc) => `/articles/${getSlug(doc)}/image.png`,
+    resolve: (doc) => `/articles/${getSlug(doc)}/image.jpg`,
   },
   og: {
     type: "string",
