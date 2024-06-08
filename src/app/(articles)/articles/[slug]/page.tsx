@@ -35,16 +35,17 @@ const Page = async ({ params }: { params: { slug: string } }) => {
       {/* Hero Image Section */}
       {article?.image && (
         <>
-          <Image
-            src={article?.image}
-            alt={`${article.title} article image`}
-            width={600}
-            height={350}
-            className="mx-auto w-[calc(100%+48px)] max-w-none animate-in md:rounded-lg lg:w-[calc(100%)]"
-            style={{ "--index": 2 } as React.CSSProperties}
-            priority
-            quality={100}
-          />
+          <figure className="relative h-[350px] w-full overflow-hidden rounded-10 sm:h-[500px]">
+            <Image
+              src={article?.image}
+              alt={`${article.title} article image`}
+              fill
+              className=" mx-auto h-full w-full object-cover object-center"
+              style={{ "--index": 2 } as React.CSSProperties}
+              priority
+              quality={100}
+            />
+          </figure>
           <div className="h-16" />
         </>
       )}
