@@ -3,8 +3,6 @@
 @tailwind utilities;
 @import "../tailwind/components.css";
 
-@import "../../public/prism/one-dark.css";
-
 html {
   /* font-family: var(--font-vazir); */
   -moz-font-feature-settings: "ss01";
@@ -12,12 +10,6 @@ html {
   font-feature-settings: "ss01";
   scroll-behavior: smooth;
 }
-
-/* 
-  After the double hyphen, you can define your own custom variable name.
-  In space-separated syntax, you don't use commas for hsl and rgb, 
-  but for rgba and hsla, you should use commas.
-*/
 
 @layer base {
   :root {
@@ -38,6 +30,17 @@ html {
     --bg-tertiary-2: #f9f3ff;
     --text-link: #9c8aae;
     --text-link-2: #5f6571;
+
+    --gray-3: #f0f0f0;
+    --gray-4: #e8e8e8;
+    --gray-5: #e0e0e0;
+    --gray-6: #d9d9d9;
+    --gray-7: #cecece;
+    --gray-8: #bbb;
+    --gray-9: #8d8d8d;
+    --gray-10: #838383;
+    --gray-11: #646464;
+    --gray-12: #202020;
   }
 
   /* If the user's system preference is dark */
@@ -61,6 +64,19 @@ html {
     --bg-tertiary-2: #14161a80;
     --text-link: #9c8aae;
     --text-link-2: #5f6571;
+
+    -sample: #ffffff;
+
+    --gray-3: #222;
+    --gray-4: #2a2a2a;
+    --gray-5: #313131;
+    --gray-6: #3a3a3a;
+    --gray-7: #484848;
+    --gray-8: #606060;
+    --gray-9: #6e6e6e;
+    --gray-10: #7b7b7b;
+    --gray-11: #b4b4b4;
+    --gray-12: #eee;
   }
 }
 
@@ -97,6 +113,71 @@ html {
   }
 }
 
+.prose
+  p
+  :where(code):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  )::before,
+.prose
+  p
+  :where(code):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  )::after {
+  content: "";
+}
+
 .prose p code {
-  @apply whitespace-pre-line rounded bg-tertiary-bg p-1  font-normal text-text-primary;
+  @apply whitespace-pre-line rounded  p-1 font-normal text-text-primary;
+}
+
+/* syntax highlighting */
+pre[class*="language-"] {
+  @apply rounded-md border border-[var(--gray-3)] bg-[#ffffff] text-[13px] text-xs leading-5 text-text-primary dark:bg-[#0a0a0a];
+}
+
+.code-highlight {
+  float: left; /* 1 */
+  min-width: 100%; /* 2 */
+}
+
+.code-line {
+  display: block;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: -16px;
+  margin-right: -16px;
+}
+
+.code-line.inserted {
+  background-color: #9c8aae; /* Set inserted line (+) color */
+}
+
+.code-line.deleted {
+  background-color: #ef444433; /* Set deleted line (-) color */
+}
+
+:root[class="dark"] {
+  .highlight-line {
+    background-color: #0077ff3a;
+    border-left: 2px solid #3b9eff;
+  }
+}
+.highlight-line {
+  margin-left: -13px;
+  margin-right: -24px;
+  padding-left: 12px;
+  background-color: #008ff519; /* Set highlight bg color */
+  border-left: 2px solid #3b9eff; /* Set highlight accent border color */
+}
+
+.line-number::before {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  text-align: right;
+  margin-right: 24px;
+  margin-left: -8px;
+  color: var(--gray-8); /* Line number color */
+  content: attr(line);
 }

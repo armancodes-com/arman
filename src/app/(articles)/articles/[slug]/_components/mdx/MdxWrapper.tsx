@@ -5,7 +5,7 @@ import { Alexandria } from "next/font/google";
 
 const alexandria = Alexandria({
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
+  weight: ["300"],
   preload: true,
 });
 
@@ -44,11 +44,6 @@ const components = {
   Image: ArticleImage,
   a: CustomLink,
   Link: CustomLink,
-  // Alert: Alert,
-  // Parallax: Parallax,
-  // Weather: Weather,
-  // WeatherList: WeatherList,
-  // LinkPreview: LinkPreview,
 };
 
 const MdxWrapper = ({ code }: { code: string }) => {
