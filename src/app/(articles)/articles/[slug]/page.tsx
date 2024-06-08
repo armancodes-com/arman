@@ -35,7 +35,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
       {/* Hero Image Section */}
       {article?.image && (
         <>
-          <figure className="relative h-[350px] w-full overflow-hidden rounded-10 sm:h-[500px]">
+          <figure className="relative h-[350px] w-full overflow-hidden rounded-10 sm:h-[400px]">
             <Image
               src={article?.image}
               alt={`${article.title} article image`}
@@ -57,7 +57,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           {article?.hasSeries && <ArticleSeries />}
 
           <div
-            className={`prose prose-neutral animate-in text-caption2 text-text-primary prose-p:font-light md:text-body2 ${alexandria.className} prose-headings:text-text-primary prose-h1:text-title2 prose-h2:text-title3 prose-h3:text-body1 prose-h4:text-body1 prose-h5:text-body2 prose-h6:text-body2 prose-blockquote:text-text-primary prose-figcaption:mx-auto prose-figcaption:max-w-md prose-figcaption:text-center prose-figcaption:text-caption2 prose-figcaption:text-gray-2 prose-strong:text-text-primary`}
+            className={`prose prose-neutral animate-in text-caption2 leading-6 text-text-primary prose-p:font-light md:text-body2 ${alexandria.className} prose-headings:text-text-primary prose-h1:text-title2 prose-h2:text-title3 prose-h3:text-body1 prose-h4:text-body1 prose-h5:text-body2 prose-h6:text-body2 prose-blockquote:text-text-primary prose-figcaption:mx-auto prose-figcaption:max-w-md prose-figcaption:text-center prose-figcaption:text-caption2 prose-figcaption:text-gray-2 prose-strong:text-text-primary`}
             style={{ "--index": 3 } as React.CSSProperties}
           >
             <MdxWrapper code={article?.body?.code as string} />
