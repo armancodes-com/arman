@@ -8,7 +8,7 @@ import Newsletter from "@/components/ui/Newsletter";
 
 const Page = () => {
   return (
-    <main className="min-h-svh">
+    <main>
       <Section type="common" className="space-y-8">
         <Header title="my articles" />
         <ArticlesList articles={allArticles} />
