@@ -49,6 +49,9 @@ export const Article = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: "src/content",
+  markdown: {
+    rehypePlugins: [rehypeSlug], // adding id tag automatically to headings (h1-h6)
+  },
   documentTypes: [Article],
   mdx: {
     rehypePlugins: [rehypePrism, rehypeSlug],
