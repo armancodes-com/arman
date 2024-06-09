@@ -1,55 +1,55 @@
+import { allArticles, Article as ArticleType } from "contentlayer/generated";
+
 import BackLink from "@/components/ui/BackLink";
 import Newsletter from "@/components/ui/Newsletter";
 
-import { Alexandria } from "next/font/google";
 import TagsList from "./_components/TagsList";
 import SidebarLinks from "./_components/SidebarLinks";
 import ArticleHeader from "./_components/ArticleHeader";
 import ArticleSeries from "./_components/ArticleSeries";
+import MdxWrapper from "./_components/mdx/MdxWrapper";
+import Image from "next/image";
 
-const alexandria = Alexandria({
-  subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
-  preload: true,
-});
+const Page = async ({ params }: { params: { slug: string } }) => {
+  const article = allArticles.find(
+    (post: ArticleType) => post.slug === params.slug,
+  );
 
-const Page = async () => {
   return (
     <main className="min-h-svh !px-4 pt-6 md:px-0 md:pt-11">
-      <BackLink href="/articles">back</BackLink>
+      <BackLink href="/articles">all articles</BackLink>
 
-      <ArticleHeader />
+      <ArticleHeader
+        title={article?.title as string}
+        publishedAt={article?.publishedAt as string}
+        shareLink={article?.shareLink as string}
+      />
+
+      {/* Hero Image Section */}
+      {article?.image && (
+        <>
+          <figure className="relative h-[350px] w-full overflow-hidden rounded-10 sm:h-[400px]">
+            <Image
+              src={article?.image}
+              alt={`${article.title} article image`}
+              fill
+              className=" mx-auto h-full w-full object-cover object-center"
+              style={{ "--index": 2 } as React.CSSProperties}
+              priority
+              quality={100}
+            />
+          </figure>
+          <div className="h-16" />
+        </>
+      )}
 
       {/* body section */}
       <section className="flex sm:gap-x-6 md:gap-x-14">
-        <div className="w-full space-y-6">
+        <div className="w-full max-w-[600px] space-y-6">
           {/* Series Component */}
-          <ArticleSeries />
+          {article?.hasSeries && <ArticleSeries />}
 
-          {/* CONTENT OF ARTICLE */}
-          <div
-            className={`${alexandria.className} text-body2 font-light md:text-body1`}
-          >
-            <p className="text-inherit">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
-              congue mauris rhoncus aenean vel elit scelerisque. In egestas erat
-              imperdiet sed euismod nisi porta lorem mollis. Morbi tristique
-              senectus et netus. Mattis pellentesque id nibh tortor id aliquet
-              lectus proin. Sapien faucibus et molestie ac feugiat sed lectus
-              vestibulum. Ullamcorper velit sed ullamcorper morbi tincidunt
-              ornare massa eget. Dictum varius duis at consectetur lorem. Nisi
-              vitae suscipit tellus mauris a diam maecenas sed enim. Velit ut
-              tortor pretium viverra suspendisse potenti nullam. Et molestie ac
-              feugiat sed lectus. Non nisi est sit amet facilisis magna.
-              Dignissim diam quis enim lobortis scelerisque fermentum. Odio ut
-              enim blandit volutpat maecenas volutpat. Ornare lectus sit amet
-              est placerat in egestas erat. Nisi vitae suscipit tellus mauris a
-              diam maecenas sed. Placerat duis ultricies lacus sed turpis
-              tincidunt id aliquet.
-            </p>
-          </div>
+          <MdxWrapper code={article?.body?.code as string} />
         </div>
 
         {/* SIDEBAR OF SINGLE ARTICLES */}
@@ -57,7 +57,7 @@ const Page = async () => {
       </section>
 
       {/* TAGS SECTION */}
-      <TagsList />
+      <TagsList tags={article?.tags} />
 
       {/* NEWSLETTER SECTION */}
       <Newsletter />

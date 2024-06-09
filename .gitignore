@@ -38,3 +38,6 @@ html
 .env.development
 .env.production
 *storybook.log
+
+# contentlayer
+.contentlayer

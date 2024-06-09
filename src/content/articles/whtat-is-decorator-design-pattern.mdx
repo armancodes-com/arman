@@ -1,0 +1,190 @@
+---
+title: "What is Decorator Design Pattern?"
+summary: "In software engineering, software design patterns are common solutions for common problems. Is it a piece of code? Of course, NOT! It could be a description or template which can be used in many different situations to solve a problem."
+publishedAt: "2019-11-28"
+tags: ["PHP", "Design Pattern", "Software Engineering", "OOP"]
+---
+
+## What is the design pattern?
+
+**In software engineering, software design patterns are common solutions for common problems.** Is it a piece of code? Of course, NOT! It could be a description or template which can be used in many different situations to solve a problem.
+
+Some people may ask, “Why should we use them?” the answer is, “Because design patterns are both **optimized and reusable**.
+
+They were generally grouped into three categories:
+
+- [creational patterns](https://en.wikipedia.org/wiki/Creational_pattern)
+- [structural patterns](https://en.wikipedia.org/wiki/Structural_pattern)
+- [behavioral patterns](https://en.wikipedia.org/wiki/Behavioral_pattern)
+
+### What is the Decorator design pattern?
+
+To simplify the term Decorator Pattern, we can say **they will allow adding new functionalities to a particular object without applying it to other objects of a class.**
+
+In Wikipedia’s point of view the Decorator pattern:
+
+> Attaches additional responsibilities to an object dynamically keeping the same interface. Decorators provide a flexible alternative to subclassing for extending functionality.
+
+In a nutshell, we will be able to add behaviors to an object, dynamically, without affecting other objects’ behavior from the same class.
+
+### PROBLEM
+
+Suppose we have a swimming pool and it has an online site for selling tickets. Putting the entrance ticket aside, we have several services (Massage, VIP area, etc.) that the customer **may or may not want.**
+
+```php showLineNumbers {8} title="fileName.php" caption="caption here"
+class EntranceTicket
+{
+    public function getCost()
+    {
+        return 10;
+    }
+}
+echo (new EntranceTicket())->getCost();
+// 10
+```
+
+Now our customer wants to relax, so he/she needs to buy the massage service.
+
+```php
+class EntranceTicketAndVIPArea
+{
+    public function getCost()
+    {
+        return 10 + 20;
+    }
+}
+echo (new EntranceTicketAndVIPArea())->getCost();
+// 30
+```
+
+You might say, “Everything is working perfectly” well you are right but take a look at this:
+
+```php
+class EntranceTicketAndVIPAreaAndMassage
+{
+    public function getCost()
+    {
+        return 10 + 20 + 30;
+    }
+}
+echo (new EntranceTicketAndVIPAreaAndMassage())->getCost();
+// 60
+```
+
+Well, I suppose you already found some problems here. And here are some of them:
+
+- There will be so many compound classes
+
+- We have hard-coded the price of each service
+
+- We cannot possibly extend our services dynamically (We have to change everything manually which won’t follow the Open/Closed principle in SOLID)
+
+### SOLUTION (Decorator Design Pattern)
+
+For the problem above, using the decorator pattern can be good practice. To do so, follow these steps:
+
+1. **Create an interface**
+
+```php
+interface SwimmingPool
+{
+    public function getCost();
+}
+```
+
+2. **Now all classes must implement that interface**
+
+As we said earlier, we have a basic plan for our swimming pool, which is the entrance ticket, so everyone needs to buy this ticket to be able to purchase other services. Here is our entrance ticket class:
+
+```php
+class EntranceTicket implements SwimmingPool
+{
+    public function getCost()
+    {
+        return 10;
+    }
+}
+```
+
+Now for each class **except the main one in our case entrance ticket,** you must do the following steps:
+
+3. **Create a constructor function and inject the interface**
+
+4. **Update the ‘getCost’ method so that the price updates based on the injected object’s price.**
+
+```php
+class Massage implements SwimmingPool
+{
+    protected $swimmingPool;
+    public function __construct(SwimmingPool $swimmingPool)
+    {
+        $this->swimmingPool = $swimmingPool;
+    }
+
+    public function getCost()
+    {
+        return $this->swimmingPool->getCost() + 30;
+    }
+}
+```
+
+Now, this is our final code:
+
+```php
+interface SwimmingPool
+{
+    public function getCost();
+}
+class EntranceTicket implements SwimmingPool
+{
+    public function getCost()
+    {
+        return 10;
+    }
+}
+class Massage implements SwimmingPool
+{
+    protected $swimmingPool;
+    public function __construct(SwimmingPool $swimmingPool)
+    {
+        $this->swimmingPool = $swimmingPool;
+    }
+
+    public function getCost()
+    {
+        return $this->swimmingPool->getCost() + 30;
+    }
+}
+class VIPArea implements SwimmingPool
+{
+    protected $swimmingPool;
+    public function __construct(SwimmingPool $swimmingPool)
+    {
+        $this->swimmingPool = $swimmingPool;
+    }
+
+    public function getCost()
+    {
+        return $this->swimmingPool->getCost() + 20;
+    }
+}
+```
+
+So let’s create the objects:
+
+```php
+echo (new VIPArea(new EntranceTicket()))->getCost();
+// 30
+echo (new Massage(new EntranceTicket()))->getCost();
+// 40
+echo (new VIPArea(new Massage(new EntranceTicket())))->getCost();
+// 60
+```
+
+As you can see in the code above, **we can add functionalities dynamically to our objects without changing the class.**
+
+### Conclusion
+
+Some of you might ask, ‘’Well, we can use inheritance instead’’ You must be careful with inheritance because you may extend a class in which you don’t need all its functionalities.
+
+Thank you for reading this and please don’t hesitate to write your comments.
