@@ -21,9 +21,9 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker-compose build
-          docker-compose push
-        working-directory: path/to/your/docker-compose-directory
+          docker-compose -f docker-compose.yml build
+          docker-compose -f docker-compose.yml push
+        working-directory: ${{ github.workspace }}
 
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.5.3
