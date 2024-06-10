@@ -10,7 +10,7 @@ export default async function Home() {
     <main className="min-h-svh pt-4 sm:pt-14.5">
       <HomeHeroSection />
 
-      <Section hasEllipse>
+      <Section type="primary" hasEllipse>
         <Header title="latest articles" linkText="see all" href="/articles" />
         <ArticlesList articles={allArticles} />
       </Section>

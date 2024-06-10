@@ -16,7 +16,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   );
 
   return (
-    <main className="min-h-svh !px-4 pt-6 md:px-0 md:pt-11">
+    <main className="!px-4 pt-6 md:px-0 md:pt-11">
       <BackLink href="/articles">all articles</BackLink>
 
       <ArticleHeader
