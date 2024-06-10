@@ -59,6 +59,9 @@ const ArticleSeries = () => {
       <div
         className={`flex justify-between ${isSeriesBoxOpen && "border-b border-[#9269BA] pb-6 pt-4"} cursor-pointer transition-all delay-150 duration-150 ease-linear`}
         onClick={handleOpenSeriesBox}
+        onKeyDown={handleOpenSeriesBox}
+        role="button"
+        tabIndex={0}
       >
         <div className="flex flex-col space-y-6">
           <span
