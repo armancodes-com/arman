@@ -29,12 +29,10 @@ jobs:
         uses: webfactory/ssh-agent@v0.5.3
         with:
           ssh-private-key: ${{ secrets.SERVER_PRIVATE_KEY }}
-
-      - name: Copy docker-compose.yml to server
-        run: scp -o StrictHostKeyChecking=no docker-compose.yml ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_APP_PATH }}
-
+          
       - name: Deploy application
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "cd {{ secrets.SERVER_APP_PATH }} && \
+          git pull && \
           sudo docker compose pull && \
           sudo docker compose up -d"
