@@ -1,14 +1,14 @@
-version: "3.8"
+version: '3'
 
 services:
-  app:
-    image: demo-app
+  nextjs-app:
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - .:/app
-      - /app/node_modules
-      - /app/.next
+    image: armancodes/nextjs-app:latest
     ports:
       - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./home/arman/armancodes:/app
