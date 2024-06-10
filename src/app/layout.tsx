@@ -9,6 +9,7 @@ import Navigation from "@/components/Navigation/Navigation";
 import { Ubuntu } from "next/font/google";
 import ToolbarLinks from "@/components/Navigation/ToolbarLinks";
 import Footer from "@/components/ui/Footer";
+import NextTopLoader from "nextjs-toploader";
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi",
@@ -21,7 +22,7 @@ const ubuntu = Ubuntu({
   preload: true,
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -31,6 +32,20 @@ export default function RootLayout({
       <Analytics />
       <SpeedInsights />
       <body className={`${ubuntu.className} bg-bgColor`}>
+        <NextTopLoader
+          color="var(--primary-color)"
+          initialPosition={0.08}
+          crawlSpeed={200}
+          height={3}
+          crawl={true}
+          showSpinner={false}
+          easing="ease"
+          speed={200}
+          shadow="0 0 10px var(--primary-color),0 0 5px var(--primary-color)"
+          zIndex={1600}
+          showAtBottom={false}
+        />
+
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navigation />
 

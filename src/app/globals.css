@@ -89,7 +89,7 @@ html {
     background: var(--ellipse-gradient);
     width: 1000px;
     height: 1000px;
-    filter: blur(9rem);
+    filter: blur(12rem);
     top: -10rem;
     left: -5rem;
   }

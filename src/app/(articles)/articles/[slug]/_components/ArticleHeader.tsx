@@ -1,5 +1,6 @@
 import IconHeart from "@/assets/icons/HeartIcon";
 import ShareButton from "@/components/ui/ShareButton";
+import { isLikeArticleFeatureReleased } from "@/constants/FeatureFlag.constants";
 
 interface IArticleHeaderProps {
   title: string;
@@ -42,10 +43,12 @@ const ArticleHeader: React.FC<IArticleHeaderProps> = ({
 
         <div className="flex items-center gap-9">
           <ShareButton url={shareLink} />
-          <IconHeart
-            viewBox="0 0 32 32"
-            className="h-6 w-6 cursor-pointer md:h-8 md:w-8 [&_path]:stroke-text-primary"
-          />
+          {isLikeArticleFeatureReleased && (
+            <IconHeart
+              viewBox="0 0 32 32"
+              className="h-6 w-6 cursor-pointer md:h-8 md:w-8 [&_path]:stroke-text-primary"
+            />
+          )}
         </div>
       </div>
     </header>
