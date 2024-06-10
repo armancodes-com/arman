@@ -8,7 +8,7 @@ export function middleware(request: NextRequest) {
   // style-src 'self' 'nonce-${nonce}' 'unsafe-inline';
   const cspHeader = `
     default-src 'self'; 
-    script-src 'self' https://www.googletagmanager.com 'unsafe-inline' 'unsafe-eval'; 
+    script-src 'self' https://www.googletagmanager.com https://vercel.live https://va.vercel-scripts.com 'unsafe-inline' 'unsafe-eval'; 
     style-src 'self' 'unsafe-inline' 'unsafe-eval'; 
     img-src 'self' blob: data:; 
     font-src 'self'; 
