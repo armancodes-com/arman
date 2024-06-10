@@ -1,15 +1,19 @@
 import "./globals.css";
 import "../../public/prism/one-dark.css";
 
+import { headers } from "next/headers";
+import Script from "next/script";
+import { Ubuntu } from "next/font/google";
 import type { Metadata } from "next";
+
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import NextTopLoader from "nextjs-toploader";
+
 import ThemeProvider from "@/components/ThemeProvider";
 import Navigation from "@/components/Navigation/Navigation";
-import { Ubuntu } from "next/font/google";
 import ToolbarLinks from "@/components/Navigation/ToolbarLinks";
 import Footer from "@/components/ui/Footer";
-import NextTopLoader from "nextjs-toploader";
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi",
@@ -27,13 +31,20 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const nonce = headers().get("x-nonce");
+
   return (
     <html lang="en" className="light">
+      <Script
+        src="https://www.googletagmanager.com/gtag/js"
+        strategy="afterInteractive"
+        nonce={nonce!}
+      />
       <Analytics />
       <SpeedInsights />
       <body className={`${ubuntu.className} bg-bgColor`}>
         <NextTopLoader
-          color="var(--primary-color)"
+          color="#7127ba"
           initialPosition={0.08}
           crawlSpeed={200}
           height={3}
@@ -41,7 +52,7 @@ export default async function RootLayout({
           showSpinner={false}
           easing="ease"
           speed={200}
-          shadow="0 0 10px var(--primary-color),0 0 5px var(--primary-color)"
+          shadow="0 0 10px #7127ba,0 0 5px #7127ba"
           zIndex={1600}
           showAtBottom={false}
         />

@@ -25,7 +25,7 @@ const AboutMeHeroSection = () => {
           <StaticImage
             src={"/hero-img.jpeg"}
             alt="hero image"
-            placeHolderType="blur"
+            placeholdertype="blur"
             fill
             className="h-full w-full object-cover object-center"
             containerClassName="relative left-10 top-6 h-[165px] w-[150px] -rotate-[13.84deg] self-center overflow-hidden rounded-20 transition-all duration-150 ease-in-out hover:z-10 md:top-0 md:h-[275px] md:w-[250px] md:hover:left-8"
@@ -33,7 +33,7 @@ const AboutMeHeroSection = () => {
           <StaticImage
             src={"/arman-one.jpg"}
             alt="hero image"
-            placeHolderType="blur"
+            placeholdertype="blur"
             fill
             className="h-full w-full object-cover object-center"
             containerClassName="relative -left-12 top-6 h-[165px] w-[150px] rotate-[7.39deg] overflow-hidden rounded-20 transition-all duration-150 ease-in-out hover:z-10 md:left-0 md:top-0 md:h-[275px] md:w-[250px] md:hover:left-4"
@@ -41,7 +41,7 @@ const AboutMeHeroSection = () => {
           <StaticImage
             src={"/arman-two.jpeg"}
             alt="hero image"
-            placeHolderType="blur"
+            placeholdertype="blur"
             fill
             className="h-full w-full object-cover object-center"
             containerClassName="relative -top-4 left-10 h-[165px] w-[150px] rotate-[7.39deg] overflow-hidden rounded-20 transition-all duration-150 ease-in-out hover:z-10 md:-left-2 md:top-0 md:h-[275px] md:w-[250px] md:-rotate-[13.84deg] md:hover:-left-4"
@@ -49,7 +49,7 @@ const AboutMeHeroSection = () => {
           <StaticImage
             src={"/hero-img.jpeg"}
             alt="hero image"
-            placeHolderType="blur"
+            placeholdertype="blur"
             fill
             className="h-full w-full object-cover object-center"
             containerClassName="relative -left-12 -top-4 h-[165px] w-[150px] -rotate-[13.84deg] overflow-hidden rounded-20 transition-all duration-150 ease-in-out hover:z-10 md:-left-8 md:top-0 md:h-[275px] md:w-[250px] md:rotate-[7.39deg] md:hover:-left-4"

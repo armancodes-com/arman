@@ -7,27 +7,27 @@ type TPropsToOmitKeys = "placeholder" | "blurDataURL" | "onLoad";
 type TStaticImageComponentProps = {
   src: string;
   containerClassName?: string;
-  placeHolderType?: "blur" | "color";
+  placeholdertype?: "blur" | "color";
   animationType?: "opacity" | "slide";
   animationSlideDir?: "left" | "right" | "top" | "bottom";
 } & (
   | {
-      placeHolderType: "blur";
+      placeholdertype: "blur";
       animationType?: never;
       animationSlideDir?: never;
     }
   | {
-      placeHolderType: "color";
+      placeholdertype: "color";
       animationType: "opacity" | "slide";
       animationSlideDir: "left" | "right" | "top" | "bottom";
     }
   | {
-      placeHolderType: "color";
+      placeholdertype: "color";
       animationType: "opacity";
       animationSlideDir?: never;
     }
   | {
-      placeHolderType: "color";
+      placeholdertype: "color";
       animationType: "slide";
       animationSlideDir: "left" | "right" | "top" | "bottom";
     }
@@ -57,7 +57,7 @@ const StaticImage: React.FC<TStaticImageProps> = async ({
   const buffer = await fs.readFile(`${imageSrc}`);
   const { base64, color } = await getPlaiceholder(buffer);
 
-  if (props?.placeHolderType === "blur" && base64) {
+  if (props?.placeholdertype === "blur" && base64) {
     return (
       <figure className={`relative ${containerClassName}`}>
         <Image
@@ -71,7 +71,7 @@ const StaticImage: React.FC<TStaticImageProps> = async ({
   }
 
   if (
-    props?.placeHolderType === "color" &&
+    props?.placeholdertype === "color" &&
     props?.animationType === "opacity" &&
     color
   ) {
