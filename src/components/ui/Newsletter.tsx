@@ -1,4 +1,5 @@
 /* eslint-disable no-irregular-whitespace */
+"use client";
 import { Alexandria, Ubuntu } from "next/font/google";
 import Input from "../Inputs/Input";
 import { isNewsLetterFeatureReleased } from "@/constants/FeatureFlag.constants";
@@ -16,8 +17,8 @@ const ubuntu = Ubuntu({
 });
 
 const Newsletter = () => {
-  if (isNewsLetterFeatureReleased) {
-    return (
+  {
+    isNewsLetterFeatureReleased && (
       <section className="px-4 md:p-0">
         <article className="mt-[72px] flex flex-col items-center justify-center gap-3 rounded-10 border border-[#7127BACC] bg-tertiary-bg px-6 pb-4 pt-6 text-center dark:border-none md:mt-25 md:gap-6">
           <h3

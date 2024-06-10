@@ -21,7 +21,7 @@ const ubuntu = Ubuntu({
   preload: true,
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
