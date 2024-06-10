@@ -9,7 +9,7 @@ const ToolbarLinks = () => {
       <aside className="sticky top-36 flex flex-col gap-y-8 rounded-40 border border-primary px-3 py-2 ">
         <div className="group flex h-8 w-8 items-center justify-center">
           <Link href={"https://github.com/armancodes"} target="_blank">
-            <GithubIcon className="h-6 w-6 transition-all duration-100 ease-in group-hover:[&_path]:fill-primary" />
+            <GithubIcon className="h-6 w-6 transition-all duration-100 ease-in [&_path]:fill-text-primary group-hover:[&_path]:fill-primary" />
             <span aria-label="github profile" className="sr-only">
               github profile
             </span>
