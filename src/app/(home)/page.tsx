@@ -7,13 +7,15 @@ import Header from "@/components/ui/Header";
 
 export default async function Home() {
   return (
-    <main className="min-h-svh pt-4 sm:pt-14.5">
-      <HomeHeroSection />
+    <>
+      <main className="min-h-svh pt-4 sm:pt-14.5">
+        <HomeHeroSection />
 
-      <Section type="primary" hasEllipse>
-        <Header title="latest articles" linkText="see all" href="/articles" />
-        <ArticlesList articles={allArticles} />
-      </Section>
-    </main>
+        <Section type="primary" hasEllipse>
+          <Header title="latest articles" linkText="see all" href="/articles" />
+          <ArticlesList articles={allArticles} />
+        </Section>
+      </main>
+    </>
   );
 }
