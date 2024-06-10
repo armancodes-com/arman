@@ -11,4 +11,4 @@ services:
     environment:
       - NODE_ENV=production
     volumes:
-      - ./home/arman/armancodes:/app
+      - "${PWD}:/app"  # Use the current directory as the volume
