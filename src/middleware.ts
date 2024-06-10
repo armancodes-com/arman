@@ -12,7 +12,7 @@ export function middleware(request: NextRequest) {
     style-src 'self' 'unsafe-inline' 'unsafe-eval'; 
     img-src 'self' blob: data:; 
     font-src 'self'; 
-    connect-src 'self'; 
+    connect-src 'self' https://vercel.live/api/event/tick; 
     media-src 'self'; 
     object-src 'self'; 
     frame-src 'self'; 
