@@ -35,7 +35,9 @@ const Navigation = () => {
             <SearchIcon
               viewBox="0 0 24 24"
               className={`h-6 w-6 cursor-pointer [&_path]:stroke-text-primary`}
+              aria-hidden="true"
             />
+            <span className="sr-only">search</span>
           </Link>
           <ThemeSwitcher />
         </div>
