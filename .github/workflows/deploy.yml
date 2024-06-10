@@ -32,6 +32,6 @@ jobs:
 
       - name: Deploy application
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "cd /path/to/your/app && \
-          docker-compose pull && \
-          docker-compose up -d"
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "cd {{ secrets.SERVER_APP_PATH }} && \
+          sudo docker compose pull && \
+          sudo docker compose up -d"
