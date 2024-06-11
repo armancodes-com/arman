@@ -17,7 +17,7 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_PRIVATE_KEY }}
           script: |
-            git clone https://github.com/${{ github.repository }} ${{ github.SERVER_APP_PATH }}
-            cd ${{ github.SERVER_APP_PATH }}
+            git clone https://github.com/${{ github.repository }} ${{ secrets.SERVER_APP_PATH }}
+            cd ${{ secrets.SERVER_APP_PATH }}
             sudo docker compose down
-            docker compose up -d
+            sudo docker compose up -d
