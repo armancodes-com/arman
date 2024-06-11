@@ -7,3 +7,4 @@ services:
       - COMPOSE_PROJECT_NAME
     ports:
       - "3000:3000"
+    entrypoint: ["./entrypoint.sh"]
