@@ -1,11 +1,12 @@
-/* eslint-disable no-irregular-whitespace */
 "use client";
 
 import GithubIcon from "@/assets/icons/GithubIcon";
-import IconReact from "@/assets/icons/ReactIcon";
+import IconLinkedIn from "@/assets/icons/LinkedIcon";
+import IconMedium from "@/assets/icons/MediumIcon";
 import { useTheme } from "next-themes";
 import { Alexandria } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
 
 const alexandria = Alexandria({
   subsets: ["latin"],
@@ -36,11 +37,12 @@ const Footer = () => {
               <p className="text-body2 font-bold capitalize text-text-primary">
                 Arman
               </p>
-              <p
+              <Link
+                href={"mailto:me@armancodes.com"}
                 className={`text-caption2 text-text-primary md:text-body2 ${alexandria.className}`}
               >
-                lorem@gmail.com
-              </p>
+                me@armancodes.com
+              </Link>
             </div>
             <span>back-end engineer</span>
           </div>
@@ -52,9 +54,35 @@ const Footer = () => {
               Media
             </h2>
             <div className="flex items-center justify-between p-1">
-              <GithubIcon className="[&_path]:fill-gray-1" />
-              <IconReact className="[&_path]:fill-gray-1" />
-              <GithubIcon className="[&_path]:fill-gray-1" />
+              <Link
+                href={"https://github.com/armancodes"}
+                className="group"
+                target="_blank"
+              >
+                <GithubIcon className="h-6 w-6 transition-all duration-100 ease-in [&_path]:fill-text-primary group-hover:[&_path]:fill-primary" />
+                <span aria-label="github profile" className="sr-only">
+                  github profile
+                </span>
+              </Link>
+              <Link
+                href={"https://www.linkedin.com/in/armancodes/"}
+                target="_blank"
+                className="group "
+              >
+                <IconLinkedIn className="h-6 w-6 transition-all duration-100 ease-in [&_path]:stroke-text-primary group-hover:[&_path]:stroke-primary" />
+                <span className="sr-only">linkedin profile</span>
+              </Link>
+              <Link
+                href={"https://armancodes.medium.com/"}
+                className="group"
+                target="_blank"
+              >
+                <IconMedium
+                  viewBox="0 0 48 48"
+                  className="h-7 w-7 transition-all duration-100 ease-in [&_path]:fill-text-primary group-hover:[&_path]:fill-primary"
+                />
+                <span className="sr-only">medium profile</span>
+              </Link>
             </div>
           </div>
         </div>
@@ -62,7 +90,7 @@ const Footer = () => {
         <div
           className={`text-xs leading-4 text-text-primary md:text-body2 ${alexandria.className} text-center`}
         >
-          <span>© 2024 Arman. All rights reserved.</span>
+          <span>© 2024 Arman Ahmadi. All rights reserved.</span>
         </div>
       </div>
     </footer>
