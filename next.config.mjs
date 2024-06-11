@@ -3,6 +3,7 @@
 import { withContentlayer } from "next-contentlayer";
 
 const nextConfig = {
+  output: "standalone",
   reactStrictMode: true,
   basePath: "",
   images: {
