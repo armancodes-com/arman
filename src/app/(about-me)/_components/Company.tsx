@@ -24,11 +24,11 @@ const Company: React.FC<ICompanyInfoProps> = ({
       <div className="flex flex-[6] flex-col justify-between gap-y-2 sm:flex-row">
         <p className="text-caption2 font-light md:text-caption1">
           <span className="group-hover:font-bold group-hover:text-primary md:font-medium">
-            {role} at {companyName}
+            {role} at {companyName} -{" "}
           </span>
-          <span className="text-text-secondary">
+          <span className="inline-block w-full text-text-secondary sm:w-fit">
             {" "}
-            - {location} · {jobType}
+            {location} · {jobType}
           </span>
         </p>
 

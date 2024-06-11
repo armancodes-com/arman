@@ -9,9 +9,9 @@ const NavList: React.FC<INavListProps> = ({ links }) => {
   return (
     <ul className="order-2 flex w-full items-center justify-center gap-x-11 px-13 py-5 sm:w-max sm:p-0 md:py-6">
       {links.map((link) => (
-        <NavLink key={link.id} href={link.href}>
-          {link.title}
-        </NavLink>
+        <li key={link.id}>
+          <NavLink href={link.href}>{link.title}</NavLink>
+        </li>
       ))}
     </ul>
   );
