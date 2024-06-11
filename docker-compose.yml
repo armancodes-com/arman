@@ -1,14 +1,9 @@
-version: '3.8'
+version: '3.9'
 
 services:
-  nextjs-app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: armancodes/nextjs-app:latest
+  nextapp:
+    container_name: armancodes-nextapp
+    image: armancodes-nextapp
+    build: .
     ports:
       - "3000:3000"
-    environment:
-      - NODE_ENV=production
-    volumes:
-      - "${PWD}:/app"  # Use the current directory as the volume
