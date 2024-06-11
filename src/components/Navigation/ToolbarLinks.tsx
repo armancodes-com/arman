@@ -20,7 +20,7 @@ const ToolbarLinks = () => {
             href={"https://www.linkedin.com/in/armancodes/"}
             target="_blank"
           >
-            <IconLinkedIn className="h-6 w-6 transition-all duration-100 ease-in group-hover:[&_path]:stroke-primary" />
+            <IconLinkedIn className="h-6 w-6 transition-all duration-100 ease-in [&_path]:stroke-text-primary group-hover:[&_path]:stroke-primary" />
             <span className="sr-only">linkedin profile</span>
           </Link>
         </div>
@@ -28,7 +28,7 @@ const ToolbarLinks = () => {
           <Link href={"https://armancodes.medium.com/"} target="_blank">
             <IconMedium
               viewBox="0 0 48 48"
-              className="h-7 w-7 transition-all duration-100 ease-in group-hover:[&_path]:fill-primary"
+              className="h-7 w-7 transition-all duration-100 ease-in [&_path]:fill-text-primary group-hover:[&_path]:fill-primary"
             />
             <span className="sr-only">medium profile</span>
           </Link>

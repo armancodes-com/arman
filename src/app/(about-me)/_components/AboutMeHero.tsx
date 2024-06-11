@@ -14,10 +14,10 @@ const AboutMeHeroSection = () => {
         <h1
           className={`text-[2.5rem] font-bold leading-10 text-text-primary ${firaCode.className}`}
         >
-          Arman
+          I'm Arman
         </h1>
         <span className="pt-3 text-body2 text-text-primary">
-          just a quick glimpse
+          Fueling the CPU with code.
         </span>
       </header>
 
