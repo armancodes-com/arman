@@ -25,5 +25,8 @@ jobs:
               sudo git pull origin main
             fi
             cd ${{ secrets.SERVER_APP_PATH }}
-            sudo docker compose down
+             if [ "$(sudo docker ps -q --filter name=${{ vars.APP_CONTAINER_NAME }})" ]; then
+              sudo docker stop ${{ vars.APP_CONTAINER_NAME }}
+              sudo docker rm ${{ vars.APP_CONTAINER_NAME }}
+            fi
             sudo docker compose up -d
