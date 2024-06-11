@@ -19,10 +19,10 @@ jobs:
           key: ${{ secrets.SERVER_PRIVATE_KEY }}
           script: |
             if [ ! -d ${{ secrets.SERVER_APP_PATH }} ]; then
-              git clone https://github.com/${{ github.repository }} ${{ secrets.SERVER_APP_PATH }}
+              sudo git clone https://github.com/${{ github.repository }} ${{ secrets.SERVER_APP_PATH }}
             else
               cd ${{ secrets.SERVER_APP_PATH }}
-              git pull origin main
+              sudo git pull origin main
             fi
             cd ${{ secrets.SERVER_APP_PATH }}
             sudo docker compose down
