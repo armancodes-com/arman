@@ -3,5 +3,7 @@ services:
     container_name: armancodes-nextapp
     image: armancodes-nextapp
     build: .
+    environment:
+      - COMPOSE_PROJECT_NAME
     ports:
       - "3000:3000"
