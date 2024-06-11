@@ -6,35 +6,18 @@ on:
       - stage
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Log in to Docker Hub
-        uses: docker/login-action@v2
+      - name: SSH into server and deploy
+        uses: appleboy/ssh-action@master
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-
-      - name: Build and push Docker image
-        run: |
-          docker-compose -f docker-compose.yml build
-          docker-compose -f docker-compose.yml push
-        working-directory: ${{ github.workspace }}
-
-      - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.5.3
-        with:
-          ssh-private-key: ${{ secrets.SERVER_PRIVATE_KEY }}
-          
-      - name: Deploy application
-        env:
-          SERVER_APP_PATH: ${{ secrets.SERVER_APP_PATH }}
-        run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "cd ${SERVER_APP_PATH} && \
-          git pull && \
-          sudo docker compose pull && \
-          sudo docker compose up -d"
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SERVER_PRIVATE_KEY }}
+          script: |
+            git clone ${{ github.repository_url }} ${{ github.SERVER_APP_PATH }}
+            cd ${{ github.SERVER_APP_PATH }}
+            sudo docker compose down
+            docker compose up -d
