@@ -7,5 +7,5 @@ services:
 
 networks:
   nginx_apps_network:
-    external:
-      name: nginx_apps_network
+    external: true
+    name: nginx_apps_network
