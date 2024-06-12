@@ -1,7 +1,9 @@
 services:
   nextapp:
     container_name: armancodes-com
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     networks:
       - nginx_apps_network
 
