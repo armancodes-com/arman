@@ -18,15 +18,14 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_PRIVATE_KEY }}
           script: |
-            if [ ! -d ${{ secrets.SERVER_APP_PATH }} ]; then
-              sudo git clone https://github.com/${{ github.repository }} ${{ secrets.SERVER_APP_PATH }}
+            if [ ! -d ${{ secrets.SERVER_APP_PATH }}/.git ]; then
+                sudo git clone https://github.com/${{ github.repository }} ${{ secrets.SERVER_APP_PATH }}
             else
-              cd ${{ secrets.SERVER_APP_PATH }}
-              sudo git pull origin main
+                cd ${{ secrets.SERVER_APP_PATH }}
+                sudo git fetch origin main
+                sudo git reset --hard origin/main
             fi
             cd ${{ secrets.SERVER_APP_PATH }}
-             if [ "$(sudo docker ps -q --filter name=${{ vars.APP_CONTAINER_NAME }})" ]; then
-              sudo docker stop ${{ vars.APP_CONTAINER_NAME }}
-              sudo docker rm ${{ vars.APP_CONTAINER_NAME }}
-            fi
+            sudo docker compose down
+            sudo docker compose pull
             sudo docker compose up -d
