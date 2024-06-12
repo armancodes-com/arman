@@ -1,6 +1,7 @@
 services:
   nextapp:
     container_name: armancodes-com
+    restart: unless-stopped
     build:
       context: .
       dockerfile: Dockerfile
