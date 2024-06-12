@@ -1,7 +1,11 @@
 services:
   nextapp:
-    container_name: armancodes-nextapp
-    image: armancodes-nextapp
+    container_name: armancodes-com
     build: .
-    ports:
-      - "3000:3000"
+    networks:
+      - nginx_apps_network
+
+networks:
+  nginx_apps_network:
+    external:
+      name: nginx_apps_network
