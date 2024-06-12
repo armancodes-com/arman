@@ -25,5 +25,5 @@ jobs:
                 sudo git reset --hard origin/main
             fi
             cd ${{ secrets.SERVER_APP_PATH }}
-            sudo docker compose down
+            sudo docker compose down --rmi all
             sudo docker compose up --build -d
