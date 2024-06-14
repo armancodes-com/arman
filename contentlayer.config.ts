@@ -9,6 +9,7 @@ import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
 import rehypePrettyCode from "rehype-pretty-code";
 import textEllipsisFormatter from "./src/utils/text-ellipsis";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 // computing some values from docs
 const getSlug = (doc: any) => doc?._raw.sourceFileName.replace(/\.mdx$/, "");
@@ -86,8 +87,20 @@ export const Article = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: "src/content",
   markdown: {
-    // @ts-ignore
-    rehypePlugins: [rehypePrism, rehypePrettyCode, rehypeSlug], // adding id tag automatically to headings (h1-h6)
+    rehypePlugins: [
+      rehypePrism,
+      // @ts-ignore
+      rehypePrettyCode,
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          properties: {
+            className: ["anchor"],
+          },
+        },
+      ],
+    ], // adding id tag automatically to headings (h1-h6)
     remarkPlugins: [],
   },
   documentTypes: [Article],
@@ -97,6 +110,14 @@ export default makeSource({
       rehypePrettyCode,
       rehypePrism,
       rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          properties: {
+            className: ["anchor"],
+          },
+        },
+      ],
     ],
     remarkPlugins: [],
   },

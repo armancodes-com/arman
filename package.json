@@ -30,6 +30,7 @@
     "plaiceholder": "^3.0.0",
     "react": "^18",
     "react-dom": "^18",
+    "rehype-autolink-headings": "^6.1.1",
     "rehype-clipboard-prep-code": "^1.0.1",
     "rehype-code-titles": "^1.2.0",
     "rehype-pretty-code": "^0.13.2",
