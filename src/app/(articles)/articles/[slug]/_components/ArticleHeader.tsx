@@ -1,6 +1,7 @@
 import IconHeart from "@/assets/icons/HeartIcon";
 import ShareButton from "@/components/ui/ShareButton";
 import { isLikeArticleFeatureReleased } from "@/constants/FeatureFlag.constants";
+import formatPublishedDateHandler from "@/utils/date";
 
 interface IArticleHeaderProps {
   title: string;
@@ -24,13 +25,7 @@ const ArticleHeader: React.FC<IArticleHeaderProps> = ({
               Date
             </span>
             <span className="text-xs font-light md:text-caption2">
-              {new Date(publishedAt)
-                .toLocaleDateString("en-UK", {
-                  day: "2-digit",
-                  month: "short",
-                  year: "numeric",
-                })
-                ?.replace(" ", ", ")}
+              {formatPublishedDateHandler(publishedAt)}
             </span>
           </p>
           <p className="space-x-2 text-text-primary">

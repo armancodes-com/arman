@@ -12,7 +12,11 @@ import textEllipsisFormatter from "./src/utils/text-ellipsis";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 // computing some values from docs
-const getSlug = (doc: any) => doc?._raw.sourceFileName.replace(/\.mdx$/, "");
+const getSlug = (doc: any) =>
+  doc?._raw.sourceFileName
+    .replace(/\.mdx$/, "")
+    .replace("-", " ") // extracting the 1- from the file names
+    .split(" ")[1];
 
 const articleComputedFields: ComputedFields = {
   slug: {
@@ -21,7 +25,8 @@ const articleComputedFields: ComputedFields = {
   },
   image: {
     type: "string",
-    resolve: (doc) => `/articles/${getSlug(doc)}/image.jpg`,
+    resolve: (doc) =>
+      `/articles/${doc?._raw.sourceFileName.replace(/\.mdx$/, "")}/image.jpg`,
   },
   og: {
     type: "string",
