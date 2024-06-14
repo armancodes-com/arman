@@ -14,10 +14,12 @@ interface IArticleItemProps {
 }
 
 const ArticleItem: React.FC<IArticleItemProps> = ({ data }) => {
-  const { title, summary, publishedAt, slug } = data;
+  const { title, summary, publishedAt, slug, isDraft } = data;
 
   return (
-    <article className="flex flex-col gap-y-4 border-b border-border-articles pb-10 md:gap-y-6 md:pb-12">
+    <article
+      className={`flex flex-col gap-y-4 border-b border-border-articles pb-10 md:gap-y-6 md:pb-12 ${isDraft ? "line-through opacity-50" : "opacity-100"}`}
+    >
       <Link
         href={`/articles/${slug}`}
         className="group underline-offset-4 transition-all duration-75 ease-linear hover:text-primary hover:underline"
