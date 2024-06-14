@@ -87,11 +87,11 @@ html {
     position: absolute;
     z-index: -1;
     background: var(--ellipse-gradient);
-    width: 1000px;
-    height: 1000px;
+    width: 900px;
+    height: 900px;
     filter: blur(12rem);
     top: -10rem;
-    left: -5rem;
+    left: 2rem;
   }
 }
 
@@ -106,10 +106,10 @@ html {
 
 @media screen and (min-width: 1350px) {
   .ellipse::before {
-    /* width: 1200px; */
-    /* height: 1200px; */
-    top: -15rem;
-    left: 2rem;
+    width: 900px;
+    height: 900px;
+    top: -5rem;
+    left: 15rem;
   }
 }
 
