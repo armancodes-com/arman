@@ -53,6 +53,11 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   const article = allArticles.find(
     (post: ArticleType) => post.slug === params.slug,
   );
+  const sidebarLinks: { title: string; href: string }[] =
+    article?.sidebarLinks?.map((linkItem: string) => ({
+      title: linkItem,
+      href: linkItem?.toLowerCase()?.split(" ")?.join("-"),
+    }));
 
   return (
     <main className="!px-4 pt-6 md:px-0 md:pt-11">
@@ -92,7 +97,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         </div>
 
         {/* SIDEBAR OF SINGLE ARTICLES */}
-        <SidebarLinks />
+        <SidebarLinks links={sidebarLinks} />
       </section>
 
       {/* TAGS SECTION */}
