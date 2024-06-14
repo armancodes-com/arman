@@ -7,8 +7,6 @@ services:
       dockerfile: docker/production/Dockerfile
     networks:
       - nginx_apps_network
-    ports:
-      - "3000:3000"
 
 networks:
   nginx_apps_network:
