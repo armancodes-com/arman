@@ -24,7 +24,9 @@ const ThemeSwitcher: React.FC<IThemeSwitcherProps> = () => {
   const isLightThemeActive = resolvedTheme === "light";
 
   if (!isMounted) {
-    return null;
+    return (
+      <div className="relative flex h-8 w-8 cursor-pointer items-center gap-2 overflow-hidden"></div>
+    );
   }
 
   return (
