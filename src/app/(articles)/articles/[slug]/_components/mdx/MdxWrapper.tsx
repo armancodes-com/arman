@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useMDXComponent } from "next-contentlayer/hooks";
 import ArticleImage from "../ArticleImage";
 import Link from "next/link";
 import { Alexandria } from "next/font/google";
+import CustomHeading from "./CustomHeading";
 
 const alexandria = Alexandria({
   subsets: ["latin"],
@@ -41,18 +43,40 @@ const CustomLink: React.FC<CustomLinkProps> = (props) => {
   );
 };
 
-// const FigCaption = (props) => {
-//   console.log(props, "props");
-
-//   return <figcaption>{props?.children}</figcaption>;
-// };
-
 const components = {
   Image: ArticleImage,
   a: CustomLink,
   Link: CustomLink,
-  // figcation: (props) => <FigCaption {...props}>{props?.children}</FigCaption>,
-  // div: (props) => <FigCaption {...props}>{props?.children}</FigCaption>,
+  h1: (props: any) => (
+    <CustomHeading as="h1" {...props}>
+      {props?.children}
+    </CustomHeading>
+  ),
+  h2: (props: any) => (
+    <CustomHeading as="h2" {...props}>
+      {props?.children}
+    </CustomHeading>
+  ),
+  h3: (props: any) => (
+    <CustomHeading as="h3" {...props}>
+      {props?.children}
+    </CustomHeading>
+  ),
+  h4: (props: any) => (
+    <CustomHeading as="h4" {...props}>
+      {props?.children}
+    </CustomHeading>
+  ),
+  h5: (props: any) => (
+    <CustomHeading as="h5" {...props}>
+      {props?.children}
+    </CustomHeading>
+  ),
+  h6: (props: any) => (
+    <CustomHeading as="h6" {...props}>
+      {props?.children}
+    </CustomHeading>
+  ),
 };
 
 const MdxWrapper = ({ code }: { code: string }) => {
