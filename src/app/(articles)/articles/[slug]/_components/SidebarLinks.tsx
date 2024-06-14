@@ -1,10 +1,10 @@
-const SidebarLink = () => {
-  return (
-    <li className="text-caption2 leading-9 text-text-primary">How It Works</li>
-  );
-};
+import SidebarLink from "./SidebarLink";
 
-const SidebarLinks = () => {
+interface ISidebarLinksProps {
+  links: { title: string; href: string }[];
+}
+
+const SidebarLinks: React.FC<ISidebarLinksProps> = ({ links }) => {
   return (
     <aside className="relative hidden w-full max-w-[172px] sm:block">
       <div className="sticky top-20 space-y-3">
@@ -12,13 +12,9 @@ const SidebarLinks = () => {
           <h3 className="text-body2 leading-9 text-primary">On this blog</h3>
         </header>
         <ul className="pt-1">
-          <SidebarLink />
-          <li className="text-caption2 leading-9 text-text-link">
-            Why Is This a Big Deal?
-          </li>
-          <li className="text-caption2 leading-9 text-text-link">
-            Install Pretty Code
-          </li>
+          {links?.map((link) => (
+            <SidebarLink href={`#${link?.href}`}>{link?.title}</SidebarLink>
+          ))}
         </ul>
       </div>
     </aside>
