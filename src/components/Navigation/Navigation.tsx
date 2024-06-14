@@ -8,6 +8,7 @@ import ThemeSwitcher from "../ThemeSwitcher";
 import { logoDark, logoWhite } from "@/constants";
 import { NAVIGATION_LINKS } from "@/constants/Navigation.constants";
 import Link from "next/link";
+import { isSearchSystemReleased } from "@/constants/FeatureFlag.constants";
 
 const Navigation = () => {
   const { resolvedTheme } = useTheme();
@@ -31,14 +32,16 @@ const Navigation = () => {
         <NavList links={NAVIGATION_LINKS} />
 
         <div className="flex items-center gap-x-12 sm:order-2">
-          <Link href={"/search"} className="cursor-pointer">
-            <SearchIcon
-              viewBox="0 0 24 24"
-              className={`h-6 w-6 cursor-pointer [&_path]:stroke-text-primary`}
-              aria-hidden="true"
-            />
-            <span className="sr-only">search</span>
-          </Link>
+          {isSearchSystemReleased && (
+            <Link href={"/search"} className="cursor-pointer">
+              <SearchIcon
+                viewBox="0 0 24 24"
+                className={`h-6 w-6 cursor-pointer [&_path]:stroke-text-primary`}
+                aria-hidden="true"
+              />
+              <span className="sr-only">search</span>
+            </Link>
+          )}
           <ThemeSwitcher />
         </div>
       </nav>
