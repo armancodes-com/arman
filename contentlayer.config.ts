@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   ComputedFields,
@@ -51,12 +52,18 @@ export const Article = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: "src/content",
   markdown: {
+    // @ts-ignore
     rehypePlugins: [rehypePrism, rehypePrettyCode, rehypeSlug], // adding id tag automatically to headings (h1-h6)
     remarkPlugins: [],
   },
   documentTypes: [Article],
   mdx: {
-    rehypePlugins: [rehypePrettyCode, rehypePrism, rehypeSlug],
+    rehypePlugins: [
+      // @ts-ignore
+      rehypePrettyCode,
+      rehypePrism,
+      rehypeSlug,
+    ],
     remarkPlugins: [],
   },
 });
