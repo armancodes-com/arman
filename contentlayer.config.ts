@@ -78,6 +78,7 @@ export const Article = defineDocumentType(() => ({
     twitterImage: { type: "string", required: false, default: "" },
     author: { type: "string", required: true, default: "" },
     keywords: { type: "json", required: false },
+    isDraft: { type: "boolean", required: false, default: true },
   },
   computedFields: articleComputedFields,
 }));
