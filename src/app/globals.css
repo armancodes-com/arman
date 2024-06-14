@@ -130,8 +130,9 @@ html {
   @apply whitespace-pre-line rounded  p-1 font-normal text-text-primary;
 }
 
+pre,
 pre[data-theme="github-dark-dimmed"] {
-  @apply rounded-md border border-[var(--gray-3)] bg-[#ffffff] text-[13px] text-xs leading-6 text-text-primary dark:bg-[#262626];
+  @apply rounded-md border border-[var(--gray-3)] !bg-[#ffffff] text-[13px] text-xs leading-6 text-text-primary dark:!bg-[#262626];
 }
 
 div[data-rehype-pretty-code-title] + pre,
@@ -144,7 +145,7 @@ div[data-rehype-pretty-code-title] {
 }
 
 figcaption[data-rehype-pretty-code-title] {
-  @apply m-0 block !w-full rounded-md rounded-bl-none rounded-br-none border border-[var(--gray-3)] bg-[#ffffff] px-6 py-3 text-[13px] text-xs leading-5 text-text-primary dark:bg-[#262626];
+  @apply m-0 block w-full max-w-[37rem] rounded-md rounded-bl-none rounded-br-none border border-[var(--gray-3)] bg-[#ffffff] px-6 py-3 text-[13px] text-xs leading-5 text-text-primary dark:bg-[#262626];
 }
 
 div[data-rehype-pretty-code-fragment] {
