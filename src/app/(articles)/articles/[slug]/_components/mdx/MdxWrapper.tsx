@@ -41,10 +41,18 @@ const CustomLink: React.FC<CustomLinkProps> = (props) => {
   );
 };
 
+// const FigCaption = (props) => {
+//   console.log(props, "props");
+
+//   return <figcaption>{props?.children}</figcaption>;
+// };
+
 const components = {
   Image: ArticleImage,
   a: CustomLink,
   Link: CustomLink,
+  // figcation: (props) => <FigCaption {...props}>{props?.children}</FigCaption>,
+  // div: (props) => <FigCaption {...props}>{props?.children}</FigCaption>,
 };
 
 const MdxWrapper = ({ code }: { code: string }) => {

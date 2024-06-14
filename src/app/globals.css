@@ -130,9 +130,40 @@ html {
   @apply whitespace-pre-line rounded  p-1 font-normal text-text-primary;
 }
 
-/* syntax highlighting */
-pre[class*="language-"] {
-  @apply rounded-md border border-[var(--gray-3)] bg-[#ffffff] text-[13px] text-xs leading-5 text-text-primary dark:bg-[#0a0a0a];
+pre,
+pre[data-theme="github-dark-dimmed"] {
+  @apply rounded-md border border-[var(--gray-3)] !bg-[#ffffff] text-[13px] text-xs leading-6 text-text-primary dark:!bg-[#262626];
+}
+
+div[data-rehype-pretty-code-title] + pre,
+figcaption[data-rehype-pretty-code-title] + pre {
+  @apply mt-0 rounded-tl-none rounded-tr-none border-t-0;
+}
+
+div[data-rehype-pretty-code-title] {
+  @apply max-w-none rounded-md rounded-bl-none rounded-br-none border border-[var(--gray-3)] bg-[#ffffff] px-6 py-3 text-[13px] text-xs leading-5 text-text-primary dark:bg-[#262626];
+}
+
+figcaption[data-rehype-pretty-code-title] {
+  @apply m-0 block w-full max-w-[37rem] rounded-md rounded-bl-none rounded-br-none border border-[var(--gray-3)] bg-[#ffffff] px-6 py-3 text-[13px] text-xs leading-5 text-text-primary dark:bg-[#262626];
+}
+
+div[data-rehype-pretty-code-fragment] {
+  overflow: hidden;
+
+  /* stylist preferences */
+  background-color: rgb(248, 17, 17);
+  border-radius: 0.5rem;
+}
+
+div[data-rehype-pretty-code-fragment] pre {
+  overflow-x: auto;
+
+  /* stylist preferences */
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
 }
 
 .code-highlight {
@@ -148,26 +179,20 @@ pre[class*="language-"] {
   margin-right: -16px;
 }
 
-.code-line.inserted {
-  background-color: #9c8aae; /* Set inserted line (+) color */
-}
-
-.code-line.deleted {
-  background-color: #ef444433; /* Set deleted line (-) color */
+.highlight-line {
+  margin-left: -28px;
+  margin-right: -24px;
+  padding-left: 25px;
+  background-color: #008ff54f; /* Set highlight bg color */
+  border-left: 3px solid #3b9eff; /* Set highlight accent border color */
 }
 
 :root[class="dark"] {
   .highlight-line {
-    background-color: #0077ff3a;
-    border-left: 2px solid #3b9eff;
+    background-color: transparent;
+    border-left: none;
+    padding-left: 28px;
   }
-}
-.highlight-line {
-  margin-left: -24px;
-  margin-right: -24px;
-  padding-left: 22px;
-  background-color: #008ff519; /* Set highlight bg color */
-  border-left: 2px solid #3b9eff; /* Set highlight accent border color */
 }
 
 .line-number::before {
