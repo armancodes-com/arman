@@ -1,3 +1,4 @@
+import formatPublishedDateHandler from "@/utils/date";
 import { Article as ArticleType } from "contentlayer/generated";
 
 import { Alexandria } from "next/font/google";
@@ -46,13 +47,7 @@ const ArticleItem: React.FC<IArticleItemProps> = ({ data }) => {
             Date
           </span>
           <span className="text-xs font-light md:text-caption2">
-            {new Date(publishedAt)
-              .toLocaleDateString("en-UK", {
-                day: "2-digit",
-                month: "short",
-                year: "numeric",
-              })
-              ?.replace(" ", ", ")}
+            {formatPublishedDateHandler(publishedAt)}
           </span>
         </p>
         <p className="space-x-2 text-text-primary">
