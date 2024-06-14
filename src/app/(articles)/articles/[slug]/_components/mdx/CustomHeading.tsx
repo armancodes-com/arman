@@ -68,6 +68,7 @@ const CustomHeading: React.FC<ICustomHeadingProps> = ({
           className={headingClass}
           onClick={copyToClipboard}
           onKeyDown={copyToClipboard}
+          id={id}
         >
           {children}
         </h1>
@@ -82,6 +83,7 @@ const CustomHeading: React.FC<ICustomHeadingProps> = ({
           className={headingClass}
           onClick={copyToClipboard}
           onKeyDown={copyToClipboard}
+          id={id}
         >
           {children}
         </h2>
@@ -96,6 +98,7 @@ const CustomHeading: React.FC<ICustomHeadingProps> = ({
           className={headingClass}
           onClick={copyToClipboard}
           onKeyDown={copyToClipboard}
+          id={id}
         >
           {children}
         </h3>
@@ -110,6 +113,7 @@ const CustomHeading: React.FC<ICustomHeadingProps> = ({
           className={headingClass}
           onClick={copyToClipboard}
           onKeyDown={copyToClipboard}
+          id={id}
         >
           {children}
         </h4>
@@ -124,6 +128,7 @@ const CustomHeading: React.FC<ICustomHeadingProps> = ({
           className={headingClass}
           onClick={copyToClipboard}
           onKeyDown={copyToClipboard}
+          id={id}
         >
           {children}
         </h5>
@@ -138,6 +143,7 @@ const CustomHeading: React.FC<ICustomHeadingProps> = ({
           className={headingClass}
           onClick={copyToClipboard}
           onKeyDown={copyToClipboard}
+          id={id}
         >
           {children}
         </h6>
