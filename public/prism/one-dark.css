@@ -68,7 +68,8 @@
 }
 
 code[class*="language-"],
-pre[class*="language-"] {
+pre[class*="language-"],
+.rehype-code-title {
   /* color: var(--syntax-fg); */
   /* text-shadow: 0 1px rgba(0, 0, 0, 0.3); */
   font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono",

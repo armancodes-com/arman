@@ -131,8 +131,18 @@ html {
 }
 
 /* syntax highlighting */
-pre[class*="language-"] {
-  @apply rounded-md border border-[var(--gray-3)] bg-[#ffffff] text-[13px] text-xs leading-5 text-text-primary dark:bg-[#0a0a0a];
+pre[class*="language-"],
+.rehype-code-title {
+  @apply rounded-md border border-[var(--gray-3)] bg-[#ffffff] text-[13px] text-xs leading-5 text-text-primary dark:bg-[#262626];
+}
+
+.rehype-code-title + pre[class*="language-"] {
+  @apply mt-0 rounded-tl-none rounded-tr-none border-t-0;
+}
+
+/* title of code snippets */
+.rehype-code-title {
+  @apply rounded-bl-none rounded-br-none px-6 py-3;
 }
 
 .code-highlight {
@@ -156,18 +166,20 @@ pre[class*="language-"] {
   background-color: #ef444433; /* Set deleted line (-) color */
 }
 
-:root[class="dark"] {
-  .highlight-line {
-    background-color: #0077ff3a;
-    border-left: 2px solid #3b9eff;
-  }
-}
 .highlight-line {
   margin-left: -24px;
   margin-right: -24px;
   padding-left: 22px;
   background-color: #008ff519; /* Set highlight bg color */
   border-left: 2px solid #3b9eff; /* Set highlight accent border color */
+}
+
+:root[class="dark"] {
+  .highlight-line {
+    background-color: transparent;
+    border-left: none;
+    padding-left: 24px;
+  }
 }
 
 .line-number::before {

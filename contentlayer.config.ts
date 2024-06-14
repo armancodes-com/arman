@@ -6,6 +6,7 @@ import {
 } from "contentlayer/source-files";
 import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
+import rehypeCodeTitles from "rehype-code-titles";
 
 // computing some values from docs
 const getSlug = (doc: any) => doc?._raw.sourceFileName.replace(/\.mdx$/, "");
@@ -51,9 +52,11 @@ export default makeSource({
   contentDirPath: "src/content",
   markdown: {
     rehypePlugins: [rehypeSlug], // adding id tag automatically to headings (h1-h6)
+    remarkPlugins: [],
   },
   documentTypes: [Article],
   mdx: {
-    rehypePlugins: [rehypePrism, rehypeSlug],
+    rehypePlugins: [rehypeCodeTitles, rehypePrism, rehypeSlug],
+    remarkPlugins: [],
   },
 });
