@@ -6,14 +6,14 @@ import Script from "next/script";
 import { Ubuntu } from "next/font/google";
 import type { Metadata } from "next";
 
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import NextTopLoader from "nextjs-toploader";
 
 import ThemeProvider from "@/components/ThemeProvider";
 import Navigation from "@/components/Navigation/Navigation";
 import ToolbarLinks from "@/components/Navigation/ToolbarLinks";
 import Footer from "@/components/ui/Footer";
+import GoogleAnalytics from "@/services/GoogleAnalytics";
+import { IS_PRODUCTION } from "@/constants";
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi",
@@ -40,8 +40,9 @@ export default async function RootLayout({
         strategy="afterInteractive"
         nonce={nonce!}
       />
-      <Analytics />
-      <SpeedInsights />
+
+      {IS_PRODUCTION && <GoogleAnalytics />}
+
       <body className={`${ubuntu.className} bg-bgColor`}>
         <NextTopLoader
           color="#7127ba"
