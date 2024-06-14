@@ -1,15 +1,13 @@
-name: Deploy
+name: Deploy Staging
 
 on:
   push:
     branches:
-      - main
+      - staging
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    env:
-      NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID: ${{ secrets.GOOGLE_ANALYTICS_MEASUREMENT_ID }}
 
     steps:
       - name: SSH into server and deploy
@@ -23,10 +21,11 @@ jobs:
                 sudo git clone https://github.com/${{ github.repository }} ${{ secrets.SERVER_APP_PATH }}
             else
                 cd ${{ secrets.SERVER_APP_PATH }}
-                sudo git fetch origin main
-                sudo git reset --hard origin/main
+                sudo git fetch origin staging
+                sudo git checkout staging
+                sudo git reset --hard origin/staging
             fi
             cd ${{ secrets.SERVER_APP_PATH }}
-            sudo make stop-production
-            sudo make build-production
-            sudo make start-production
+            sudo make stop-staging
+            sudo make build-staging
+            sudo make start-staging

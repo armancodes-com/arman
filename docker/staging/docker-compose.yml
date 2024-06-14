@@ -1,10 +1,10 @@
 services:
-  nextapp:
-    container_name: armancodes-com
+  nextapp-staging:
+    container_name: armancodes-com-staging
     restart: unless-stopped
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ../../
+      dockerfile: docker/staging/Dockerfile
     networks:
       - nginx_apps_network
 
