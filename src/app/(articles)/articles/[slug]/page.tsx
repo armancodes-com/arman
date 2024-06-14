@@ -1,14 +1,53 @@
+import { Metadata } from "next";
+import Image from "next/image";
+import { URL } from "url";
+
 import { allArticles, Article as ArticleType } from "contentlayer/generated";
 
 import BackLink from "@/components/ui/BackLink";
 import Newsletter from "@/components/ui/Newsletter";
-
 import TagsList from "./_components/TagsList";
 import SidebarLinks from "./_components/SidebarLinks";
 import ArticleHeader from "./_components/ArticleHeader";
 import ArticleSeries from "./_components/ArticleSeries";
 import MdxWrapper from "./_components/mdx/MdxWrapper";
-import Image from "next/image";
+
+type Props = {
+  params: { slug: string };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  // read route params
+  const slug = params.slug;
+
+  // finding article data
+  const articleData = allArticles?.find((article) => article.slug === slug);
+
+  return {
+    metadataBase: articleData?.baseUrl as unknown as URL,
+    title: articleData?.title,
+    description: articleData?.metaDescription,
+    authors: { name: articleData?.author },
+    keywords: articleData?.keywords,
+    openGraph: {
+      images: [articleData?.ogImage as string],
+      type: "website",
+      description: articleData?.ogDescription,
+      title: articleData?.ogTitle,
+      url: articleData?.ogUrl,
+    },
+    alternates: {
+      canonical: articleData?.canonical,
+    },
+    twitter: {
+      card: "summary_large_image",
+      creator: articleData?.author,
+      description: articleData?.twitterDescription,
+      title: articleData?.twitterTitle,
+      images: articleData?.twitterImage,
+    },
+  };
+}
 
 const Page = async ({ params }: { params: { slug: string } }) => {
   const article = allArticles.find(

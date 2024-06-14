@@ -46,10 +46,6 @@ const articleComputedFields: ComputedFields = {
     type: "string",
     resolve: (doc) => `${textEllipsisFormatter(doc?.summary, 130)}`,
   },
-  twitterCard: {
-    type: "string",
-    resolve: (doc) => `${textEllipsisFormatter(doc?.summary, 130)}`,
-  },
 };
 
 export const Article = defineDocumentType(() => ({
@@ -58,6 +54,11 @@ export const Article = defineDocumentType(() => ({
   // Location of Post source files (relative to `contentDirPath`)
   filePathPattern: `articles/*.mdx`,
   fields: {
+    baseUrl: {
+      type: "string",
+      required: false,
+      default: "https://armancodes.com/",
+    },
     title: { type: "string", required: true },
     summary: { type: "string", required: true },
     publishedAt: { type: "string", required: true },
@@ -75,6 +76,8 @@ export const Article = defineDocumentType(() => ({
     twitterTitle: { type: "string", required: false, default: "" },
     twitterUrl: { type: "string", required: false, default: "" },
     twitterImage: { type: "string", required: false, default: "" },
+    author: { type: "string", required: true, default: "" },
+    keywords: { type: "json", required: false },
   },
   computedFields: articleComputedFields,
 }));
