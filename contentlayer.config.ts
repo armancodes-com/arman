@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   ComputedFields,
@@ -6,6 +7,7 @@ import {
 } from "contentlayer/source-files";
 import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
+import rehypePrettyCode from "rehype-pretty-code";
 
 // computing some values from docs
 const getSlug = (doc: any) => doc?._raw.sourceFileName.replace(/\.mdx$/, "");
@@ -50,10 +52,18 @@ export const Article = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: "src/content",
   markdown: {
-    rehypePlugins: [rehypeSlug], // adding id tag automatically to headings (h1-h6)
+    // @ts-ignore
+    rehypePlugins: [rehypePrism, rehypePrettyCode, rehypeSlug], // adding id tag automatically to headings (h1-h6)
+    remarkPlugins: [],
   },
   documentTypes: [Article],
   mdx: {
-    rehypePlugins: [rehypePrism, rehypeSlug],
+    rehypePlugins: [
+      // @ts-ignore
+      rehypePrettyCode,
+      rehypePrism,
+      rehypeSlug,
+    ],
+    remarkPlugins: [],
   },
 });

@@ -31,7 +31,7 @@ In a nutshell, we will be able to add behaviors to an object, dynamically, witho
 
 Suppose we have a swimming pool and it has an online site for selling tickets. Putting the entrance ticket aside, we have several services (Massage, VIP area, etc.) that the customer **may or may not want.**
 
-```php showLineNumbers {8} title="fileName.php" caption="caption here"
+```php title="sample-file.php" showLineNumbers {1-3} caption="this is caption"
 class EntranceTicket
 {
     public function getCost()
@@ -45,7 +45,7 @@ echo (new EntranceTicket())->getCost();
 
 Now our customer wants to relax, so he/she needs to buy the massage service.
 
-```php
+```php title="service.php" showLineNumbers
 class EntranceTicketAndVIPArea
 {
     public function getCost()
@@ -59,7 +59,7 @@ echo (new EntranceTicketAndVIPArea())->getCost();
 
 You might say, “Everything is working perfectly” well you are right but take a look at this:
 
-```php
+```php title="multiply.php" showLineNumbers
 class EntranceTicketAndVIPAreaAndMassage
 {
     public function getCost()
@@ -96,7 +96,7 @@ interface SwimmingPool
 
 As we said earlier, we have a basic plan for our swimming pool, which is the entrance ticket, so everyone needs to buy this ticket to be able to purchase other services. Here is our entrance ticket class:
 
-```php
+```php showLineNumbers {5}
 class EntranceTicket implements SwimmingPool
 {
     public function getCost()
