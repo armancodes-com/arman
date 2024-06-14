@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function useHash() {
-  const [hash, setHash] = useState(window.location.hash);
+  const [hash, setHash] = useState("");
 
   useEffect(() => {
     const onHashChange = () => {
