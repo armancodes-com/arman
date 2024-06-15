@@ -39,6 +39,7 @@ const HomeHeroSection = () => {
           width={1000}
           height={1000}
           priority
+          decoding="async"
           className="h-full w-full object-cover object-center"
           quality={100}
           sizes="(min-width: 1024px) 32rem, 20rem"
