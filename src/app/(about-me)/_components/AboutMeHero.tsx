@@ -5,6 +5,7 @@ import Image from "next/image";
 const firaCode = Fira_Code({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700", "600"],
+  preload: true,
 });
 
 const AboutMeHeroSection = () => {
