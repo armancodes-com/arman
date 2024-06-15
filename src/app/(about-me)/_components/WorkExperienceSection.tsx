@@ -7,10 +7,7 @@ const WorkExperienceSection = () => {
     <Section type="common">
       <SectionHeader
         title="work"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas
-        purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris
-        rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed"
+        description="With over 4 years as a backend engineer, I specialize in backend services, microservices architecture, and comprehensive backend development strategies. Skilled in API design, database optimization, and meticulous documentation. Committed to delivering scalable solutions and staying updated with industry trends."
       />
 
       <WorkExperienceList />
