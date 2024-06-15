@@ -18,7 +18,7 @@ const AboutMeHeroSection = () => {
           I'm Arman
         </h1>
         <span className="pt-3 text-body2 text-text-primary">
-          Fueling the CPU with code.
+          From Backend Engineering to Personal Pursuits
         </span>
       </header>
 
@@ -34,7 +34,6 @@ const AboutMeHeroSection = () => {
               decoding="async"
               sizes="(min-width: 1024px) 32rem, 20rem"
               quality={100}
-
               className="h-full w-full object-cover object-top"
             />
           </figure>
@@ -80,14 +79,12 @@ const AboutMeHeroSection = () => {
         </div>
 
         <p className="text-body2 leading-6 text-text-primary md:text-body1">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas
-          purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris
-          rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed
-          euismod nisi porta lorem mollis. Morbi tristique senectus et netus.
-          Mattis pellentesque id nibh tortor id aliquet lectus proin. Sapien
-          faucibus et molestie ac feugiat sed lectus vestibulum. Ullamcorper
-          velit sed ullamcorper morbi tincidunt ornare massa eget.
+          Hi, I'm Arman! I'm based in the Netherlands and work as a backend
+          engineer at Onefit/Urban Sports Club. Beyond coding, I really enjoy
+          exploring a variety of topics and writing about things that pique my
+          interest, whether they're related to technology or beyond. In my free
+          time, you'll often find me playing tennis, cycling on my XC bike,
+          hitting the gym, and diving into technical books.
         </p>
       </div>
     </section>

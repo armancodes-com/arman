@@ -24,11 +24,10 @@ const HomeHeroSection = () => {
         </div>
 
         <p className="text-body2 text-text-primary md:text-body1">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas
-          purus viverra accumsan Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Egestas purus viverra accumsan sample text
+          Hey there! This is where I share my journey through software
+          engineering, personal anecdotes, and articles covering a wide range of
+          topics. Dive into tech trends, conquer coding challenges, and discover
+          more about life beyond the screen.
         </p>
       </article>
 
