@@ -28,10 +28,12 @@ const AboutMeHeroSection = () => {
             <Image
               src={heroImage}
               alt="hero image"
+              width={1000}
+              height={1000}
               priority
-              fill
               decoding="async"
-              quality={70}
+              sizes="(min-width: 1024px) 32rem, 20rem"
+              quality={100}
               className="h-full w-full object-cover object-top"
             />
           </figure>
@@ -39,9 +41,12 @@ const AboutMeHeroSection = () => {
             <Image
               src={armanFirstImage}
               alt="hero image"
+              width={1000}
+              height={1000}
               priority
-              quality={70}
-              fill
+              decoding="async"
+              sizes="(min-width: 1024px) 32rem, 20rem"
+              quality={100}
               className="h-full w-full object-cover object-center"
             />
           </figure>
@@ -49,9 +54,12 @@ const AboutMeHeroSection = () => {
             <Image
               src={armanSecondImage}
               alt="hero image"
+              width={1000}
+              height={1000}
               priority
-              quality={70}
-              fill
+              decoding="async"
+              sizes="(min-width: 1024px) 32rem, 20rem"
+              quality={100}
               className="h-full w-full object-cover object-center"
             />
           </figure>
@@ -59,9 +67,12 @@ const AboutMeHeroSection = () => {
             <Image
               src={heroImage}
               alt="hero image"
+              width={1000}
+              height={1000}
               priority
-              quality={70}
-              fill
+              decoding="async"
+              sizes="(min-width: 1024px) 32rem, 20rem"
+              quality={100}
               className="h-full w-full object-cover object-center"
             />
           </figure>
