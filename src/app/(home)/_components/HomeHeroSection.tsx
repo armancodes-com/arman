@@ -32,14 +32,17 @@ const HomeHeroSection = () => {
         </p>
       </article>
 
-      <figure className="block h-[320px] w-[250px] rotate-6 overflow-hidden rounded-20 shadow-heroImage2 transition-all duration-100 ease-linear hover:-rotate-2 sm:h-[370px] sm:w-[330px] md:order-2 md:h-[400px] md:w-[360px]">
+      <figure className="block rotate-6 overflow-hidden rounded-20 shadow-heroImage2 transition-all duration-100 ease-linear hover:-rotate-2 sm:h-[370px] sm:w-[330px] md:order-2 ">
         <Image
           src={heroImage}
           alt="hero image"
-          fill
+          width={1000}
+          height={1000}
           priority
+          decoding="async"
           className="h-full w-full object-cover object-center"
-          quality={70}
+          quality={100}
+          sizes="(min-width: 1024px) 32rem, 20rem"
         />
       </figure>
     </section>
