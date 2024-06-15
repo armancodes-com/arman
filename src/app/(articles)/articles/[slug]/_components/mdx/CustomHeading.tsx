@@ -27,10 +27,10 @@ const CustomHeadingWrapper: React.FC<{
 
       {tooltip && (
         <div
-          className={`absolute -left-[5.5rem] top-[120%] z-20 whitespace-nowrap rounded-5 bg-gray-2 p-2 text-caption2 font-light text-white ${alexandria.className}`}
+          className={`absolute -left-12 top-[120%] z-20 hidden whitespace-nowrap rounded-5 bg-gray-2 p-2 text-caption2 font-light text-white md:block ${alexandria.className}`}
         >
-          copied to clipboard
-          <div className="absolute bottom-full left-1/2 -ml-1 rotate-180 !border-[5px] border-t border-transparent border-t-gray-2"></div>
+          copied
+          <div className="absolute bottom-full left-8 -ml-1 rotate-180 !border-[5px] border-t border-transparent border-t-gray-2"></div>
         </div>
       )}
     </div>
@@ -45,7 +45,7 @@ const CustomHeading: React.FC<ICustomHeadingProps> = ({
   const [tooltip, showTooltip] = useState(false);
   const url = usePathname();
 
-  const headingClass = `relative before:invisible before:absolute before:-left-6 before:cursor-pointer before:text-gray-2 before:opacity-0 before:transition-all before:duration-200 before:ease-linear before:content-['#'] hover:before:visible hover:before:opacity-100`;
+  const headingClass = `relative before:invisible md:before:block before:hidden before:absolute before:-left-6 before:cursor-pointer before:text-gray-2 before:opacity-0 before:transition-all before:duration-200 before:ease-linear before:content-['#'] hover:before:visible hover:before:opacity-100`;
 
   const baseUrlSection =
     typeof window !== "undefined" &&
