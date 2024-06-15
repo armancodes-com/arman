@@ -30,14 +30,16 @@ const ArticleHeader: React.FC<IArticleHeaderProps> = ({
               {formatPublishedDateHandler(publishedAt)}
             </span>
           </p>
-          <p className="space-x-2 text-text-primary">
-            <span className="text-xs font-bold tracking-wide md:text-caption2">
-              Read
-            </span>
-            <span className="text-xs font-light md:text-caption2">
-              {`${readTime} ${readTime > 1 ? "Mins" : "Min"}`}
-            </span>
-          </p>
+          {readTime && readTime !== 0 && (
+            <p className="space-x-2 text-text-primary">
+              <span className="text-xs font-bold tracking-wide md:text-caption2">
+                Read
+              </span>
+              <span className="text-xs font-light md:text-caption2">
+                {`${readTime} ${readTime > 1 ? "Mins" : "Min"}`}
+              </span>
+            </p>
+          )}
         </div>
 
         <div className="flex items-center gap-9">
