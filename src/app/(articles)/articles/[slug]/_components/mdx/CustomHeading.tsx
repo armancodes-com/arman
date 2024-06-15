@@ -45,7 +45,7 @@ const CustomHeading: React.FC<ICustomHeadingProps> = ({
   const [tooltip, showTooltip] = useState(false);
   const url = usePathname();
 
-  const headingClass = `relative before:invisible md:before:block before:hidden before:absolute before:-left-6 before:cursor-pointer before:text-gray-2 before:opacity-0 before:transition-all before:duration-200 before:ease-linear before:content-['#'] hover:before:visible hover:before:opacity-100`;
+  const headingClass = `relative before:invisible md:before:block before:hidden before:absolute before:-left-6 before:cursor-pointer before:text-gray-2 before:opacity-0 before:transition-all before:duration-200 before:ease-linear before:content-['#'] hover:before:visible hover:before:opacity-100 scroll-mt-9 md:scroll-mt-25`;
 
   const baseUrlSection =
     typeof window !== "undefined" &&
@@ -95,7 +95,7 @@ const CustomHeading: React.FC<ICustomHeadingProps> = ({
     return (
       <CustomHeadingWrapper tooltip={tooltip}>
         <h3
-          className={headingClass}
+          className={`${headingClass}`}
           onClick={copyToClipboard}
           onKeyDown={copyToClipboard}
           id={id}
