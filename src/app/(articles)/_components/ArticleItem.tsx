@@ -1,4 +1,5 @@
 import formatPublishedDateHandler from "@/utils/date";
+import textEllipsisFormatter from "@/utils/text-ellipsis";
 import { Article as ArticleType } from "contentlayer/generated";
 
 import { Alexandria } from "next/font/google";
@@ -30,7 +31,7 @@ const ArticleItem: React.FC<IArticleItemProps> = ({ data }) => {
         </h3>
       </Link>
       <p className="text-body2 font-light leading-6 text-text-primary">
-        {summary}…
+        {textEllipsisFormatter(summary, 130)}
       </p>
 
       <Link
