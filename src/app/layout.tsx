@@ -35,6 +35,20 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className="light">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (localStorage.theme === 'dark' || ((!('theme' in localStorage) || localStorage.theme === 'system') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                  document.querySelector('meta[name="theme-color"]').setAttribute('content', '#282c33')
+                }
+              } catch (_) {}
+            `,
+          }}
+        />
+      </head>
+
       <Script
         src="https://www.googletagmanager.com/gtag/js"
         strategy="afterInteractive"
