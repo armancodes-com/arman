@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.37.1",
-    "@tanstack/react-query-devtools": "^5.37.1",
+    "@tanstack/react-query-devtools": "^5.45.0",
     "axios": "^1.7.1",
     "contentlayer": "^0.3.4",
     "next": "14.2.3",
