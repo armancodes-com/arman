@@ -7,7 +7,7 @@ interface INavListProps {
 
 const NavList: React.FC<INavListProps> = ({ links }) => {
   return (
-    <ul className="order-2 flex w-full items-center justify-center gap-x-11 px-13 py-5 sm:w-max sm:p-0 md:py-6">
+    <ul className="order-2 flex w-full items-center justify-center gap-x-11 py-5 sm:w-max sm:p-0 md:py-6 lg:px-13">
       {links.map((link) => (
         <li key={link.id}>
           <NavLink href={link.href}>{link.title}</NavLink>
