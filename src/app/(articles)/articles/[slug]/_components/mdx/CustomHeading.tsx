@@ -27,10 +27,10 @@ const CustomHeadingWrapper: React.FC<{
 
       {tooltip && (
         <div
-          className={`absolute -left-12 top-[120%] z-20 hidden whitespace-nowrap rounded-5 bg-gray-2 p-2 text-caption2 font-light text-white md:block ${alexandria.className}`}
+          className={`absolute -left-3 top-[120%] z-20 block whitespace-nowrap rounded-5 bg-gray-2 p-2 text-caption2 font-light text-white md:-left-12 ${alexandria.className}`}
         >
           copied
-          <div className="absolute bottom-full left-8 -ml-1 rotate-180 !border-[5px] border-t border-transparent border-t-gray-2"></div>
+          <div className="absolute bottom-full left-3 -ml-1 rotate-180 !border-[5px] border-t border-transparent border-t-gray-2 md:left-8"></div>
         </div>
       )}
     </div>
@@ -46,6 +46,7 @@ const CustomHeading: React.FC<ICustomHeadingProps> = ({
   const url = usePathname();
 
   const headingClass = `relative before:invisible md:before:block before:hidden before:absolute before:-left-6 before:cursor-pointer before:text-gray-2 before:opacity-0 before:transition-all before:duration-200 before:ease-linear before:content-['#'] mt-0 md:mt-3 hover:before:visible hover:before:opacity-100 scroll-mt-9 md:scroll-mt-25`;
+
 
   const baseUrlSection =
     typeof window !== "undefined" &&
