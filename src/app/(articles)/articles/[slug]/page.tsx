@@ -11,6 +11,7 @@ import SidebarLinks from "./_components/SidebarLinks";
 import ArticleHeader from "./_components/ArticleHeader";
 import ArticleSeries from "./_components/ArticleSeries";
 import MdxWrapper from "./_components/mdx/MdxWrapper";
+import readingTime from "@/utils/reading-time";
 
 type Props = {
   params: { slug: string };
@@ -59,6 +60,8 @@ const Page = async ({ params }: { params: { slug: string } }) => {
       href: linkItem?.toLowerCase()?.split(" ")?.join("-"),
     }));
 
+  const readingTimeData = readingTime(article?.body?.raw as string);
+
   return (
     <main className="!px-4 pt-6 md:px-0 md:pt-11">
       <BackLink href="/articles">all articles</BackLink>
@@ -67,6 +70,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         title={article?.title as string}
         publishedAt={article?.publishedAt as string}
         shareLink={article?.shareLink as string}
+        readTime={readingTimeData?.minutes}
       />
 
       {/* Hero Image Section */}

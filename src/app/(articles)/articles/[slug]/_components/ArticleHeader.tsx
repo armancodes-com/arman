@@ -7,12 +7,14 @@ interface IArticleHeaderProps {
   title: string;
   publishedAt: string;
   shareLink: string;
+  readTime: number;
 }
 
 const ArticleHeader: React.FC<IArticleHeaderProps> = ({
   publishedAt,
   shareLink,
   title,
+  readTime,
 }) => {
   return (
     <header className="mb-11 mt-12 space-y-2 md:mb-12 md:mt-14 md:space-y-5">
@@ -32,7 +34,9 @@ const ArticleHeader: React.FC<IArticleHeaderProps> = ({
             <span className="text-xs font-bold tracking-wide md:text-caption2">
               Read
             </span>
-            <span className="text-xs font-light md:text-caption2">1 Min</span>
+            <span className="text-xs font-light md:text-caption2">
+              {`${readTime} ${readTime > 1 ? "Mins" : "Min"}`}
+            </span>
           </p>
         </div>
 
