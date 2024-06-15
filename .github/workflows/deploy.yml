@@ -21,7 +21,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t $IMAGE_NAME .
+          docker build -t $IMAGE_NAME -f docker/production/Dockerfile .
 
       - name: Save Docker image to tarball
         run: |
