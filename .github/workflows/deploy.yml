@@ -70,8 +70,8 @@ jobs:
                 sudo docker stop ${{ env.CONTAINER_NAME }}
                 sudo docker rm ${{ env.CONTAINER_NAME }}
             fi
-            if sudo docker images ${IMAGE_NAME} -q; then
-                sudo docker rmi $(sudo docker images ${IMAGE_NAME} -q) --force
+            if sudo docker images ${{ env.IMAGE_NAME }} -q; then
+                sudo docker rmi $(sudo docker images ${{ env.IMAGE_NAME }} -q) --force
             fi
             sudo docker load -i ${{ env.TAR_NAME }}
             sudo docker run -d --name ${{ env.CONTAINER_NAME }} ${{ env.IMAGE_NAME }}
