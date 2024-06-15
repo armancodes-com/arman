@@ -13,9 +13,10 @@ const alexandria = Alexandria({
 
 interface IArticleItemProps {
   data: ArticleType;
+  readTime: number;
 }
 
-const ArticleItem: React.FC<IArticleItemProps> = ({ data }) => {
+const ArticleItem: React.FC<IArticleItemProps> = ({ data, readTime }) => {
   const { title, summary, publishedAt, slug, isDraft } = data;
 
   return (
@@ -51,12 +52,16 @@ const ArticleItem: React.FC<IArticleItemProps> = ({ data }) => {
             {formatPublishedDateHandler(publishedAt)}
           </span>
         </p>
-        <p className="space-x-2 text-text-primary">
-          <span className="text-xs font-bold tracking-wide md:text-caption2">
-            Read
-          </span>
-          <span className="text-xs font-light md:text-caption2">1 Min</span>
-        </p>
+        {readTime && readTime !== 0 && (
+          <p className="space-x-2 text-text-primary">
+            <span className="text-xs font-bold tracking-wide md:text-caption2">
+              Read
+            </span>
+            <span className="text-xs font-light md:text-caption2">
+              {`${readTime} ${readTime > 1 ? "Mins" : "Min"}`}
+            </span>
+          </p>
+        )}
       </div>
     </article>
   );
