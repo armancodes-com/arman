@@ -34,7 +34,6 @@ const AboutMeHeroSection = () => {
               decoding="async"
               sizes="(min-width: 1024px) 32rem, 20rem"
               quality={100}
-
               className="h-full w-full object-cover object-top"
             />
           </figure>
