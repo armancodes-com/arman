@@ -56,7 +56,7 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_PRIVATE_KEY }}
           source: ${{ env.TAR_NAME }}
-          target: ${{ secrets.SERVER_APP_PATH }}/${{ env.TAR_NAME }}
+          target: ${{ secrets.SERVER_APP_PATH }}
 
       - name: SSH into server and deploy
         uses: appleboy/ssh-action@master
@@ -70,8 +70,9 @@ jobs:
                 sudo docker stop ${{ env.CONTAINER_NAME }}
                 sudo docker rm ${{ env.CONTAINER_NAME }}
             fi
-            if sudo docker images ${{ env.IMAGE_NAME }} -q; then
-                sudo docker rmi $(sudo docker images ${{ env.IMAGE_NAME }} -q) --force
+            IMAGE_ID=$(sudo docker images -q ${{ env.IMAGE_NAME }})
+            if [ "$IMAGE_ID" ]; then
+            sudo docker rmi --force $IMAGE_ID
             fi
             sudo docker load -i ${{ env.TAR_NAME }}
             sudo docker run -d --name ${{ env.CONTAINER_NAME }} ${{ env.IMAGE_NAME }}
