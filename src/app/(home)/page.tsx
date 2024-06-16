@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default async function Home() {
   return (
     <>
-      <main className="min-h-svh pt-4 sm:pt-14.5">
+      <main className="pt-4 sm:pt-14.5">
         <HomeHeroSection />
 
         <Section type="primary" hasEllipse>
