@@ -74,7 +74,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
       />
 
       {/* Hero Image Section */}
-      {article?.image && (
+      {article?.hasMainImage && article?.image && (
         <>
           <figure className="relative h-[350px] w-full overflow-hidden rounded-10 sm:h-[400px]">
             <Image
@@ -93,7 +93,9 @@ const Page = async ({ params }: { params: { slug: string } }) => {
 
       {/* body section */}
       <section className="flex sm:gap-x-6 md:gap-x-14">
-        <div className="w-full max-w-[600px] space-y-6">
+        <div
+          className={`w-full ${article?.hasSidebarLinks ? "max-w-[600px]" : "w-full"} space-y-6`}
+        >
           {/* Series Component */}
           {article?.hasSeries && <ArticleSeries />}
 
@@ -101,7 +103,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         </div>
 
         {/* SIDEBAR OF SINGLE ARTICLES */}
-        <SidebarLinks links={sidebarLinks} />
+        {article?.hasSidebarLinks && <SidebarLinks links={sidebarLinks} />}
       </section>
 
       {/* TAGS SECTION */}

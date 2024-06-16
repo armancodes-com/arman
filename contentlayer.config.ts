@@ -86,6 +86,8 @@ export const Article = defineDocumentType(() => ({
     author: { type: "string", required: true, default: "" },
     keywords: { type: "json", required: false },
     isDraft: { type: "boolean", required: false, default: true },
+    hasMainImage: { type: "boolean", required: false, default: false },
+    hasSidebarLinks: { type: "boolean", required: false, default: false },
   },
   computedFields: articleComputedFields,
 }));
