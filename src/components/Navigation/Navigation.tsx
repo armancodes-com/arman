@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import NavList from "./NavList";
 import ThemeSwitcher from "../ThemeSwitcher";
-import { logoDark, logoWhite } from "@/constants";
+import { DARK_LOGO_SVG, WHITE_LOGO_SVG } from "@/constants";
 import { NAVIGATION_LINKS } from "@/constants/Navigation.constants";
 import Link from "next/link";
 import { isSearchSystemReleased } from "@/constants/FeatureFlag.constants";
@@ -18,7 +18,7 @@ const Navigation = () => {
       <nav className="mx-auto flex max-w-[800px] flex-wrap items-center justify-between">
         <div className="flex items-center gap-4">
           <Image
-            src={resolvedTheme === "light" ? logoWhite : logoDark}
+            src={resolvedTheme === "light" ? WHITE_LOGO_SVG : DARK_LOGO_SVG}
             alt="logo"
             width={40}
             height={40}

@@ -8,10 +8,10 @@ const GoogleAnalytics = () => {
     <>
       <Script
         strategy="lazyOnload"
+        async
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID}`}
       />
-
-      <Script id="" strategy="lazyOnload">
+      <Script async strategy="lazyOnload">
         {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}

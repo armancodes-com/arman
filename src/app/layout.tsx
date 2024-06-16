@@ -58,7 +58,7 @@ export default async function RootLayout({
           showAtBottom={false}
         />
 
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="light">
           <Navigation />
 
           <div className={"relative mx-auto max-w-[800px]"}>
