@@ -14,6 +14,7 @@ import ArticleHeader from "./_components/ArticleHeader";
 import ArticleSeries from "./_components/ArticleSeries";
 import MdxWrapper from "./_components/mdx/MdxWrapper";
 import readingTime from "@/utils/reading-time";
+import { IS_PRODUCTION } from "@/constants";
 
 type Props = {
   params: { slug: string };
@@ -57,7 +58,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   const article = allArticles.find(
     (post: ArticleType) => post.slug === params.slug,
   );
-  const isArticleDraft = article?.isDraft;
+  const isArticleDraft = IS_PRODUCTION && article?.isDraft;
   const noArticleFound = !article;
 
   // handle redirect when article is draft or slut not found
