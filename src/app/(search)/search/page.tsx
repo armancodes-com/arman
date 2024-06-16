@@ -1,8 +1,15 @@
 /* eslint-disable no-irregular-whitespace */
+import { Metadata } from "next";
+
 import Section from "@/components/ui/Section";
 import SearchItemList from "../_components/SearchItemList";
 import SearchInput from "../_components/SearchInput";
 import BackLink from "@/components/ui/BackLink";
+
+export const metadata: Metadata = {
+  title: "Arman Ahmadi - Search",
+  authors: { name: "Arman Ahmadi", url: "http://armancodes.com" },
+};
 
 const Page = () => {
   return (

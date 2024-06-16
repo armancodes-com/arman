@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     metadataBase: articleData?.baseUrl as unknown as URL,
-    title: articleData?.title,
+    title: `Arman Ahmadi - ${articleData?.title}`,
     description: articleData?.metaDescription,
     authors: { name: articleData?.author },
     keywords: articleData?.keywords,
