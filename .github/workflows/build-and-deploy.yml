@@ -74,14 +74,6 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_PRIVATE_KEY }}
           script: |
-            if [ ! -d ${{ secrets.SERVER_APP_PATH }}/.git ]; then
-                sudo git clone https://github.com/${{ github.repository }} ${{ secrets.SERVER_APP_PATH }}
-            else
-                cd ${{ secrets.SERVER_APP_PATH }}
-                sudo git fetch origin staging
-                sudo git checkout staging
-                sudo git reset --hard origin/staging
-            fi
             cd ${{ secrets.SERVER_APP_PATH }}
             if sudo docker ps -q --filter "name=${{ env.CONTAINER_NAME }}"; then
                 sudo docker stop ${{ env.CONTAINER_NAME }}
