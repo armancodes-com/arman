@@ -129,7 +129,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
       {/* body section */}
       <section className="flex sm:gap-x-6 md:gap-x-14">
         <div
-          className={`w-full ${article?.hasSidebarLinks ? "max-w-[600px]" : "w-full"} space-y-6`}
+          className={`${article?.hasSidebarLinks ? "max-w-[600px]" : "w-full"} space-y-6`}
         >
           {/* Series Component */}
           {article?.hasSeries && <ArticleSeries />}
