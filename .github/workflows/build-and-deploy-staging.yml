@@ -1,0 +1,96 @@
+name: Build and Deploy - Staging
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+env:
+  NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID: ${{ secrets.GOOGLE_ANALYTICS_MEASUREMENT_ID }}
+  IMAGE_NAME: armancodes-nextapp:staging
+  TAR_NAME: armancodes-nextapp-staging.tar
+  CONTAINER_NAME: armancodes-nextapp-staging
+  NETWORK_NAME: nginx_apps_network
+  DOCKER_FILE: docker/staging/Dockerfile
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: |
+          docker build -t ${{ env.IMAGE_NAME }} -f ${{ env.DOCKER_FILE }} .
+
+      - name: Save Docker image to tarball
+        run: |
+          docker save ${{ env.IMAGE_NAME }} -o ${{ env.TAR_NAME }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.TAR_NAME }}
+          path: ${{ env.TAR_NAME }}
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.TAR_NAME }}
+          path: .
+
+      - name: Remove existing tarball from VPS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SERVER_PRIVATE_KEY }}
+          script: |
+            if [ -f ${{ secrets.SERVER_APP_PATH }}/${{ env.TAR_NAME }} ]; then
+              sudo rm ${{ secrets.SERVER_APP_PATH }}/${{ env.TAR_NAME }}
+            fi
+
+      - name: Upload tarball to VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SERVER_PRIVATE_KEY }}
+          source: ${{ env.TAR_NAME }}
+          target: ${{ secrets.SERVER_APP_PATH }}
+
+      - name: SSH into server and deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SERVER_PRIVATE_KEY }}
+          script: |
+            if [ ! -d ${{ secrets.SERVER_APP_PATH }}/.git ]; then
+                sudo git clone https://github.com/${{ github.repository }} ${{ secrets.SERVER_APP_PATH }}
+            else
+                cd ${{ secrets.SERVER_APP_PATH }}
+                sudo git fetch origin main
+                sudo git reset --hard origin/main
+            fi
+            cd ${{ secrets.SERVER_APP_PATH }}
+            if sudo docker ps -q --filter "name=${{ env.CONTAINER_NAME }}"; then
+                sudo docker stop ${{ env.CONTAINER_NAME }}
+                sudo docker rm ${{ env.CONTAINER_NAME }}
+            fi
+            IMAGE_ID=$(sudo docker images -q ${{ env.IMAGE_NAME }})
+            if [ "$IMAGE_ID" ]; then
+                sudo docker rmi --force ${{ env.IMAGE_NAME }}
+            fi
+            sudo docker load -i ${{ env.TAR_NAME }}
+            sudo docker run -d --name ${{ env.CONTAINER_NAME }} --restart unless-stopped --network ${{ env.NETWORK_NAME }} ${{ env.IMAGE_NAME }}
+            sudo rm ${{ env.TAR_NAME }}
