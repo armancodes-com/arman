@@ -74,7 +74,7 @@ export const Article = defineDocumentType(() => ({
     featured: { type: "boolean", required: false },
     hasSeries: { type: "boolean", required: false, default: false },
     shortTitle: { type: "string", required: false, default: "" },
-    robots: { type: "string", required: false, default: "noindex, nofollow" },
+    robots: { type: "string", required: false, default: "index,follow" },
     canonical: { type: "string", required: false, default: "" },
     ogTitle: { type: "string", required: false, default: "" },
     ogType: { type: "string", required: false, default: "website" },

@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { Metadata } from "next";
 import Image from "next/image";
 import { URL } from "url";
@@ -38,6 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: articleData?.ogTitle,
       url: articleData?.ogUrl,
     },
+    robots: articleData?.robots,
     alternates: {
       canonical: articleData?.canonical,
     },
