@@ -88,6 +88,8 @@ export const Article = defineDocumentType(() => ({
     isDraft: { type: "boolean", required: false, default: true },
     hasMainImage: { type: "boolean", required: false, default: false },
     hasSidebarLinks: { type: "boolean", required: false, default: false },
+    hasDynamicMainImage: { type: "boolean", required: false, default: false },
+    dynamicMainImage: { type: "string", required: false, default: "" },
   },
   computedFields: articleComputedFields,
 }));

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import { URL } from "url";
+import { notFound } from "next/navigation";
 
 import { allArticles, Article as ArticleType } from "contentlayer/generated";
 
@@ -54,6 +55,20 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   const article = allArticles.find(
     (post: ArticleType) => post.slug === params.slug,
   );
+  const isArticleDraft = article?.isDraft;
+  const noArticleFound = !article;
+
+  // handle redirect when article is draft or slut not found
+  if (isArticleDraft || noArticleFound) {
+    notFound();
+  }
+
+  // hero image conditions
+  const hasStaticMainImage =
+    article?.hasMainImage && !article?.hasDynamicMainImage;
+  const hasDynamicMainImage =
+    article?.hasDynamicMainImage && !article?.hasMainImage;
+
   const sidebarLinks: { title: string; href: string }[] =
     article?.sidebarLinks?.map((linkItem: string) => ({
       title: linkItem,
@@ -73,12 +88,29 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         readTime={readingTimeData?.minutes}
       />
 
-      {/* Hero Image Section */}
-      {article?.hasMainImage && article?.image && (
+      {/* Hero Image Section - Static Images */}
+      {hasStaticMainImage && article?.image && (
         <>
           <figure className="relative h-[350px] w-full overflow-hidden rounded-10 sm:h-[400px]">
             <Image
               src={article?.image}
+              alt={`${article.title} article image`}
+              fill
+              className=" mx-auto h-full w-full object-cover object-center"
+              style={{ "--index": 2 } as React.CSSProperties}
+              priority
+              quality={100}
+            />
+          </figure>
+          <div className="h-16" />
+        </>
+      )}
+      {/* Hero Image Section - Dynamic Images */}
+      {hasDynamicMainImage && article?.dynamicMainImage && (
+        <>
+          <figure className="relative h-[350px] w-full overflow-hidden rounded-10 sm:h-[400px]">
+            <Image
+              src={article?.dynamicMainImage}
               alt={`${article.title} article image`}
               fill
               className=" mx-auto h-full w-full object-cover object-center"
