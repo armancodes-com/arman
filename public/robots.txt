@@ -1,9 +1,6 @@
-# *
 User-agent: *
 Allow: /
 
-# Host
 Host: https://armancodes.com
 
-# Sitemaps
 Sitemap: https://armancodes.com/sitemap.xml
