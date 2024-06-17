@@ -3,6 +3,7 @@
 import GithubIcon from "@/assets/icons/GithubIcon";
 import IconLinkedIn from "@/assets/icons/LinkedIcon";
 import IconMedium from "@/assets/icons/MediumIcon";
+import { DARK_LOGO_SVG, WHITE_LOGO_SVG } from "@/constants";
 import { useTheme } from "next-themes";
 import { Alexandria } from "next/font/google";
 import Image from "next/image";
@@ -24,11 +25,7 @@ const Footer = () => {
           <div>
             <div className="mb-4 flex flex-wrap items-center gap-4">
               <Image
-                src={
-                  resolvedTheme === "light"
-                    ? "/images/sample-logo.svg"
-                    : "/images/sample-logo-white.svg"
-                }
+                src={resolvedTheme === "light" ? WHITE_LOGO_SVG : DARK_LOGO_SVG}
                 alt="logo"
                 width={40}
                 height={40}

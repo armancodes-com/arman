@@ -13,7 +13,6 @@ import Navigation from "@/components/Navigation/Navigation";
 import ToolbarLinks from "@/components/Navigation/ToolbarLinks";
 import Footer from "@/components/ui/Footer";
 import GoogleAnalytics from "@/services/GoogleAnalytics";
-import { IS_PRODUCTION } from "@/constants";
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi",
@@ -41,7 +40,7 @@ export default async function RootLayout({
         nonce={nonce!}
       />
 
-      {IS_PRODUCTION && <GoogleAnalytics />}
+      <GoogleAnalytics />
 
       <body className={`${ubuntu.className} bg-bgColor`}>
         <NextTopLoader

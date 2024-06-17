@@ -138,7 +138,9 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         </div>
 
         {/* SIDEBAR OF SINGLE ARTICLES */}
-        {article?.hasSidebarLinks && <SidebarLinks links={sidebarLinks} />}
+        {sidebarLinks && sidebarLinks.length > 0 && (
+          <SidebarLinks links={sidebarLinks} />
+        )}
       </section>
 
       {/* TAGS SECTION */}
