@@ -2,7 +2,6 @@ import "./globals.css";
 import "../../public/prism/one-dark.css";
 
 import { headers } from "next/headers";
-import Script from "next/script";
 import { Ubuntu } from "next/font/google";
 import type { Metadata } from "next";
 
@@ -34,12 +33,6 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className="light">
-      <Script
-        src="https://www.googletagmanager.com/gtag/js"
-        strategy="lazyOnload"
-        nonce={`nonce-${nonce}`}
-      />
-
       <GoogleAnalytics nonce={nonce!} />
 
       <body className={`${ubuntu.className} bg-bgColor`}>

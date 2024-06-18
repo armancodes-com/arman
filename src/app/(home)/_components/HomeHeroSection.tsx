@@ -34,7 +34,7 @@ const HomeHeroSection = () => {
       <figure className="block rotate-6 overflow-hidden rounded-20 shadow-heroImage2 transition-all duration-100 ease-linear hover:-rotate-2 sm:h-[370px] sm:w-[330px] md:order-2 ">
         <Image
           src={heroImage}
-          alt="Arman enjoy sightseeing in Berlin bridge"
+          alt="Arman in Berlin"
           width={1000}
           height={1000}
           priority

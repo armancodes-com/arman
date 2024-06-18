@@ -10,15 +10,14 @@ import { isSearchSystemReleased } from "@/constants/FeatureFlag.constants";
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi - Search",
-  description: "Here you can search about articles you want to read with Arman",
+  description: "Search articles by Arman for topics you want to read.",
   authors: { name: "Arman Ahmadi", url: "http://armancodes.com" },
   alternates: {
     canonical: "https://armancodes.com/search",
   },
   openGraph: {
     title: "Arman Ahmadi - Search",
-    description:
-      "Here you can search about articles you want to read with Arman",
+    description: "Search articles by Arman for topics you want to read.",
     images: ["https://armancodes.com/images/hero-img.jpeg"],
     url: "http://armancodes.com/search",
     type: "website",

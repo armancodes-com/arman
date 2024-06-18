@@ -6,8 +6,6 @@ import ArticlesList from "../(articles)/_components/ArticlesList";
 import Section from "@/components/ui/Section";
 import Header from "@/components/ui/Header";
 
-// <meta property="og:type" content="website"></meta>
-
 export const metadata: Metadata = {
   title: "Arman Ahmadi - Backend Engineer",
   description: `Hey there! This is where I share my journey through software engineering, personal anecdotes, and articles covering a wide range of topics.`,
