@@ -9,20 +9,30 @@ import { DARK_LOGO_SVG, WHITE_LOGO_SVG } from "@/constants";
 import { NAVIGATION_LINKS } from "@/constants/Navigation.constants";
 import Link from "next/link";
 import { isSearchSystemReleased } from "@/constants/FeatureFlag.constants";
+import { useEffect, useState } from "react";
 
 const Navigation = () => {
   const { resolvedTheme } = useTheme();
+  const [logoImage, setLogoImage] = useState<string>(DARK_LOGO_SVG);
+
+  useEffect(() => {
+    setLogoImage(WHITE_LOGO_SVG);
+  }, []);
 
   return (
     <header className="relative top-0 z-20 bg-bgColor px-4 py-2 md:sticky md:px-0 md:py-1">
       <nav className="mx-auto flex max-w-[800px] flex-wrap items-center justify-between">
         <div className="flex items-center gap-4">
-          <Image
-            src={resolvedTheme === "light" ? WHITE_LOGO_SVG : DARK_LOGO_SVG}
-            alt="logo"
-            width={40}
-            height={40}
-          />
+          {resolvedTheme === "light" ? (
+            <Image
+              src={logoImage || WHITE_LOGO_SVG}
+              alt="logo"
+              width={40}
+              height={40}
+            />
+          ) : (
+            <Image src={DARK_LOGO_SVG} alt="logo" width={40} height={40} />
+          )}
 
           <p className="text-caption1 font-bold capitalize text-text-primary">
             Arman
