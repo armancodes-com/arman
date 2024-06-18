@@ -10,9 +10,13 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "miro.medium.com",
+        hostname: "armancodes.com",
         port: "",
-        pathname: "/v2/**",
+        pathname: "",
+      },
+      {
+        protocol: "https",
+        hostname: "**",
       },
     ],
   },
