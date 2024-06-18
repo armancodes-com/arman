@@ -42,7 +42,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     robots: articleData?.robots,
     alternates: {
-      canonical: articleData?.canonical,
+      canonical:
+        articleData?.canonical ||
+        `${articleData?.baseUrl}${articleData?.shareLink}`,
     },
     twitter: {
       card: "summary_large_image",

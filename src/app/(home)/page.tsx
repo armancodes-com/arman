@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   description: "",
   authors: { name: "Arman Ahmadi", url: "http://armancodes.com" },
   keywords: ["php", "software engineering", "backend"],
+  alternates: {
+    canonical: "https://armancodes.com",
+  },
 };
 
 export default async function Home() {

@@ -10,6 +10,9 @@ export const metadata: Metadata = {
     "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Onefit/Urban Sports Club.",
   authors: { name: "Arman Ahmadi", url: "http://armancodes.com" },
   keywords: ["php", "software engineering", "backend"],
+  alternates: {
+    canonical: "https://armancodes.com/about-me",
+  },
 };
 
 const Page = () => {

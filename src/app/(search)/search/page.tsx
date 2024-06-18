@@ -11,6 +11,9 @@ import { isSearchSystemReleased } from "@/constants/FeatureFlag.constants";
 export const metadata: Metadata = {
   title: "Arman Ahmadi - Search",
   authors: { name: "Arman Ahmadi", url: "http://armancodes.com" },
+  alternates: {
+    canonical: "https://armancodes.com/search",
+  },
 };
 
 const Page = () => {

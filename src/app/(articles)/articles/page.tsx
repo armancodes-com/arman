@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "Arman Ahmadi - Articles",
   authors: { name: "Arman Ahmadi", url: "http://armancodes.com" },
   keywords: ["php", "engineer", "tech", "personal weblog"],
+  alternates: {
+    canonical: "https://armancodes.com/articles",
+  },
 };
 
 const Page = () => {
