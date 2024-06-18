@@ -18,7 +18,7 @@ const ArticleHeader: React.FC<IArticleHeaderProps> = ({
 }) => {
   return (
     <header className="mb-11 mt-12 space-y-2 md:mb-12 md:mt-14 md:space-y-5">
-      <h2 className="text-body2 text-primary md:text-title2">{title}</h2>
+      <h1 className="text-body2 text-primary md:text-title2">{title}</h1>
 
       <div className="flex items-center justify-between border-y border-border-articles py-2 md:py-4">
         <div className="flex items-center gap-6">
