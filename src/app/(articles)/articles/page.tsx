@@ -10,6 +10,8 @@ import Newsletter from "@/components/ui/Newsletter";
 export const metadata: Metadata = {
   title: "Arman Ahmadi - Articles",
   authors: { name: "Arman Ahmadi", url: "http://armancodes.com" },
+  description:
+    "Here you can find blogs that Arman writes about tech, and lifestyle",
   keywords: ["php", "engineer", "tech", "personal weblog"],
   alternates: {
     canonical: "https://armancodes.com/articles",
