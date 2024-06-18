@@ -44,11 +44,11 @@ html {
   }
 
   /* If the user's system preference is dark */
-  @media (prefers-color-scheme: dark) {
+  /* @media (prefers-color-scheme: dark) {
     :root {
       --main-bg-color: #282c33;
     }
-  }
+  } */
 
   /* If the user switches dark mode */
   :root[class="dark"] {
