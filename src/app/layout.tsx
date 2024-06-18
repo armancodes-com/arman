@@ -36,11 +36,11 @@ export default async function RootLayout({
     <html lang="en" className="light">
       <Script
         src="https://www.googletagmanager.com/gtag/js"
-        strategy="afterInteractive"
-        nonce={nonce!}
+        strategy="lazyOnload"
+        nonce={`nonce-${nonce}`}
       />
 
-      <GoogleAnalytics />
+      <GoogleAnalytics nonce={nonce!} />
 
       <body className={`${ubuntu.className} bg-bgColor`}>
         <NextTopLoader

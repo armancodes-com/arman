@@ -67,7 +67,6 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   if (isArticleDraft || noArticleFound) {
     notFound();
   }
-  console.log(article?.image);
 
   const sidebarLinks: { title: string; href: string }[] =
     article?.sidebarLinks?.map((linkItem: string) => ({
