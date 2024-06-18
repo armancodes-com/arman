@@ -18,7 +18,7 @@ export const COMPANIES_DATA: ICompanyInfoProps[] = [
   {
     id: "1",
     image: OneFitImage,
-    companyName: "One Fit",
+    companyName: "OneFit",
     jobType: "Hybrid",
     location: "Amsterdam, Netherlands",
     role: "Backend Engineer",
