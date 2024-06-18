@@ -10,12 +10,6 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "armancodes.com",
-        port: "",
-        pathname: "",
-      },
-      {
-        protocol: "https",
         hostname: "**",
       },
     ],
