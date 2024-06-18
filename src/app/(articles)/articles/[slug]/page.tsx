@@ -67,9 +67,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   if (isArticleDraft || noArticleFound) {
     notFound();
   }
-
-  // hero image conditions
-  const articleHasImage = !!article?.image;
+  console.log(article?.image);
 
   const sidebarLinks: { title: string; href: string }[] =
     article?.sidebarLinks?.map((linkItem: string) => ({
@@ -91,7 +89,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
       />
 
       {/* Hero Image Section - Static Images */}
-      {articleHasImage && (
+      {article?.image && (
         <>
           <figure className="relative h-[350px] w-full overflow-hidden rounded-10 sm:h-[400px]">
             <Image
