@@ -10,7 +10,20 @@ import Newsletter from "@/components/ui/Newsletter";
 export const metadata: Metadata = {
   title: "Arman Ahmadi - Articles",
   authors: { name: "Arman Ahmadi", url: "http://armancodes.com" },
+  description:
+    "Here you can find blogs that Arman writes about tech, and lifestyle articles",
   keywords: ["php", "engineer", "tech", "personal weblog"],
+  alternates: {
+    canonical: "https://armancodes.com/articles",
+  },
+  openGraph: {
+    title: "Arman Ahmadi - Articles",
+    description:
+      "Here you can find blogs that Arman writes about tech, and lifestyle articles",
+    images: ["https://armancodes.com/images/hero-img.jpeg"],
+    url: "http://armancodes.com/articles",
+    type: "website",
+  },
 };
 
 const Page = () => {

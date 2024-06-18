@@ -42,7 +42,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     robots: articleData?.robots,
     alternates: {
-      canonical: articleData?.canonical,
+      canonical:
+        articleData?.canonical ||
+        `${articleData?.baseUrl}${articleData?.shareLink}`,
     },
     twitter: {
       card: "summary_large_image",
@@ -66,12 +68,6 @@ const Page = async ({ params }: { params: { slug: string } }) => {
     notFound();
   }
 
-  // hero image conditions
-  const hasStaticMainImage =
-    article?.hasMainImage && !article?.hasDynamicMainImage;
-  const hasDynamicMainImage =
-    article?.hasDynamicMainImage && !article?.hasMainImage;
-
   const sidebarLinks: { title: string; href: string }[] =
     article?.sidebarLinks?.map((linkItem: string) => ({
       title: linkItem,
@@ -92,34 +88,18 @@ const Page = async ({ params }: { params: { slug: string } }) => {
       />
 
       {/* Hero Image Section - Static Images */}
-      {hasStaticMainImage && article?.image && (
+      {article?.image && (
         <>
           <figure className="relative h-[350px] w-full overflow-hidden rounded-10 sm:h-[400px]">
             <Image
-              src={article?.image}
+              src={`${article?.image}`}
               alt={`${article.title} article image`}
               fill
               className=" mx-auto h-full w-full object-cover object-center"
               style={{ "--index": 2 } as React.CSSProperties}
               priority
               quality={100}
-            />
-          </figure>
-          <div className="h-16" />
-        </>
-      )}
-      {/* Hero Image Section - Dynamic Images */}
-      {hasDynamicMainImage && article?.dynamicMainImage && (
-        <>
-          <figure className="relative h-[350px] w-full overflow-hidden rounded-10 sm:h-[400px]">
-            <Image
-              src={article?.dynamicMainImage}
-              alt={`${article.title} article image`}
-              fill
-              className=" mx-auto h-full w-full object-cover object-center"
-              style={{ "--index": 2 } as React.CSSProperties}
-              priority
-              quality={100}
+              sizes="(min-width: 1024px) 32rem, 20rem"
             />
           </figure>
           <div className="h-16" />

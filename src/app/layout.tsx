@@ -2,7 +2,6 @@ import "./globals.css";
 import "../../public/prism/one-dark.css";
 
 import { headers } from "next/headers";
-import Script from "next/script";
 import { Ubuntu } from "next/font/google";
 import type { Metadata } from "next";
 
@@ -34,30 +33,23 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className="light">
-      <Script
-        src="https://www.googletagmanager.com/gtag/js"
-        strategy="afterInteractive"
-        nonce={nonce!}
-      />
-
-      <GoogleAnalytics />
+      <GoogleAnalytics nonce={nonce!} />
 
       <body className={`${ubuntu.className} bg-bgColor`}>
-        <NextTopLoader
-          color="#7127ba"
-          initialPosition={0.08}
-          crawlSpeed={200}
-          height={3}
-          crawl={true}
-          showSpinner={false}
-          easing="ease"
-          speed={200}
-          shadow="0 0 10px #7127ba,0 0 5px #7127ba"
-          zIndex={1600}
-          showAtBottom={false}
-        />
-
-        <ThemeProvider attribute="class" defaultTheme="light">
+        <ThemeProvider attribute="class" enableSystem defaultTheme="light">
+          <NextTopLoader
+            color="#7127ba"
+            initialPosition={0.08}
+            crawlSpeed={200}
+            height={3}
+            crawl={true}
+            showSpinner={false}
+            easing="ease"
+            speed={200}
+            shadow="0 0 10px #7127ba,0 0 5px #7127ba"
+            zIndex={1600}
+            showAtBottom={false}
+          />
           <Navigation />
 
           <div className={"relative mx-auto max-w-[800px]"}>

@@ -8,9 +8,19 @@ import Header from "@/components/ui/Header";
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi - Backend Engineer",
-  description: "",
+  description: `Hey there! This is where I share my journey through software engineering, personal anecdotes, and articles covering a wide range of topics.`,
   authors: { name: "Arman Ahmadi", url: "http://armancodes.com" },
   keywords: ["php", "software engineering", "backend"],
+  alternates: {
+    canonical: "https://armancodes.com",
+  },
+  openGraph: {
+    title: "Arman Ahmadi - Backend Engineer",
+    description: `Hey there! This is where I share my journey through software engineering, personal anecdotes, and articles covering a wide range of topics.`,
+    images: ["https://armancodes.com/images/hero-img.jpeg"],
+    url: "http://armancodes.com/",
+    type: "website",
+  },
 };
 
 export default async function Home() {

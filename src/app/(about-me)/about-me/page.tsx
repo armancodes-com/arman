@@ -10,6 +10,17 @@ export const metadata: Metadata = {
     "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Onefit/Urban Sports Club.",
   authors: { name: "Arman Ahmadi", url: "http://armancodes.com" },
   keywords: ["php", "software engineering", "backend"],
+  alternates: {
+    canonical: "https://armancodes.com/about-me",
+  },
+  openGraph: {
+    title: "Arman Ahmadi - About me",
+    description:
+      "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Onefit/Urban Sports Club.",
+    images: ["https://armancodes.com/images/hero-img.jpeg"],
+    url: "http://armancodes.com/about-me",
+    type: "website",
+  },
 };
 
 const Page = () => {

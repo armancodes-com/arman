@@ -23,11 +23,6 @@ const articleComputedFields: ComputedFields = {
     type: "string",
     resolve: (doc) => getSlug(doc),
   },
-  image: {
-    type: "string",
-    resolve: (doc) =>
-      `/articles/${doc?._raw.sourceFileName.replace(/\.mdx$/, "")}/image.jpg`,
-  },
   og: {
     type: "string",
     resolve: (doc) => `/articles/${getSlug(doc)}/image.png`,
@@ -86,10 +81,8 @@ export const Article = defineDocumentType(() => ({
     author: { type: "string", required: true, default: "" },
     keywords: { type: "json", required: false },
     isDraft: { type: "boolean", required: false, default: true },
-    hasMainImage: { type: "boolean", required: false, default: false },
     hasSidebarLinks: { type: "boolean", required: false, default: false },
-    hasDynamicMainImage: { type: "boolean", required: false, default: false },
-    dynamicMainImage: { type: "string", required: false, default: "" },
+    image: { type: "string", required: false, default: "" },
   },
   computedFields: articleComputedFields,
 }));
