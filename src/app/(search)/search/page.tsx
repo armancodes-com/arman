@@ -1,10 +1,35 @@
 /* eslint-disable no-irregular-whitespace */
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+
 import Section from "@/components/ui/Section";
 import SearchItemList from "../_components/SearchItemList";
 import SearchInput from "../_components/SearchInput";
 import BackLink from "@/components/ui/BackLink";
+import { isSearchSystemReleased } from "@/constants/FeatureFlag.constants";
+
+export const metadata: Metadata = {
+  title: "Arman Ahmadi - Search",
+  description: "Search articles by Arman for topics you want to read.",
+  authors: { name: "Arman Ahmadi", url: "http://armancodes.com" },
+  alternates: {
+    canonical: "https://armancodes.com/search",
+  },
+  openGraph: {
+    title: "Arman Ahmadi - Search",
+    description: "Search articles by Arman for topics you want to read.",
+    images: ["https://armancodes.com/images/hero-img.jpeg"],
+    url: "http://armancodes.com/search",
+    type: "website",
+  },
+};
 
 const Page = () => {
+  // handle redirect when article is draft or slut not found
+  if (!isSearchSystemReleased) {
+    notFound();
+  }
+
   return (
     <main className="min-h-svh px-4 pt-6 md:px-0 md:pt-11">
       <BackLink href="/">back</BackLink>

@@ -23,11 +23,6 @@ const articleComputedFields: ComputedFields = {
     type: "string",
     resolve: (doc) => getSlug(doc),
   },
-  image: {
-    type: "string",
-    resolve: (doc) =>
-      `/articles/${doc?._raw.sourceFileName.replace(/\.mdx$/, "")}/image.jpg`,
-  },
   og: {
     type: "string",
     resolve: (doc) => `/articles/${getSlug(doc)}/image.png`,
@@ -74,7 +69,7 @@ export const Article = defineDocumentType(() => ({
     featured: { type: "boolean", required: false },
     hasSeries: { type: "boolean", required: false, default: false },
     shortTitle: { type: "string", required: false, default: "" },
-    robots: { type: "string", required: false, default: "noindex, nofollow" },
+    robots: { type: "string", required: false, default: "index,follow" },
     canonical: { type: "string", required: false, default: "" },
     ogTitle: { type: "string", required: false, default: "" },
     ogType: { type: "string", required: false, default: "website" },
@@ -86,6 +81,8 @@ export const Article = defineDocumentType(() => ({
     author: { type: "string", required: true, default: "" },
     keywords: { type: "json", required: false },
     isDraft: { type: "boolean", required: false, default: true },
+    hasSidebarLinks: { type: "boolean", required: false, default: false },
+    image: { type: "string", required: false, default: "" },
   },
   computedFields: articleComputedFields,
 }));

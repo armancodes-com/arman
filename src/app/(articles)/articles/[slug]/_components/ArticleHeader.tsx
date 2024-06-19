@@ -7,16 +7,18 @@ interface IArticleHeaderProps {
   title: string;
   publishedAt: string;
   shareLink: string;
+  readTime: number;
 }
 
 const ArticleHeader: React.FC<IArticleHeaderProps> = ({
   publishedAt,
   shareLink,
   title,
+  readTime,
 }) => {
   return (
     <header className="mb-11 mt-12 space-y-2 md:mb-12 md:mt-14 md:space-y-5">
-      <h2 className="text-body2 text-primary md:text-title2">{title}</h2>
+      <h1 className="text-body2 text-primary md:text-title2">{title}</h1>
 
       <div className="flex items-center justify-between border-y border-border-articles py-2 md:py-4">
         <div className="flex items-center gap-6">
@@ -28,12 +30,16 @@ const ArticleHeader: React.FC<IArticleHeaderProps> = ({
               {formatPublishedDateHandler(publishedAt)}
             </span>
           </p>
-          <p className="space-x-2 text-text-primary">
-            <span className="text-xs font-bold tracking-wide md:text-caption2">
-              Read
-            </span>
-            <span className="text-xs font-light md:text-caption2">1 Min</span>
-          </p>
+          {readTime && readTime !== 0 && (
+            <p className="space-x-2 text-text-primary">
+              <span className="text-xs font-bold tracking-wide md:text-caption2">
+                Read
+              </span>
+              <span className="text-xs font-light md:text-caption2">
+                {`${readTime} ${readTime > 1 ? "Mins" : "Min"}`}
+              </span>
+            </p>
+          )}
         </div>
 
         <div className="flex items-center gap-9">

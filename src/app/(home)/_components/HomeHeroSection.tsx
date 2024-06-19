@@ -24,18 +24,17 @@ const HomeHeroSection = () => {
         </div>
 
         <p className="text-body2 text-text-primary md:text-body1">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas
-          purus viverra accumsan Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Egestas purus viverra accumsan sample text
+          Hey there! This is where I share my journey through software
+          engineering, personal anecdotes, and articles covering a wide range of
+          topics. Dive into tech trends, conquer coding challenges, and discover
+          more about life beyond the screen.
         </p>
       </article>
 
       <figure className="block rotate-6 overflow-hidden rounded-20 shadow-heroImage2 transition-all duration-100 ease-linear hover:-rotate-2 sm:h-[370px] sm:w-[330px] md:order-2 ">
         <Image
           src={heroImage}
-          alt="hero image"
+          alt="Arman in Berlin"
           width={1000}
           height={1000}
           priority

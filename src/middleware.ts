@@ -7,12 +7,13 @@ export function middleware(request: NextRequest) {
   // script-src 'self' 'nonce-${nonce}' 'unsafe-inline';
   // style-src 'self' 'nonce-${nonce}' 'unsafe-inline';
   const cspHeader = `
-    default-src 'self'; 
-    script-src 'self' https://www.googletagmanager.com https://vercel.live https://va.vercel-scripts.com 'unsafe-inline' 'unsafe-eval'; 
-    style-src 'self' 'unsafe-inline' 'unsafe-eval'; 
+    default-src 'self' 'strict-dynamic' 'unsafe-inline' 'nonce-${nonce}'; 
+    script-src 'self' https://www.googletagmanager.com https://region1.google-analytics.com 'unsafe-eval' 'unsafe-inline' 'strict-dynamic' 'nonce-${nonce}'; 
     img-src 'self' blob: data:; 
+    style-src 'self' 'unsafe-inline';
+    script-src-elem 'self' https://www.googletagmanager.com 'unsafe-inline';
     font-src 'self'; 
-    connect-src 'self' https://vercel.live/api/event/tick; 
+    connect-src 'self' https://region1.google-analytics.com 'unsafe-inline'; 
     media-src 'self'; 
     object-src 'self'; 
     frame-src 'self'; 
