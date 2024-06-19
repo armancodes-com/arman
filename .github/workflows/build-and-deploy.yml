@@ -7,7 +7,6 @@ on:
   workflow_dispatch:
 
 env:
-  NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID: ${{ secrets.GOOGLE_ANALYTICS_MEASUREMENT_ID }}
   IMAGE_NAME: armancodes-nextapp:production
   TAR_NAME: armancodes-nextapp-production.tar
   CONTAINER_NAME: armancodes-nextapp-production
@@ -24,7 +23,9 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ env.IMAGE_NAME }} -f ${{ env.DOCKER_FILE }} .
+          docker build \
+            --build-arg GOOGLE_ANALYTICS_MEASUREMENT_ID=${{ secrets.GOOGLE_ANALYTICS_MEASUREMENT_ID }} \
+            -t ${{ env.IMAGE_NAME }} -f ${{ env.DOCKER_FILE }} .
 
       - name: Save Docker image to tarball
         run: |

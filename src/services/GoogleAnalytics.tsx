@@ -12,14 +12,14 @@ const GoogleAnalytics: React.FC<IGoogleAnalyticsProps> = ({ nonce }) => {
         strategy="lazyOnload"
         async
         nonce={nonce}
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID}`}
       />
       <Script async strategy="lazyOnload" nonce={nonce}>
         {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID}', {
+              gtag('config', '${process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID}', {
               page_path: window.location.pathname,
               });
           `}
