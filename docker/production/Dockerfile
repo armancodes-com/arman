@@ -43,6 +43,7 @@ FROM base AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
+ENV GOOGLE_ANALYTICS_MEASUREMENT_ID=${GOOGLE_ANALYTICS_MEASUREMENT_ID}
 # Uncomment the following line in case you want to disable telemetry during runtime.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
