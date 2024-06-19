@@ -22,6 +22,14 @@ export const metadata: Metadata = {
     url: "http://armancodes.com/search",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    creator: "Arman Ahmadi",
+    title: "Arman Ahmadi - Search",
+    description: "Search articles by Arman for topics you want to read.",
+    images: ["https://armancodes.com/images/hero-img.jpeg"],
+    site: "http://armancodes.com/search",
+  },
 };
 
 const Page = () => {

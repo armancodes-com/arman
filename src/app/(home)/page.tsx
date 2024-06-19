@@ -21,6 +21,14 @@ export const metadata: Metadata = {
     url: "http://armancodes.com/",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    creator: "Arman Ahmadi",
+    title: "Arman Ahmadi - Backend Engineer",
+    description: `Hey there! This is where I share my journey through software engineering, personal anecdotes, and articles covering a wide range of topics.`,
+    images: ["https://armancodes.com/images/hero-img.jpeg"],
+    site: "http://armancodes.com/",
+  },
 };
 
 export default async function Home() {
