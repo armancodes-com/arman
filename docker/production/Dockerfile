@@ -23,8 +23,8 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 # Accept build arguments and set them as environment variables
-ARG GOOGLE_ANALYTICS_MEASUREMENT_ID
-ENV GOOGLE_ANALYTICS_MEASUREMENT_ID=${GOOGLE_ANALYTICS_MEASUREMENT_ID}
+ARG NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID
+ENV NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID=${NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID}
 
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
@@ -43,7 +43,7 @@ FROM base AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
-ENV GOOGLE_ANALYTICS_MEASUREMENT_ID=${GOOGLE_ANALYTICS_MEASUREMENT_ID}
+ENV NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID=${NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID}
 # Uncomment the following line in case you want to disable telemetry during runtime.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
