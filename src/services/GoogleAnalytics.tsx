@@ -20,7 +20,8 @@ const GoogleAnalytics: React.FC<IGoogleAnalyticsProps> = ({ nonce }) => {
         // @ts-ignore
         window?.gtag(
           "config",
-          process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID,
+          // process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID,
+          "G-49WYNRYB8Y",
           {
             page_path: url,
           },
