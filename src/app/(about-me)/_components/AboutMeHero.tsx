@@ -38,7 +38,7 @@ const AboutMeHeroSection = () => {
               priority
               decoding="async"
               sizes="(min-width: 1024px) 32rem, 20rem"
-              quality={100}
+              quality={70}
               className="h-full w-full object-cover object-center"
             />
           </figure>
@@ -51,7 +51,7 @@ const AboutMeHeroSection = () => {
               priority
               decoding="async"
               sizes="(min-width: 1024px) 32rem, 20rem"
-              quality={100}
+              quality={70}
               className="h-full w-full object-cover object-center"
             />
           </figure>
@@ -61,10 +61,10 @@ const AboutMeHeroSection = () => {
               alt="arman's image in Switzerland"
               width={1000}
               height={1000}
-              priority
               decoding="async"
               sizes="(min-width: 1024px) 32rem, 20rem"
-              quality={100}
+              quality={70}
+              loading="lazy"
               className="h-full w-full object-cover object-center"
             />
           </figure>
@@ -74,10 +74,10 @@ const AboutMeHeroSection = () => {
               alt="arman's bike image"
               width={1000}
               height={1000}
-              priority
               decoding="async"
               sizes="(min-width: 1024px) 32rem, 20rem"
-              quality={100}
+              quality={70}
+              loading="lazy"
               className="h-full w-full object-cover object-center"
             />
           </figure>
