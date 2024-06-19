@@ -40,7 +40,7 @@ const HomeHeroSection = () => {
           priority
           decoding="async"
           className="h-full w-full object-cover object-center"
-          quality={100}
+          quality={70}
           sizes="(min-width: 1024px) 32rem, 20rem"
         />
       </figure>
