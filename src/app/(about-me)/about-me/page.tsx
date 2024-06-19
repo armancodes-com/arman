@@ -21,6 +21,15 @@ export const metadata: Metadata = {
     url: "http://armancodes.com/about-me",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    creator: "Arman Ahmadi",
+    title: "Arman Ahmadi - About me",
+    description:
+      "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Onefit/Urban Sports Club.",
+    images: ["https://armancodes.com/images/hero-img.jpeg"],
+    site: "http://armancodes.com/about-me",
+  },
 };
 
 const Page = () => {

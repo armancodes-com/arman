@@ -24,6 +24,15 @@ export const metadata: Metadata = {
     url: "http://armancodes.com/articles",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    creator: "Arman Ahmadi",
+    title: "Arman Ahmadi - Articles",
+    description:
+      "Here you can find blogs that Arman writes about tech, and lifestyle articles",
+    images: ["https://armancodes.com/images/hero-img.jpeg"],
+    site: "http://armancodes.com/articles",
+  },
 };
 
 const Page = () => {
