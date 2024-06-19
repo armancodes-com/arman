@@ -33,11 +33,11 @@ const AboutMeHeroSection = () => {
             <Image
               src={armanThirdImage}
               alt="arman's image in Berlin"
-              width={1000}
-              height={1000}
+              width={300}
+              height={300}
               priority
               decoding="async"
-              sizes="(min-width: 1024px) 32rem, 20rem"
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 26vw, (max-width: 1560px) 17vw, 17vw"
               quality={70}
               className="h-full w-full object-cover object-center"
             />
@@ -46,11 +46,11 @@ const AboutMeHeroSection = () => {
             <Image
               src={armanFirstImage}
               alt="arman's image in Switzerland"
-              width={1000}
-              height={1000}
+              width={300}
+              height={300}
               priority
               decoding="async"
-              sizes="(min-width: 1024px) 32rem, 20rem"
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 26vw, (max-width: 1560px) 14vw, 15vw"
               quality={70}
               className="h-full w-full object-cover object-center"
             />
@@ -59,10 +59,10 @@ const AboutMeHeroSection = () => {
             <Image
               src={armanSecondImage}
               alt="arman's image in Switzerland"
-              width={1000}
-              height={1000}
+              width={300}
+              height={300}
               decoding="async"
-              sizes="(min-width: 1024px) 32rem, 20rem"
+              sizes="(max-width: 1024px) 15vw, (max-width: 1280px) 18vw, (max-width: 1560px) 18vw, 15vw"
               quality={70}
               loading="lazy"
               className="h-full w-full object-cover object-center"
@@ -72,10 +72,10 @@ const AboutMeHeroSection = () => {
             <Image
               src={armanBikeImage}
               alt="arman's bike image"
-              width={1000}
-              height={1000}
+              width={300}
+              height={300}
               decoding="async"
-              sizes="(min-width: 1024px) 32rem, 20rem"
+              sizes="(max-width: 1024px) 15vw, (max-width: 1280px) 18vw, (max-width: 1560px) 18vw, 15vw"
               quality={70}
               loading="lazy"
               className="h-full w-full object-cover object-center"

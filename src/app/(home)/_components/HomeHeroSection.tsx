@@ -31,17 +31,17 @@ const HomeHeroSection = () => {
         </p>
       </article>
 
-      <figure className="block rotate-6 overflow-hidden rounded-20 shadow-heroImage2 transition-all duration-100 ease-linear hover:-rotate-2 sm:h-[370px] sm:w-[330px] md:order-2 ">
+      <figure className="relative block h-[330px] max-h-[420px] w-[270px] max-w-[384px] rotate-6 overflow-hidden rounded-20 shadow-heroImage2 transition-all duration-100 ease-linear hover:-rotate-2 sm:h-[370px] sm:w-[330px] md:order-2">
         <Image
           src={heroImage}
           alt="Arman in Berlin"
-          width={1000}
-          height={1000}
+          fill
           priority
           decoding="async"
+          placeholder="blur"
           className="h-full w-full object-cover object-center"
-          quality={70}
-          sizes="(min-width: 1024px) 32rem, 20rem"
+          quality={80}
+          sizes="(max-width: 640px) 33vw, (max-width: 1024px) 20vw, (max-width: 1280px) 18vw, (max-width: 1560px) 18vw, 20vw "
         />
       </figure>
     </section>
