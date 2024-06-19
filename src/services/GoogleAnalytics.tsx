@@ -18,7 +18,7 @@ const GoogleAnalytics: React.FC<IGoogleAnalyticsProps> = ({ nonce }) => {
       // @ts-ignore
       if (typeof window.gtag !== "undefined") {
         // @ts-ignore
-        window?.gtag("config", "G-49WYNRYB8Y", {
+        window?.gtag("config", process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID, {
           page_path: url,
         });
       }
