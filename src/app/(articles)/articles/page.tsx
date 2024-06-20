@@ -1,11 +1,14 @@
 import { allArticles } from "contentlayer/generated";
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 
 import Header from "@/components/ui/Header";
 import ArticlesList from "../_components/ArticlesList";
 import Section from "@/components/ui/Section";
 
-import Newsletter from "@/components/ui/Newsletter";
+const DynamicNewsletter = dynamic(() => import("@/components/ui/Newsletter"), {
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi - Articles",
@@ -43,7 +46,7 @@ const Page = () => {
         <ArticlesList articles={allArticles} />
       </Section>
 
-      <Newsletter />
+      <DynamicNewsletter />
     </main>
   );
 };

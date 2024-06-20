@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   ComputedFields,
@@ -7,7 +6,6 @@ import {
 } from "contentlayer/source-files";
 import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
-import rehypePrettyCode from "rehype-pretty-code";
 import textEllipsisFormatter from "./src/utils/text-ellipsis";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
@@ -92,8 +90,6 @@ export default makeSource({
   markdown: {
     rehypePlugins: [
       rehypePrism,
-      // @ts-ignore
-      rehypePrettyCode,
       rehypeSlug,
       [
         rehypeAutolinkHeadings,
@@ -104,13 +100,10 @@ export default makeSource({
         },
       ],
     ], // adding id tag automatically to headings (h1-h6)
-    remarkPlugins: [],
   },
   documentTypes: [Article],
   mdx: {
     rehypePlugins: [
-      // @ts-ignore
-      rehypePrettyCode,
       rehypePrism,
       rehypeSlug,
       [
@@ -122,6 +115,5 @@ export default makeSource({
         },
       ],
     ],
-    remarkPlugins: [],
   },
 });

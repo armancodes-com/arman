@@ -1,8 +1,17 @@
+import dynamic from "next/dynamic";
 import { Metadata } from "next";
 
 import AboutMeHeroSection from "../_components/AboutMeHero";
-import ConnectSection from "../_components/ConnectSection";
-import WorkExperienceSection from "../_components/WorkExperienceSection";
+
+const DynamicConnectSection = dynamic(
+  () => import("../_components/ConnectSection"),
+  { ssr: false },
+);
+
+const DynamicWorkExperienceSection = dynamic(
+  () => import("../_components/WorkExperienceSection"),
+  { ssr: false },
+);
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi - About me",
@@ -36,8 +45,8 @@ const Page = () => {
   return (
     <main className="min-h-svh">
       <AboutMeHeroSection />
-      <ConnectSection />
-      <WorkExperienceSection />
+      <DynamicConnectSection />
+      <DynamicWorkExperienceSection />
     </main>
   );
 };
