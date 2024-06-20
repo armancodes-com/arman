@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+
 import { allArticles } from "contentlayer/generated";
 import { Metadata } from "next";
 

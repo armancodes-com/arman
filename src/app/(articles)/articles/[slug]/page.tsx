@@ -1,5 +1,5 @@
-export const dynamic = "force-dynamic";
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { URL } from "url";
 import { notFound } from "next/navigation";
@@ -7,14 +7,36 @@ import { notFound } from "next/navigation";
 import { allArticles, Article as ArticleType } from "contentlayer/generated";
 
 import BackLink from "@/components/ui/BackLink";
-import Newsletter from "@/components/ui/Newsletter";
-import TagsList from "./_components/TagsList";
-import SidebarLinks from "./_components/SidebarLinks";
 import ArticleHeader from "./_components/ArticleHeader";
-import ArticleSeries from "./_components/ArticleSeries";
 import MdxWrapper from "./_components/mdx/MdxWrapper";
 import readingTime from "@/utils/reading-time";
 import { IS_PRODUCTION } from "@/constants";
+
+const DynamicNewsLetterComponent = dynamic(
+  () => import("@/components/ui/Newsletter"),
+  { ssr: false },
+);
+
+const DynamicTagListComponent = dynamic(
+  () => import("./_components/TagsList"),
+  { ssr: false },
+);
+
+const DynamicArticlesSeries = dynamic(
+  () => import("./_components/ArticleSeries"),
+  {
+    ssr: false,
+    loading: () => <div className="w-full"></div>,
+  },
+);
+
+const DynamicSidebarLinks = dynamic(
+  () => import("./_components/SidebarLinks"),
+  {
+    ssr: false,
+    loading: () => <div className="w-full max-w-[172px]"></div>,
+  },
+);
 
 type Props = {
   params: { slug: string };
@@ -112,22 +134,22 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           className={`${article?.hasSidebarLinks ? "max-w-[600px]" : "w-full"} space-y-6`}
         >
           {/* Series Component */}
-          {article?.hasSeries && <ArticleSeries />}
+          {article?.hasSeries && <DynamicArticlesSeries />}
 
           <MdxWrapper code={article?.body?.code as string} />
         </div>
 
         {/* SIDEBAR OF SINGLE ARTICLES */}
         {sidebarLinks && sidebarLinks.length > 0 && (
-          <SidebarLinks links={sidebarLinks} />
+          <DynamicSidebarLinks links={sidebarLinks} />
         )}
       </section>
 
       {/* TAGS SECTION */}
-      <TagsList tags={article?.tags} />
+      <DynamicTagListComponent tags={article?.tags} />
 
       {/* NEWSLETTER SECTION */}
-      <Newsletter />
+      <DynamicNewsLetterComponent />
     </main>
   );
 };
