@@ -155,3 +155,13 @@ const Page = async ({ params }: { params: { slug: string } }) => {
 };
 
 export default Page;
+
+// As our blogs are built-in the project and then published (not fetched from a backend source), it is better to be statically generated to increase load time
+export async function generateStaticParams() {
+  // IS_PRODUCTION && article?.isDraft
+  const articles = allArticles.filter((article) => !article?.isDraft);
+
+  return articles.map((article) => ({
+    slug: article.slug,
+  }));
+}

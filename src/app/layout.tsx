@@ -1,4 +1,5 @@
 import "./globals.css";
+import "../../public/prism/one-dark.css";
 
 import { headers } from "next/headers";
 import { Ubuntu } from "next/font/google";
@@ -11,7 +12,6 @@ import Navigation from "@/components/Navigation/Navigation";
 import ToolbarLinks from "@/components/Navigation/ToolbarLinks";
 import Footer from "@/components/ui/Footer";
 import GoogleAnalytics from "@/services/GoogleAnalytics";
-import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi",
@@ -34,12 +34,6 @@ export default async function RootLayout({
   return (
     <html lang="en" className="light">
       <GoogleAnalytics nonce={nonce!} />
-      <Script
-        rel="stylesheet"
-        defer
-        strategy="afterInteractive"
-        src="../../public/prism/one-dark.css"
-      />
 
       <body className={`${ubuntu.className} bg-bgColor`}>
         <ThemeProvider attribute="class" enableSystem defaultTheme="light">
