@@ -13,7 +13,6 @@ const NavLink: React.FC<INavLinkProps> = ({ children, href }) => {
   return (
     <Link
       href={href}
-      prefetch
       className={`cursor-pointer text-caption1 transition-all duration-75 ease-linear ${path === href ? "font-bold text-primary" : "text-gray-1 hover:text-primary"}`}
     >
       {children}

@@ -38,10 +38,9 @@ const HomeHeroSection = () => {
           fill
           priority
           decoding="async"
-          placeholder="blur"
+          quality={85}
           className="h-full w-full object-cover object-center"
-          quality={80}
-          sizes="(max-width: 640px) 33vw, (max-width: 1024px) 20vw, (max-width: 1280px) 18vw, (max-width: 1560px) 18vw, 20vw "
+          sizes="(max-width: 500px) 50vw, (max-width: 750px) 33vw, (max-width: 995px) 25vw, (max-width: 1125px) 22vw, (max-width: 1280px) 21vw, 33vw"
         />
       </figure>
     </section>
