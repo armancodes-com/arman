@@ -3,8 +3,8 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import { URL } from "url";
 import { notFound } from "next/navigation";
-
-import { allArticles, Article as ArticleType } from "contentlayer/generated";
+import type { Article as ArticleType } from "contentlayer/generated";
+import { allArticles } from "contentlayer/generated";
 
 import BackLink from "@/components/ui/BackLink";
 import ArticleHeader from "./_components/ArticleHeader";
