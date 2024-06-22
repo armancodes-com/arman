@@ -37,7 +37,7 @@ const AboutMeHeroSection = () => {
               height={300}
               priority
               decoding="async"
-              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 26vw, (max-width: 1560px) 17vw, 17vw"
+              sizes="(max-width: 500px) 50vw, (max-width: 750px) 33vw, (max-width: 995px) 25vw, (max-width: 1125px) 22vw, (max-width: 1280px) 21vw, 33vw"
               quality={70}
               className="h-full w-full object-cover object-center"
             />

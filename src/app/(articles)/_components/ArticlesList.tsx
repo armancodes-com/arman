@@ -1,4 +1,5 @@
-import { allArticles, Article as ArticleType } from "contentlayer/generated";
+import { allArticles } from "contentlayer/generated";
+import type { Article as ArticleType } from "contentlayer/generated";
 
 import ArticleItem from "./ArticleItem";
 import { IS_PRODUCTION } from "@/constants";

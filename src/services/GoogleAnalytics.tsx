@@ -43,10 +43,12 @@ const GoogleAnalytics: React.FC<IGoogleAnalyticsProps> = ({ nonce }) => {
         src={`https://www.googletagmanager.com/gtag/js?id=G-49WYNRYB8Y`}
         strategy="afterInteractive"
         nonce={nonce}
+        defer
       />
-      <Script
+      {/* <Script
         id="google-tag-manager"
         strategy="afterInteractive"
+        defer
         dangerouslySetInnerHTML={{
           __html: `
               window.dataLayer = window.dataLayer || [];
@@ -57,7 +59,7 @@ const GoogleAnalytics: React.FC<IGoogleAnalyticsProps> = ({ nonce }) => {
               });
           `,
         }}
-      />
+      /> */}
     </>
   );
 };
