@@ -8,12 +8,12 @@ export function middleware(request: NextRequest) {
   // style-src 'self' 'nonce-${nonce}' 'unsafe-inline';
   const cspHeader = `
     default-src 'self' 'strict-dynamic' 'unsafe-inline' 'nonce-${nonce}'; 
-    script-src 'self' https://www.googletagmanager.com https://region1.google-analytics.com 'unsafe-eval' 'unsafe-inline' 'strict-dynamic' 'nonce-${nonce}'; 
-    img-src 'self' blob: data:; 
+    script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com 'unsafe-eval' 'unsafe-inline' 'strict-dynamic' 'nonce-${nonce}'; 
+    img-src 'self' blob: data: https://www.google-analytics.com; 
     style-src 'self' 'unsafe-inline';
-    script-src-elem 'self' https://www.googletagmanager.com 'unsafe-inline';
+    script-src-elem 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline';
     font-src 'self'; 
-    connect-src 'self' https://region1.google-analytics.com 'unsafe-inline'; 
+    connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com 'unsafe-inline'; 
     media-src 'self'; 
     object-src 'self'; 
     frame-src 'self'; 
