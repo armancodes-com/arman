@@ -3,10 +3,12 @@
 import GithubIcon from "@/assets/icons/GithubIcon";
 import IconLinkedIn from "@/assets/icons/LinkedIcon";
 import IconMedium from "@/assets/icons/MediumIcon";
+import { DARK_LOGO_SVG, WHITE_LOGO_SVG } from "@/constants";
 import { useTheme } from "next-themes";
 import { Alexandria } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const alexandria = Alexandria({
   subsets: ["latin"],
@@ -16,6 +18,11 @@ const alexandria = Alexandria({
 
 const Footer = () => {
   const { resolvedTheme } = useTheme();
+  const [logoImage, setLogoImage] = useState<string>(DARK_LOGO_SVG);
+
+  useEffect(() => {
+    setLogoImage(WHITE_LOGO_SVG);
+  }, []);
 
   return (
     <footer className="mt-25 border-t border-border-articles bg-bgColor px-4 py-5 md:mt-45 md:px-0 md:py-8">
@@ -23,16 +30,16 @@ const Footer = () => {
         <div className="flex justify-between">
           <div>
             <div className="mb-4 flex flex-wrap items-center gap-4">
-              <Image
-                src={
-                  resolvedTheme === "light"
-                    ? "/images/sample-logo.svg"
-                    : "/images/sample-logo-white.svg"
-                }
-                alt="logo"
-                width={40}
-                height={40}
-              />
+              {resolvedTheme === "light" ? (
+                <Image
+                  src={logoImage || WHITE_LOGO_SVG}
+                  alt="logo"
+                  width={40}
+                  height={40}
+                />
+              ) : (
+                <Image src={DARK_LOGO_SVG} alt="logo" width={40} height={40} />
+              )}
 
               <p className="text-body2 font-bold capitalize text-text-primary">
                 Arman

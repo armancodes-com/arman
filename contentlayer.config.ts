@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   ComputedFields,
@@ -7,7 +6,6 @@ import {
 } from "contentlayer/source-files";
 import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
-import rehypePrettyCode from "rehype-pretty-code";
 import textEllipsisFormatter from "./src/utils/text-ellipsis";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
@@ -22,11 +20,6 @@ const articleComputedFields: ComputedFields = {
   slug: {
     type: "string",
     resolve: (doc) => getSlug(doc),
-  },
-  image: {
-    type: "string",
-    resolve: (doc) =>
-      `/articles/${doc?._raw.sourceFileName.replace(/\.mdx$/, "")}/image.jpg`,
   },
   og: {
     type: "string",
@@ -74,7 +67,7 @@ export const Article = defineDocumentType(() => ({
     featured: { type: "boolean", required: false },
     hasSeries: { type: "boolean", required: false, default: false },
     shortTitle: { type: "string", required: false, default: "" },
-    robots: { type: "string", required: false, default: "noindex, nofollow" },
+    robots: { type: "string", required: false, default: "index,follow" },
     canonical: { type: "string", required: false, default: "" },
     ogTitle: { type: "string", required: false, default: "" },
     ogType: { type: "string", required: false, default: "website" },
@@ -86,6 +79,8 @@ export const Article = defineDocumentType(() => ({
     author: { type: "string", required: true, default: "" },
     keywords: { type: "json", required: false },
     isDraft: { type: "boolean", required: false, default: true },
+    hasSidebarLinks: { type: "boolean", required: false, default: false },
+    image: { type: "string", required: false, default: "" },
   },
   computedFields: articleComputedFields,
 }));
@@ -95,8 +90,6 @@ export default makeSource({
   markdown: {
     rehypePlugins: [
       rehypePrism,
-      // @ts-ignore
-      rehypePrettyCode,
       rehypeSlug,
       [
         rehypeAutolinkHeadings,
@@ -107,13 +100,10 @@ export default makeSource({
         },
       ],
     ], // adding id tag automatically to headings (h1-h6)
-    remarkPlugins: [],
   },
   documentTypes: [Article],
   mdx: {
     rehypePlugins: [
-      // @ts-ignore
-      rehypePrettyCode,
       rehypePrism,
       rehypeSlug,
       [
@@ -125,6 +115,5 @@ export default makeSource({
         },
       ],
     ],
-    remarkPlugins: [],
   },
 });

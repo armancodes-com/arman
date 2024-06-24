@@ -1,5 +1,4 @@
 /* eslint-disable no-irregular-whitespace */
-"use client";
 import { Alexandria, Ubuntu } from "next/font/google";
 import Input from "../Inputs/Input";
 import { isNewsLetterFeatureReleased } from "@/constants/FeatureFlag.constants";

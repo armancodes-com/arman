@@ -9,17 +9,11 @@ interface IThemeSwitcherProps {}
 
 const ThemeSwitcher: React.FC<IThemeSwitcherProps> = () => {
   const [isMounted, setIsMounted] = useState(false);
-  const { setTheme, resolvedTheme, theme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
-
-  useEffect(() => {
-    if (isMounted && !theme) {
-      setTheme("light");
-    }
-  }, [isMounted, theme, setTheme]);
 
   const isLightThemeActive = resolvedTheme === "light";
 
