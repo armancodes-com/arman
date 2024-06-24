@@ -45,7 +45,7 @@ const GoogleAnalytics: React.FC<IGoogleAnalyticsProps> = ({ nonce }) => {
         nonce={nonce}
         defer
       />
-      {/* <Script
+      <Script
         id="google-tag-manager"
         strategy="afterInteractive"
         defer
@@ -59,7 +59,7 @@ const GoogleAnalytics: React.FC<IGoogleAnalyticsProps> = ({ nonce }) => {
               });
           `,
         }}
-      /> */}
+      />
     </>
   );
 };
