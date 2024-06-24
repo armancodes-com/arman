@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
 
-Host: https://armancodes.com
-
 Sitemap: https://armancodes.com/sitemap.xml
