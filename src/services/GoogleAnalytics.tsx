@@ -20,8 +20,7 @@ const GoogleAnalytics: React.FC<IGoogleAnalyticsProps> = ({ nonce }) => {
         // @ts-ignore
         window?.gtag(
           "config",
-          // process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID,
-          "G-49WYNRYB8Y",
+          process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID,
           {
             page_path: url,
           },
@@ -40,7 +39,7 @@ const GoogleAnalytics: React.FC<IGoogleAnalyticsProps> = ({ nonce }) => {
   return (
     <>
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=G-49WYNRYB8Y`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID}`}
         strategy="afterInteractive"
         nonce={nonce}
         defer
@@ -54,7 +53,7 @@ const GoogleAnalytics: React.FC<IGoogleAnalyticsProps> = ({ nonce }) => {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-49WYNRYB8Y', {
+              gtag('config', ${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID}, {
                 page_path: window.location.pathname,
               });
           `,
