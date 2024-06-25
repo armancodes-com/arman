@@ -97,6 +97,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
     author: {
       "@type": "Person",
       name: "Arman Ahmadi",
+      url: "https://armancodes.com/",
     },
     publisher: {
       "@type": "Organization",
@@ -108,8 +109,8 @@ const Page = async ({ params }: { params: { slug: string } }) => {
     },
     headline: article?.title,
     image: article?.image,
-    datePublished: article?.publishedAt,
-    dateModified: article?.updatedAt,
+    datePublished: new Date(article?.publishedAt as string),
+    dateModified: new Date(article?.updatedAt as string),
   };
 
   // handle redirect when article is draft or slut not found
