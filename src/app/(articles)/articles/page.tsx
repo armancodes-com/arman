@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Arman Ahmadi - Articles",
     description:
       "Here you can find blogs that Arman writes about tech, and lifestyle articles",
-    images: ["https://armancodes.com/images/hero-img.jpeg"],
+    images: ["https://armancodes.com/images/hero-img.jpg"],
     url: "http://armancodes.com/articles",
     type: "website",
   },
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: "Arman Ahmadi - Articles",
     description:
       "Here you can find blogs that Arman writes about tech, and lifestyle articles",
-    images: ["https://armancodes.com/images/hero-img.jpeg"],
+    images: ["https://armancodes.com/images/hero-img.jpg"],
     site: "http://armancodes.com/articles",
   },
 };
