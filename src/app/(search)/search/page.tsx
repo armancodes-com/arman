@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Arman Ahmadi - Search",
     description: "Search articles by Arman for topics you want to read.",
-    images: ["https://armancodes.com/images/hero-img.jpeg"],
+    images: ["https://armancodes.com/images/hero-img.jpg"],
     url: "http://armancodes.com/search",
     type: "website",
   },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     creator: "Arman Ahmadi",
     title: "Arman Ahmadi - Search",
     description: "Search articles by Arman for topics you want to read.",
-    images: ["https://armancodes.com/images/hero-img.jpeg"],
+    images: ["https://armancodes.com/images/hero-img.jpg"],
     site: "http://armancodes.com/search",
   },
 };
