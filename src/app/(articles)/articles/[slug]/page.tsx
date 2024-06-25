@@ -11,6 +11,7 @@ import ArticleHeader from "./_components/ArticleHeader";
 import MdxWrapper from "./_components/mdx/MdxWrapper";
 import readingTime from "@/utils/reading-time";
 import { IS_PRODUCTION } from "@/constants";
+import JsonLd from "@/components/seo/JsonLd";
 
 const DynamicNewsLetterComponent = dynamic(
   () => import("@/components/ui/Newsletter"),
@@ -85,6 +86,32 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   const isArticleDraft = IS_PRODUCTION && article?.isDraft;
   const noArticleFound = !article;
 
+  // create JSON+LD data
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${article?.baseUrl}articles/${article?.slug}`,
+    },
+    author: {
+      "@type": "Person",
+      name: "Arman Ahmadi",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "armancodes.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://armancodes.com/images/dark-logo.png",
+      },
+    },
+    headline: article?.title,
+    image: article?.image,
+    datePublished: article?.publishedAt,
+    dateModified: article?.updatedAt,
+  };
+
   // handle redirect when article is draft or slut not found
   if (isArticleDraft || noArticleFound) {
     notFound();
@@ -150,6 +177,9 @@ const Page = async ({ params }: { params: { slug: string } }) => {
 
       {/* NEWSLETTER SECTION */}
       <DynamicNewsLetterComponent />
+
+      {/* JSON+LD data */}
+      <JsonLd data={jsonLd} />
     </main>
   );
 };

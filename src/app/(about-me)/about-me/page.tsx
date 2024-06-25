@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import { Metadata } from "next";
 
 import AboutMeHeroSection from "../_components/AboutMeHero";
+import JsonLd from "@/components/seo/JsonLd";
 
 const DynamicConnectSection = dynamic(
   () => import("../_components/ConnectSection"),
@@ -42,11 +43,30 @@ export const metadata: Metadata = {
 };
 
 const Page = () => {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Arman Ahmadi",
+    image: "",
+    url: "https://armancodes.com",
+    jobTitle: "Backend Engineer",
+    worksFor: {
+      "@type": "Organization",
+      name: "OneFit",
+    },
+    sameAs: ["https://armancodes.com/images/json-dl-photo.png"],
+    description:
+      "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Onefit/Urban Sports Club.",
+  };
+
   return (
     <main className="min-h-svh">
       <AboutMeHeroSection />
       <DynamicConnectSection />
       <DynamicWorkExperienceSection />
+
+      {/* JSON+LD data */}
+      <JsonLd data={jsonLd} />
     </main>
   );
 };
