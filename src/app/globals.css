@@ -23,7 +23,7 @@ html {
     --text-secondary: #553f72;
     --border-color: "#370C62";
     --ellipse-gradient: radial-gradient(
-      39% 39% at 50% 50%,
+      70% 70% at 75% 65%,
       rgba(113, 39, 186, 0.5) 0%,
       rgba(113, 39, 186, 0) 100%
     );
@@ -81,9 +81,9 @@ html {
     position: absolute;
     z-index: -1;
     background: var(--ellipse-gradient);
-    width: 800px;
-    height: 600px;
-    filter: blur(12rem);
+    width: 850px;
+    height: 700px;
+    filter: blur(7rem);
     top: -10rem;
     left: 2rem;
   }

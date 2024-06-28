@@ -1,12 +1,6 @@
+import { alexandria } from "@/app/fonts";
 import Image, { ImageProps } from "next/image";
 import { twMerge } from "tailwind-merge";
-import { Alexandria } from "next/font/google";
-
-const alexandria = Alexandria({
-  subsets: ["latin"],
-  weight: ["500"],
-  preload: true,
-});
 
 interface IArticleImageProps extends ImageProps {
   caption?: string;

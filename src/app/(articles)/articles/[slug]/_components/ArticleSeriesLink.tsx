@@ -1,12 +1,6 @@
 import { ReactNode } from "react";
-import { Alexandria } from "next/font/google";
 import Link from "next/link";
-
-const alexandria = Alexandria({
-  subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
-  preload: true,
-});
+import { alexandria } from "@/app/fonts";
 
 interface ISeriesLinkItemProps {
   children: ReactNode | string;

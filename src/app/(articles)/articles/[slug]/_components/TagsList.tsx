@@ -1,11 +1,5 @@
+import { alexandria } from "@/app/fonts";
 import Tag from "@/components/ui/Tag";
-import { Alexandria } from "next/font/google";
-
-const alexandria = Alexandria({
-  subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
-  preload: true,
-});
 
 interface ITagsListProps {
   tags: string[];
