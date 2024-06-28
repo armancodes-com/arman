@@ -2,7 +2,6 @@ import "./globals.css";
 import "../../public/prism/one-dark.css";
 
 import { headers } from "next/headers";
-import { Ubuntu } from "next/font/google";
 import type { Metadata } from "next";
 
 import NextTopLoader from "nextjs-toploader";
@@ -12,17 +11,12 @@ import Navigation from "@/components/Navigation/Navigation";
 import ToolbarLinks from "@/components/Navigation/ToolbarLinks";
 import Footer from "@/components/ui/Footer";
 import GoogleAnalytics from "@/services/GoogleAnalytics";
+import { ubuntu } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi",
   description: "A Backend-engineer working with PHP.",
 };
-
-const ubuntu = Ubuntu({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-  preload: true,
-});
 
 export default async function RootLayout({
   children,

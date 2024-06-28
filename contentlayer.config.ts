@@ -8,7 +8,6 @@ import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
 import textEllipsisFormatter from "./src/utils/text-ellipsis";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import { MAX_ARTICLES_ID } from "@/constants";
 
 // computing some values from docs
 const getSlug = (doc: any) =>
@@ -45,10 +44,6 @@ const articleComputedFields: ComputedFields = {
   twitterDescription: {
     type: "string",
     resolve: (doc) => `${textEllipsisFormatter(doc?.summary, 130)}`,
-  },
-  id: {
-    type: "number",
-    resolve: () => Math.floor(Math.random() * MAX_ARTICLES_ID),
   },
 };
 

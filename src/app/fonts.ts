@@ -1,4 +1,4 @@
-import { Ubuntu, Fira_Code } from "next/font/google";
+import { Ubuntu, Fira_Code, Alexandria } from "next/font/google";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -10,4 +10,9 @@ const firaCode = Fira_Code({
   weight: ["300", "400", "500", "700", "600"],
 });
 
-export { ubuntu, firaCode };
+const alexandria = Alexandria({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+export { ubuntu, firaCode, alexandria };

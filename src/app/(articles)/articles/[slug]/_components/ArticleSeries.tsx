@@ -2,14 +2,8 @@
 
 import { useState, useRef, useEffect } from "react";
 import IconArrowDownCircle from "@/assets/icons/ArrowDownCircle";
-import { Alexandria } from "next/font/google";
 import ArticleSeriesLink from "./ArticleSeriesLink";
-
-const alexandria = Alexandria({
-  subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
-  preload: true,
-});
+import { alexandria } from "@/app/fonts";
 
 const ArticleSeries = () => {
   const [isSeriesBoxOpen, setIsSeriesBoxOpen] = useState(false);
