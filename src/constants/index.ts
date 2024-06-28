@@ -7,7 +7,6 @@ import WHITE_LOGO_SVG from "@/public/images/white-logo.svg";
 import DARK_LOGO_SVG from "@/public/images/dark-logo.svg";
 
 export const IS_PRODUCTION = process.env.NODE_ENV === "production";
-export const MAX_ARTICLES_ID = 1000;
 
 export {
   heroImage,
