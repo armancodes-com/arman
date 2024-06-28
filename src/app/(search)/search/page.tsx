@@ -1,12 +1,14 @@
 /* eslint-disable no-irregular-whitespace */
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { allArticles } from "contentlayer/generated";
 
 import Section from "@/components/ui/Section";
 import SearchItemList from "../_components/SearchItemList";
 import SearchInput from "../_components/SearchInput";
 import BackLink from "@/components/ui/BackLink";
 import { isSearchSystemReleased } from "@/constants/FeatureFlag.constants";
+import searchArticlesHandler from "@/utils/search-articles";
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi - Search",
@@ -37,6 +39,8 @@ const Page = () => {
   if (!isSearchSystemReleased) {
     notFound();
   }
+
+  console.log(searchArticlesHandler(allArticles, ""));
 
   return (
     <main className="min-h-svh px-4 pt-6 md:px-0 md:pt-11">
