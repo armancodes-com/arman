@@ -18,11 +18,11 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: '/_next/static/:path*',  // Matches all files under _next/static
+        source: "/_next/static/:path*", // Matches all files under _next/static
         headers: [
           {
-            key: 'Cache-Control',
-            value: 'public, max-age=2592000',  // Cache for 1 month, immutable
+            key: "Cache-Control",
+            value: "public, max-age=2592000", // Cache for 1 month, immutable
           },
         ],
       },
