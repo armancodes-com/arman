@@ -1,21 +1,26 @@
+import formatPublishedDateHandler from "@/utils/date";
+import { Article as ArticleType } from "contentlayer/generated";
 import Link from "next/link";
 
-const SearchItem = () => {
+interface ISearchItemProps {
+  item: ArticleType;
+}
+
+const SearchItem: React.FC<ISearchItemProps> = ({ item }) => {
   return (
     <article className="border-b border-border-gray pb-8">
       <header className="space-y-2">
         <Link
-          href={"/articles"}
+          href={`/articles/${item?.slug}`}
           className="hover:underline hover:underline-offset-4"
         >
           <h2 className="text-caption2 text-text-primary md:text-body2">
-            Technical Debt, Organizational Debt |{" "}
-            <span className="text-primary">article</span>
+            {item?.title} | <span className="text-primary">article</span>
           </h2>
         </Link>
 
         <span className="text-xs font-light text-text-primary md:text-caption2">
-          10.Oct 2023
+          {formatPublishedDateHandler(item?.publishedAt)}
         </span>
       </header>
     </article>
