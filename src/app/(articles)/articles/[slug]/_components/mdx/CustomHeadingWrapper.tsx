@@ -1,11 +1,5 @@
-import { Alexandria } from "next/font/google";
+import { alexandria } from "@/app/fonts";
 import { ReactNode } from "react";
-
-const alexandria = Alexandria({
-  subsets: ["latin"],
-  weight: ["300"],
-  preload: true,
-});
 
 const CustomHeadingWrapper: React.FC<{
   tooltip: boolean;

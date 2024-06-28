@@ -1,19 +1,7 @@
 /* eslint-disable no-irregular-whitespace */
-import { Alexandria, Ubuntu } from "next/font/google";
+import { alexandria, ubuntu } from "@/app/fonts";
 import Input from "../Inputs/Input";
 import { isNewsLetterFeatureReleased } from "@/constants/FeatureFlag.constants";
-
-const alexandria = Alexandria({
-  subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
-  preload: true,
-});
-
-const ubuntu = Ubuntu({
-  subsets: ["latin"],
-  weight: ["300"],
-  preload: true,
-});
 
 const Newsletter = () => {
   {

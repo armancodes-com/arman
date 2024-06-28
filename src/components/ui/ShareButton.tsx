@@ -1,14 +1,8 @@
 "use client";
 
+import { alexandria } from "@/app/fonts";
 import IconShare from "@/assets/icons/ShareIcon";
 import { useState } from "react";
-import { Alexandria } from "next/font/google";
-
-const alexandria = Alexandria({
-  subsets: ["latin"],
-  weight: ["300"],
-  preload: true,
-});
 
 const ShareButton = ({ url }: { url: string }) => {
   const [tooltip, showTooltip] = useState(false);
@@ -38,7 +32,7 @@ const ShareButton = ({ url }: { url: string }) => {
         <div
           className={`absolute left-1/2 top-[120%] z-10 -translate-x-1/2 whitespace-nowrap rounded-5 bg-primary p-2 text-caption2 font-light text-white ${alexandria.className}`}
         >
-          copied to clipboard
+          copied
           <div className="absolute bottom-full left-1/2 -ml-1 rotate-180 !border-[5px] border-t border-transparent border-t-primary"></div>
         </div>
       )}

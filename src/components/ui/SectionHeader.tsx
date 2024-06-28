@@ -1,10 +1,4 @@
-import { Fira_Code } from "next/font/google";
-
-const firaCode = Fira_Code({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  preload: true,
-});
+import { firaCode } from "@/app/fonts";
 
 interface ISectionHeaderProps {
   title: string;
