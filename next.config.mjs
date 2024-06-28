@@ -15,6 +15,19 @@ const nextConfig = {
       },
     ],
   },
+  async headers() {
+    return [
+      {
+        source: "/_next/static/:path*", // Matches all files under _next/static
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=2592000", // Cache for 1 month, immutable
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default withContentlayer(nextConfig);
