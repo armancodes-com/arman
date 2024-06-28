@@ -19,12 +19,5 @@ export default function searchArticlesHandler(
   );
 
   // return all the articles that their titles includes the query
-  if (articlesFound?.length > 0) {
-    return articlesFound;
-  }
-
-  // return `NOTHING FOUND` when no article was found
-  if (articlesFound.length === 0) {
-    return `Nothing found!`;
-  }
+  return articlesFound;
 }
