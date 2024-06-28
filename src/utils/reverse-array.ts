@@ -1,8 +1,4 @@
-import { Article as ArticleType } from "contentlayer/generated";
-
-export default function reverseArrayHandler(
-  data: ArticleType[],
-): ArticleType[] {
+export default function reverseArrayHandler<T>(data: T[]): T[] {
   const reversedArray = [];
 
   for (let i = data?.length - 1; i >= 0; i--) {

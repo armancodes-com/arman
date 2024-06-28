@@ -31,6 +31,7 @@ export default defineConfig({
         "**/snapshot-tests/**",
         "**/*.solution.tsx",
         "**/coverage/**",
+        "src/assets",
       ],
       all: true,
     },

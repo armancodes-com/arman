@@ -2,14 +2,8 @@
 import { useMDXComponent } from "next-contentlayer/hooks";
 import ArticleImage from "../ArticleImage";
 import Link from "next/link";
-import { Alexandria } from "next/font/google";
 import CustomHeading from "./CustomHeading";
-
-const alexandria = Alexandria({
-  subsets: ["latin"],
-  weight: ["300"],
-  preload: true,
-});
+import { alexandria } from "@/app/fonts";
 
 interface CustomLinkProps
   extends React.DetailedHTMLProps<

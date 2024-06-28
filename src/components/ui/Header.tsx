@@ -1,17 +1,6 @@
+import { alexandria, firaCode } from "@/app/fonts";
 import IconArrowRight from "@/assets/icons/ArrowRightIcon";
-import { Alexandria, Fira_Code } from "next/font/google";
 import Link from "next/link";
-
-const firaCode = Fira_Code({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700", "600"],
-});
-
-const alexandria = Alexandria({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  preload: true,
-});
 
 interface IHeaderProps {
   title: string;

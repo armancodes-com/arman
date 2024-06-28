@@ -1,15 +1,9 @@
+import { alexandria } from "@/app/fonts";
 import formatPublishedDateHandler from "@/utils/date";
 import textEllipsisFormatter from "@/utils/text-ellipsis";
 import { Article as ArticleType } from "contentlayer/generated";
 
-import { Alexandria } from "next/font/google";
 import Link from "next/link";
-
-const alexandria = Alexandria({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  preload: true,
-});
 
 interface IArticleItemProps {
   data: ArticleType;

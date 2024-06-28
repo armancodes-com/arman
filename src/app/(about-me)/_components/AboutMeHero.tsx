@@ -1,17 +1,11 @@
+import { firaCode } from "@/app/fonts";
 import {
   armanBikeImage,
   armanFirstImage,
   armanSecondImage,
   armanThirdImage,
 } from "@/constants";
-import { Fira_Code } from "next/font/google";
 import Image from "next/image";
-
-const firaCode = Fira_Code({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700", "600"],
-  preload: true,
-});
 
 const AboutMeHeroSection = () => {
   return (
