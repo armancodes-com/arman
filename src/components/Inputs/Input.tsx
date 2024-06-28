@@ -9,7 +9,6 @@ export interface IInputProps
 const Input: React.FC<IInputProps> = ({
   className,
   type = "text",
-  inputMode,
   hasSearchIcon = false,
   ...props
 }) => {
@@ -23,7 +22,6 @@ const Input: React.FC<IInputProps> = ({
       )}
       <input
         type={type}
-        inputMode={inputMode || type === "number" ? "numeric" : "text"}
         className={twMerge(
           "w-full rounded-80 border border-border-articles bg-transparent px-4 py-2 text-caption2 leading-7 text-text-primary outline-primary",
           hasSearchIcon && "pl-12",
