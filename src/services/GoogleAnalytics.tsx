@@ -42,9 +42,11 @@ const GoogleAnalytics: React.FC<IGoogleAnalyticsProps> = ({ nonce }) => {
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID}`}
         strategy="afterInteractive"
         nonce={nonce}
+        async
       />
       <Script
         id="google-tag-manager"
+        async
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
