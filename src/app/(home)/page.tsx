@@ -2,9 +2,16 @@ import { allArticles } from "contentlayer/generated";
 import { Metadata } from "next";
 
 import HomeHeroSection from "./_components/HomeHeroSection";
-import ArticlesList from "../(articles)/_components/ArticlesList";
 import Section from "@/components/ui/Section";
 import Header from "@/components/ui/Header";
+import dynamic from "next/dynamic";
+
+const DynamicArticlesList = dynamic(
+  () => import("../(articles)/_components/ArticlesList"),
+  {
+    ssr: true,
+  },
+);
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi - Backend Engineer",
@@ -39,7 +46,7 @@ export default async function Home() {
 
         <Section type="primary" hasEllipse>
           <Header title="latest articles" linkText="see all" href="/articles" />
-          <ArticlesList articles={allArticles} />
+          <DynamicArticlesList articles={allArticles} />
         </Section>
       </main>
     </>

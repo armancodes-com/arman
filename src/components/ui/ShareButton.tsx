@@ -22,14 +22,16 @@ const ShareButton = ({ url }: { url: string }) => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative" data-testid="share-btn-wrapper">
       <IconShare
         onClick={copyToClipboard}
+        data-testid="share-btn"
         viewBox="0 0 32 32"
         className={`h-6 w-6 cursor-pointer md:h-8 md:w-8 ${tooltip ? "[&_path]:fill-primary [&_path]:stroke-primary" : "[&_path]:stroke-text-primary"}`}
       />
       {tooltip && (
         <div
+          data-testid="share-button-tooltip"
           className={`absolute left-1/2 top-[120%] z-10 -translate-x-1/2 whitespace-nowrap rounded-5 bg-primary p-2 text-caption2 font-light text-white ${alexandria.className}`}
         >
           copied

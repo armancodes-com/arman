@@ -16,6 +16,7 @@ const Input: React.FC<IInputProps> = ({
     <div className="relative flex">
       {hasSearchIcon && (
         <SearchIcon
+          data-testid="input-icon"
           className="absolute left-4 top-1/2 h-6 w-6 -translate-y-1/2 stroke-2 [&_path]:stroke-primary "
           viewBox="0 0 24 24"
         />
