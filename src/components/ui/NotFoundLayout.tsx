@@ -5,7 +5,7 @@ import IconNotFoundDark from "@/assets/icons/NotFoundDark";
 import IconNotFoundLight from "@/assets/icons/NotFoundLight";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 interface INotFoundLayoutProps {
   title: string;
@@ -21,6 +21,11 @@ const NotFoundLayout: React.FC<INotFoundLayoutProps> = ({
   title,
 }) => {
   const { resolvedTheme } = useTheme();
+  const [initialIcon, setInitialIcon] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    setInitialIcon("dark");
+  }, []);
 
   return (
     <div
@@ -31,7 +36,7 @@ const NotFoundLayout: React.FC<INotFoundLayoutProps> = ({
         <p className="text-lg font-bold uppercase md:text-2xl">{subTitle}</p>
       </div>
 
-      {resolvedTheme === "light" ? (
+      {resolvedTheme === "light" || initialIcon === "light" ? (
         <IconNotFoundDark className="h-80 w-80 md:h-auto md:w-auto" />
       ) : (
         <IconNotFoundLight className="h-80 w-80 md:h-auto md:w-auto" />
