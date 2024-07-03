@@ -44,5 +44,6 @@ beforeEach(() => {
     Fira_Code: () => ({ className: "" }),
     Alexandria: () => ({ className: "" }),
     Ubuntu: () => ({ className: "" }),
+    Quantico: () => ({ className: "" }),
   }));
 });
