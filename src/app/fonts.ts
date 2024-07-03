@@ -1,4 +1,4 @@
-import { Ubuntu, Fira_Code, Alexandria } from "next/font/google";
+import { Ubuntu, Fira_Code, Alexandria, Quantico } from "next/font/google";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -18,4 +18,10 @@ const alexandria = Alexandria({
   preload: false,
 });
 
-export { ubuntu, firaCode, alexandria };
+const quantico = Quantico({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  preload: false,
+});
+
+export { ubuntu, firaCode, alexandria, quantico };
