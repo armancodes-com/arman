@@ -30,6 +30,7 @@ const NotFoundLayout: React.FC<INotFoundLayoutProps> = ({
   return (
     <div
       className={`flex ${quantico.className} flex-col items-center justify-center gap-y-5 px-4 pt-10 md:gap-y-16 md:pt-24`}
+      data-testid="not-found-wrapper"
     >
       <div className="flex flex-col items-center gap-4 text-[#282C33] dark:text-white">
         <h1 className="text-3xl font-bold uppercase md:text-[65px]">{title}</h1>
