@@ -4,11 +4,26 @@ import { useState, useRef, useEffect } from "react";
 import IconArrowDownCircle from "@/assets/icons/ArrowDownCircle";
 import ArticleSeriesLink from "./ArticleSeriesLink";
 import { alexandria } from "@/app/fonts";
+import textEllipsisFormatter from "@/utils/text-ellipsis";
 
-const ArticleSeries = () => {
+interface IArticleSeriesProps {
+  seriesLinks: {
+    title: string;
+    link?: string;
+    isCurrent?: boolean;
+    episode: number;
+  }[];
+}
+
+const ArticleSeries: React.FC<IArticleSeriesProps> = ({ seriesLinks }) => {
   const [isSeriesBoxOpen, setIsSeriesBoxOpen] = useState(false);
   const [listHeight, setListHeight] = useState(0);
   const listRef = useRef<HTMLUListElement | null>(null);
+
+  // get the article series that isCurrent is set to true
+  const currentArticleOfSeries = seriesLinks?.find((link) => link?.isCurrent);
+  // total articles series length
+  const totalArticlesInSeries = seriesLinks?.length;
 
   const handleOpenSeriesBox = () => {
     setIsSeriesBoxOpen(!isSeriesBoxOpen);
@@ -38,8 +53,11 @@ const ArticleSeries = () => {
           <span
             className={`${alexandria.className} text-caption2 font-medium md:text-caption1`}
           >
-            Build-Time Syntax Highlighting... |{" "}
-            <span className="text-[#9269BA]">2 of 10</span>
+            {textEllipsisFormatter(currentArticleOfSeries?.title as string, 30)}{" "}
+            |{" "}
+            <span className="text-[#9269BA]">
+              {currentArticleOfSeries?.episode} of {totalArticlesInSeries}
+            </span>
           </span>
         </div>
 
@@ -61,21 +79,11 @@ const ArticleSeries = () => {
           isSeriesBoxOpen ? "opacity-100 delay-150" : "opacity-0"
         }`}
       >
-        <ArticleSeriesLink href="/articles">
-          Build-Time Syntax Highlighting Build-Time Syntax Highlighting
-        </ArticleSeriesLink>
-
-        <ArticleSeriesLink>
-          Build-Time Syntax Highlighting Build-Time Syntax Highlighting
-        </ArticleSeriesLink>
-
-        <ArticleSeriesLink href="/articles">
-          Build-Time Syntax Highlighting Build-Time Syntax Highlighting
-        </ArticleSeriesLink>
-
-        <ArticleSeriesLink>
-          Build-Time Syntax Highlighting Build-Time Syntax Highlighting
-        </ArticleSeriesLink>
+        {seriesLinks?.map((link) => (
+          <ArticleSeriesLink key={link?.title} href={link?.link}>
+            {link?.title}
+          </ArticleSeriesLink>
+        ))}
       </ul>
     </div>
   );

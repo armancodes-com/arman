@@ -66,6 +66,7 @@ export const Article = defineDocumentType(() => ({
     sidebarLinks: { type: "json", required: false },
     featured: { type: "boolean", required: false },
     hasSeries: { type: "boolean", required: false, default: false },
+    blogSeriesLinks: { type: "json", required: false, default: [] },
     shortTitle: { type: "string", required: false, default: "" },
     robots: { type: "string", required: false, default: "index,follow" },
     canonical: { type: "string", required: false, default: "" },
