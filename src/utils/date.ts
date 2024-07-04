@@ -7,7 +7,9 @@ export default function formatPublishedDateHandler(
     year: "numeric",
   },
 ): string {
-  return new Date(publishedAt)
-    .toLocaleDateString(locale, options)
-    ?.replace(" ", ", ");
+  const date = new Date(publishedAt);
+  if (isNaN(date.getTime())) {
+    return "Invalid Date";
+  }
+  return date.toLocaleDateString(locale, options)?.replace(" ", ", ");
 }
