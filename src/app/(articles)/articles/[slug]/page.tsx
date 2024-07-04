@@ -162,7 +162,9 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           className={`${article?.hasSidebarLinks ? "max-w-[600px]" : "w-full"} space-y-6`}
         >
           {/* Series Component */}
-          {article?.hasSeries && <DynamicArticlesSeries />}
+          {article?.hasSeries && (
+            <DynamicArticlesSeries seriesLinks={article?.blogSeriesLinks} />
+          )}
 
           <MdxWrapper code={article?.body?.code as string} />
         </div>

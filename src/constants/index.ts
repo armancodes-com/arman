@@ -1,4 +1,5 @@
-import heroImage from "@/public/images/hero-img.jpg";
+// import heroImage from "@/public/images/hero-img.jpg";
+import heroImage from "@/public/images/hero-img.webp";
 import armanFirstImage from "@/public/images/arman-one.webp";
 import armanSecondImage from "@/public/images/arman-two.jpeg";
 import armanThirdImage from "@/public/images/arman-three.webp";

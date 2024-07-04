@@ -16,8 +16,7 @@ const ArticleSeriesLink: React.FC<ISeriesLinkItemProps> = ({
       <li
         className={`${alexandria.className} text-caption2 underline underline-offset-4 transition-all duration-150 ease-linear hover:text-primary`}
       >
-        {/* //TODO: update href */}
-        <Link href={"/articles"}>{children}</Link>
+        <Link href={href}>{children}</Link>
       </li>
     );
   }
