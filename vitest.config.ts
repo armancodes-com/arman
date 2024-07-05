@@ -14,6 +14,7 @@ export default defineConfig({
     setupFiles: path.resolve(__dirname, "setup.ts"),
     environmentMatchGlobs: [["**/*.test.tsx", "jsdom"]],
     reporters: "verbose",
+    environment: "jsdom",
     coverage: {
       provider: "v8",
       thresholds: {
