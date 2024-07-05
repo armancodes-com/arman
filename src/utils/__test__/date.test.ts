@@ -26,13 +26,23 @@ describe("Date util unit tests", () => {
   });
 
   it("should handle invalid date strings gracefully", () => {
-    const formattedDate = formatPublishedDateHandler("invalid-date");
-    expect(formattedDate).toBe("Invalid Date");
+    expect(() => {
+      formatPublishedDateHandler("dsfsdsf");
+    }).toThrowError("Invalid Date");
+
+    expect(() => {
+      formatPublishedDateHandler("   ");
+    }).toThrowError("Invalid Date");
   });
 
   it("should handle empty date input gracefully", () => {
-    const formattedDate = formatPublishedDateHandler("");
-    expect(formattedDate).toBe("Invalid Date");
+    expect(() => {
+      formatPublishedDateHandler("");
+    }).toThrow();
+
+    expect(() => {
+      formatPublishedDateHandler("");
+    }).toThrowError("Error: Invalid Date");
   });
 
   it("should format a Date object correctly", () => {

@@ -7,9 +7,14 @@ export default function formatPublishedDateHandler(
     year: "numeric",
   },
 ): string {
+  if (!publishedAt) {
+    throw new Error("Error: Invalid Date");
+  }
+
   const date = new Date(publishedAt);
   if (isNaN(date.getTime())) {
-    return "Invalid Date";
+    throw new Error("Invalid Date");
   }
+
   return date.toLocaleDateString(locale, options)?.replace(" ", ", ");
 }
