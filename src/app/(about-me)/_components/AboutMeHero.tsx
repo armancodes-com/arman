@@ -16,7 +16,10 @@ const AboutMeHeroSection = () => {
         >
           I'm Arman
         </h1>
-        <span className="pt-3 text-body2 text-text-primary">
+        <span
+          className="pt-3 text-body2 text-text-primary"
+          data-testid="about-me-subtitle"
+        >
           From Backend Engineering to Personal Pursuits
         </span>
       </header>

@@ -3,7 +3,10 @@ import { COMMUNICATION_LINKS_DATA } from "@/constants/CommunicationLinks.constan
 
 const ConnectLinksList = () => {
   return (
-    <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-x-20 md:gap-y-6">
+    <div
+      className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-x-20 md:gap-y-6"
+      data-testid="connect-links-wrapper"
+    >
       {COMMUNICATION_LINKS_DATA.map((communicationItem) => (
         <LinkButton key={communicationItem.id} {...communicationItem}>
           {communicationItem.children}

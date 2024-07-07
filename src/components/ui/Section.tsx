@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-interface ISectionProps {
+interface ISectionProps extends React.HTMLAttributes<HTMLElement> {
   children: ReactNode;
   hasEllipse?: boolean;
   type?: "primary" | "common";
