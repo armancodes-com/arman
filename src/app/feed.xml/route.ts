@@ -19,16 +19,18 @@ export async function GET() {
   });
 
   if (allArticles) {
-    allArticles.map((article) => {
-      feed.item({
-        title: article.title,
-        description: article.summary,
-        url: `${article.baseUrl}/articles/${article.slug}`,
-        categories: article.tags || [],
-        author: article.author,
-        date: article.publishedAt,
+    allArticles
+      .filter((article) => !article.isDraft)
+      .map((article) => {
+        feed.item({
+          title: article.title,
+          description: article.summary,
+          url: `${article.baseUrl}/articles/${article.slug}`,
+          categories: article.tags || [],
+          author: article.author,
+          date: article.publishedAt,
+        });
       });
-    });
   }
 
   return new Response(feed.xml({ indent: true }), {
