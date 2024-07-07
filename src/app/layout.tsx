@@ -12,6 +12,7 @@ import ToolbarLinks from "@/components/Navigation/ToolbarLinks";
 import Footer from "@/components/ui/Footer";
 import GoogleAnalytics from "@/services/GoogleAnalytics";
 import { ubuntu } from "./fonts";
+import { toolbarLinks } from "@/constants/toolbarlinks.constants";
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi",
@@ -49,7 +50,7 @@ export default async function RootLayout({
           <div className={"relative mx-auto max-w-[800px]"}>
             {children}
 
-            <ToolbarLinks />
+            <ToolbarLinks links={toolbarLinks} />
           </div>
 
           <Footer />

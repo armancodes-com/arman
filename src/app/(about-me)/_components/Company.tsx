@@ -11,11 +11,14 @@ const Company: React.FC<ICompanyInfoProps> = ({
   startDate,
 }) => {
   return (
-    <article className="group flex h-full items-center gap-x-6">
+    <article
+      className="group flex h-full items-center gap-x-6"
+      data-testid="company-component"
+    >
       <figure className="relative h-[50px] w-[50px] overflow-hidden rounded-full border-primary transition-all duration-150 ease-linear group-hover:border-2 md:h-[80px] md:w-[80px]">
         <Image
           src={image}
-          alt="company name"
+          alt={`${companyName} logo`}
           fill
           className="h-full w-full object-cover object-center"
         />

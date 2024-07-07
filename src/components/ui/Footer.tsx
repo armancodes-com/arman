@@ -1,20 +1,14 @@
 "use client";
 
+import { alexandria } from "@/app/fonts";
 import GithubIcon from "@/assets/icons/GithubIcon";
 import IconLinkedIn from "@/assets/icons/LinkedIcon";
 import IconMedium from "@/assets/icons/MediumIcon";
 import { DARK_LOGO_SVG, WHITE_LOGO_SVG } from "@/constants";
 import { useTheme } from "next-themes";
-import { Alexandria } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
-const alexandria = Alexandria({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  preload: true,
-});
 
 const Footer = () => {
   const { resolvedTheme } = useTheme();

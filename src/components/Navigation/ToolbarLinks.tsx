@@ -1,38 +1,30 @@
-import GithubIcon from "@/assets/icons/GithubIcon";
-import IconLinkedIn from "@/assets/icons/LinkedIcon";
-import IconMedium from "@/assets/icons/MediumIcon";
+import { IToolbarLinkItemProps } from "@/constants/toolbarlinks.constants";
 import Link from "next/link";
 
-const ToolbarLinks = () => {
+interface IToolbarLinksProps {
+  links: IToolbarLinkItemProps[];
+}
+
+const ToolbarLinks: React.FC<IToolbarLinksProps> = ({ links }) => {
   return (
     <div className="absolute top-14 hidden h-full xl:-left-28 xl:block">
-      <aside className="sticky top-36 flex flex-col gap-y-8 rounded-40 border border-primary px-3 py-2 ">
-        <div className="group flex h-8 w-8 items-center justify-center">
-          <Link href={"https://github.com/armancodes"} target="_blank">
-            <GithubIcon className="h-6 w-6 transition-all duration-100 ease-in [&_path]:fill-text-primary group-hover:[&_path]:fill-primary" />
-            <span aria-label="github profile" className="sr-only">
-              github profile
-            </span>
-          </Link>
-        </div>
-        <div className="group flex h-8 w-8 items-center justify-center">
-          <Link
-            href={"https://www.linkedin.com/in/armancodes/"}
-            target="_blank"
+      <aside
+        className="sticky top-36 flex flex-col gap-y-8 rounded-40 border border-primary px-3 py-2"
+        data-testid="toolbar-lins-wrapper"
+      >
+        {links?.map((link) => (
+          <div
+            key={link.href}
+            className="group flex h-8 w-8 items-center justify-center"
           >
-            <IconLinkedIn className="h-6 w-6 transition-all duration-100 ease-in [&_path]:stroke-text-primary group-hover:[&_path]:stroke-primary" />
-            <span className="sr-only">linkedin profile</span>
-          </Link>
-        </div>
-        <div className="group flex h-8 w-8 items-center justify-center">
-          <Link href={"https://armancodes.medium.com/"} target="_blank">
-            <IconMedium
-              viewBox="0 0 48 48"
-              className="h-7 w-7 transition-all duration-100 ease-in [&_path]:fill-text-primary group-hover:[&_path]:fill-primary"
-            />
-            <span className="sr-only">medium profile</span>
-          </Link>
-        </div>
+            <Link href={link?.href} target="_blank">
+              {link?.icon}
+              <span aria-label={link.ariaLabel} className="sr-only">
+                {link.ariaLabel}
+              </span>
+            </Link>
+          </div>
+        ))}
       </aside>
     </div>
   );

@@ -20,7 +20,7 @@ export type ReadingTimeResult = ReadingTimeStats & {
 // function
 type WordBoundFunction = Options["wordBound"];
 
-function codeIsInRangeHandler(
+export function codeIsInRangeHandler(
   number: number,
   arrayOfRanges: number[][],
 ): boolean {
@@ -29,7 +29,8 @@ function codeIsInRangeHandler(
   );
 }
 
-const isCJK: WordBoundFunction = (c) => {
+// CJK stands for Chinese, Japanese, and Korean characters
+export const isCJK: WordBoundFunction = (c) => {
   const charCode = c.charCodeAt(0);
 
   return codeIsInRangeHandler(charCode, [
@@ -44,7 +45,7 @@ const isCJK: WordBoundFunction = (c) => {
   ]);
 };
 
-const isPunctuation: WordBoundFunction = (c) => {
+export const isPunctuation: WordBoundFunction = (c) => {
   const charCode = c.charCodeAt(0);
 
   return codeIsInRangeHandler(charCode, [
