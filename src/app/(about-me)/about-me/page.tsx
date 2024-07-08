@@ -56,10 +56,6 @@ const Page = () => {
       url: "https://armancodes.com",
       jobTitle: "Backend Engineer",
     },
-    worksFor: {
-      "@type": "Organization",
-      name: "OneFit",
-    },
   };
 
   return (
