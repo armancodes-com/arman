@@ -4,6 +4,7 @@ import { alexandria } from "@/app/fonts";
 import GithubIcon from "@/assets/icons/GithubIcon";
 import IconLinkedIn from "@/assets/icons/LinkedIcon";
 import IconMedium from "@/assets/icons/MediumIcon";
+import IconRss from "@/assets/icons/RSS";
 import { DARK_LOGO_SVG, WHITE_LOGO_SVG } from "@/constants";
 import { useTheme } from "next-themes";
 import Image from "next/image";
@@ -48,13 +49,13 @@ const Footer = () => {
             <span>back-end engineer</span>
           </div>
           {/* socials */}
-          <div className="w-full max-w-[112px] space-y-4">
+          <div className="w-full max-w-max space-y-4">
             <h2
-              className={`${alexandria.className} text-center text-body2 font-semibold sm:text-start sm:text-title3 sm:font-bold`}
+              className={`${alexandria.className} text-start text-body1 font-semibold sm:text-title3 sm:font-bold`}
             >
               Media
             </h2>
-            <div className="flex items-center justify-between p-1">
+            <div className="flex items-center justify-between gap-2 p-1">
               <Link
                 href={"https://github.com/armancodes"}
                 className="group"
@@ -83,6 +84,12 @@ const Footer = () => {
                   className="h-7 w-7 transition-all duration-100 ease-in [&_path]:fill-text-primary group-hover:[&_path]:fill-primary"
                 />
                 <span className="sr-only">medium profile</span>
+              </Link>
+              <Link href={"/rss.xml"} target="_blank" className="group">
+                <IconRss
+                  viewBox="0 0 32 32"
+                  className="h-7 w-7 transition-all duration-100 ease-in [&_path]:fill-text-primary group-hover:[&_path]:fill-primary"
+                />
               </Link>
             </div>
           </div>

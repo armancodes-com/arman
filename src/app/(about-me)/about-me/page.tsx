@@ -45,18 +45,21 @@ export const metadata: Metadata = {
 const Page = () => {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Arman Ahmadi",
-    image: "",
-    url: "https://armancodes.com",
-    jobTitle: "Backend Engineer",
+    "@type": "ProfilePage",
+    "@id": "ProfilePage",
+    mainEntity: {
+      "@type": "Person",
+      name: "Arman Ahmadi",
+      image: "https://armancodes.com/images/hero-img.webp",
+      description:
+        "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Onefit/Urban Sports Club.",
+      url: "https://armancodes.com",
+      jobTitle: "Backend Engineer",
+    },
     worksFor: {
       "@type": "Organization",
       name: "OneFit",
     },
-    sameAs: ["https://armancodes.com/images/json-dl-photo.png"],
-    description:
-      "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Onefit/Urban Sports Club.",
   };
 
   return (
