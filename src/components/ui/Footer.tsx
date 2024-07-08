@@ -49,9 +49,9 @@ const Footer = () => {
             <span>back-end engineer</span>
           </div>
           {/* socials */}
-          <div className="w-full max-w-[112px] space-y-4">
+          <div className="w-full max-w-max space-y-4">
             <h2
-              className={`${alexandria.className} text-center text-body2 font-semibold sm:text-start sm:text-title3 sm:font-bold`}
+              className={`${alexandria.className} text-start text-body1 font-semibold sm:text-title3 sm:font-bold`}
             >
               Media
             </h2>
