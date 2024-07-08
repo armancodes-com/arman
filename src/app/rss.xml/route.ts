@@ -4,13 +4,13 @@ import { allArticles } from "contentlayer/generated";
 export async function GET() {
   // creating an RSS instance
   const feed = new RSS({
-    title: "Arman Ahmadi - Backend Engineer",
+    title: "Arman Ahmadi - Backend Engineer | Articles RSS Feed",
     description: `Hey there! This is where I share my journey through software engineering, personal anecdotes, and articles covering a wide range of topics.`,
     site_url: "https://armancodes.com",
-    feed_url: "http://armancodes.com/feed.xml",
-    image_url: `https://armancodes.com/images/white-logo.svg`,
-    managingEditor: "Arman Ahmadi",
-    webMaster: "Arman Ahmadi",
+    feed_url: "http://armancodes.com/rss.xml",
+    image_url: `https://armancodes.com/images/white-logo.jpg`,
+    managingEditor: "Arman Ahmadi | me@armancodes.com",
+    webMaster: "Arman Ahmadi | me@armancodes.com",
     generator: "RSS for Node and Next.js",
     copyright: `Copyright ${new Date().getFullYear().toString()}, Arman Ahmadi`,
     language: "en-US",
@@ -35,7 +35,7 @@ export async function GET() {
 
   return new Response(feed.xml({ indent: true }), {
     headers: {
-      "Conntent-Type": "application/xml; charset=utf-8",
+      "Content-Type": "application/xml; charset=utf-8",
     },
   });
 }
