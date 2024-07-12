@@ -1,4 +1,4 @@
-const isNewsLetterFeatureReleased: boolean = false;
+const isNewsLetterFeatureReleased: boolean = true;
 const isLikeArticleFeatureReleased: boolean = false;
 const isSearchSystemReleased: boolean = true;
 

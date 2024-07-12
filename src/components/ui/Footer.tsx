@@ -90,6 +90,7 @@ const Footer = () => {
                   viewBox="0 0 32 32"
                   className="h-7 w-7 transition-all duration-100 ease-in [&_path]:fill-text-primary group-hover:[&_path]:fill-primary"
                 />
+                <span className="sr-only">rss feed</span>
               </Link>
             </div>
           </div>
