@@ -18,10 +18,11 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       thresholds: {
-        lines: 10,
-        branches: 10,
-        functions: 10,
-        statements: 10,
+        lines: 60,
+        branches: 60,
+        functions: 60,
+        statements: 60,
+        autoUpdate: true,
       },
       include: ["src/**/*"],
       exclude: [

@@ -1,5 +1,3 @@
-export const dynamic = "force-dynamic";
-
 import { emailValidateHandler } from "@/utils/validators";
 import { NextRequest } from "next/server";
 
@@ -21,8 +19,8 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const username = process.env.NEXT_PUBLIC_NEWSLETTER_USERNAME;
-  const password = process.env.NEXT_PUBLIC_NEWSLETTER_PASSWORD;
+  const username = process.env.NEWSLETTER_USERNAME;
+  const password = process.env.NEWSLETTER_PASSWORD;
 
   const newsLetterRequestBody = {
     email: userEmail,
@@ -50,6 +48,7 @@ export async function POST(request: NextRequest) {
       {
         message:
           "Thanks for signing up! Please confirm your email to start receiving updates.",
+        data: data,
       },
       { status: 201, statusText: "ok" },
     );

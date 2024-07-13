@@ -24,13 +24,9 @@ const Newsletter = () => {
       },
       body: JSON.stringify({ email }),
     });
-    console.log(response, "response");
-
-    // const content = await response.json();
-
-    // console.log(content, "dfsf");
+    const content = await response.json();
+    console.log(content, "dfsf");
   };
-  // Thanks for signing up! Please confirm your email to start receiving updates.
 
   const handleSubscribeNewsletter = (e: FormEvent) => {
     e.preventDefault();
