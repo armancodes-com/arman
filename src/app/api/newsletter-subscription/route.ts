@@ -1,3 +1,8 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import {
+  INewsLetterPreExistenceResponseProps,
+  INewsLetterSuccessResponseProps,
+} from "@/types/newsletter.types";
 import { emailValidateHandler } from "@/utils/validators";
 import { NextRequest } from "next/server";
 
@@ -41,19 +46,28 @@ export async function POST(request: NextRequest) {
       },
     );
 
-    const data = await response.json();
-    console.log("Response from newsletter provider:", data);
+    const data:
+      | INewsLetterPreExistenceResponseProps
+      | INewsLetterSuccessResponseProps = await response.json();
 
-    return Response.json(
-      {
-        message:
-          "Thanks for signing up! Please confirm your email to start receiving updates.",
-        data: data,
-      },
-      { status: 201, statusText: "ok" },
-    );
+    // @ts-ignore
+    if (data?.data?.message === "E-mail already exists.") {
+      return Response.json(
+        { message: "E-mail already exists.", email: userEmail },
+        { status: 403, statusText: "Error" },
+      );
+    } else {
+      return Response.json(
+        {
+          message:
+            "Thanks for signing up! Please confirm your email to start receiving updates.",
+          data: data,
+          email: userEmail,
+        },
+        { status: 201, statusText: "success" },
+      );
+    }
   } catch (error) {
-    console.error("Error sending request:", error);
     return Response.json(
       {
         message: "Oops! Something went wrong! Please try again!",

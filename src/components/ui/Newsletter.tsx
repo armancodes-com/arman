@@ -8,6 +8,10 @@ import { isNewsLetterFeatureReleased } from "@/constants/FeatureFlag.constants";
 
 const Newsletter = () => {
   const [email, setEmail] = useState<string>("");
+  const [shouldShowNewsLetter, setShouldShowNewsLetter] =
+    useState<boolean>(true);
+  const [isSubscripting, setIsSubscripting] = useState<boolean>(false);
+  const [message, setMessage] = useState<string | null>(null);
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -16,6 +20,9 @@ const Newsletter = () => {
   };
 
   const submitEmailToNewsletter = async (email: string) => {
+    setIsSubscripting(true);
+    setMessage(null);
+
     const response = await fetch("/api/newsletter-subscription", {
       method: "POST",
       headers: {
@@ -24,8 +31,26 @@ const Newsletter = () => {
       },
       body: JSON.stringify({ email }),
     });
-    const content = await response.json();
-    console.log(content, "dfsf");
+
+    const data = await response.json();
+
+    // subscription was successful
+    if (response.status === 201) {
+      setMessage(data?.message);
+      setShouldShowNewsLetter(false);
+    }
+
+    if (response?.status === 403) {
+      setMessage(data?.message);
+      setShouldShowNewsLetter(true);
+    }
+
+    if (response?.status === 400) {
+      setMessage(data?.message);
+      setShouldShowNewsLetter(true);
+    }
+
+    setIsSubscripting(false);
   };
 
   const handleSubscribeNewsletter = (e: FormEvent) => {
@@ -36,7 +61,23 @@ const Newsletter = () => {
     submitEmailToNewsletter(email);
   };
 
-  if (isNewsLetterFeatureReleased) {
+  if (isSubscripting) {
+    return (
+      <section className="flex items-center justify-center px-4 md:p-0">
+        <p className="text-center text-primary">loading ...</p>
+      </section>
+    );
+  }
+
+  if (!shouldShowNewsLetter && message && !isSubscripting) {
+    return (
+      <section className="flex items-center justify-center px-4 md:p-0">
+        <p className="text-center text-primary">{message}</p>
+      </section>
+    );
+  }
+
+  if (isNewsLetterFeatureReleased && shouldShowNewsLetter && !isSubscripting) {
     return (
       <section className="px-4 md:p-0" data-testid="newsletter-section">
         <article className="mt-[72px] flex flex-col items-center justify-center gap-3 rounded-10 border border-[#7127BACC] bg-tertiary-bg px-6 pb-4 pt-6 text-center dark:border-none md:mt-25 md:gap-6">
