@@ -26,6 +26,11 @@ COPY . .
 ARG NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID
 ENV NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID=${NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID}
 
+ARG NEWSLETTER_USERNAME
+ARG NEWSLETTER_PASSWORD
+ENV NEWSLETTER_USERNAME=${NEWSLETTER_USERNAME}
+ENV NEWSLETTER_PASSWORD=${NEWSLETTER_PASSWORD}
+
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line in case you want to disable telemetry during the build.
