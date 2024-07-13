@@ -21,8 +21,8 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const username = process.env.NEWSLETTER_USERNAME;
-  const password = process.env.NEWSLETTER_PASSWORD;
+  const username = process.env.NEXT_PUBLIC_NEWSLETTER_USERNAME;
+  const password = process.env.NEXT_PUBLIC_NEWSLETTER_PASSWORD;
 
   const newsLetterRequestBody = {
     email: userEmail,
