@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
       | INewsLetterSuccessResponseProps = await response.json();
 
     // @ts-ignore
-    if (data?.data?.message === "E-mail already exists.") {
+    if (data?.message === "E-mail already exists.") {
       return Response.json(
         { message: "E-mail already exists.", email: userEmail },
         { status: 403, statusText: "Error" },
