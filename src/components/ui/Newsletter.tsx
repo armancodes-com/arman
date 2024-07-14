@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 /* eslint-disable no-irregular-whitespace */
@@ -51,6 +50,7 @@ const Newsletter = () => {
     }
 
     setIsSubscripting(false);
+    setEmail("");
   };
 
   const handleSubscribeNewsletter = (e: FormEvent) => {
@@ -60,22 +60,6 @@ const Newsletter = () => {
     // do the post request
     submitEmailToNewsletter(email);
   };
-
-  if (isSubscripting) {
-    return (
-      <section className="mt-10 flex items-center justify-center px-4 md:p-0">
-        <p className="text-center text-primary">loading ...</p>
-      </section>
-    );
-  }
-
-  // if (result?.status === "success" && !isSubscripting) {
-  //   return (
-  //     <section className="mt-10 flex items-center justify-center px-4 md:p-0">
-  //       <p className="text-center text-primary">{result?.message}</p>
-  //     </section>
-  //   );
-  // }
 
   if (isNewsLetterFeatureReleased) {
     return (
@@ -90,38 +74,51 @@ const Newsletter = () => {
             <p
               className={`${alexandria.className} text-caption2 font-light text-text-primary md:${ubuntu.className} leading-6 md:text-caption1`}
             >
-              Monthly personal reading and updates on topics like tech, design,
+              Receive exclusive monthly insights and updates on tech,
               productivity, programming, and more!
             </p>
 
-            <form
-              className="flex w-full flex-col gap-4 px-4 sm:flex-row md:px-13"
-              onSubmit={handleSubscribeNewsletter}
-            >
-              <div className="flex-[4]">
-                <Input
-                  type="email"
-                  placeholder="your email"
-                  onChange={handleEmailChange}
-                  disabled={true}
-                />
-              </div>
-              <div className="flex-1">
-                <Button disabled={true}>Sign up</Button>
-              </div>
-            </form>
+            {/* remove the inputs when the subscription's result is successful */}
+            {result?.status !== "success" && (
+              <>
+                <form
+                  className="flex w-full flex-col gap-4 px-4 sm:flex-row md:px-13"
+                  onSubmit={handleSubscribeNewsletter}
+                >
+                  <div className="flex-[4]">
+                    <Input
+                      type="email"
+                      placeholder="your email"
+                      onChange={handleEmailChange}
+                      disabled={isSubscripting}
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <Button disabled={isSubscripting}>Sign up</Button>
+                  </div>
+                </form>
+
+                {result?.status === "failure" && !isSubscripting && (
+                  <section className="flex items-center justify-center px-4 md:p-0">
+                    <p className="text-center text-primary">
+                      {result?.message}
+                    </p>
+                  </section>
+                )}
+              </>
+            )}
+            {/* show the success message instead of the form when subscription's result is successful */}
+            {result?.status === "success" && !isSubscripting && (
+              <section className="flex items-center justify-center px-4 md:p-0">
+                <p className="text-center text-primary">{result?.message}</p>
+              </section>
+            )}
 
             <span className="mt-3 text-caption2 font-light text-text-primary md:mb-7 md:mt-0">
-              Join the 110 other readers.
+              Join the +50 other readers.
             </span>
           </article>
         </section>
-
-        {/* {result?.status === "failure" && (
-          <section className="mt-10 flex items-center justify-center px-4 md:p-0">
-            <p className="text-center text-primary">{result?.message}</p>
-          </section>
-        )} */}
       </>
     );
   }
