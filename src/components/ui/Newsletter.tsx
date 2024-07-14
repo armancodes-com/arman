@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 /* eslint-disable no-irregular-whitespace */
@@ -5,11 +6,10 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { alexandria, ubuntu } from "@/app/fonts";
 import Input from "../Inputs/Input";
 import { isNewsLetterFeatureReleased } from "@/constants/FeatureFlag.constants";
+import Button from "./Button";
 
 const Newsletter = () => {
   const [email, setEmail] = useState<string>("");
-  const [shouldShowNewsLetter, setShouldShowNewsLetter] =
-    useState<boolean>(true);
   const [isSubscripting, setIsSubscripting] = useState<boolean>(false);
   const [result, setResult] = useState<{
     status: "success" | "failure";
@@ -40,17 +40,14 @@ const Newsletter = () => {
     // subscription was successful
     if (response.status === 201) {
       setResult({ status: "success", message: data?.message });
-      setShouldShowNewsLetter(false);
     }
 
     if (response?.status === 403) {
       setResult({ status: "failure", message: data?.message });
-      setShouldShowNewsLetter(true);
     }
 
     if (response?.status === 400) {
       setResult({ status: "failure", message: data?.message });
-      setShouldShowNewsLetter(true);
     }
 
     setIsSubscripting(false);
@@ -72,19 +69,15 @@ const Newsletter = () => {
     );
   }
 
-  if (
-    !shouldShowNewsLetter &&
-    result?.status === "success" &&
-    !isSubscripting
-  ) {
-    return (
-      <section className="mt-10 flex items-center justify-center px-4 md:p-0">
-        <p className="text-center text-primary">{result?.message}</p>
-      </section>
-    );
-  }
+  // if (result?.status === "success" && !isSubscripting) {
+  //   return (
+  //     <section className="mt-10 flex items-center justify-center px-4 md:p-0">
+  //       <p className="text-center text-primary">{result?.message}</p>
+  //     </section>
+  //   );
+  // }
 
-  if (isNewsLetterFeatureReleased && shouldShowNewsLetter && !isSubscripting) {
+  if (isNewsLetterFeatureReleased) {
     return (
       <>
         <section className="px-4 md:p-0" data-testid="newsletter-section">
@@ -110,13 +103,11 @@ const Newsletter = () => {
                   type="email"
                   placeholder="your email"
                   onChange={handleEmailChange}
-                  disabled={isSubscripting}
+                  disabled={true}
                 />
               </div>
               <div className="flex-1">
-                <button className="flex w-full items-center justify-center rounded-80 border border-primary px-4 py-2 text-body2 font-medium text-primary">
-                  Sign up
-                </button>
+                <Button disabled={true}>Sign up</Button>
               </div>
             </form>
 
@@ -126,11 +117,11 @@ const Newsletter = () => {
           </article>
         </section>
 
-        {result?.status === "failure" && (
+        {/* {result?.status === "failure" && (
           <section className="mt-10 flex items-center justify-center px-4 md:p-0">
             <p className="text-center text-primary">{result?.message}</p>
           </section>
-        )}
+        )} */}
       </>
     );
   }
