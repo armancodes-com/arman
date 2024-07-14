@@ -48,6 +48,13 @@ FROM base AS runner
 WORKDIR /app
 
 ENV NODE_ENV staging
+
+# Set environment variables again in the runner stage
+ARG NEWSLETTER_USERNAME
+ARG NEWSLETTER_PASSWORD
+ENV NEWSLETTER_USERNAME=${NEWSLETTER_USERNAME}
+ENV NEWSLETTER_PASSWORD=${NEWSLETTER_PASSWORD}
+
 # Uncomment the following line in case you want to disable telemetry during runtime.
 # ENV NEXT_TELEMETRY_DISABLED 1
 

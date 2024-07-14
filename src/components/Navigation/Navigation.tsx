@@ -22,7 +22,7 @@ const Navigation = () => {
   return (
     <header className="relative top-0 z-20 bg-bgColor px-4 py-2 md:sticky md:px-0 md:py-1">
       <nav className="mx-auto flex max-w-[800px] flex-wrap items-center justify-between">
-        <div className="flex items-center gap-4">
+        <Link href={"/"} className="flex items-center gap-4">
           {resolvedTheme === "light" ? (
             <Image
               src={logoImage || WHITE_LOGO_SVG}
@@ -37,7 +37,7 @@ const Navigation = () => {
           <p className="text-caption1 font-bold capitalize text-text-primary">
             Arman
           </p>
-        </div>
+        </Link>
 
         <NavList links={NAVIGATION_LINKS} />
 
