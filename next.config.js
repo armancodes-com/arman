@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-undef */
 /** @type {import('next').NextConfig} */
-import { withContentlayer } from "next-contentlayer";
+const { withContentlayer } = require("next-contentlayer");
 
 const nextConfig = {
   output: "standalone",
@@ -17,4 +18,4 @@ const nextConfig = {
   },
 };
 
-export default withContentlayer(nextConfig);
+module.exports = withContentlayer(nextConfig);

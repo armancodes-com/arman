@@ -13,7 +13,9 @@ const SidebarLinks: React.FC<ISidebarLinksProps> = ({ links }) => {
         </header>
         <ul className="pt-1">
           {links?.map((link) => (
-            <SidebarLink href={`#${link?.href}`}>{link?.title}</SidebarLink>
+            <SidebarLink href={`#${link?.href}`} key={link?.href}>
+              {link?.title}
+            </SidebarLink>
           ))}
         </ul>
       </div>
