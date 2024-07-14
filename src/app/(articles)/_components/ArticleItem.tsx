@@ -11,7 +11,7 @@ interface IArticleItemProps {
 }
 
 const ArticleItem: React.FC<IArticleItemProps> = ({ data, readTime }) => {
-  const { title, summary, publishedAt, slug, isDraft } = data;
+  const { title, summary, publishedAt, slug, isDraft, category } = data;
 
   return (
     <article
@@ -53,6 +53,16 @@ const ArticleItem: React.FC<IArticleItemProps> = ({ data, readTime }) => {
             </span>
             <span className="text-xs font-light md:text-caption2">
               {`${readTime} ${readTime > 1 ? "Mins" : "Min"}`}
+            </span>
+          </p>
+        )}
+        {category && (
+          <p className="space-x-2 text-text-primary">
+            <span className="text-xs font-bold tracking-wide md:text-caption2">
+              Category
+            </span>
+            <span className="text-xs font-light md:text-caption2">
+              {category}
             </span>
           </p>
         )}
