@@ -102,21 +102,6 @@ tags: ["PHP", "Design Pattern", "Software Engineering", "OOP"]
 ---
 ```
 
-### Articles relevant to each other like series
-
-Some articles may have part 1 or part 2, or they may be relevant to each other. You can make this happen by setting `hasSereis` prop to `true`. By default, this prop is set to `false`.
-
-```mdx
----
-title: "What is Decorator Design Pattern?"
-summary: "In software engineering, software design patterns are common solutions for common problems."
-publishedAt: "2023-11-28"
-updatedAt: "2024-11-28"
-tags: ["PHP", "Design Pattern", "Software Engineering", "OOP"]
-hasSeries: false
----
-```
-
 ### Sidebar links
 
 An article may have some headings that we want to have on the right side of the web page. To have those links that a user can click on them and navigate to different parts of the article, you can easily provide those links in an array. Pay attention that those links should exist in the article's content as headings. Otherwise, they cannot be linked properly.
@@ -182,6 +167,21 @@ author: "Arman Ahmadi"
 # What if articles are related to each other?
 
 ## articles Series feature
+
+### Articles relevant to each other like series
+
+Some articles may have part 1 or part 2, or they may be relevant to each other. You can make this happen by setting `hasSereis` prop to `true`. By default, this prop is set to `false`.
+
+```mdx
+---
+title: "What is Decorator Design Pattern?"
+summary: "In software engineering, software design patterns are common solutions for common problems."
+publishedAt: "2023-11-28"
+updatedAt: "2024-11-28"
+tags: ["PHP", "Design Pattern", "Software Engineering", "OOP"]
+hasSeries: false
+---
+```
 
 To link articles to each other, you need to pass these props to all articles that are linked together or complete a series of articles with the same topic. By passing `hasSeries` props and setting it to `true`, the `ArticlesSeries` component will be shown to the user. The `blogSeriesLinks` prop is used to show the list of links to the user, like the image below:
 ![Article series](http://armancodes.com/images/article-series.png)
