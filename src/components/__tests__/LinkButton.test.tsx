@@ -5,7 +5,16 @@ import { screen } from "@testing-library/react";
 
 describe("LinkButton Tests Suite Component", () => {
   it("should render the link button properly", () => {
-    render(<LinkButton href="/articles">see all</LinkButton>);
+    render(
+      <LinkButton
+        icon={
+          <IconEmail className="[&_path]:stroke-gray-1 group-hover:[&_path]:stroke-primary" />
+        }
+        href="/articles"
+      >
+        see all
+      </LinkButton>,
+    );
 
     expect(screen.getByRole("link")).toBeInTheDocument();
     expect(screen.getByRole("link")).toHaveAttribute("href", "/articles");
@@ -31,7 +40,13 @@ describe("LinkButton Tests Suite Component", () => {
 
   it("should render the link icon if it is set to true", () => {
     render(
-      <LinkButton href="/articles" hasLinkIcon>
+      <LinkButton
+        icon={
+          <IconEmail className="[&_path]:stroke-gray-1 group-hover:[&_path]:stroke-primary" />
+        }
+        href="/articles"
+        hasLinkIcon
+      >
         see all
       </LinkButton>,
     );
