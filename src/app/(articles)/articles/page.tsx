@@ -44,6 +44,8 @@ const Page = () => {
       <Section type="common" className="space-y-8">
         <Header title="my articles" />
         <ArticlesList articles={allArticles} />
+        {/* Pagination */}
+        <article className="border border-black"></article>
       </Section>
 
       <DynamicNewsletter />
