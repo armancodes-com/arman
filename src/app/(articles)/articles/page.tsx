@@ -5,6 +5,8 @@ import dynamic from "next/dynamic";
 import Header from "@/components/ui/Header";
 import ArticlesList from "../_components/ArticlesList";
 import Section from "@/components/ui/Section";
+import Pagination from "@/components/Navigation/Pagination";
+import { SHOW_PER_PAGE } from "@/constants/Pagination.constants";
 
 const DynamicNewsletter = dynamic(() => import("@/components/ui/Newsletter"), {
   ssr: false,
@@ -44,6 +46,8 @@ const Page = () => {
       <Section type="common" className="space-y-8">
         <Header title="my articles" />
         <ArticlesList articles={allArticles} />
+        {/* Pagination */}
+        {allArticles.length > SHOW_PER_PAGE && <Pagination />}
       </Section>
 
       <DynamicNewsletter />

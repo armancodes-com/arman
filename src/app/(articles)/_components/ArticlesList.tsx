@@ -1,37 +1,53 @@
-import { allArticles } from "contentlayer/generated";
+"use client";
+
 import type { Article as ArticleType } from "contentlayer/generated";
 
 import ArticleItem from "./ArticleItem";
 import { IS_PRODUCTION } from "@/constants";
 import readingTime from "@/utils/reading-time";
 import reverseArrayHandler from "@/utils/reverse-array";
+import useQueryString from "@/hooks/useQueryString";
+import { useEffect, useState } from "react";
+import { SHOW_PER_PAGE } from "@/constants/Pagination.constants";
 
 interface IArticlesListProps {
   articles: ArticleType[];
 }
 
 const ArticlesList: React.FC<IArticlesListProps> = ({ articles }) => {
+  const { getQueryStringValue } = useQueryString();
+  const pageFromUrl = getQueryStringValue("page");
+  const [currentPage, setCurrentPage] = useState<number>(
+    pageFromUrl ? +pageFromUrl : 0,
+  );
+
   const publishedArticles = articles?.filter((article) => !article?.isDraft);
-  const allArticlesReversed = reverseArrayHandler(allArticles);
+  const allArticlesReversed = reverseArrayHandler(articles);
   const publishedArticlesReversed = reverseArrayHandler(publishedArticles);
+
+  const displayedArticles = IS_PRODUCTION
+    ? publishedArticlesReversed
+    : allArticlesReversed;
+
+  // Calculate the starting and ending index of the articles to display
+  const startIdx = (currentPage - 1) * SHOW_PER_PAGE;
+  const endIdx = startIdx + SHOW_PER_PAGE;
+
+  const paginatedArticles = displayedArticles.slice(startIdx, endIdx);
+
+  useEffect(() => {
+    setCurrentPage(pageFromUrl ? +pageFromUrl : 0);
+  }, [pageFromUrl]);
 
   return (
     <div className="mt-8 flex flex-col gap-8 md:mt-12 md:gap-10">
-      {IS_PRODUCTION
-        ? publishedArticlesReversed?.map((article) => (
-            <ArticleItem
-              key={article?.title}
-              data={article}
-              readTime={readingTime(article?.body?.raw).minutes}
-            />
-          ))
-        : allArticlesReversed?.map((article) => (
-            <ArticleItem
-              key={article?.title}
-              data={article}
-              readTime={readingTime(article?.body?.raw).minutes}
-            />
-          ))}
+      {paginatedArticles?.map((article) => (
+        <ArticleItem
+          key={article?.title}
+          data={article}
+          readTime={readingTime(article?.body?.raw).minutes}
+        />
+      ))}
     </div>
   );
 };
