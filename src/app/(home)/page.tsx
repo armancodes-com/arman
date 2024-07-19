@@ -7,7 +7,7 @@ import Header from "@/components/ui/Header";
 import dynamic from "next/dynamic";
 
 const DynamicArticlesList = dynamic(
-  () => import("../(articles)/_components/ArticlesList"),
+  () => import("./_components/HomePageArticlesList"),
   {
     ssr: true,
   },
