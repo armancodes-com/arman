@@ -51,3 +51,9 @@ export interface IGetNewsLetterSubscribers {
     subscription_updated_at: null;
   };
 }
+
+export interface IGetSubscribersResponse {
+  message: string;
+  totalSubscribers: number;
+  status: number;
+}

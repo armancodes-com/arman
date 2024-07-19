@@ -23,6 +23,7 @@ export async function GET() {
     return Response.json(
       {
         message: "Request was successful",
+        status: response.status,
         totalSubscribers: data?.data?.subscriber_statuses?.confirmed,
       },
       { status: 200, statusText: "ok" },

@@ -1,8 +1,8 @@
-export async function getSubscribersNumber() {
+import { IGetSubscribersResponse } from "@/types/newsletter.types";
+
+export async function getSubscribersNumber(): Promise<IGetSubscribersResponse> {
   const response = await fetch("/api/subscribers");
 
   const data = await response.json();
-  console.log(data, "data from newsletter.ts");
-
   return data;
 }

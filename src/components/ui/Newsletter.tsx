@@ -17,6 +17,8 @@ const Newsletter = () => {
     message: "";
   } | null>(null);
 
+  const [confirmedSubscribers, setConfirmedSubscribers] = useState<number>(0);
+
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
 
@@ -25,7 +27,12 @@ const Newsletter = () => {
 
   const getNewsletterSubscribers = async () => {
     const subscribers = await getSubscribersNumber();
-    console.log(subscribers, "subscribers");
+    if (subscribers.status === 200) {
+      setConfirmedSubscribers(subscribers.totalSubscribers);
+    } else {
+      // we set it to 0 in case the real data was not fetched
+      setConfirmedSubscribers(0);
+    }
   };
 
   const submitEmailToNewsletter = async (email: string) => {
@@ -126,7 +133,7 @@ const Newsletter = () => {
             )}
 
             <span className="mt-3 text-caption2 font-light text-text-primary md:mb-7 md:mt-0">
-              {`Join the +${NEWSLETTER_SUBSCRIBERS_CONSTANT + 2} other readers.`}
+              {`Join the +${NEWSLETTER_SUBSCRIBERS_CONSTANT + confirmedSubscribers} other readers.`}
             </span>
           </article>
         </section>
