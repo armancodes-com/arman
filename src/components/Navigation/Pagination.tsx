@@ -48,14 +48,23 @@ const Pagination = () => {
     } else {
       createQueryString("page", `${currentPage}`);
     }
-  }, [createQueryString, currentPage, pageQueryValue]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [createQueryString, pageQueryValue]);
 
   return (
     <article className="!md:mt-[68px] mx-auto !mt-11 flex max-w-[258px] items-center justify-center gap-12">
-      <Button className="!font-medium" onClick={handlePrevPage}>
+      <Button
+        className="!font-medium"
+        disabled={currentPage === 1}
+        onClick={handlePrevPage}
+      >
         previous
       </Button>
-      <Button className="!font-medium" onClick={handleNextPage}>
+      <Button
+        className="!font-medium"
+        disabled={currentPage === totalPages}
+        onClick={handleNextPage}
+      >
         next
       </Button>
     </article>

@@ -46,7 +46,7 @@ const Page = () => {
         <Header title="my articles" />
         <ArticlesList articles={allArticles} />
         {/* Pagination */}
-        <Pagination />
+        {allArticles.length > 1 && <Pagination />}
       </Section>
 
       <DynamicNewsletter />
