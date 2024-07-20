@@ -46,18 +46,16 @@ const Page = () => {
   const publishedArticles = allArticles?.filter((article) => !article?.isDraft);
   const allArticlesReversed = reverseArrayHandler(allArticles);
   const publishedArticlesReversed = reverseArrayHandler(publishedArticles);
-  // console.log(publishedArticles.length, allArticles.length);
 
   const displayedArticles = IS_PRODUCTION
     ? publishedArticlesReversed
     : allArticlesReversed;
-  // console.log(displayedArticles.length);
 
   return (
     <main>
       <Section type="common" className="space-y-8">
         <Header title="my articles" />
-        <ArticlesList articles={allArticles} />
+        <ArticlesList articles={displayedArticles} />
         {/* Pagination */}
         {displayedArticles.length > SHOW_PER_PAGE && (
           <Pagination totalArticles={displayedArticles.length} />
