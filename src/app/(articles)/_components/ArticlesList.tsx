@@ -26,7 +26,7 @@ const ArticlesList: React.FC<IArticlesListProps> = ({ articles }) => {
   const paginatedArticles = articles.slice(startIdx, endIdx);
 
   useEffect(() => {
-    setCurrentPage(pageFromUrl ? +pageFromUrl : 0);
+    setCurrentPage(pageFromUrl ? +pageFromUrl : 1);
   }, [pageFromUrl]);
 
   return (
