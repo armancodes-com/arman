@@ -12,11 +12,13 @@ import { SHOW_PER_PAGE } from "@/constants/Pagination.constants";
 // total number of articles / 5 ==> 10 / 5 = 2 pages
 // if total articles becomes 7 ==> 7 / 5 = 1.4 which should be rounded up to 2
 
-const Pagination = () => {
+interface IPaginationProps {
+  totalArticles: number;
+}
+
+const Pagination: React.FC<IPaginationProps> = ({ totalArticles }) => {
   const { createQueryString, getQueryStringValue } = useQueryString();
-  const [totalPages, _] = useState(
-    Math.ceil(allArticles.length / SHOW_PER_PAGE),
-  );
+  const [totalPages, _] = useState(Math.ceil(totalArticles / SHOW_PER_PAGE));
   const [currentPage, setCurrentPage] = useState(1);
   const pageQueryValue = getQueryStringValue("page");
 
