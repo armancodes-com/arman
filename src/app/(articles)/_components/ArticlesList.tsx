@@ -7,6 +7,8 @@ import readingTime from "@/utils/reading-time";
 import useQueryString from "@/hooks/useQueryString";
 import { useEffect, useState } from "react";
 import { SHOW_PER_PAGE } from "@/constants/Pagination.constants";
+import reverseArrayHandler from "@/utils/reverse-array";
+import { IS_PRODUCTION } from "@/constants";
 
 interface IArticlesListProps {
   articles: ArticleType[];
@@ -19,11 +21,20 @@ const ArticlesList: React.FC<IArticlesListProps> = ({ articles }) => {
     pageFromUrl ? +pageFromUrl : 0,
   );
 
+  const publishedArticles = articles?.filter((article) => !article?.isDraft);
+  const allArticlesReversed = reverseArrayHandler(articles);
+  const publishedArticlesReversed = reverseArrayHandler(publishedArticles);
+
+  const displayedArticles = IS_PRODUCTION
+    ? publishedArticlesReversed
+    : allArticlesReversed;
+
   // Calculate the starting and ending index of the articles to display
   const startIdx = (currentPage - 1) * SHOW_PER_PAGE;
   const endIdx = startIdx + SHOW_PER_PAGE;
 
-  const paginatedArticles = articles.slice(startIdx, endIdx);
+  const paginatedArticles = displayedArticles.slice(startIdx, endIdx);
+  console.log(paginatedArticles, "pgination");
 
   useEffect(() => {
     setCurrentPage(pageFromUrl ? +pageFromUrl : 0);
