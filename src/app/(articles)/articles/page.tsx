@@ -46,6 +46,7 @@ const Page = () => {
   const publishedArticles = allArticles?.filter((article) => !article?.isDraft);
   const allArticlesReversed = reverseArrayHandler(allArticles);
   const publishedArticlesReversed = reverseArrayHandler(publishedArticles);
+
   const displayedArticles = IS_PRODUCTION
     ? publishedArticlesReversed
     : allArticlesReversed;

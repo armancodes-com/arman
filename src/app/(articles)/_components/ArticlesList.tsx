@@ -16,7 +16,7 @@ const ArticlesList: React.FC<IArticlesListProps> = ({ articles }) => {
   const { getQueryStringValue } = useQueryString();
   const pageFromUrl = getQueryStringValue("page");
   const [currentPage, setCurrentPage] = useState<number>(
-    pageFromUrl ? +pageFromUrl : 0,
+    pageFromUrl ? +pageFromUrl : 1,
   );
 
   // Calculate the starting and ending index of the articles to display
@@ -26,7 +26,7 @@ const ArticlesList: React.FC<IArticlesListProps> = ({ articles }) => {
   const paginatedArticles = articles.slice(startIdx, endIdx);
 
   useEffect(() => {
-    setCurrentPage(pageFromUrl ? +pageFromUrl : 0);
+    setCurrentPage(pageFromUrl ? +pageFromUrl : 1);
   }, [pageFromUrl]);
 
   return (

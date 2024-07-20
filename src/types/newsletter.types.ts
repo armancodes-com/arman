@@ -43,9 +43,10 @@ export interface IGetNewsLetterSubscribers {
     optin: "single";
     tags: ["armancodes.com"];
     description: "armancodes.com main newsletter list";
-    subscriber_count: 1;
+    subscriber_count: number;
     subscriber_statuses: {
-      confirmed: 1;
+      confirmed: number;
+      unconfirmed: number;
     };
     subscription_created_at: null;
     subscription_updated_at: null;
