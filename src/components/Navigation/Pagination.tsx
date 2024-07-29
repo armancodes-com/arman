@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
-import { allArticles } from "contentlayer/generated";
 import Button from "../ui/Button";
 import { useEffect, useState } from "react";
 import useQueryString from "@/hooks/useQueryString";
 import { SHOW_PER_PAGE } from "@/constants/Pagination.constants";
+import getTotalArticlesPage from "@/utils/pagination-utils";
 
 // if we get the total num of articles ==> 10
 // each page should have 5 articles ==> page 1 => articles: 1 - 2 - 3 - 4- 5
@@ -18,7 +18,9 @@ interface IPaginationProps {
 
 const Pagination: React.FC<IPaginationProps> = ({ totalArticles }) => {
   const { createQueryString, getQueryStringValue } = useQueryString();
-  const [totalPages, _] = useState(Math.ceil(totalArticles / SHOW_PER_PAGE));
+  const [totalPages, _] = useState(
+    getTotalArticlesPage(totalArticles, SHOW_PER_PAGE),
+  );
   const [currentPage, setCurrentPage] = useState(1);
   const pageQueryValue = getQueryStringValue("page");
 
