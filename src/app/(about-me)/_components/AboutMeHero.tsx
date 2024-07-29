@@ -33,7 +33,7 @@ const AboutMeHeroSection = () => {
               width={300}
               height={300}
               priority
-              decoding="async"
+              decoding="sync"
               sizes="(max-width: 500px) 50vw, (max-width: 750px) 33vw, (max-width: 995px) 25vw, (max-width: 1125px) 22vw, (max-width: 1280px) 21vw, 33vw"
               quality={70}
               className="h-full w-full object-cover object-center"
@@ -46,7 +46,7 @@ const AboutMeHeroSection = () => {
               width={300}
               height={300}
               priority
-              decoding="async"
+              decoding="sync"
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 26vw, (max-width: 1560px) 14vw, 15vw"
               quality={70}
               className="h-full w-full object-cover object-center"
@@ -58,7 +58,7 @@ const AboutMeHeroSection = () => {
               alt="arman's image in Switzerland"
               width={300}
               height={300}
-              decoding="async"
+              decoding="sync"
               sizes="(max-width: 1024px) 15vw, (max-width: 1280px) 18vw, (max-width: 1560px) 18vw, 15vw"
               quality={70}
               loading="lazy"
@@ -71,7 +71,7 @@ const AboutMeHeroSection = () => {
               alt="arman's bike image"
               width={300}
               height={300}
-              decoding="async"
+              decoding="sync"
               sizes="(max-width: 1024px) 15vw, (max-width: 1280px) 18vw, (max-width: 1560px) 18vw, 15vw"
               quality={70}
               loading="lazy"
