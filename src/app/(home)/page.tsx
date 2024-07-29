@@ -7,7 +7,7 @@ import Header from "@/components/ui/Header";
 import dynamic from "next/dynamic";
 
 const DynamicArticlesList = dynamic(
-  () => import("../(articles)/_components/ArticlesList"),
+  () => import("./_components/HomePageArticlesList"),
   {
     ssr: true,
   },
@@ -39,6 +39,8 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
+  const featuredArticles = allArticles.filter((article) => article.isFeatured);
+
   return (
     <>
       <main className="pt-4 sm:pt-14.5">
@@ -46,7 +48,7 @@ export default async function Home() {
 
         <Section type="primary" hasEllipse>
           <Header title="latest articles" linkText="see all" href="/articles" />
-          <DynamicArticlesList articles={allArticles} />
+          <DynamicArticlesList articles={featuredArticles} />
         </Section>
       </main>
     </>
