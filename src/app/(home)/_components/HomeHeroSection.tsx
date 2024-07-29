@@ -31,8 +31,8 @@ const HomeHeroSection = () => {
           alt="Arman in Berlin"
           fill
           priority
-          decoding="async"
-          quality={85}
+          decoding="sync"
+          quality={80}
           className="h-full w-full object-cover object-center"
           sizes="(max-width: 500px) 50vw, (max-width: 750px) 33vw, (max-width: 995px) 25vw, (max-width: 1125px) 22vw, (max-width: 1280px) 21vw, 33vw"
         />
