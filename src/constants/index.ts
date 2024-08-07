@@ -6,7 +6,7 @@ import armanBikeImage from "../../public/images/arman-bike.jpeg";
 import WHITE_LOGO_SVG from "../../public/images/white-logo.svg";
 import DARK_LOGO_SVG from "../../public/images/dark-logo.svg";
 
-export const IS_PRODUCTION = "production";
+export const IS_PRODUCTION = process.env.NODE_ENV === "production";
 
 export const NEWSLETTER_SUBSCRIBERS_CONSTANT = 50;
 export const NEWSLETTER_LIST_ID = 1;

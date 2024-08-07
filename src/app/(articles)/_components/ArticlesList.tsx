@@ -31,10 +31,11 @@ const ArticlesList: React.FC<IArticlesListProps> = ({ articles }) => {
 
   useEffect(() => {
     if (pageFromUrl) {
-      if (+pageFromUrl <= totalPages) {
-        setCurrentPage(pageFromUrl ? +pageFromUrl : 1);
-      } else {
+      if (+pageFromUrl > totalPages || +pageFromUrl < 1) {
+        setCurrentPage(1);
         createQueryString("page", `1`);
+      } else {
+        setCurrentPage(pageFromUrl ? +pageFromUrl : 1);
       }
     }
   }, [pageFromUrl, totalPages, createQueryString]);

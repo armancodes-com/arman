@@ -12,12 +12,27 @@ export default function useQueryString() {
     (query: string, value: string): string => {
       const params = new URLSearchParams(searchParams.toString());
       params.set(query, value);
+      console.log(params.toString(), query, value, "from update");
+
       router.push(`${pathname}?${params.toString()}`, {
         scroll: false,
       });
       return params.toString();
     },
     [searchParams, pathname, router],
+  );
+
+  const updateQueryString = useCallback(
+    (query: string, value: string): string => {
+      const params = new URLSearchParams(searchParams.toString());
+      params.delete(query);
+      params.set(query, value);
+      router.push(`${pathname}?${params.toString()}`, {
+        scroll: false,
+      });
+      return params.toString();
+    },
+    [pathname, router, searchParams],
   );
 
   const getQueryStringValue = useCallback(
@@ -28,5 +43,5 @@ export default function useQueryString() {
     [searchParams],
   );
 
-  return { createQueryString, getQueryStringValue };
+  return { createQueryString, getQueryStringValue, updateQueryString };
 }
