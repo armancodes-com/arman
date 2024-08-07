@@ -83,7 +83,7 @@ const Newsletter = () => {
     return (
       <>
         <section className="px-4 md:p-0" data-testid="newsletter-section">
-          <article className="mt-[72px] flex flex-col items-center justify-center gap-3 rounded-10 border border-[#7127BACC] bg-tertiary-bg px-6 pb-4 pt-6 text-center dark:border-none md:mt-25 md:gap-6">
+          <article className="mt-[72px] flex flex-col items-center justify-center gap-3 rounded-10 bg-tertiary-bg px-6 pb-4 pt-6 text-center dark:border-none md:mt-25 md:gap-6">
             <h3
               className={`${alexandria.className} text-body2 font-semibold text-text-primary md:text-xl md:font-bold`}
             >
