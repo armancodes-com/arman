@@ -34,12 +34,12 @@ const AboutMeHeroSection = () => {
               height={300}
               priority
               decoding="sync"
-              sizes="(max-width: 500px) 50vw, (max-width: 750px) 33vw, (max-width: 995px) 25vw, (max-width: 1125px) 22vw, (max-width: 1280px) 21vw, 33vw"
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 77vw"
               quality={70}
               className="h-full w-full object-cover object-center"
             />
           </figure>
-          <figure className="relative -left-4 top-1/3 block h-[255px] w-[190px] rotate-[7.39deg] select-none overflow-hidden rounded-20 transition-all duration-150 ease-in-out hover:z-10 md:left-14 md:top-8 md:h-[250px] md:w-[230px] md:hover:left-16">
+          <figure className="relative -left-4 top-1/3 block h-[255px] w-[190px] rotate-[7.39deg] select-none overflow-hidden rounded-20 transition-all duration-150 ease-in-out hover:z-10 md:left-14 md:top-8 md:h-[250px] md:w-[250px] md:hover:left-16">
             <Image
               src={armanFirstImage}
               alt="arman's image in Switzerland"
@@ -47,9 +47,9 @@ const AboutMeHeroSection = () => {
               height={300}
               priority
               decoding="sync"
-              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 26vw, (max-width: 1560px) 14vw, 15vw"
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 60vw"
               quality={70}
-              className="h-full w-full object-cover object-center"
+              className="h-full w-full scale-125 object-cover object-center"
             />
           </figure>
           <figure className="relative hidden -rotate-6 select-none overflow-hidden rounded-20 transition-all duration-150 ease-in-out hover:z-10 md:left-8 md:top-6 md:block md:h-[235px] md:w-[280px] md:hover:left-4">
@@ -59,10 +59,10 @@ const AboutMeHeroSection = () => {
               width={300}
               height={300}
               decoding="sync"
-              sizes="(max-width: 1024px) 15vw, (max-width: 1280px) 18vw, (max-width: 1560px) 18vw, 15vw"
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 40vw"
               quality={70}
               loading="lazy"
-              className="h-full w-full object-cover object-center"
+              className="h-full w-full scale-110 object-cover object-center"
             />
           </figure>
           <figure className="relative hidden overflow-hidden rounded-20 transition-all duration-150 ease-in-out hover:z-10 md:-left-3 md:top-8 md:block md:h-[260px] md:w-[220px] md:rotate-[7.39deg] md:hover:-left-4">
@@ -72,7 +72,7 @@ const AboutMeHeroSection = () => {
               width={300}
               height={300}
               decoding="sync"
-              sizes="(max-width: 1024px) 15vw, (max-width: 1280px) 18vw, (max-width: 1560px) 18vw, 15vw"
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 77vw"
               quality={70}
               loading="lazy"
               className="h-full w-full object-cover object-center"
