@@ -12,7 +12,6 @@ export default function useQueryString() {
     (query: string, value: string): string => {
       const params = new URLSearchParams(searchParams.toString());
       params.set(query, value);
-      console.log(params.toString(), query, value, "from update");
 
       router.push(`${pathname}?${params.toString()}`, {
         scroll: false,

@@ -3,13 +3,11 @@ import { Ubuntu, Fira_Code, Alexandria, Quantico } from "next/font/google";
 const ubuntu = Ubuntu({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
-  preload: false,
 });
 
 const firaCode = Fira_Code({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700", "600"],
-  preload: false,
 });
 
 const alexandria = Alexandria({
