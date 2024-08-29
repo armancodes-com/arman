@@ -29,12 +29,12 @@ const HomeHeroSection = () => {
         <Image
           src={heroImage}
           alt="Arman in Berlin"
-          fill
           priority
           decoding="sync"
-          quality={80}
+          layout="responsive"
+          quality={70}
           className="h-full w-full scale-125 object-cover object-center"
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 77vw"
+          sizes="(max-width: 640px) 40vw, (max-width: 1024px) 33vw"
         />
       </figure>
     </section>
