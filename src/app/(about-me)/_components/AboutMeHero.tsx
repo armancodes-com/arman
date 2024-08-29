@@ -34,7 +34,7 @@ const AboutMeHeroSection = () => {
               height={300}
               priority
               decoding="sync"
-              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 77vw"
+              sizes="(max-width: 640px) 26vw, (max-width: 1024px) 26vw, (max-width: 1280px) 26vw, (max-width: 1560px) 14vw, 15vw"
               quality={70}
               className="h-full w-full object-cover object-center"
             />
@@ -47,7 +47,7 @@ const AboutMeHeroSection = () => {
               height={300}
               priority
               decoding="sync"
-              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 60vw"
+              sizes="(max-width: 640px) 26vw, (max-width: 1024px) 24vw, (max-width: 1280px) 26vw, (max-width: 1560px) 14vw, 15vw"
               quality={70}
               className="h-full w-full scale-125 object-cover object-center"
             />
@@ -59,7 +59,8 @@ const AboutMeHeroSection = () => {
               width={300}
               height={300}
               decoding="sync"
-              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 40vw"
+              placeholder="blur"
+              sizes="(max-width: 640px) 26vw, (max-width: 1024px) 26vw, (max-width: 1280px) 26vw, (max-width: 1560px) 14vw, 15vw"
               quality={70}
               loading="lazy"
               className="h-full w-full scale-110 object-cover object-center"
@@ -72,7 +73,8 @@ const AboutMeHeroSection = () => {
               width={300}
               height={300}
               decoding="sync"
-              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 77vw"
+              placeholder="blur"
+              sizes="(max-width: 640px) 26vw, (max-width: 1024px) 26vw, (max-width: 1280px) 14vw, (max-width: 1560px) 14vw, 15vw"
               quality={70}
               loading="lazy"
               className="h-full w-full object-cover object-center"
