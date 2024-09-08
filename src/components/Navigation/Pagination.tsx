@@ -47,8 +47,13 @@ const Pagination: React.FC<IPaginationProps> = ({ totalArticles }) => {
   useEffect(() => {
     // check if it already exists
     if (pageQueryValue) {
-      setCurrentPage(+pageQueryValue);
-      createQueryString("page", `${pageQueryValue}`);
+      if (+pageQueryValue > totalPages || +pageQueryValue < 1) {
+        setCurrentPage(1);
+        createQueryString("page", `1`);
+      } else {
+        setCurrentPage(+pageQueryValue);
+        createQueryString("page", `${pageQueryValue}`);
+      }
     } else {
       createQueryString("page", `${currentPage}`);
     }
