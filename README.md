@@ -210,8 +210,25 @@ If any of the articles in the series is not yet ready to be published or read, j
 
 ## Articles Main Category
 
-If you want to set a main category for your articles and show it in the list of articles, just pass the `category` prop to your articles. It is a string.
+If you want to set a main category for your articles and show it in the list of articles, pass the `category` prop to your articles. It is a string.
 
 ```mdx
 category: "sample category"
 ```
+
+### How to change static content of website
+
+#### File sources
+
+- You can change the static contents of footer, main page and about me page here: `/src/constants/Content.constants.ts`
+- Footer: `/src/components/ui/Footer.tsx`
+- Communication Links (about me page): `/src/constants/CommunicationLinks.constants.tsx`
+- Work Experience Companies Information: `/src/constants/Companies.constants.ts`
+- Toolbar links: `/src/constants/toolbarlinks.constants.tsx`
+- Top Navigation Links: `/src/constants/Navigation.constants.ts`
+
+### How to change Images of Home page and About me page:
+
+To change the hero image of the home page, you just need to replace the import source of `heroImage` with the newly added image in the `/public/images` in this file: `/src/constants/index.ts`
+
+To change the images of the about me page, you need to do the same thing within the same `/src/constants/index.ts` file.
