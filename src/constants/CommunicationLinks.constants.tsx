@@ -1,6 +1,7 @@
 import IconEmail from "@/assets/icons/EmailIcon";
 import IconLinkedIn from "@/assets/icons/LinkedIcon";
 import { ReactNode } from "react";
+import { EMAIL_ADDRESS } from "./Content.constants";
 
 export interface ICommunicationLinkProps {
   id?: string;
@@ -14,7 +15,7 @@ export const COMMUNICATION_LINKS_DATA: ICommunicationLinkProps[] = [
   {
     id: "1",
     children: "Email",
-    href: "mailto:me@armancodes.com",
+    href: `mailto:${EMAIL_ADDRESS}`,
     icon: (
       <IconEmail className="[&_path]:stroke-gray-1 group-hover:[&_path]:stroke-primary" />
     ),
