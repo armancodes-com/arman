@@ -6,6 +6,11 @@ import IconLinkedIn from "@/assets/icons/LinkedIcon";
 import IconMedium from "@/assets/icons/MediumIcon";
 import IconRss from "@/assets/icons/RSS";
 import { DARK_LOGO_SVG, WHITE_LOGO_SVG } from "@/constants";
+import {
+  EMAIL_ADDRESS,
+  FOOTER_SUB_TITLE,
+  FOOTER_TITLE,
+} from "@/constants/Content.constants";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
@@ -37,16 +42,16 @@ const Footer = () => {
               )}
 
               <p className="text-body2 font-bold capitalize text-text-primary">
-                Arman
+                {FOOTER_TITLE}
               </p>
               <Link
-                href={"mailto:me@armancodes.com"}
+                href={`mailto:${EMAIL_ADDRESS}`}
                 className={`text-caption2 text-text-primary md:text-body2 ${alexandria.className}`}
               >
-                me@armancodes.com
+                {EMAIL_ADDRESS}
               </Link>
             </div>
-            <span>back-end engineer</span>
+            <span>{FOOTER_SUB_TITLE}</span>
           </div>
           {/* socials */}
           <div className="w-full max-w-max space-y-4">
