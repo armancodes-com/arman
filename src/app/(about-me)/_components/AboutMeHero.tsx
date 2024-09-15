@@ -5,6 +5,10 @@ import {
   armanSecondImage,
   armanThirdImage,
 } from "@/constants";
+import {
+  ABOUT_ME_PAGE_DESCRIPTION,
+  ABOUT_ME_PAGE_SUB_TITLE,
+} from "@/constants/Content.constants";
 import Image from "next/image";
 
 const AboutMeHeroSection = () => {
@@ -20,7 +24,7 @@ const AboutMeHeroSection = () => {
           className="pt-3 text-body2 text-text-primary"
           data-testid="about-me-subtitle"
         >
-          From Backend Engineering to Personal Pursuits
+          {ABOUT_ME_PAGE_SUB_TITLE}
         </span>
       </header>
 
@@ -83,12 +87,7 @@ const AboutMeHeroSection = () => {
         </div>
 
         <p className="text-body2 leading-6 text-text-primary md:text-body1">
-          Hi, I'm Arman! I'm based in the Netherlands and work as a backend
-          engineer at Onefit/Urban Sports Club. Beyond coding, I really enjoy
-          exploring a variety of topics and writing about things that pique my
-          interest, whether they're related to technology or beyond. In my free
-          time, you'll often find me playing tennis, cycling on my XC bike,
-          hitting the gym, and diving into technical books.
+          {ABOUT_ME_PAGE_DESCRIPTION}
         </p>
       </div>
     </section>

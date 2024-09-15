@@ -1,6 +1,11 @@
 import Image from "next/image";
 import { heroImage } from "@/constants";
 import { firaCode } from "@/app/fonts";
+import {
+  MAIN_PAGE_DESCRIPTION,
+  MAIN_PAGE_SUB_TITLE,
+  MAIN_PAGE_TITLE,
+} from "@/constants/Content.constants";
 
 const HomeHeroSection = () => {
   return (
@@ -11,17 +16,14 @@ const HomeHeroSection = () => {
         <div
           className={`text-xl md:text-title1 ${firaCode.className} font-bold`}
         >
-          <h1>Arman Ahmadi</h1>
+          <h1>{MAIN_PAGE_TITLE}</h1>
           <h2 className={`text-caption1 text-primary md:text-title2`}>
-            Back-end Engineer
+            {MAIN_PAGE_SUB_TITLE}
           </h2>
         </div>
 
         <p className="text-body2 text-text-primary md:text-body1">
-          Hey there! This is where I share my journey through software
-          engineering, personal anecdotes, and articles covering a wide range of
-          topics. Dive into tech trends, conquer coding challenges, and discover
-          more about life beyond the screen.
+          {MAIN_PAGE_DESCRIPTION}
         </p>
       </article>
 
