@@ -50,8 +50,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // finding article data
   const articleData = allArticles?.find((article) => article.slug === slug);
 
-  const baseUrl = articleData?.baseUrl?.replace(/\/$/, ''); // Remove trailing slash
-  const shareLink = articleData?.shareLink?.replace(/^\//, ''); // Remove leading slash
+  const baseUrl = articleData?.baseUrl?.replace(/\/$/, ""); // Remove trailing slash
+  const shareLink = articleData?.shareLink?.replace(/^\//, ""); // Remove leading slash
   const canonicalUrl = `${baseUrl}/${shareLink}`;
 
   return {
@@ -69,9 +69,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     robots: articleData?.robots,
     alternates: {
-      canonical:
-        articleData?.canonical ||
-        canonicalUrl,
+      canonical: articleData?.canonical || canonicalUrl,
     },
     twitter: {
       card: "summary_large_image",
