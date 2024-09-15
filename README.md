@@ -41,6 +41,10 @@ Components have used storybook for documentation. To see documents and how compo
 npm run storybook
 ```
 
+# Project's Tech Stack
+
+![Tech Stacks](https://skillicons.dev/icons?i=javascript,typescript,nextjs,react,tailwind)
+
 # How to The Project Works?
 
 We have used MDX and `contentlayer` for writing articles and each article is a `.mdx` file. For example, to create a new blog simply create a file in `/src/content`. Such as `sample-article.mdx`.
