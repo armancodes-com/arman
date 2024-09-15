@@ -50,6 +50,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // finding article data
   const articleData = allArticles?.find((article) => article.slug === slug);
 
+  const baseUrl = articleData?.baseUrl?.replace(/\/$/, ''); // Remove trailing slash
+  const shareLink = articleData?.shareLink?.replace(/^\//, ''); // Remove leading slash
+  const canonicalUrl = `${baseUrl}/${shareLink}`;
+
   return {
     metadataBase: articleData?.baseUrl as unknown as URL,
     title: `Arman Ahmadi - ${articleData?.title}`,
@@ -67,7 +71,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical:
         articleData?.canonical ||
-        `${articleData?.baseUrl}${articleData?.shareLink}`,
+        canonicalUrl,
     },
     twitter: {
       card: "summary_large_image",
