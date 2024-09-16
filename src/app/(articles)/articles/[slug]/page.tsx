@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { URL } from "url";
 import { notFound } from "next/navigation";
 import type { Article as ArticleType } from "contentlayer/generated";
 import { allArticles } from "contentlayer/generated";
@@ -55,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const canonicalUrl = `${baseUrl}/${shareLink}`;
 
   return {
-    metadataBase: articleData?.baseUrl as unknown as URL,
+    metadataBase: new globalThis.URL(articleData?.baseUrl || ""),
     title: `Arman Ahmadi - ${articleData?.title}`,
     description: articleData?.metaDescription,
     authors: { name: articleData?.author },
