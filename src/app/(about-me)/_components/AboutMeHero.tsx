@@ -13,7 +13,10 @@ import Image from "next/image";
 
 const AboutMeHeroSection = () => {
   return (
-    <section className="mt-4 md:mt-16 md:space-y-10">
+    <section
+      className="mt-4 md:mt-16 md:space-y-10"
+      data-testid="about-me-hero-section"
+    >
       <header className="hidden md:block">
         <h1
           className={`text-[2.5rem] font-bold leading-10 text-text-primary ${firaCode.className}`}
@@ -63,7 +66,7 @@ const AboutMeHeroSection = () => {
               width={300}
               height={300}
               decoding="sync"
-              placeholder="blur"
+              // placeholder="blur"
               sizes="(max-width: 640px) 26vw, (max-width: 1024px) 26vw, (max-width: 1280px) 26vw, (max-width: 1560px) 14vw, 15vw"
               quality={70}
               loading="lazy"
@@ -77,7 +80,7 @@ const AboutMeHeroSection = () => {
               width={300}
               height={300}
               decoding="sync"
-              placeholder="blur"
+              // placeholder="blur"
               sizes="(max-width: 640px) 26vw, (max-width: 1024px) 26vw, (max-width: 1280px) 14vw, (max-width: 1560px) 14vw, 15vw"
               quality={70}
               loading="lazy"
