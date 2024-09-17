@@ -1,18 +1,9 @@
-import dynamic from "next/dynamic";
 import { Metadata } from "next";
 
 import AboutMeHeroSection from "../_components/AboutMeHero";
 import JsonLd from "@/components/seo/JsonLd";
-
-const DynamicConnectSection = dynamic(
-  () => import("../_components/ConnectSection"),
-  { ssr: false },
-);
-
-const DynamicWorkExperienceSection = dynamic(
-  () => import("../_components/WorkExperienceSection"),
-  { ssr: false },
-);
+import ConnectSection from "../_components/ConnectSection";
+import WorkExperienceSection from "../_components/WorkExperienceSection";
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi - About me",
@@ -59,10 +50,10 @@ const Page = () => {
   };
 
   return (
-    <main className="min-h-svh">
+    <main className="min-h-svh" data-testid="about-me-page">
       <AboutMeHeroSection />
-      <DynamicConnectSection />
-      <DynamicWorkExperienceSection />
+      <ConnectSection />
+      <WorkExperienceSection />
 
       {/* JSON+LD data */}
       <JsonLd data={jsonLd} />
