@@ -33,7 +33,7 @@
     "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^2.0.2",
+    "@chromatic-com/storybook": "^3.2.0",
     "@storybook/addon-essentials": "^8.2.9",
     "@storybook/addon-interactions": "^8.1.1",
     "@storybook/addon-links": "^8.1.11",
@@ -70,7 +70,7 @@
     "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.11",
-    "eslint-plugin-storybook": "^0.8.0",
+    "eslint-plugin-storybook": "^0.10.1",
     "husky": "^9.0.11",
     "jest-axe": "^9.0.0",
     "jsdom": "^25.0.1",
