@@ -8,7 +8,7 @@ import WorkExperienceSection from "../_components/WorkExperienceSection";
 export const metadata: Metadata = {
   title: "Arman Ahmadi - About me",
   description:
-    "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Onefit/Urban Sports Club.",
+    "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Urban Sports Club Nederland (formerly OneFit).",
   authors: { name: "Arman Ahmadi", url: "http://armancodes.com" },
   keywords: ["php", "software engineering", "backend"],
   alternates: {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Arman Ahmadi - About me",
     description:
-      "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Onefit/Urban Sports Club.",
+      "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Urban Sports Club Nederland (formerly OneFit).",
     images: ["https://armancodes.com/images/new-hero.jpeg"],
     url: "http://armancodes.com/about-me",
     type: "website",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     creator: "Arman Ahmadi",
     title: "Arman Ahmadi - About me",
     description:
-      "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Onefit/Urban Sports Club.",
+      "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Urban Sports Club Nederland (formerly OneFit).",
     images: ["https://armancodes.com/images/new-hero.jpeg"],
     site: "http://armancodes.com/about-me",
   },
@@ -43,7 +43,7 @@ const Page = () => {
       name: "Arman Ahmadi",
       image: "https://armancodes.com/images/hero-img.webp",
       description:
-        "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Onefit/Urban Sports Club.",
+        "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Urban Sports Club Nederland (formerly OneFit).",
       url: "https://armancodes.com",
       jobTitle: "Backend Engineer",
     },
