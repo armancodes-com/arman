@@ -21,7 +21,7 @@ describe("About me page test suite", () => {
       expect.objectContaining({
         title: "Arman Ahmadi - About me",
         description:
-          "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Onefit/Urban Sports Club.",
+          "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Urban Sports Club Nederland (formerly OneFit).",
       }),
     );
   });
