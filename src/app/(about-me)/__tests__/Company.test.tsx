@@ -6,7 +6,7 @@ import { ICompanyInfoProps } from "@/constants/Companies.constants";
 const sampleCompany: ICompanyInfoProps = {
   id: "1",
   companyName: "test company",
-  image: "/images/Onefit.jpeg",
+  image: "/images/urbansportsclubnl-logo.jpeg",
   jobType: "On-site",
   endData: "present",
   role: "Backend Engineer",

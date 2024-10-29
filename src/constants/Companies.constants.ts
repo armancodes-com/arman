@@ -1,5 +1,5 @@
 import { StaticImageData } from "next/image";
-import OneFitImage from "../../public/images/Onefit.jpeg";
+import UrbanSportsClubNLImage from "../../public/images/urbansportsclubnl-logo.jpeg";
 import FanoosPrintImage from "../../public/images/fanoos-print.jpeg";
 import NGAImage from "../../public/images/nga-logo.jpeg";
 
@@ -17,8 +17,8 @@ export interface ICompanyInfoProps {
 export const COMPANIES_DATA: ICompanyInfoProps[] = [
   {
     id: "1",
-    image: OneFitImage,
-    companyName: "OneFit",
+    image: UrbanSportsClubNLImage,
+    companyName: "Urban Sports Club Nederland",
     jobType: "Hybrid",
     location: "Amsterdam, Netherlands",
     role: "Backend Engineer",
