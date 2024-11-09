@@ -3,7 +3,13 @@ title: "Dependency Lock-In: The Hidden Costs You Pay for Not Owning Your Code"
 summary: "Learn how dependency lock-in impacts your code and why owning your code is essential for control and flexibility in software development."
 publishedAt: "2024-11-09"
 updatedAt: "2024-11-09"
-tags: ["Dependency management", "Code ownership", "Software development", "Library lock-in"]
+tags:
+  [
+    "Dependency management",
+    "Code ownership",
+    "Software development",
+    "Library lock-in",
+  ]
 ogTitle: "Dependency Lock-In: The Hidden Costs You Pay for Not Owning Your Code"
 ogType: "website"
 ogUrl: "https://armancodes.com/articles/dependency-lock-in-own-your-code"
@@ -52,9 +58,9 @@ I’ve personally encountered this when integrating with certain libraries that 
 
 Developers today often “assemble” applications rather than coding functionality themselves, trusting external codebases for critical parts of their stack. But this assembly-first mindset overlooks the hidden resource cost that dependencies bring, especially in terms of:
 
-* **Learning Curves**: Every library has its quirks. I’ve found myself spending hours learning the ins and outs of libraries that initially seemed like a quick fix. While this upfront investment may not seem like much initially, as more dependencies accumulate, so does the mental overhead and time spent on documentation.
-* **Maintenance**: Every dependency you add increases the chance of maintenance headaches down the road. I’ve experienced firsthand the challenges that arise when a library stops being supported or introduces breaking changes. This can lead to production issues that eat into your team’s time and budget, shifting resources from new features to dependency management.
-* **Adaptability Loss**: While it’s relatively easy to switch between libraries for commoditized functions, it’s harder with specialized tools that have no drop-in replacement. For example, I’ve had to make significant adjustments when switching out libraries for specific tasks like data processing or custom file export functionality, which required major rewrites.
+- **Learning Curves**: Every library has its quirks. I’ve found myself spending hours learning the ins and outs of libraries that initially seemed like a quick fix. While this upfront investment may not seem like much initially, as more dependencies accumulate, so does the mental overhead and time spent on documentation.
+- **Maintenance**: Every dependency you add increases the chance of maintenance headaches down the road. I’ve experienced firsthand the challenges that arise when a library stops being supported or introduces breaking changes. This can lead to production issues that eat into your team’s time and budget, shifting resources from new features to dependency management.
+- **Adaptability Loss**: While it’s relatively easy to switch between libraries for commoditized functions, it’s harder with specialized tools that have no drop-in replacement. For example, I’ve had to make significant adjustments when switching out libraries for specific tasks like data processing or custom file export functionality, which required major rewrites.
 
 ## 3. When You Can’t Adapt: How Dependencies Limit Design Flexibility
 
@@ -68,9 +74,9 @@ When evaluating a dependency, consider it in terms of the hours it will take not
 
 Here are some factors I personally consider when deciding whether to go with a dependency or build in-house:
 
-* **Time to Develop vs. Learn**: If the library would take a few hours to recreate in-house, weigh this against the time it would take to learn, troubleshoot, and maintain the dependency. In some cases, I’ve found it’s actually faster and more cost-effective to develop a custom solution from scratch.
-* **Maintenance Budget**: Consider setting aside an “hourly budget” for each dependency, representing the time and resources you’ll need for ongoing maintenance, security patches, and compatibility testing with new versions.
-* **Dependency Lock-In**: If your project requires customization or scalability, remember that lock-in risks increase with dependencies tied to commercial services. If a feature is “free” but requires a paid subscription for certain use cases, calculate the lifetime costs and compare them to building the feature yourself.
+- **Time to Develop vs. Learn**: If the library would take a few hours to recreate in-house, weigh this against the time it would take to learn, troubleshoot, and maintain the dependency. In some cases, I’ve found it’s actually faster and more cost-effective to develop a custom solution from scratch.
+- **Maintenance Budget**: Consider setting aside an “hourly budget” for each dependency, representing the time and resources you’ll need for ongoing maintenance, security patches, and compatibility testing with new versions.
+- **Dependency Lock-In**: If your project requires customization or scalability, remember that lock-in risks increase with dependencies tied to commercial services. If a feature is “free” but requires a paid subscription for certain use cases, calculate the lifetime costs and compare them to building the feature yourself.
 
 ## Dependency Skepticism: Think Twice Before Adding That Library
 
@@ -87,4 +93,4 @@ To avoid the dependency trap, consider these questions before bringing in a new 
 
 Dependencies are a crucial part of modern development, but over-reliance on them can cost you control, flexibility, and money. From my experience, it’s better to approach them with a healthy dose of skepticism. Strive to own what matters, limit dependencies to commoditized functions, and remember that the long-term costs may outweigh the short-term convenience.
 
-***Owning your code may be more challenging, but with it comes control, flexibility, and, most importantly, freedom from the hidden costs and limitations imposed by external dependencies.***
+**_Owning your code may be more challenging, but with it comes control, flexibility, and, most importantly, freedom from the hidden costs and limitations imposed by external dependencies._**
