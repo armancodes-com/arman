@@ -138,43 +138,45 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         readTime={readingTimeData?.minutes}
       />
 
-      {/* Hero Image Section - Static Images */}
-      {article?.image && (
-        <>
-          <figure className="relative h-[350px] w-full overflow-hidden rounded-10 sm:h-[400px]">
-            <Image
-              src={`${article?.image}`}
-              alt={`${article.title} article image`}
-              fill
-              className=" mx-auto h-full w-full object-cover object-center"
-              style={{ "--index": 2 } as React.CSSProperties}
-              priority
-              quality={100}
-              sizes="(min-width: 1024px) 32rem, 20rem"
-            />
-          </figure>
-          <div className="h-16" />
-        </>
-      )}
-
-      {/* body section */}
-      <section className="flex sm:gap-x-6 md:gap-x-14">
-        <div
-          className={`${article?.hasSidebarLinks ? "max-w-[600px]" : "w-full"} space-y-6`}
-        >
-          {/* Series Component */}
-          {article?.hasSeries && (
-            <DynamicArticlesSeries seriesLinks={article?.blogSeriesLinks} />
-          )}
-
-          <MdxWrapper code={article?.body?.code as string} />
-        </div>
-
-        {/* SIDEBAR OF SINGLE ARTICLES */}
-        {sidebarLinks && sidebarLinks.length > 0 && (
-          <DynamicSidebarLinks links={sidebarLinks} />
+      <div className="relative">
+        {/* Hero Image Section - Static Images */}
+        {article?.image && (
+          <>
+            <figure className="relative h-[350px] w-full overflow-hidden rounded-10 sm:h-[400px]">
+              <Image
+                src={`${article?.image}`}
+                alt={`${article.title} article image`}
+                fill
+                className=" mx-auto h-full w-full object-cover object-center"
+                style={{ "--index": 2 } as React.CSSProperties}
+                priority
+                quality={100}
+                sizes="(min-width: 1024px) 32rem, 20rem"
+              />
+            </figure>
+            <div className="h-16" />
+          </>
         )}
-      </section>
+
+        {/* body section */}
+        <section className="flex sm:gap-x-6 md:gap-x-14">
+          <div
+            className={`${article?.hasSidebarLinks ? "max-w-[600px]" : "w-full"} space-y-6`}
+          >
+            {/* Series Component */}
+            {article?.hasSeries && (
+              <DynamicArticlesSeries seriesLinks={article?.blogSeriesLinks} />
+            )}
+
+            <MdxWrapper code={article?.body?.code as string} />
+          </div>
+
+          {/* SIDEBAR OF SINGLE ARTICLES */}
+          {sidebarLinks && sidebarLinks.length > 0 && (
+            <DynamicSidebarLinks links={sidebarLinks} />
+          )}
+        </section>
+      </div>
 
       {/* TAGS SECTION */}
       <DynamicTagListComponent tags={article?.tags} />

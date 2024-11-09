@@ -80,7 +80,7 @@ const MdxWrapper = ({ code }: { code: string }) => {
 
   return (
     <div
-      className={`prose prose-neutral animate-in text-caption2 leading-6 text-text-primary prose-p:font-light md:text-body2 ${alexandria.className} w-full max-w-[800px] prose-headings:text-text-primary prose-h1:text-title2 prose-h2:text-body1 prose-h3:text-body1 prose-h4:text-body1 prose-h5:text-body2 prose-h6:text-body2 prose-blockquote:text-text-primary prose-figcaption:mx-auto prose-figcaption:max-w-md prose-figcaption:text-center prose-figcaption:text-caption2 prose-figcaption:text-gray-2 prose-strong:text-text-primary`}
+      className={`prose prose-neutral animate-in text-caption2 !leading-[1.8rem] text-text-primary prose-p:font-light md:text-body2 ${alexandria.className} w-full max-w-[800px] prose-headings:text-text-primary prose-h1:text-title2 prose-h2:text-body1 prose-h3:text-body1 prose-h4:text-body1 prose-h5:text-body2 prose-h6:text-body2 prose-blockquote:text-text-primary prose-figcaption:mx-auto prose-figcaption:max-w-md prose-figcaption:text-center prose-figcaption:text-caption2 prose-figcaption:text-gray-2 prose-strong:text-text-primary`}
       style={{ "--index": 3 } as React.CSSProperties}
     >
       <Component components={components} />
