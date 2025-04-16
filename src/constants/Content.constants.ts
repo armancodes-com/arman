@@ -12,7 +12,7 @@ export const ABOUT_ME_PAGE_DESCRIPTION =
 export const ABOUT_ME_WORK_EXPERIENCE_DESCRIPTION =
   "With over 5 years as a backend engineer, I specialize in backend services, microservices architecture, and comprehensive backend development strategies. Skilled in API design, database optimization, and meticulous documentation. Committed to delivering scalable solutions and staying updated with industry trends.";
 
-export const EMAIL_ADDRESS = "me@armancodes.com";
+export const EMAIL_ADDRESS = "";
 export const MAIN_PAGE_TITLE = "Arman Ahmadi";
 export const FOOTER_TITLE = "Arman";
 export const FOOTER_SUB_TITLE = "back-end engineer";
