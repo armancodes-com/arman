@@ -1,7 +1,5 @@
 import "./globals.css";
-import "../../public/prism/one-dark.css";
 
-import { headers } from "next/headers";
 import type { Metadata } from "next";
 
 import NextTopLoader from "nextjs-toploader";
@@ -10,7 +8,6 @@ import ThemeProvider from "@/components/ThemeProvider";
 import Navigation from "@/components/Navigation/Navigation";
 import ToolbarLinks from "@/components/Navigation/ToolbarLinks";
 import Footer from "@/components/ui/Footer";
-import GoogleAnalytics from "@/services/GoogleAnalytics";
 import { ubuntu } from "./fonts";
 import { toolbarLinks } from "@/constants/toolbarlinks.constants";
 
@@ -24,12 +21,8 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const nonce = headers().get("x-nonce");
-
   return (
     <html lang="en" className="light">
-      <GoogleAnalytics nonce={nonce!} />
-
       <body className={`${ubuntu.className} bg-bgColor`}>
         <ThemeProvider attribute="class" enableSystem defaultTheme="light">
           <NextTopLoader
