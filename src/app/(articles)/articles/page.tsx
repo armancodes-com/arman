@@ -1,3 +1,5 @@
+export const revalidate = 60 * 60 * 24 * 7;
+
 import { allArticles } from "contentlayer/generated";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";

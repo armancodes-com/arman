@@ -14,18 +14,18 @@ import JsonLd from "@/components/seo/JsonLd";
 
 const DynamicNewsLetterComponent = dynamic(
   () => import("@/components/ui/Newsletter"),
-  { ssr: false },
+  { ssr: true },
 );
 
 const DynamicTagListComponent = dynamic(
   () => import("./_components/TagsList"),
-  { ssr: false },
+  { ssr: true },
 );
 
 const DynamicArticlesSeries = dynamic(
   () => import("./_components/ArticleSeries"),
   {
-    ssr: false,
+    ssr: true,
     loading: () => <div className="w-full"></div>,
   },
 );
@@ -33,7 +33,7 @@ const DynamicArticlesSeries = dynamic(
 const DynamicSidebarLinks = dynamic(
   () => import("./_components/SidebarLinks"),
   {
-    ssr: false,
+    ssr: true,
     loading: () => <div className="w-full max-w-[172px]"></div>,
   },
 );
