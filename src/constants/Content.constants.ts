@@ -10,7 +10,7 @@ export const ABOUT_ME_PAGE_DESCRIPTION =
   "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Urban Sports Club Nederland (formerly OneFit). Beyond coding, I really enjoy exploring a variety of topics and writing about things that pique my interest, whether they're related to technology or beyond. In my free time, you'll often find me playing tennis, cycling on my XC bike, hitting the gym, and diving into technical books.";
 
 export const ABOUT_ME_WORK_EXPERIENCE_DESCRIPTION =
-  "With over 5 years as a backend engineer, I specialize in backend services, microservices architecture, and comprehensive backend development strategies. Skilled in API design, database optimization, and meticulous documentation. Committed to delivering scalable solutions and staying updated with industry trends.";
+  "With over 6 years as a backend engineer, I specialize in backend services, microservices architecture, and comprehensive backend development strategies. Skilled in API design, database optimization, and meticulous documentation. Committed to delivering scalable solutions and staying updated with industry trends.";
 
 export const EMAIL_ADDRESS = "";
 export const MAIN_PAGE_TITLE = "Arman Ahmadi";
