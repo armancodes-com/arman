@@ -1,17 +1,13 @@
+import { headers } from "next/headers";
+
 import { allArticles } from "contentlayer/generated";
 import { Metadata } from "next";
 
 import HomeHeroSection from "./_components/HomeHeroSection";
 import Section from "@/components/ui/Section";
 import Header from "@/components/ui/Header";
-import dynamic from "next/dynamic";
-
-const DynamicArticlesList = dynamic(
-  () => import("./_components/HomePageArticlesList"),
-  {
-    ssr: true,
-  },
-);
+import HomePageArticlesList from "./_components/HomePageArticlesList";
+import GoogleAnalytics from "@/services/GoogleAnalytics";
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi - Backend Engineer",
@@ -39,16 +35,19 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
+  const nonce = headers().get("x-nonce");
   const featuredArticles = allArticles.filter((article) => article.isFeatured);
 
   return (
     <>
+      <GoogleAnalytics nonce={nonce!} />
+
       <main className="pt-4 sm:pt-14.5">
         <HomeHeroSection />
 
         <Section type="primary" hasEllipse>
           <Header title="latest articles" linkText="see all" href="/articles" />
-          <DynamicArticlesList articles={featuredArticles} />
+          <HomePageArticlesList articles={featuredArticles} />
         </Section>
       </main>
     </>
