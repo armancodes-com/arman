@@ -9,8 +9,6 @@ export async function GET() {
     site_url: "https://armancodes.com",
     feed_url: "https://armancodes.com/rss.xml",
     image_url: `https://armancodes.com/images/white-logo.jpg`,
-    managingEditor: "me@armancodes.com (Arman Ahmadi)",
-    webMaster: "me@armancodes.com (Arman Ahmadi)",
     generator: "RSS for Node and Next.js",
     copyright: `Copyright ${new Date().getFullYear().toString()}, Arman Ahmadi`,
     language: "en-US",
