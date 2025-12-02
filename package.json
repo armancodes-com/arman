@@ -60,7 +60,7 @@
     "@vitest/coverage-istanbul": "^1.6.0",
     "@vitest/coverage-v8": "^1.6.0",
     "@vitest/ui": "^1.6.0",
-    "autoprefixer": "^10.4.19",
+    "autoprefixer": "^10.4.22",
     "eslint": "^8",
     "eslint-config-next": "14.2.15",
     "eslint-config-prettier": "^9.1.0",
