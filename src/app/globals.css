@@ -72,6 +72,26 @@ html {
     --gray-11: #b4b4b4;
     --gray-12: #eee;
   }
+
+  body {
+    font-family: "Ubuntu", ui-sans-serif, system-ui, sans-serif;
+  }
+}
+
+.font-ubuntu {
+  font-family: "Ubuntu", ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-fira-code {
+  font-family: "Fira Code", ui-monospace, "SFMono-Regular", monospace;
+}
+
+.font-alexandria {
+  font-family: "Alexandria", ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-quantico {
+  font-family: "Quantico", ui-sans-serif, system-ui, sans-serif;
 }
 
 /* ARTICLES ELLIPSE BACKGROUND GRADIENT */

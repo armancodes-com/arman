@@ -124,6 +124,8 @@ const CustomHeading: React.FC<ICustomHeadingProps> = ({
       </CustomHeadingWrapper>
     );
   }
+
+  return null;
 };
 
 export default CustomHeading;
