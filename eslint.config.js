@@ -60,14 +60,6 @@ export default [
       "react-hooks/set-state-in-effect": "warn",
       "react-hooks/static-components": "warn",
     },
-    settings: {
-      "import/resolver": {
-        node: {
-          path: ["src"],
-          extensions: [".js", ".jsx", ".ts", ".tsx"],
-        },
-      },
-    },
   },
   {
     files: ["**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx"],
