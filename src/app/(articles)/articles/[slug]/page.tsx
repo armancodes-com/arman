@@ -43,10 +43,10 @@ const DynamicSidebarLinks = nextDynamic(
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }): Promise<Metadata> {
   // read route params
-  const { slug } = await params;
+  const { slug } = params;
 
   // finding article data
   const articleData = allArticles?.find((article) => article.slug === slug);
