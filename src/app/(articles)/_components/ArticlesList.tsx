@@ -44,7 +44,7 @@ const ArticlesList: React.FC<IArticlesListProps> = ({ articles }) => {
     <div className="mt-8 flex flex-col gap-8 md:mt-12 md:gap-10">
       {paginatedArticles?.map((article) => (
         <ArticleItem
-          key={article?.title}
+          key={article?.slug}
           data={article}
           readTime={readingTime(article?.body?.raw).minutes}
         />

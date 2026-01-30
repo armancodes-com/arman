@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 "use client";
 
 import { useEffect } from "react";
@@ -10,30 +8,29 @@ interface IGoogleAnalyticsProps {
   nonce: string;
 }
 
+declare global {
+  interface Window {
+    gtag?: (
+      command: string,
+      targetId: string,
+      config?: { page_path: string },
+    ) => void;
+  }
+}
+
 const GoogleAnalytics: React.FC<IGoogleAnalyticsProps> = ({ nonce }) => {
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleRouteChange = (url: any) => {
-      // @ts-ignore
-      if (typeof window.gtag !== "undefined") {
-        // @ts-ignore
-        window?.gtag(
-          "config",
-          process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID,
-          {
-            page_path: url,
-          },
-        );
-      }
-    };
-
-    handleRouteChange(pathname);
-
-    // Listen for changes in the pathname and handle route change
-    return () => {
-      handleRouteChange(pathname);
-    };
+    if (typeof window.gtag !== "undefined") {
+      window.gtag(
+        "config",
+        process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID as string,
+        {
+          page_path: pathname,
+        },
+      );
+    }
   }, [pathname]);
 
   return (

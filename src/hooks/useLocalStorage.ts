@@ -2,13 +2,30 @@ import { useState, useEffect } from "react";
 
 export function useLocalStorageState(initialState: unknown, key: string) {
   const [value, setValue] = useState(function () {
-    const storedValue = localStorage.getItem(key);
-    return storedValue ? JSON?.parse(storedValue) : initialState;
+    if (typeof window === "undefined") {
+      return initialState;
+    }
+    
+    try {
+      const storedValue = localStorage.getItem(key);
+      return storedValue ? JSON.parse(storedValue) : initialState;
+    } catch (error) {
+      console.error(`Error reading localStorage key "${key}":`, error);
+      return initialState;
+    }
   });
 
   useEffect(
     function () {
-      localStorage.setItem(key, JSON.stringify(value));
+      if (typeof window === "undefined") {
+        return;
+      }
+      
+      try {
+        localStorage.setItem(key, JSON.stringify(value));
+      } catch (error) {
+        console.error(`Error setting localStorage key "${key}":`, error);
+      }
     },
     [value, key],
   );
