@@ -12,7 +12,7 @@ import reverseArrayHandler from "@/utils/reverse-array";
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi - Articles",
-  authors: { name: "Arman Ahmadi", url: "http://armancodes.com" },
+  authors: [{ name: "Arman Ahmadi", url: "https://armancodes.com" }],
   description:
     "Here you can find blogs that Arman writes about tech, and lifestyle articles",
   keywords: ["php", "engineer", "tech", "personal weblog"],
@@ -24,17 +24,18 @@ export const metadata: Metadata = {
     description:
       "Here you can find blogs that Arman writes about tech, and lifestyle articles",
     images: ["https://armancodes.com/images/new-hero.jpeg"],
-    url: "http://armancodes.com/articles",
+    url: "https://armancodes.com/articles",
     type: "website",
+    siteName: "Arman Ahmadi",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    creator: "Arman Ahmadi",
+    creator: "@armancodes",
     title: "Arman Ahmadi - Articles",
     description:
       "Here you can find blogs that Arman writes about tech, and lifestyle articles",
     images: ["https://armancodes.com/images/new-hero.jpeg"],
-    site: "http://armancodes.com/articles",
   },
 };
 
