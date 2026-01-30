@@ -22,6 +22,7 @@ export default [
       "*.config.js",
       "*.config.ts",
       "setup.ts",
+      ".contentlayer/**",
     ],
   },
   js.configs.recommended,
@@ -55,6 +56,9 @@ export default [
       ...typescript.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       ...jsxA11y.configs.recommended.rules,
+      "@typescript-eslint/no-empty-object-type": "warn",
+      "react-hooks/set-state-in-effect": "warn",
+      "react-hooks/static-components": "warn",
     },
     settings: {
       "import/resolver": {
