@@ -38,10 +38,10 @@ const DynamicSidebarLinks = nextDynamic(
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }): Promise<Metadata> {
   // read route params
-  const { slug } = await params;
+  const { slug } = params;
 
   // finding article data
   const articleData = allArticles?.find((article) => article.slug === slug);
@@ -83,10 +83,9 @@ export async function generateMetadata({
   };
 }
 
-const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
-  const resolvedParams = await params;
+export default function Page({ params }: { params: { slug: string } }) {
   const article = allArticles.find(
-    (post: ArticleType) => post.slug === resolvedParams.slug,
+    (post: ArticleType) => post.slug === params.slug,
   );
   const isArticleDraft = IS_PRODUCTION && article?.isDraft;
   const noArticleFound = !article;
@@ -218,9 +217,7 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
       <JsonLd data={breadcrumbSchema} />
     </main>
   );
-};
-
-export default Page;
+}
 
 // As our blogs are built-in the project and then published (not fetched from a backend source), it is better to be statically generated to increase load time
 export async function generateStaticParams() {
