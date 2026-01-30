@@ -19,6 +19,10 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@fontsource/alexandria": "^5.2.8",
+    "@fontsource/fira-code": "^5.2.7",
+    "@fontsource/quantico": "^5.2.7",
+    "@fontsource/ubuntu": "^5.2.8",
     "contentlayer": "^0.3.4",
     "next": "16.1.6",
     "next-contentlayer": "^0.3.4",
