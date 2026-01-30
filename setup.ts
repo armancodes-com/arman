@@ -46,4 +46,7 @@ beforeEach(() => {
     Ubuntu: () => ({ className: "" }),
     Quantico: () => ({ className: "" }),
   }));
+  vi.mock("next/font/local", () => ({
+    default: () => ({ className: "" }),
+  }));
 });
