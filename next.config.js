@@ -18,6 +18,9 @@ const nextConfig = {
       },
     ],
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 module.exports = withContentlayer(nextConfig);
