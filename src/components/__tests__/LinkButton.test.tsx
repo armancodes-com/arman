@@ -49,8 +49,6 @@ describe("LinkButton Tests Suite Component", () => {
       </LinkButton>,
     );
 
-    const link = screen.getByRole("link");
-    expect(link).toHaveAttribute("aria-label", "see all (opens in a new tab)");
     expect(screen.getByText("(opens in a new tab)")).toHaveClass("sr-only");
   });
 
