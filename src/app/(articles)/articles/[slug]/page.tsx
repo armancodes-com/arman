@@ -145,12 +145,12 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
         {/* Hero Image Section - Static Images */}
         {article?.image && (
           <>
-            <figure className="relative h-[350px] w-full overflow-hidden rounded-10 sm:h-[400px]">
+            <figure className="rounded-10 relative h-[350px] w-full overflow-hidden sm:h-[400px]">
               <Image
                 src={`${article?.image}`}
                 alt={`${article.title} article image`}
                 fill
-                className=" mx-auto h-full w-full object-cover object-center"
+                className="mx-auto h-full w-full object-cover object-center"
                 style={{ "--index": 2 } as React.CSSProperties}
                 priority
                 quality={100}

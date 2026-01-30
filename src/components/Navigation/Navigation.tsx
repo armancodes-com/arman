@@ -20,7 +20,7 @@ const Navigation = () => {
   }, []);
 
   return (
-    <header className="relative top-0 z-20 bg-bgColor px-4 py-2 md:sticky md:px-0 md:py-1">
+    <header className="bg-bgColor relative top-0 z-20 px-4 py-2 md:sticky md:px-0 md:py-1">
       <nav className="mx-auto flex max-w-[800px] flex-wrap items-center justify-between">
         <Link href={"/"} className="flex items-center gap-4">
           {resolvedTheme === "light" ? (
@@ -34,7 +34,7 @@ const Navigation = () => {
             <Image src={DARK_LOGO_SVG} alt="logo" width={40} height={40} />
           )}
 
-          <p className="text-caption1 font-bold capitalize text-text-primary">
+          <p className="text-caption1 text-text-primary font-bold capitalize">
             Arman
           </p>
         </Link>
@@ -46,7 +46,7 @@ const Navigation = () => {
             <Link href={"/search"} className="cursor-pointer">
               <SearchIcon
                 viewBox="0 0 24 24"
-                className={`h-6 w-6 cursor-pointer [&_path]:stroke-text-primary`}
+                className={`[&_path]:stroke-text-primary h-6 w-6 cursor-pointer`}
                 aria-hidden="true"
               />
               <span className="sr-only">search</span>

@@ -82,14 +82,14 @@ const Newsletter = () => {
     return (
       <>
         <section className="px-4 md:p-0" data-testid="newsletter-section">
-          <article className="mt-[72px] flex flex-col items-center justify-center gap-3 rounded-10 bg-tertiary-bg px-6 pb-4 pt-6 text-center dark:border-none md:mt-25 md:gap-6">
+          <article className="rounded-10 bg-tertiary-bg mt-[72px] flex flex-col items-center justify-center gap-3 px-6 pt-6 pb-4 text-center md:mt-25 md:gap-6 dark:border-none">
             <h3
-              className={`${alexandria.className} text-body2 font-semibold text-text-primary md:text-xl md:font-bold`}
+              className={`${alexandria.className} text-body2 text-text-primary font-semibold md:text-xl md:font-bold`}
             >
               Subscribe to my newsletter
             </h3>
             <p
-              className={`${alexandria.className} text-caption2 font-light text-text-primary md:${ubuntu.className} leading-6 md:text-caption1`}
+              className={`${alexandria.className} text-caption2 text-text-primary font-light md:${ubuntu.className} md:text-caption1 leading-6`}
             >
               Receive exclusive monthly insights and updates on tech,
               productivity, programming, and more!
@@ -117,7 +117,7 @@ const Newsletter = () => {
 
                 {result?.status === "failure" && !isSubscripting && (
                   <section className="flex items-center justify-center px-4 md:p-0">
-                    <p className="text-center text-primary">
+                    <p className="text-primary text-center">
                       {result?.message}
                     </p>
                   </section>
@@ -127,11 +127,11 @@ const Newsletter = () => {
             {/* show the success message instead of the form when subscription's result is successful */}
             {result?.status === "success" && !isSubscripting && (
               <section className="flex items-center justify-center px-4 md:p-0">
-                <p className="text-center text-primary">{result?.message}</p>
+                <p className="text-primary text-center">{result?.message}</p>
               </section>
             )}
 
-            <span className="mt-3 text-caption2 font-light text-text-primary md:mb-7 md:mt-0">
+            <span className="text-caption2 text-text-primary mt-3 font-light md:mt-0 md:mb-7">
               {`Join the +${NEWSLETTER_SUBSCRIBERS_CONSTANT + confirmedSubscribers} other readers.`}
             </span>
           </article>

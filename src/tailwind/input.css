@@ -1,5 +1,5 @@
 @layer components {
   .input {
-    @apply w-full rounded-80 border border-border-articles bg-transparent px-4 py-2 text-caption2 leading-7 text-text-primary outline-primary;
+    @apply rounded-80 border-border-articles text-caption2 text-text-primary outline-primary w-full border bg-transparent px-4 py-2 leading-7;
   }
 }

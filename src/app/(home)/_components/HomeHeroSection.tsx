@@ -10,11 +10,11 @@ import {
 const HomeHeroSection = () => {
   return (
     <section className="relative flex h-full w-full flex-col items-center gap-x-14 md:flex-row">
-      <article className="order-2 flex flex-1 animate-in flex-col gap-y-4 px-4 py-10 md:order-1">
-        <div className="hidden h-1 min-h-1 w-21 rounded-5 bg-[#7127BA] md:block"></div>
+      <article className="animate-in order-2 flex flex-1 flex-col gap-y-4 px-4 py-10 md:order-1">
+        <div className="rounded-5 hidden h-1 min-h-1 w-21 bg-[#7127BA] md:block"></div>
 
         <div
-          className={`text-xl md:text-title1 ${firaCode.className} font-bold`}
+          className={`md:text-title1 text-xl ${firaCode.className} font-bold`}
         >
           <h1>{MAIN_PAGE_TITLE}</h1>
           <h2 className={`text-caption1 text-primary md:text-title2`}>
@@ -27,7 +27,7 @@ const HomeHeroSection = () => {
         </p>
       </article>
 
-      <figure className="relative block h-[330px] max-h-[420px] w-[270px] max-w-[384px] rotate-6 overflow-hidden rounded-20 shadow-heroImage2 transition-all duration-100 ease-linear hover:-rotate-2 sm:h-[370px] sm:w-[330px] md:order-2">
+      <figure className="rounded-20 shadow-heroImage2 relative block h-[330px] max-h-[420px] w-[270px] max-w-[384px] rotate-6 overflow-hidden transition-all duration-100 ease-linear hover:-rotate-2 sm:h-[370px] sm:w-[330px] md:order-2">
         <Image
           src={heroImage}
           alt="Arman in Berlin"

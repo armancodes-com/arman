@@ -32,10 +32,10 @@ const ShareButton = ({ url }: { url: string }) => {
       {tooltip && (
         <div
           data-testid="share-button-tooltip"
-          className={`absolute left-1/2 top-[120%] z-10 -translate-x-1/2 whitespace-nowrap rounded-5 bg-primary p-2 text-caption2 font-light text-white ${alexandria.className}`}
+          className={`rounded-5 bg-primary text-caption2 absolute top-[120%] left-1/2 z-10 -translate-x-1/2 p-2 font-light whitespace-nowrap text-white ${alexandria.className}`}
         >
           copied
-          <div className="absolute bottom-full left-1/2 -ml-1 rotate-180 !border-[5px] border-t border-transparent border-t-primary"></div>
+          <div className="border-t-primary absolute bottom-full left-1/2 -ml-1 rotate-180 !border-[5px] border-t border-transparent"></div>
         </div>
       )}
     </div>

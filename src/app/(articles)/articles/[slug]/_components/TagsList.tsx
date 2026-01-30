@@ -9,7 +9,7 @@ const TagsList: React.FC<ITagsListProps> = ({ tags }) => {
   return (
     <div className="space-y-3 pt-11 md:pt-20">
       <h3
-        className={`${alexandria.className} text-body1 capitalize text-gray-2`}
+        className={`${alexandria.className} text-body1 text-gray-2 capitalize`}
       >
         tags
       </h3>

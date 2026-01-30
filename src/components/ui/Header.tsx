@@ -12,12 +12,12 @@ const Header: React.FC<IHeaderProps> = ({ title, linkText, href }) => {
   return (
     <header className="flex items-center justify-between">
       <div
-        className={`${firaCode.className} text-body1 font-bold capitalize leading-4 text-primary md:text-title3`}
+        className={`${firaCode.className} text-body1 text-primary md:text-title3 leading-4 font-bold capitalize`}
       >
         <h2 className="tracking-wide" data-testid="header-text">
           {title}
         </h2>
-        <span className="relative inline-block w-full border border-primary bg-primary before:absolute before:-left-1 before:-top-[4px] before:h-2 before:w-2 before:rounded-full before:bg-primary after:absolute after:-right-1 after:-top-[4px] after:h-2 after:w-2 after:rounded-full after:bg-primary md:border-2 md:before:-top-[6px] md:before:h-3 md:before:w-3 md:after:-top-[6px] md:after:h-3 md:after:w-3"></span>
+        <span className="border-primary bg-primary before:bg-primary after:bg-primary relative inline-block w-full border before:absolute before:-top-[4px] before:-left-1 before:h-2 before:w-2 before:rounded-full after:absolute after:-top-[4px] after:-right-1 after:h-2 after:w-2 after:rounded-full md:border-2 md:before:-top-[6px] md:before:h-3 md:before:w-3 md:after:-top-[6px] md:after:h-3 md:after:w-3"></span>
       </div>
 
       {linkText && href && (
@@ -28,7 +28,7 @@ const Header: React.FC<IHeaderProps> = ({ title, linkText, href }) => {
           <span className="">{linkText}</span>
           <IconArrowRight
             viewBox="0 0 22 22"
-            className="relative left-0 mt-1 h-6 w-6 transition-all duration-75 ease-linear group-hover:left-1 [&_path]:stroke-primary"
+            className="[&_path]:stroke-primary relative left-0 mt-1 h-6 w-6 transition-all duration-75 ease-linear group-hover:left-1"
           />
         </Link>
       )}

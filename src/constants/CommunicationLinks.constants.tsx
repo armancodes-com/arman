@@ -28,7 +28,7 @@ export const COMMUNICATION_LINKS_DATA: ICommunicationLinkProps[] = [
     icon: (
       <IconLinkedIn
         viewBox="0 0 74 74"
-        className="mb-1 h-5 w-5 [&_path]:stroke-gray-1 group-hover:[&_path]:stroke-primary"
+        className="[&_path]:stroke-gray-1 group-hover:[&_path]:stroke-primary mb-1 h-5 w-5"
       />
     ),
     hasLinkIcon: true,
