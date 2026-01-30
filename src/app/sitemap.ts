@@ -12,28 +12,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: article?.updatedAt
       ? new Date(Date.parse(article?.updatedAt as string))
       : new Date(article?.publishedAt),
-    priority: 0.6,
-    changeFrequency: "monthly",
+    priority: 0.7,
+    changeFrequency: "monthly" as const,
   }));
 
   return [
     {
       url: "https://armancodes.com",
       lastModified: new Date(),
-      changeFrequency: "weekly",
+      changeFrequency: "weekly" as const,
       priority: 1,
     },
     {
       url: "https://armancodes.com/about-me",
       lastModified: new Date(),
-      changeFrequency: "weekly",
+      changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
       url: "https://armancodes.com/articles",
       lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.7,
+      changeFrequency: "weekly" as const,
+      priority: 0.9,
     },
     // @ts-ignore
     ...articlesUrls,

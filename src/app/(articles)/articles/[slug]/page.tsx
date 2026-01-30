@@ -54,14 +54,20 @@ export async function generateMetadata({
     metadataBase: new globalThis.URL(articleData?.baseUrl || ""),
     title: `Arman Ahmadi - ${articleData?.title}`,
     description: articleData?.metaDescription,
-    authors: { name: articleData?.author },
+    authors: [{ name: articleData?.author }],
     keywords: articleData?.keywords,
     openGraph: {
       images: [articleData?.ogImage as string],
-      type: "website",
+      type: "article",
       description: articleData?.ogDescription,
       title: articleData?.ogTitle,
       url: articleData?.ogUrl,
+      siteName: "Arman Ahmadi",
+      locale: "en_US",
+      publishedTime: articleData?.publishedAt,
+      modifiedTime: articleData?.updatedAt || articleData?.publishedAt,
+      authors: [articleData?.author],
+      tags: articleData?.tags as string[],
     },
     robots: articleData?.robots,
     alternates: {
@@ -69,7 +75,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      creator: articleData?.author,
+      creator: "@armancodes",
       description: articleData?.twitterDescription,
       title: articleData?.twitterTitle,
       images: articleData?.twitterImage,
@@ -109,6 +115,34 @@ export default function Page({ params }: { params: { slug: string } }) {
     image: article?.image,
     datePublished: new Date(article?.publishedAt as string),
     dateModified: new Date(article?.updatedAt as string),
+    keywords: article?.keywords,
+    articleSection: article?.category || "Technology",
+  };
+
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://armancodes.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Articles",
+        item: "https://armancodes.com/articles",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: article?.title,
+        item: `${article?.baseUrl}articles/${article?.slug}`,
+      },
+    ],
   };
 
   // handle redirect when article is draft or slut not found
@@ -180,6 +214,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 
       {/* JSON+LD data */}
       <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbSchema} />
     </main>
   );
 }
