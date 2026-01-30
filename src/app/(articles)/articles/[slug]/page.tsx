@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
-import nextDynamic from "next/dynamic";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Article as ArticleType } from "contentlayer/generated";
@@ -14,10 +13,7 @@ import readingTime from "@/utils/reading-time";
 import { IS_PRODUCTION } from "@/constants";
 import JsonLd from "@/components/seo/JsonLd";
 
-const DynamicNewsLetterComponent = nextDynamic(
-  () => import("@/components/ui/Newsletter"),
-  { ssr: true },
-);
+import nextDynamic from "next/dynamic";
 
 const DynamicTagListComponent = nextDynamic(
   () => import("./_components/TagsList"),
@@ -183,9 +179,6 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
 
       {/* TAGS SECTION */}
       <DynamicTagListComponent tags={article?.tags} />
-
-      {/* NEWSLETTER SECTION */}
-      <DynamicNewsLetterComponent />
 
       {/* JSON+LD data */}
       <JsonLd data={jsonLd} />

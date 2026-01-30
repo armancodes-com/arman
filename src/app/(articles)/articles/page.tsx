@@ -2,8 +2,6 @@ export const revalidate = 604800;
 
 import { allArticles } from "contentlayer/generated";
 import { Metadata } from "next";
-import dynamic from "next/dynamic";
-
 import Header from "@/components/ui/Header";
 import ArticlesList from "../_components/ArticlesList";
 import Section from "@/components/ui/Section";
@@ -11,8 +9,6 @@ import Pagination from "@/components/Navigation/Pagination";
 import { SHOW_PER_PAGE } from "@/constants/Pagination.constants";
 import { IS_PRODUCTION } from "@/constants";
 import reverseArrayHandler from "@/utils/reverse-array";
-
-const DynamicNewsletter = dynamic(() => import("@/components/ui/Newsletter"));
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi - Articles",
@@ -57,12 +53,10 @@ const Page = () => {
         <Header title="my articles" />
         <ArticlesList articles={displayedArticles} />
         {/* Pagination */}
-        {displayedArticles.length > SHOW_PER_PAGE && (
-          <Pagination totalArticles={displayedArticles.length} />
-        )}
-      </Section>
-
-      <DynamicNewsletter />
+      {displayedArticles.length > SHOW_PER_PAGE && (
+        <Pagination totalArticles={displayedArticles.length} />
+      )}
+    </Section>
     </main>
   );
 };
