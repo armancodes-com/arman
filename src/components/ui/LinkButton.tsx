@@ -22,8 +22,8 @@ const LinkButton: React.FC<ICommunicationLinkProps> = ({
           className={`text-caption1 font-light ${alexandria.className} capitalize tracking-wide group-hover:text-primary`}
         >
           {children}
-          <span className="sr-only"> (opens in a new tab)</span>
         </span>
+        <span className="sr-only"> (opens in a new tab)</span>
       </div>
 
       {hasLinkIcon && (
