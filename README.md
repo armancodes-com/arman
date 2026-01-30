@@ -45,7 +45,7 @@ npm run storybook
 
 ![Tech Stacks](https://skillicons.dev/icons?i=javascript,typescript,nextjs,react,tailwind)
 
-# How to The Project Works?
+# How The Project Works
 
 We use MDX and `contentlayer` for writing articles. Each article is a `.mdx` file under `/src/content/articles` with a numbered slug (example: `4-dependency-lock-in-own-your-code.mdx`).
 
