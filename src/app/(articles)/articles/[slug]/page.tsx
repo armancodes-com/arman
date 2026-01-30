@@ -1,6 +1,5 @@
+import nextDynamic from "next/dynamic";
 import { Metadata } from "next";
-
-export const dynamic = "force-dynamic";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Article as ArticleType } from "contentlayer/generated";
@@ -13,7 +12,7 @@ import readingTime from "@/utils/reading-time";
 import { IS_PRODUCTION } from "@/constants";
 import JsonLd from "@/components/seo/JsonLd";
 
-import nextDynamic from "next/dynamic";
+export const dynamic = "force-dynamic";
 
 const DynamicTagListComponent = nextDynamic(
   () => import("./_components/TagsList"),
