@@ -24,8 +24,15 @@ export const metadata: Metadata = {
     default: "Arman Ahmadi - Backend Engineer",
     template: "%s | Arman Ahmadi",
   },
-  description: "A Backend engineer working with PHP, sharing insights on software engineering, design patterns, and personal development.",
-  keywords: ["PHP", "Backend Engineer", "Software Engineering", "Web Development", "Design Patterns"],
+  description:
+    "A Backend engineer working with PHP, sharing insights on software engineering, design patterns, and personal development.",
+  keywords: [
+    "PHP",
+    "Backend Engineer",
+    "Software Engineering",
+    "Web Development",
+    "Design Patterns",
+  ],
   authors: [{ name: "Arman Ahmadi", url: "https://armancodes.com" }],
   creator: "Arman Ahmadi",
   openGraph: {
@@ -34,7 +41,8 @@ export const metadata: Metadata = {
     url: "https://armancodes.com",
     siteName: "Arman Ahmadi",
     title: "Arman Ahmadi - Backend Engineer",
-    description: "A Backend engineer working with PHP, sharing insights on software engineering, design patterns, and personal development.",
+    description:
+      "A Backend engineer working with PHP, sharing insights on software engineering, design patterns, and personal development.",
   },
   twitter: {
     card: "summary_large_image",
@@ -65,7 +73,8 @@ export default async function RootLayout({
     name: "Arman Ahmadi",
     url: "https://armancodes.com",
     jobTitle: "Backend Engineer",
-    description: "Backend engineer specializing in PHP and software engineering",
+    description:
+      "Backend engineer specializing in PHP and software engineering",
     sameAs: [
       "https://github.com/armancodes-com",
       "https://twitter.com/armancodes",
