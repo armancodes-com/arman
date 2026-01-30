@@ -53,10 +53,10 @@ const Page = () => {
         <Header title="my articles" />
         <ArticlesList articles={displayedArticles} />
         {/* Pagination */}
-      {displayedArticles.length > SHOW_PER_PAGE && (
-        <Pagination totalArticles={displayedArticles.length} />
-      )}
-    </Section>
+        {displayedArticles.length > SHOW_PER_PAGE && (
+          <Pagination totalArticles={displayedArticles.length} />
+        )}
+      </Section>
     </main>
   );
 };

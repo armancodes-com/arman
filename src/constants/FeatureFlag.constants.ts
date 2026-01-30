@@ -1,7 +1,4 @@
 const isLikeArticleFeatureReleased: boolean = false;
 const isSearchSystemReleased: boolean = true;
 
-export {
-  isLikeArticleFeatureReleased,
-  isSearchSystemReleased,
-};
+export { isLikeArticleFeatureReleased, isSearchSystemReleased };
