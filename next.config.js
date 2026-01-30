@@ -6,8 +6,8 @@ const { withContentlayer } = require("next-contentlayer");
 const nextConfig = {
   output: "standalone",
   reactStrictMode: true,
-  swcMinify: true,
   basePath: "",
+  turbopack: {},
   images: {
     remotePatterns: [
       {

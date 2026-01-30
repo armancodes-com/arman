@@ -1,8 +1,7 @@
 import SearchIcon from "@/assets/icons/SearchIcon";
 import { twMerge } from "tailwind-merge";
 
-export interface IInputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   hasSearchIcon?: boolean;
 }
 
