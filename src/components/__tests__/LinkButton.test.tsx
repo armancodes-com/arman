@@ -20,6 +20,38 @@ describe("LinkButton Tests Suite Component", () => {
     expect(screen.getByRole("link")).toHaveAttribute("href", "/articles");
   });
 
+  it("should include security attributes for links opening in new tabs", () => {
+    render(
+      <LinkButton
+        icon={
+          <IconEmail className="[&_path]:stroke-gray-1 group-hover:[&_path]:stroke-primary" />
+        }
+        href="/articles"
+      >
+        see all
+      </LinkButton>,
+    );
+
+    const link = screen.getByRole("link");
+    expect(link).toHaveAttribute("target", "_blank");
+    expect(link).toHaveAttribute("rel", "noopener noreferrer");
+  });
+
+  it("should include accessibility attributes for new tab indication", () => {
+    render(
+      <LinkButton
+        icon={
+          <IconEmail className="[&_path]:stroke-gray-1 group-hover:[&_path]:stroke-primary" />
+        }
+        href="/articles"
+      >
+        see all
+      </LinkButton>,
+    );
+
+    expect(screen.getByText("(opens in a new tab)")).toHaveClass("sr-only");
+  });
+
   it("should render the link button with icon if it has one", () => {
     render(
       <LinkButton
