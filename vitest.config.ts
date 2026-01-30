@@ -10,7 +10,16 @@ export default defineConfig({
   plugins: [react()],
   test: {
     globals: true,
-    alias: [{ find: "@", replacement: path.resolve(__dirname, "./src") }],
+    alias: [
+      { find: "@", replacement: path.resolve(__dirname, "./src") },
+      {
+        find: "contentlayer/generated",
+        replacement: path.resolve(
+          __dirname,
+          "./.contentlayer/generated/index.mjs",
+        ),
+      },
+    ],
     setupFiles: path.resolve(__dirname, "setup.ts"),
     environmentMatchGlobs: [["**/*.test.tsx", "jsdom"]],
     reporters: "verbose",

@@ -82,14 +82,9 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const resolvedParams = await params;
+export default function Page({ params }: { params: { slug: string } }) {
   const article = allArticles.find(
-    (post: ArticleType) => post.slug === resolvedParams.slug,
+    (post: ArticleType) => post.slug === params.slug,
   );
   const isArticleDraft = IS_PRODUCTION && article?.isDraft;
   const noArticleFound = !article;
