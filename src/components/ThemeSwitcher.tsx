@@ -5,9 +5,7 @@ import SunIcon from "@/assets/icons/SunIcon";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-interface IThemeSwitcherProps {}
-
-const ThemeSwitcher: React.FC<IThemeSwitcherProps> = () => {
+const ThemeSwitcher: React.FC = () => {
   const [isMounted, setIsMounted] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
 
