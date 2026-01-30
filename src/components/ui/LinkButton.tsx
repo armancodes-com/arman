@@ -13,6 +13,7 @@ const LinkButton: React.FC<ICommunicationLinkProps> = ({
     <Link
       href={href}
       target="_blank"
+      rel="noopener noreferrer"
       className="group flex w-full min-w-[200px] items-center justify-between rounded-80 border-2 border-primary px-6 py-4 transition-all duration-200 ease-linear"
     >
       <div className="flex items-center gap-2">
@@ -22,6 +23,7 @@ const LinkButton: React.FC<ICommunicationLinkProps> = ({
         >
           {children}
         </span>
+        <span className="sr-only"> (opens in a new tab)</span>
       </div>
 
       {hasLinkIcon && (
