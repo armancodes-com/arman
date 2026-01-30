@@ -2,6 +2,7 @@ import { render } from "../../../utilities";
 import { screen } from "@testing-library/react";
 import Navigation from "../Navigation/Navigation";
 import ThemeProvider from "../ThemeProvider";
+import { DARK_LOGO_SVG, WHITE_LOGO_SVG } from "@/constants";
 
 describe("Navigation Component Tests Suite", () => {
   beforeEach(() => {
@@ -27,9 +28,7 @@ describe("Navigation Component Tests Suite", () => {
 
     // the default image src should be dark-logo.svg
     const logoImageElement = screen.getByRole("img");
-    expect(logoImageElement.getAttribute("src")).toEqual(
-      "/public/images/dark-logo.svg",
-    );
+    expect(logoImageElement.getAttribute("src")).toEqual(DARK_LOGO_SVG);
   });
 
   it("should render 'white' logo img if the theme is set to 'white'", () => {
@@ -41,9 +40,7 @@ describe("Navigation Component Tests Suite", () => {
 
     const logoImageElement = screen.getByRole("img");
 
-    expect(logoImageElement.getAttribute("src")).toEqual(
-      "/public/images/white-logo.svg",
-    );
+    expect(logoImageElement.getAttribute("src")).toEqual(WHITE_LOGO_SVG);
   });
 
   it("should render 'dark' logo img if the theme is set to 'dark'", () => {
@@ -55,8 +52,6 @@ describe("Navigation Component Tests Suite", () => {
 
     const logoImageElement = screen.getByRole("img");
 
-    expect(logoImageElement.getAttribute("src")).toEqual(
-      "/public/images/dark-logo.svg",
-    );
+    expect(logoImageElement.getAttribute("src")).toEqual(DARK_LOGO_SVG);
   });
 });
