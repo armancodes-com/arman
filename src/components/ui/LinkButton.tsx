@@ -9,10 +9,24 @@ const LinkButton: React.FC<ICommunicationLinkProps> = ({
   icon,
   href,
 }) => {
+  const getAccessibleLabel = (content: React.ReactNode): string | undefined => {
+    if (typeof content === "string" || typeof content === "number") {
+      return String(content);
+    }
+    return undefined;
+  };
+
+  const baseLabel = getAccessibleLabel(children);
+  const ariaLabel = baseLabel
+    ? `${baseLabel} (opens in a new tab)`
+    : undefined;
+
   return (
     <Link
       href={href}
       target="_blank"
+      rel="noopener noreferrer"
+      aria-label={ariaLabel}
       className="group flex w-full min-w-[200px] items-center justify-between rounded-80 border-2 border-primary px-6 py-4 transition-all duration-200 ease-linear"
     >
       <div className="flex items-center gap-2">
@@ -21,6 +35,7 @@ const LinkButton: React.FC<ICommunicationLinkProps> = ({
           className={`text-caption1 font-light ${alexandria.className} capitalize tracking-wide group-hover:text-primary`}
         >
           {children}
+          <span className="sr-only"> (opens in a new tab)</span>
         </span>
       </div>
 
