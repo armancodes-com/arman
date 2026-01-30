@@ -17,7 +17,7 @@ export const allArticles = [
     shareLink: "/articles/perfectionism-a-path-to-nowhere",
     canonical: "",
     baseUrl: "https://armancodes.com/",
-    body: { code: "<div>MDX</div>", raw: "MDX" },
+    body: { code: "<div>MDX</div>", raw: "MDX content" },
     isDraft: false,
     tags: ["Perfectionism"],
     hasSeries: false,

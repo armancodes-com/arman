@@ -31,8 +31,6 @@ vi.mock("@/components/ui/Newsletter", () => ({
   default: () => <div data-testid="newsletter" />,
 }));
 
-vi.mock("contentlayer/generated");
-
 describe("Article page", () => {
   it("renders an article for a matching slug", () => {
     render(<Page params={{ slug: "perfectionism-a-path-to-nowhere" }} />);
