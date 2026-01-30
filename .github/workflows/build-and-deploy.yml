@@ -24,11 +24,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
       - name: Build Docker image
-        run: |
-          docker build \
-            --build-arg NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID=${{ secrets.GOOGLE_ANALYTICS_MEASUREMENT_ID }} \
-            -t ${{ env.IMAGE_NAME }} -f ${{ env.DOCKER_FILE }} .
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ${{ env.DOCKER_FILE }}
+          tags: ${{ env.IMAGE_NAME }}
+          load: true
+          build-args: |
+            NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID=${{ secrets.GOOGLE_ANALYTICS_MEASUREMENT_ID }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       - name: Save Docker image to tarball
         run: |
