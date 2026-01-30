@@ -1,24 +1,34 @@
-import { Ubuntu, Fira_Code, Alexandria, Quantico } from "next/font/google";
+import localFont from "next/font/local";
 
-const ubuntu = Ubuntu({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-});
-
-const firaCode = Fira_Code({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700", "600"],
-});
-
-const alexandria = Alexandria({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+const ubuntu = localFont({
+  src: [{ path: "./fonts/placeholder.woff2", weight: "400" }],
+  display: "swap",
+  fallback: ["ui-sans-serif", "system-ui", "sans-serif"],
+  adjustFontFallback: false,
   preload: false,
 });
 
-const quantico = Quantico({
-  subsets: ["latin"],
-  weight: ["400", "700"],
+const firaCode = localFont({
+  src: [{ path: "./fonts/placeholder.woff2", weight: "400" }],
+  display: "swap",
+  fallback: ["ui-monospace", "SFMono-Regular", "monospace"],
+  adjustFontFallback: false,
+  preload: false,
+});
+
+const alexandria = localFont({
+  src: [{ path: "./fonts/placeholder.woff2", weight: "400" }],
+  display: "swap",
+  fallback: ["ui-sans-serif", "system-ui", "sans-serif"],
+  adjustFontFallback: false,
+  preload: false,
+});
+
+const quantico = localFont({
+  src: [{ path: "./fonts/placeholder.woff2", weight: "400" }],
+  display: "swap",
+  fallback: ["ui-sans-serif", "system-ui", "sans-serif"],
+  adjustFontFallback: false,
   preload: false,
 });
 
