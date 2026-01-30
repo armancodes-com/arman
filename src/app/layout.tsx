@@ -1,6 +1,6 @@
 import "./globals.css";
 
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 
 import NextTopLoader from "nextjs-toploader";
 
@@ -10,10 +10,55 @@ import ToolbarLinks from "@/components/Navigation/ToolbarLinks";
 import Footer from "@/components/ui/Footer";
 import { ubuntu } from "./fonts";
 import { toolbarLinks } from "@/constants/toolbarlinks.constants";
+import JsonLd from "@/components/seo/JsonLd";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#7127ba",
+};
 
 export const metadata: Metadata = {
-  title: "Arman Ahmadi",
-  description: "A Backend-engineer working with PHP.",
+  metadataBase: new URL("https://armancodes.com"),
+  title: {
+    default: "Arman Ahmadi - Backend Engineer",
+    template: "%s | Arman Ahmadi",
+  },
+  description:
+    "A Backend engineer working with PHP, sharing insights on software engineering, design patterns, and personal development.",
+  keywords: [
+    "PHP",
+    "Backend Engineer",
+    "Software Engineering",
+    "Web Development",
+    "Design Patterns",
+  ],
+  authors: [{ name: "Arman Ahmadi", url: "https://armancodes.com" }],
+  creator: "Arman Ahmadi",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://armancodes.com",
+    siteName: "Arman Ahmadi",
+    title: "Arman Ahmadi - Backend Engineer",
+    description:
+      "A Backend engineer working with PHP, sharing insights on software engineering, design patterns, and personal development.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@armancodes",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default async function RootLayout({
@@ -21,6 +66,21 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Person Schema for SEO
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Arman Ahmadi",
+    url: "https://armancodes.com",
+    jobTitle: "Backend Engineer",
+    description:
+      "Backend engineer specializing in PHP and software engineering",
+    sameAs: [
+      "https://github.com/armancodes-com",
+      "https://twitter.com/armancodes",
+    ],
+  };
+
   return (
     <html lang="en" className="light" suppressHydrationWarning>
       <body className={`${ubuntu.className} bg-bgColor`}>
@@ -47,6 +107,9 @@ export default async function RootLayout({
           </div>
 
           <Footer />
+
+          {/* Global Person Schema */}
+          <JsonLd data={personSchema} />
         </ThemeProvider>
       </body>
     </html>
