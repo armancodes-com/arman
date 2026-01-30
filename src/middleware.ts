@@ -13,7 +13,7 @@ export function middleware(request: NextRequest) {
     style-src 'self' 'unsafe-inline';
     script-src-elem 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline';
     font-src 'self'; 
-    connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://newsletter.armancodes.com/api/subscribers 'unsafe-inline'; 
+    connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com 'unsafe-inline'; 
     media-src 'self'; 
     object-src 'self'; 
     frame-src 'self'; 
