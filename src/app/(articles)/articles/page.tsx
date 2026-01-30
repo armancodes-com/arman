@@ -12,9 +12,7 @@ import { SHOW_PER_PAGE } from "@/constants/Pagination.constants";
 import { IS_PRODUCTION } from "@/constants";
 import reverseArrayHandler from "@/utils/reverse-array";
 
-const DynamicNewsletter = dynamic(() => import("@/components/ui/Newsletter"), {
-  ssr: false,
-});
+const DynamicNewsletter = dynamic(() => import("@/components/ui/Newsletter"));
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi - Articles",
