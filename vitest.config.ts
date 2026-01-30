@@ -16,7 +16,7 @@ export default defineConfig({
         find: "contentlayer/generated",
         replacement: path.resolve(
           __dirname,
-          "./.contentlayer/generated/index.mjs",
+          "./src/test/__mocks__/contentlayer-generated.ts",
         ),
       },
     ],
