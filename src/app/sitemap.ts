@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: "https://armancodes.com",
       lastModified: new Date(),
-      changeFrequency: "daily" as const,
+      changeFrequency: "weekly" as const,
       priority: 1,
     },
     {
@@ -32,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: "https://armancodes.com/articles",
       lastModified: new Date(),
-      changeFrequency: "daily" as const,
+      changeFrequency: "weekly" as const,
       priority: 0.9,
     },
     // @ts-ignore

@@ -66,8 +66,8 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Organization Schema for SEO
-  const organizationSchema = {
+  // Person Schema for SEO
+  const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Arman Ahmadi",
@@ -108,8 +108,8 @@ export default async function RootLayout({
 
           <Footer />
 
-          {/* Global Organization Schema */}
-          <JsonLd data={organizationSchema} />
+          {/* Global Person Schema */}
+          <JsonLd data={personSchema} />
         </ThemeProvider>
       </body>
     </html>
