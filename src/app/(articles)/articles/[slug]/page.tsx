@@ -82,7 +82,11 @@ export async function generateMetadata({
   };
 }
 
-const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const resolvedParams = await params;
   const article = allArticles.find(
     (post: ArticleType) => post.slug === resolvedParams.slug,
@@ -191,9 +195,7 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
       <JsonLd data={jsonLd} />
     </main>
   );
-};
-
-export default Page;
+}
 
 // As our blogs are built-in the project and then published (not fetched from a backend source), it is better to be statically generated to increase load time
 export async function generateStaticParams() {
