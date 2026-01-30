@@ -5,7 +5,7 @@ export function useLocalStorageState(initialState: unknown, key: string) {
     if (typeof window === "undefined") {
       return initialState;
     }
-    
+
     try {
       const storedValue = localStorage.getItem(key);
       return storedValue ? JSON.parse(storedValue) : initialState;
@@ -20,7 +20,7 @@ export function useLocalStorageState(initialState: unknown, key: string) {
       if (typeof window === "undefined") {
         return;
       }
-      
+
       try {
         localStorage.setItem(key, JSON.stringify(value));
       } catch (error) {

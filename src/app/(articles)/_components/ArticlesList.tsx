@@ -5,7 +5,7 @@ import type { Article as ArticleType } from "contentlayer/generated";
 import ArticleItem from "./ArticleItem";
 import readingTime from "@/utils/reading-time";
 import useQueryString from "@/hooks/useQueryString";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { SHOW_PER_PAGE } from "@/constants/Pagination.constants";
 import getTotalArticlesPage from "@/utils/pagination-utils";
 
@@ -29,6 +29,16 @@ const ArticlesList: React.FC<IArticlesListProps> = ({ articles }) => {
 
   const paginatedArticles = articles.slice(startIdx, endIdx);
 
+  // Memoize reading times to avoid recalculating on every render
+  const articlesWithReadTime = useMemo(
+    () =>
+      paginatedArticles.map((article) => ({
+        article,
+        readTime: readingTime(article?.body?.raw).minutes,
+      })),
+    [paginatedArticles],
+  );
+
   useEffect(() => {
     if (pageFromUrl) {
       if (+pageFromUrl > totalPages || +pageFromUrl < 1) {
@@ -42,11 +52,11 @@ const ArticlesList: React.FC<IArticlesListProps> = ({ articles }) => {
 
   return (
     <div className="mt-8 flex flex-col gap-8 md:mt-12 md:gap-10">
-      {paginatedArticles?.map((article) => (
+      {articlesWithReadTime.map(({ article, readTime }) => (
         <ArticleItem
           key={article?.slug}
           data={article}
-          readTime={readingTime(article?.body?.raw).minutes}
+          readTime={readTime}
         />
       ))}
     </div>
