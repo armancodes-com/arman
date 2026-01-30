@@ -8,11 +8,10 @@ import CustomHeading from "./CustomHeading";
 import { alexandria } from "@/app/fonts";
 import { useEffect } from "react";
 
-interface CustomLinkProps
-  extends React.DetailedHTMLProps<
-    React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    HTMLAnchorElement
-  > {}
+interface CustomLinkProps extends React.DetailedHTMLProps<
+  React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  HTMLAnchorElement
+> {}
 
 const CustomLink: React.FC<CustomLinkProps> = (props) => {
   const href = props?.href;

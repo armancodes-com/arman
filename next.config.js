@@ -6,8 +6,10 @@ const { withContentlayer } = require("next-contentlayer");
 const nextConfig = {
   output: "standalone",
   reactStrictMode: true,
-  swcMinify: true,
   basePath: "",
+  // Empty turbopack config to silence the warning about webpack config
+  // Turbopack is enabled by default in Next.js 16
+  turbopack: {},
   images: {
     remotePatterns: [
       {
