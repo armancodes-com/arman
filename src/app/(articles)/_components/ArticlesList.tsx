@@ -53,11 +53,7 @@ const ArticlesList: React.FC<IArticlesListProps> = ({ articles }) => {
   return (
     <div className="mt-8 flex flex-col gap-8 md:mt-12 md:gap-10">
       {articlesWithReadTime.map(({ article, readTime }) => (
-        <ArticleItem
-          key={article?.slug}
-          data={article}
-          readTime={readTime}
-        />
+        <ArticleItem key={article?.slug} data={article} readTime={readTime} />
       ))}
     </div>
   );
