@@ -8,9 +8,9 @@ interface UseCopyToClipboardReturn {
 export const useCopyToClipboard = (): UseCopyToClipboardReturn => {
   const [tooltip, setTooltip] = useState(false);
 
-  const copyToClipboard = useCallback((text: string) => {
+  const copyToClipboard = useCallback(async (text: string) => {
     try {
-      navigator.clipboard.writeText(text);
+      await navigator.clipboard.writeText(text);
       setTooltip(true);
       setTimeout(() => setTooltip(false), 3000);
     } catch (err) {

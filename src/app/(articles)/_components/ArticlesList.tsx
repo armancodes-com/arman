@@ -27,16 +27,14 @@ const ArticlesList: React.FC<IArticlesListProps> = ({ articles }) => {
   const startIdx = (currentPage - 1) * SHOW_PER_PAGE;
   const endIdx = startIdx + SHOW_PER_PAGE;
 
-  const paginatedArticles = articles.slice(startIdx, endIdx);
-
   // Memoize reading times to avoid recalculating on every render
   const articlesWithReadTime = useMemo(
     () =>
-      paginatedArticles.map((article) => ({
+      articles.slice(startIdx, endIdx).map((article) => ({
         article,
         readTime: readingTime(article?.body?.raw).minutes,
       })),
-    [paginatedArticles],
+    [articles, startIdx, endIdx],
   );
 
   useEffect(() => {
