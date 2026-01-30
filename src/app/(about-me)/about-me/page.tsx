@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Arman Ahmadi - About me",
   description:
     "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Urban Sports Club Nederland (formerly OneFit).",
-  authors: { name: "Arman Ahmadi", url: "http://armancodes.com" },
+  authors: [{ name: "Arman Ahmadi", url: "https://armancodes.com" }],
   keywords: ["php", "software engineering", "backend"],
   alternates: {
     canonical: "https://armancodes.com/about-me",
@@ -21,17 +21,18 @@ export const metadata: Metadata = {
     description:
       "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Urban Sports Club Nederland (formerly OneFit).",
     images: ["https://armancodes.com/images/new-hero.jpeg"],
-    url: "http://armancodes.com/about-me",
+    url: "https://armancodes.com/about-me",
     type: "website",
+    siteName: "Arman Ahmadi",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    creator: "Arman Ahmadi",
+    creator: "@armancodes",
     title: "Arman Ahmadi - About me",
     description:
       "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Urban Sports Club Nederland (formerly OneFit).",
     images: ["https://armancodes.com/images/new-hero.jpeg"],
-    site: "http://armancodes.com/about-me",
   },
 };
 

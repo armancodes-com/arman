@@ -2,29 +2,21 @@
 
 import { alexandria } from "@/app/fonts";
 import IconShare from "@/assets/icons/ShareIcon";
-import { useState } from "react";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
+import { getBaseUrl } from "@/utils/get-base-url";
 
 const ShareButton = ({ url }: { url: string }) => {
-  const [tooltip, showTooltip] = useState(false);
+  const { tooltip, copyToClipboard } = useCopyToClipboard();
 
-  const baseUrlSection =
-    typeof window !== "undefined" &&
-    `${window.location.protocol}//${window.location.host}`;
-
-  const copyToClipboard = () => {
-    try {
-      navigator.clipboard.writeText(`${baseUrlSection}${url}`);
-      showTooltip(true);
-      setTimeout(() => showTooltip(false), 3000); // Tooltip disappears after 3 seconds
-    } catch (err) {
-      console.error("Failed to copy: ", err);
-    }
+  const handleCopy = () => {
+    const baseUrlSection = getBaseUrl();
+    copyToClipboard(`${baseUrlSection}${url}`);
   };
 
   return (
     <div className="relative" data-testid="share-btn-wrapper">
       <IconShare
-        onClick={copyToClipboard}
+        onClick={handleCopy}
         data-testid="share-btn"
         viewBox="0 0 32 32"
         className={`h-6 w-6 cursor-pointer md:h-8 md:w-8 ${tooltip ? "[&_path]:fill-primary [&_path]:stroke-primary" : "[&_path]:stroke-text-primary"}`}

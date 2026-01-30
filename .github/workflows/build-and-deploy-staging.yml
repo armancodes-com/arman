@@ -29,8 +29,6 @@ jobs:
         run: |
           docker build \
             --build-arg NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID=${{ secrets.GOOGLE_ANALYTICS_MEASUREMENT_ID }} \
-            --build-arg NEWSLETTER_USERNAME=${{ secrets.NEWSLETTER_USERNAME }} \
-            --build-arg NEWSLETTER_PASSWORD=${{ secrets.NEWSLETTER_PASSWORD }} \
             -t ${{ env.IMAGE_NAME }} -f ${{ env.DOCKER_FILE }} .
 
       - name: Save Docker image to tarball

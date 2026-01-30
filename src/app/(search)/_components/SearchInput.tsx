@@ -10,7 +10,7 @@ const SearchInput: React.FC<ISearchInputProps> = ({ onChange, value }) => {
   return (
     <div className="mt-8 md:mt-20">
       <Input
-        type="email"
+        type="text"
         className="!rounded-10"
         hasSearchIcon
         placeholder="Search"
