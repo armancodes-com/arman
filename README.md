@@ -1,6 +1,6 @@
 # Armancodes
 
-This is a personal portfolio for Arman Ahmadi as a back-end engineer. You can check it out here: [armancodes.com](https://armancodes.com).
+This is a personal portfolio and blog for Arman Ahmadi. You can check it out here: [armancodes.com](https://armancodes.com).
 
 ## Installation
 
@@ -45,13 +45,13 @@ npm run storybook
 
 ![Tech Stacks](https://skillicons.dev/icons?i=javascript,typescript,nextjs,react,tailwind)
 
-# How to The Project Works?
+# How The Project Works
 
-We have used MDX and `contentlayer` for writing articles and each article is a `.mdx` file. For example, to create a new blog simply create a file in `/src/content`. Such as `sample-article.mdx`.
+We use MDX and `contentlayer` for writing articles. Each article is a `.mdx` file under `/src/content/articles` with a numbered slug (example: `4-dependency-lock-in-own-your-code.mdx`).
 
 ## How to write an article?
 
-For each blog, there should be a heading section containing some crucial data about the article. Just pay attention that these data should be between
+For each article, there should be a heading section containing some crucial data about the article. Just pay attention that these data should be between
 
 ```
 ---
@@ -216,7 +216,13 @@ If you want to set a main category for your articles and show it in the list of 
 category: "sample category"
 ```
 
-### How to change static content of website
+## Drafts, featured posts, and sidebar rendering
+
+- Drafts: `isDraft: true` keeps an article out of production pages; set `isDraft: false` to publish.
+- Featured posts: `isFeatured: true` highlights posts on the home page.
+- Sidebar: add `sidebarLinks` and set `hasSidebarLinks: true` to show the right-hand table of contents.
+
+## How to change static content of website
 
 #### File sources
 
