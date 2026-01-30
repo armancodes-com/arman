@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node ./scripts/contentlayer-build.cjs && next build --webpack",
     "start": "next start",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives",
     "format": "prettier --check --ignore-path .gitignore .",

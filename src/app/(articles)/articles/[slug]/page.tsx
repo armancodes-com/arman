@@ -1,5 +1,7 @@
 import { Metadata } from "next";
-import dynamic from "next/dynamic";
+
+export const dynamic = "force-dynamic";
+import nextDynamic from "next/dynamic";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Article as ArticleType } from "contentlayer/generated";
@@ -12,17 +14,17 @@ import readingTime from "@/utils/reading-time";
 import { IS_PRODUCTION } from "@/constants";
 import JsonLd from "@/components/seo/JsonLd";
 
-const DynamicNewsLetterComponent = dynamic(
+const DynamicNewsLetterComponent = nextDynamic(
   () => import("@/components/ui/Newsletter"),
   { ssr: true },
 );
 
-const DynamicTagListComponent = dynamic(
+const DynamicTagListComponent = nextDynamic(
   () => import("./_components/TagsList"),
   { ssr: true },
 );
 
-const DynamicArticlesSeries = dynamic(
+const DynamicArticlesSeries = nextDynamic(
   () => import("./_components/ArticleSeries"),
   {
     ssr: true,
@@ -30,7 +32,7 @@ const DynamicArticlesSeries = dynamic(
   },
 );
 
-const DynamicSidebarLinks = dynamic(
+const DynamicSidebarLinks = nextDynamic(
   () => import("./_components/SidebarLinks"),
   {
     ssr: true,
@@ -38,13 +40,13 @@ const DynamicSidebarLinks = dynamic(
   },
 );
 
-type Props = {
-  params: { slug: string };
-};
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
   // read route params
-  const slug = params.slug;
+  const { slug } = await params;
 
   // finding article data
   const articleData = allArticles?.find((article) => article.slug === slug);
@@ -80,9 +82,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const Page = async ({ params }: { params: { slug: string } }) => {
+const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const resolvedParams = await params;
   const article = allArticles.find(
-    (post: ArticleType) => post.slug === params.slug,
+    (post: ArticleType) => post.slug === resolvedParams.slug,
   );
   const isArticleDraft = IS_PRODUCTION && article?.isDraft;
   const noArticleFound = !article;

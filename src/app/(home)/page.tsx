@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const nonce = headers().get("x-nonce");
+  const nonce = (await headers()).get("x-nonce");
   const featuredArticles = allArticles.filter((article) => article.isFeatured);
 
   return (
