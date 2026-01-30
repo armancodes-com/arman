@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      actions: write
 
     steps:
       - name: Checkout code
@@ -47,6 +48,7 @@ jobs:
     needs: build
     permissions:
       contents: read
+      actions: read
 
     steps:
       - name: Download artifact
