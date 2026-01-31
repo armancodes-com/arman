@@ -12,8 +12,6 @@ import readingTime from "@/utils/reading-time";
 import { IS_PRODUCTION } from "@/constants";
 import JsonLd from "@/components/seo/JsonLd";
 
-export const dynamic = "force-dynamic";
-
 const DynamicTagListComponent = nextDynamic(
   () => import("./_components/TagsList"),
   { ssr: true },
@@ -46,12 +44,12 @@ export async function generateMetadata({
   // finding article data
   const articleData = allArticles?.find((article) => article.slug === slug);
 
-  const baseUrl = articleData?.baseUrl?.replace(/\/$/, ""); // Remove trailing slash
+  const baseUrl = articleData?.baseUrl?.replace(/\/$/, "") || "https://armancodes.com"; // Remove trailing slash
   const shareLink = articleData?.shareLink?.replace(/^\//, ""); // Remove leading slash
   const canonicalUrl = `${baseUrl}/${shareLink}`;
 
   return {
-    metadataBase: new globalThis.URL(articleData?.baseUrl || ""),
+    metadataBase: new globalThis.URL(articleData?.baseUrl || "https://armancodes.com"),
     title: `Arman Ahmadi - ${articleData?.title}`,
     description: articleData?.metaDescription,
     authors: [{ name: articleData?.author }],
