@@ -24,6 +24,7 @@ const NotFoundLayout: React.FC<INotFoundLayoutProps> = ({
   const [initialIcon, setInitialIcon] = useState<"light" | "dark">("light");
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setInitialIcon("dark");
   }, []);
 
