@@ -1,7 +1,6 @@
 import "./globals.css";
 
 import type { Metadata, Viewport } from "next";
-import Head from "next/head";
 
 import NextTopLoader from "nextjs-toploader";
 
@@ -87,13 +86,6 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className="light" suppressHydrationWarning>
-      <Head>
-        <link
-          rel="manifest"
-          href="/manifest.webmanifest"
-          crossOrigin="use-credentials"
-        />
-      </Head>
       <body className={`${ubuntu.className} bg-bgColor`}>
         <ThemeProvider attribute="class" enableSystem defaultTheme="light">
           <NextTopLoader
