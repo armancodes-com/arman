@@ -8,18 +8,18 @@
   --color-text-link: var(--text-link);
   --color-text-link-2: var(--text-link-2);
   --color-primary: var(--primary-color);
-  --color-dark-color: #282C33;
+  --color-dark-color: #282c33;
   --color-purple-2: var(--purple-2);
   --color-border-articles: var(--border-color);
   --color-text-secondary: var(--text-secondary);
   --color-tertiary-bg: var(--bg-tertiary);
-  --color-purple-5: #553F72;
+  --color-purple-5: #553f72;
   --color-gray-1: var(--gray-1);
-  --color-gray-2: #ABB2BF;
-  --color-gray-3: #4E4458;
-  --color-gray-4: #9C8AAE;
-  --color-gray-9: #14161A80;
-  --color-border-gray: #ABB2BF33;
+  --color-gray-2: #abb2bf;
+  --color-gray-3: #4e4458;
+  --color-gray-4: #9c8aae;
+  --color-gray-9: #14161a80;
+  --color-border-gray: #abb2bf33;
   --color-tertiary-bg-2: var(--bg-tertiary-2);
 
   /* Custom padding */
@@ -67,12 +67,12 @@
   --font-size-caption2--line-height: 16px;
 
   /* Custom box shadows */
-  --shadow-heroImage: 0px 4px 4px -1px #370C620F;
-  --shadow-heroImage2: 0px 8px 6px -1px #370C621A;
+  --shadow-heroImage: 0px 4px 4px -1px #370c620f;
+  --shadow-heroImage2: 0px 8px 6px -1px #370c621a;
 
   /* Custom animations */
-  --animate-in: in .6s both;
-  --animate-in-reverse: in-reverse .6s both;
+  --animate-in: in 0.6s both;
+  --animate-in-reverse: in-reverse 0.6s both;
 }
 
 @import "../tailwind/components.css";
@@ -152,13 +152,25 @@ html {
 }
 
 @keyframes in {
-  0% { transform: translateY(18px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+  0% {
+    transform: translateY(18px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes in-reverse {
-  0% { transform: translateY(-18px); opacity: 0; }
-  100% { transform: translateY(0px); opacity: 1; }
+  0% {
+    transform: translateY(-18px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
 
 .font-ubuntu {
