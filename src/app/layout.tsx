@@ -92,7 +92,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className="light" suppressHydrationWarning>
       <body className={`${ubuntu.className} bg-bgColor`}>
-        <GoogleAnalytics nonce={nonce!} />
+        {nonce && <GoogleAnalytics nonce={nonce} />}
         <ThemeProvider attribute="class" enableSystem defaultTheme="light">
           <NextTopLoader
             color="#7127ba"
