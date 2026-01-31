@@ -35,6 +35,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Arman Ahmadi", url: "https://armancodes.com" }],
   creator: "Arman Ahmadi",
+  // Use a static manifest file with credentials instead of Next.js auto link.
   manifest: null,
   openGraph: {
     type: "website",
