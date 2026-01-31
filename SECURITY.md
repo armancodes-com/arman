@@ -6,7 +6,7 @@
 
 **Status**: Accepted Risk - Development Dependencies Only
 
-**CVE**: CVE-2025-21785  
+**CVE**: N/A (no CVE assigned; see GHSA below)  
 **GHSA**: [GHSA-848j-6mx2-7j84](https://github.com/advisories/GHSA-848j-6mx2-7j84)  
 **Severity**: Low (CVSS 5.6)  
 **Affected Package**: `elliptic` <= 6.6.1  
@@ -19,7 +19,7 @@ The ECDSA implementation in the `elliptic` package generates incorrect signature
 #### Dependency Chain
 
 ```
-@storybook/nextjs@10.2.3 (dev dependency)
+@storybook/nextjs (dev dependency)
 └── node-polyfill-webpack-plugin@4.1.0
     └── node-stdlib-browser@1.3.1
         └── crypto-browserify@3.12.1
@@ -50,7 +50,15 @@ This vulnerability is considered **accepted risk** for the following reasons:
 
 #### Mitigation Steps Taken
 
-1. **Dependency Pinning**: Using npm overrides to ensure the latest version of `node-polyfill-webpack-plugin` (4.1.0) is used, reducing the attack surface where possible.
+1. **Dependency Pinning**: Using npm overrides to ensure the latest version of `node-polyfill-webpack-plugin` (4.1.0) is used, reducing the attack surface where possible. This is configured in `package.json` using the `overrides` field, for example:
+
+   ```json
+   {
+     "overrides": {
+       "node-polyfill-webpack-plugin": "4.1.0"
+     }
+   }
+   ```
 
 2. **Documentation**: This security policy documents the known issue and the rationale for accepting this risk.
 
