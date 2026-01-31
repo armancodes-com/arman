@@ -127,7 +127,7 @@ function getMDXComponent(code: string) {
 
   const fn = new Function(
     "scope",
-    `"use strict"; const { React, ReactDOM, _jsx_runtime } = scope; ${code}`
+    `"use strict"; const { React, ReactDOM, _jsx_runtime } = scope; ${code}`,
   ) as (scope: any) => any;
   return fn(scope).default;
 }

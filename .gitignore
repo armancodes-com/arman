@@ -41,3 +41,4 @@ html
 
 # contentlayer
 .contentlayer
+tsconfig.tsbuildinfo
