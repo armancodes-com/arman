@@ -11,6 +11,12 @@ vi.mock("next-contentlayer/hooks", () => ({
   useMDXComponent: () => () => <div data-testid="mdx-component" />,
 }));
 
+vi.mock("next/image", () => ({
+  default: (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
+    <img {...props} alt={props.alt ?? ""} />
+  ),
+}));
+
 vi.mock("../_components/ArticleHeader", () => ({
   default: ({ title }: { title: ReactNode }) => <div>{title}</div>,
 }));
@@ -29,6 +35,11 @@ vi.mock("../_components/SidebarLinks", () => ({
 
 vi.mock("@/components/ui/Newsletter", () => ({
   default: () => <div data-testid="newsletter" />,
+}));
+
+vi.mock("@/constants/FeatureFlag.constants", () => ({
+  isLikeArticleFeatureReleased: true,
+  isSearchSystemReleased: true,
 }));
 
 describe("Article page", () => {
