@@ -40,4 +40,14 @@ describe("Article page", () => {
     ).toBeInTheDocument();
     expect(screen.getByTestId("mdx-component")).toBeInTheDocument();
   });
+
+  it("renders another article when slug matches the filename", () => {
+    render(<Page params={{ slug: "php-vs-golang-developer-perspective" }} />);
+
+    expect(
+      screen.getByText(
+        "PHP vs. GoLang: A Developer’s Perspective on Control, Simplicity, and Ecosystem Differences",
+      ),
+    ).toBeInTheDocument();
+  });
 });
