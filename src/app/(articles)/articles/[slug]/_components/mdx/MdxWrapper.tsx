@@ -84,8 +84,11 @@ const components = {
  */
 function getMDXComponent(code: string) {
   // Import React dynamically to ensure we get the correct instance
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const React = require("react");
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const ReactDOM = require("react-dom");
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const jsxRuntime = require("react/jsx-runtime");
 
   const scope = {

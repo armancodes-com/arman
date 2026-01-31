@@ -40,6 +40,7 @@ const ArticlesList: React.FC<IArticlesListProps> = ({ articles }) => {
   useEffect(() => {
     if (pageFromUrl) {
       if (+pageFromUrl > totalPages || +pageFromUrl < 1) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setCurrentPage(1);
         createQueryString("page", `1`);
       } else {
