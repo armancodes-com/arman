@@ -90,6 +90,9 @@
   "overrides": {
     "next-contentlayer": {
       "next": "$next"
+    },
+    "@storybook/nextjs": {
+      "node-polyfill-webpack-plugin": "4.1.0"
     }
   }
 }
