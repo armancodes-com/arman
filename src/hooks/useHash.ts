@@ -1,17 +1,25 @@
 import { useEffect, useState } from "react";
 
 export default function useHash() {
-  const [hash, setHash] = useState("");
+  const [hash, setHash] = useState(() =>
+    typeof window !== "undefined" ? window.location.hash : "",
+  );
 
   useEffect(() => {
-    // Initialize hash from current URL on mount
-    setHash(window.location.hash);
+    if (typeof window === "undefined") {
+      // In non-browser environments (e.g., SSR), do nothing.
+      return;
+    }
 
     const onHashChange = () => {
       setHash(window.location.hash);
     };
+
     window.addEventListener("hashchange", onHashChange);
-    return () => window.removeEventListener("hashchange", onHashChange);
+
+    return () => {
+      window.removeEventListener("hashchange", onHashChange);
+    };
   }, []);
 
   return hash;
