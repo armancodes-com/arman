@@ -22,9 +22,14 @@ fonts.forEach((font) => {
   }
 });
 
-const result = spawnSync("node", ["node_modules/contentlayer/bin/cli.cjs", "build"], {
-  stdio: "inherit",
-});
+const result = spawnSync(
+  "node",
+  ["node_modules/contentlayer/bin/cli.cjs", "build"],
+  {
+    stdio: "inherit",
+  },
+);
 
 // Exit with the same code as contentlayer to properly signal success or failure
-process.exit(result.status || 0);
+// Handle signal termination and spawn errors appropriately
+process.exit(result.status ?? (result.signal ? 1 : 0));
