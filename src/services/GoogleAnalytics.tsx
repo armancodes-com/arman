@@ -24,13 +24,9 @@ const GoogleAnalytics: React.FC<IGoogleAnalyticsProps> = ({ nonce }) => {
 
   useEffect(() => {
     if (typeof window.gtag !== "undefined" && measurementId) {
-      window.gtag(
-        "config",
-        measurementId,
-        {
-          page_path: pathname,
-        },
-      );
+      window.gtag("config", measurementId, {
+        page_path: pathname,
+      });
     }
   }, [pathname, measurementId]);
 

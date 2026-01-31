@@ -73,7 +73,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const nonce = (await headers()).get("x-nonce");
-  
+
   // Person Schema for SEO
   const personSchema = {
     "@context": "https://schema.org",
