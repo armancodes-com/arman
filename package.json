@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node ./scripts/contentlayer-build.cjs && next dev",
     "build": "node ./scripts/contentlayer-build.cjs && next build --webpack",
     "start": "next start",
+    "postinstall": "node ./scripts/contentlayer-build.cjs",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives",
     "format": "prettier --check --ignore-path .gitignore .",
     "format:fix": "prettier --write --ignore-path .gitignore .",

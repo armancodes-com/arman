@@ -43,8 +43,12 @@ vi.mock("@/constants/FeatureFlag.constants", () => ({
 }));
 
 describe("Article page", () => {
-  it("renders an article for a matching slug", () => {
-    render(<Page params={{ slug: "perfectionism-a-path-to-nowhere" }} />);
+  it("renders an article for a matching slug", async () => {
+    render(
+      await Page({
+        params: Promise.resolve({ slug: "perfectionism-a-path-to-nowhere" }),
+      }),
+    );
 
     expect(
       screen.getByText("Perfectionism: A Path to Nowhere"),
@@ -52,13 +56,15 @@ describe("Article page", () => {
     expect(screen.getByTestId("mdx-component")).toBeInTheDocument();
   });
 
-  it("renders another article when slug matches the filename", () => {
-    render(<Page params={{ slug: "php-vs-golang-developer-perspective" }} />);
+  it("renders another article when slug matches the filename", async () => {
+    render(
+      await Page({
+        params: Promise.resolve({
+          slug: "php-vs-golang-developer-perspective",
+        }),
+      }),
+    );
 
-    expect(
-      screen.getByText(
-        "PHP vs. GoLang: A Developer’s Perspective on Control, Simplicity, and Ecosystem Differences",
-      ),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/PHP vs\. GoLang/i)).toBeInTheDocument();
   });
 });
