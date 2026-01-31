@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 
 const MANIFEST_SELECTOR = 'link[rel="manifest"]';
 
@@ -18,18 +18,22 @@ const ensureManifestLink = () => {
   }
 
   const manifestLink = document.createElement("link");
-  manifestLink.rel = "manifest";
-  manifestLink.href = "/manifest.webmanifest";
-  manifestLink.crossOrigin = "use-credentials";
+  manifestLink.setAttribute("rel", "manifest");
+  manifestLink.setAttribute("href", "/manifest.webmanifest");
+  manifestLink.setAttribute("crossorigin", "use-credentials");
   head.appendChild(manifestLink);
 };
 
 export { ensureManifestLink };
 
 const ManifestLink = () => {
-  useEffect(() => {
+  const syncManifestLink = useCallback(() => {
     ensureManifestLink();
   }, []);
+
+  useEffect(() => {
+    syncManifestLink();
+  }, [syncManifestLink]);
 
   return null;
 };
