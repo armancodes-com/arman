@@ -35,7 +35,8 @@ export const allArticles = [
     ogImage: "/articles/test.png",
     ogDescription: "Test description",
     ogTitle: "Test OG Title",
-    ogUrl: "https://armancodes.com/articles/php-vs-golang-developer-perspective",
+    ogUrl:
+      "https://armancodes.com/articles/php-vs-golang-developer-perspective",
     twitterDescription: "Test description",
     twitterTitle: "Test Twitter Title",
     twitterImage: "/articles/test.png",
