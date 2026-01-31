@@ -205,8 +205,6 @@ div[data-rehype-pretty-code-fragment] pre {
   border-left: 3px solid #3b9eff; /* Set highlight accent border color */
 }
 
-
-
 .line-number::before {
   display: inline-flex;
   align-items: center;
