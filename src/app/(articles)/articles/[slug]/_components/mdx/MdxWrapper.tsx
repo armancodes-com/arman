@@ -2,7 +2,7 @@
 
 /* eslint-disable react-hooks/static-components */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useMemo, useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import ArticleImage from "../ArticleImage";
 import Link from "next/link";
 import CustomHeading from "./CustomHeading";
@@ -79,17 +79,27 @@ const components = {
 
 /**
  * Custom getMDXComponent that works with Next.js 16 + React 19
- * This fixes the contentlayer compatibility issue by properly
- * providing React and ReactDOM to the MDX bundle
+ * This fixes the contentlayer compatibility issue by polyfilling
+ * missing React internals methods
  */
 function getMDXComponent(code: string) {
-  // Import React dynamically to ensure we get the correct instance
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const React = require("react");
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const ReactDOM = require("react-dom");
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const jsxRuntime = require("react/jsx-runtime");
+
+  // Polyfill for React 19 - provide a stub getOwner function
+  // This is safe because we're not using owner tracking in our MDX
+  const reactInternals = (React as any).__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE || {};
+  if (!reactInternals.A) {
+    reactInternals.A = {};
+  }
+  if (!reactInternals.A.getOwner) {
+    reactInternals.A.getOwner = () => null;
+  }
+  (React as any).__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE = reactInternals;
 
   const scope = {
     React,
