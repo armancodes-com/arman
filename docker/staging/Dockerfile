@@ -49,7 +49,7 @@ RUN \
 FROM base AS runner
 WORKDIR /app
 
-ENV NODE_ENV staging
+ENV NODE_ENV production
 
 
 # Uncomment the following line in case you want to disable telemetry during runtime.
@@ -61,8 +61,7 @@ RUN adduser --system --uid 1001 nextjs
 COPY --from=builder /app/public ./public
 
 # Set the correct permission for prerender cache
-RUN mkdir .next
-RUN chown nextjs:nodejs .next
+RUN mkdir .next && chown nextjs:nodejs .next
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
