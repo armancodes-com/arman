@@ -1,5 +1,6 @@
 "use client";
 
+/* eslint-disable react-hooks/static-components */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useMDXComponent } from "next-contentlayer/hooks";
 import ArticleImage from "../ArticleImage";
@@ -78,7 +79,7 @@ const components = {
 };
 
 const MdxWrapper = ({ code }: { code: string }) => {
-  const Component = useMDXComponent(code, { components });
+  const Component = useMDXComponent(code);
 
   useEffect(() => {
     const id = "one-dark-theme-style";
