@@ -117,7 +117,14 @@ export default makeSource({
     ],
     esbuild: {
       target: "es2020",
-      external: ["react", "react-dom"],
+      jsx: "automatic",
+      jsxImportSource: "react",
+      external: [
+        "react",
+        "react-dom",
+        "react/jsx-runtime",
+        "react/jsx-dev-runtime",
+      ],
     },
   },
 });
