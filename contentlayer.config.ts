@@ -11,10 +11,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 // computing some values from docs
 const getSlug = (doc: any) =>
-  doc?._raw.sourceFileName
-    .replace(/\.mdx$/, "")
-    .replace("-", " ") // extracting the 1- from the file names
-    .split(" ")[1];
+  doc?._raw.sourceFileName.replace(/^\d+-/, "").replace(/\.mdx$/, "");
 
 const articleComputedFields: ComputedFields = {
   slug: {
