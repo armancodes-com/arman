@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 
 const MANIFEST_SELECTOR = 'link[rel="manifest"]';
 
@@ -27,13 +27,9 @@ const ensureManifestLink = () => {
 export { ensureManifestLink };
 
 const ManifestLink = () => {
-  const syncManifestLink = useCallback(() => {
+  useEffect(() => {
     ensureManifestLink();
   }, []);
-
-  useEffect(() => {
-    syncManifestLink();
-  }, [syncManifestLink]);
 
   return null;
 };
