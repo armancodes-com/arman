@@ -9,6 +9,11 @@ WORKDIR /app
 # Install dependencies based on the preferred package manager
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
 COPY scripts ./scripts
+# Copy contentlayer config and dependencies needed for postinstall
+COPY contentlayer.config.ts ./
+COPY tsconfig.json ./
+COPY src/utils/text-ellipsis.ts ./src/utils/text-ellipsis.ts
+COPY src/content ./src/content
 RUN \
   if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
   elif [ -f package-lock.json ]; then npm ci; \
