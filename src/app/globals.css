@@ -17,7 +17,7 @@ html {
     --primary-color: #7127ba;
     --text-primary: #282c33;
     --gray-1: #282c33;
-    --purple-2: #ccc;
+    --gray-2: #ccc;
     --text-secondary: #553f72;
     --border-color: #370c62;
     --ellipse-gradient: radial-gradient(
@@ -51,14 +51,12 @@ html {
     --text-primary: #fff;
     --text-secondary: #abb2bf;
     --gray-1: white;
-    --purple-2: #4e4458;
+    --gray-2: #4e4458;
     --border-color: #abb2bf;
     --bg-tertiary: #14161a80;
     --bg-tertiary-2: #14161a80;
     --text-link: #9c8aae;
     --text-link-2: #5f6571;
-
-    --sample-bg-color: #ffffff;
 
     --gray-3: #222;
     --gray-4: #2a2a2a;
@@ -169,7 +167,7 @@ figcaption[data-rehype-pretty-code-title] {
 div[data-rehype-pretty-code-fragment] {
   overflow: hidden;
 
-  /* stylist preferences */
+  /* stylistic preferences */
   background-color: #f5f5f5;
   border-radius: 0.5rem;
 }
@@ -177,7 +175,7 @@ div[data-rehype-pretty-code-fragment] {
 div[data-rehype-pretty-code-fragment] pre {
   overflow-x: auto;
 
-  /* stylist preferences */
+  /* stylistic preferences */
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   font-size: 0.875rem;
@@ -185,8 +183,10 @@ div[data-rehype-pretty-code-fragment] pre {
 }
 
 .code-highlight {
-  float: left; /* 1 */
-  min-width: 100%; /* 2 */
+  /* Allow the code block to size with its content while cooperating with horizontal scrolling */
+  float: left;
+  /* Ensure the highlighted code spans at least the full width of its container */
+  min-width: 100%;
 }
 
 .code-line {
