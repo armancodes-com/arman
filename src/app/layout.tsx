@@ -1,6 +1,7 @@
 import "./globals.css";
 
 import type { Metadata, Viewport } from "next";
+import Head from "next/head";
 
 import NextTopLoader from "nextjs-toploader";
 
@@ -11,6 +12,7 @@ import Footer from "@/components/ui/Footer";
 import { ubuntu } from "./fonts";
 import { toolbarLinks } from "@/constants/toolbarlinks.constants";
 import JsonLd from "@/components/seo/JsonLd";
+import ManifestLink from "@/components/ManifestLink";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -85,6 +87,13 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className="light" suppressHydrationWarning>
+      <Head>
+        <link
+          rel="manifest"
+          href="/manifest.webmanifest"
+          crossOrigin="use-credentials"
+        />
+      </Head>
       <body className={`${ubuntu.className} bg-bgColor`}>
         <ThemeProvider attribute="class" enableSystem defaultTheme="light">
           <NextTopLoader
@@ -112,6 +121,7 @@ export default async function RootLayout({
 
           {/* Global Person Schema */}
           <JsonLd data={personSchema} />
+          <ManifestLink />
         </ThemeProvider>
       </body>
     </html>
