@@ -1,8 +1,81 @@
-@import "../tailwind/components.css";
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  /* Custom colors */
+  --color-bgColor: var(--main-bg-color);
+  --color-white: var(--white-color);
+  --color-text-primary: var(--text-primary);
+  --color-text-link: var(--text-link);
+  --color-text-link-2: var(--text-link-2);
+  --color-primary: var(--primary-color);
+  --color-dark-color: #282C33;
+  --color-purple-2: var(--purple-2);
+  --color-border-articles: var(--border-color);
+  --color-text-secondary: var(--text-secondary);
+  --color-tertiary-bg: var(--bg-tertiary);
+  --color-purple-5: #553F72;
+  --color-gray-1: var(--gray-1);
+  --color-gray-2: #ABB2BF;
+  --color-gray-3: #4E4458;
+  --color-gray-4: #9C8AAE;
+  --color-gray-9: #14161A80;
+  --color-border-gray: #ABB2BF33;
+  --color-tertiary-bg-2: var(--bg-tertiary-2);
+
+  /* Custom padding */
+  --spacing-10\.5: 42px;
+  --spacing-13: 50px;
+  --spacing-14\.5: 58px;
+
+  /* Custom width */
+  --spacing-21: 84px;
+  --spacing-22: 88px;
+
+  /* Custom spacing */
+  --spacing-25: 100px;
+  --spacing-41: 164px;
+  --spacing-42: 168px;
+  --spacing-42\.5: 170px;
+  --spacing-43: 172px;
+  --spacing-45: 180px;
+  --spacing-106: 416px;
+  --spacing-112: 448px;
+
+  /* Custom border radius */
+  --radius-5: 5px;
+  --radius-10: 10px;
+  --radius-20: 20px;
+  --radius-40: 40px;
+  --radius-80: 80px;
+
+  /* Custom font sizes */
+  --font-size-title1: 32px;
+  --font-size-title1--line-height: 42px;
+  --font-size-title2: 32px;
+  --font-size-title2--line-height: 36px;
+  --font-size-title3: 24px;
+  --font-size-title3--line-height: 25px;
+  --font-size-title-span: 32px;
+  --font-size-title-span--line-height: 39px;
+  --font-size-body1: 18px;
+  --font-size-body1--line-height: 25px;
+  --font-size-body2: 16px;
+  --font-size-body2--line-height: 25px;
+  --font-size-caption1: 18px;
+  --font-size-caption1--line-height: 18px;
+  --font-size-caption2: 14px;
+  --font-size-caption2--line-height: 16px;
+
+  /* Custom box shadows */
+  --shadow-heroImage: 0px 4px 4px -1px #370C620F;
+  --shadow-heroImage2: 0px 8px 6px -1px #370C621A;
+
+  /* Custom animations */
+  --animate-in: in .6s both;
+  --animate-in-reverse: in-reverse .6s both;
+}
+
+@import "../tailwind/components.css";
 
 html {
   -moz-font-feature-settings: "ss01";
@@ -76,6 +149,16 @@ html {
   body {
     font-family: "Ubuntu", ui-sans-serif, system-ui, sans-serif;
   }
+}
+
+@keyframes in {
+  0% { transform: translateY(18px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes in-reverse {
+  0% { transform: translateY(-18px); opacity: 0; }
+  100% { transform: translateY(0px); opacity: 1; }
 }
 
 .font-ubuntu {
