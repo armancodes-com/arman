@@ -7,7 +7,7 @@ import { allArticles } from "contentlayer/generated";
 
 import BackLink from "@/components/ui/BackLink";
 import ArticleHeader from "./_components/ArticleHeader";
-import MdxWrapper from "./_components/mdx/MdxWrapper";
+import MdxContent from "./_components/mdx/MdxContent";
 import readingTime from "@/utils/reading-time";
 import { IS_PRODUCTION, SITE_URL } from "@/constants";
 import JsonLd from "@/components/seo/JsonLd";
@@ -36,10 +36,10 @@ const DynamicSidebarLinks = nextDynamic(
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  // read route params
-  const { slug } = params;
+  // read route params - await params in Next.js 15+
+  const { slug } = await params;
 
   // finding article data
   const articleData = allArticles?.find((article) => article.slug === slug);
@@ -81,9 +81,13 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
-  // read route params
-  const { slug } = params;
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  // await params in Next.js 15+
+  const { slug } = await params;
 
   const article = allArticles.find((post: ArticleType) => post.slug === slug);
   const isArticleDraft = IS_PRODUCTION && article?.isDraft;
@@ -198,7 +202,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               <DynamicArticlesSeries seriesLinks={article?.blogSeriesLinks} />
             )}
 
-            <MdxWrapper code={article?.body?.code as string} />
+            <MdxContent code={article?.body?.code as string} />
           </div>
 
           {/* SIDEBAR OF SINGLE ARTICLES */}

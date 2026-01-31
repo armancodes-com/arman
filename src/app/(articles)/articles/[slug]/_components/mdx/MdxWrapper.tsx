@@ -2,12 +2,11 @@
 
 /* eslint-disable react-hooks/static-components */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useMDXComponent } from "next-contentlayer/hooks";
+import { useMemo, useEffect } from "react";
 import ArticleImage from "../ArticleImage";
 import Link from "next/link";
 import CustomHeading from "./CustomHeading";
 import { alexandria } from "@/app/fonts";
-import { useEffect } from "react";
 
 type CustomLinkProps = React.DetailedHTMLProps<
   React.AnchorHTMLAttributes<HTMLAnchorElement>,
@@ -78,8 +77,30 @@ const components = {
   ),
 };
 
+/**
+ * Custom getMDXComponent that works with Next.js 16 + React 19
+ * This fixes the contentlayer compatibility issue by properly
+ * providing React and ReactDOM to the MDX bundle
+ */
+function getMDXComponent(code: string) {
+  // Import React dynamically to ensure we get the correct instance
+  const React = require("react");
+  const ReactDOM = require("react-dom");
+  const jsxRuntime = require("react/jsx-runtime");
+
+  const scope = {
+    React,
+    ReactDOM,
+    _jsx_runtime: jsxRuntime,
+  };
+
+  const fn = new Function(...Object.keys(scope), code);
+  return fn(...Object.values(scope)).default;
+}
+
 const MdxWrapper = ({ code }: { code: string }) => {
-  const Component = useMDXComponent(code);
+  // Use useMemo to cache the component and avoid recreating it on every render
+  const Component = useMemo(() => getMDXComponent(code), [code]);
 
   useEffect(() => {
     const id = "one-dark-theme-style";

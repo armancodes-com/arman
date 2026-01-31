@@ -5,22 +5,10 @@ const { withContentlayer } = require("next-contentlayer");
 
 const nextConfig = {
   output: "standalone",
-  reactStrictMode: false, // Disabled to fix MDX bundle compatibility
+  reactStrictMode: true,
   basePath: "",
-  // Turbopack is only available in Next.js 15+
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      // Ensure React is properly resolved during SSR
-      config.externals = [
-        ...(config.externals || []),
-        {
-          react: "commonjs react",
-          "react-dom": "commonjs react-dom",
-        },
-      ];
-    }
-    return config;
-  },
+  // Empty turbopack config to silence warning in Next.js 16
+  turbopack: {},
   images: {
     remotePatterns: [
       {
@@ -31,10 +19,6 @@ const nextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true,
-  },
-  eslint: {
-    // Ignore ESLint during builds
-    ignoreDuringBuilds: true,
   },
 };
 
