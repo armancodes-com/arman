@@ -7,10 +7,10 @@ const MdxWrapper = dynamic(() => import("./MdxWrapper"), {
   ssr: false,
   loading: () => (
     <div className="w-full max-w-[800px] animate-pulse">
-      <div className="h-6 bg-gray-200 rounded mb-4"></div>
-      <div className="h-4 bg-gray-200 rounded mb-3"></div>
-      <div className="h-4 bg-gray-200 rounded mb-3"></div>
-      <div className="h-4 bg-gray-200 rounded mb-3 w-3/4"></div>
+      <div className="mb-4 h-6 rounded bg-gray-200"></div>
+      <div className="mb-3 h-4 rounded bg-gray-200"></div>
+      <div className="mb-3 h-4 rounded bg-gray-200"></div>
+      <div className="mb-3 h-4 w-3/4 rounded bg-gray-200"></div>
     </div>
   ),
 });
