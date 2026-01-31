@@ -92,14 +92,16 @@ function getMDXComponent(code: string) {
 
   // Polyfill for React 19 - provide a stub getOwner function
   // This is safe because we're not using owner tracking in our MDX
-  const reactInternals = (React as any).__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE || {};
+  const internalsKey =
+    "__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE";
+  const reactInternals = (React as any)[internalsKey] || {};
   if (!reactInternals.A) {
     reactInternals.A = {};
   }
   if (!reactInternals.A.getOwner) {
     reactInternals.A.getOwner = () => null;
   }
-  (React as any).__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE = reactInternals;
+  (React as any)[internalsKey] = reactInternals;
 
   const scope = {
     React,
