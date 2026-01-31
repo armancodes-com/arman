@@ -90,6 +90,7 @@
   "overrides": {
     "next-contentlayer": {
       "next": "$next"
-    }
+    },
+    "estree-util-value-to-estree": "^3.3.3"
   }
 }
