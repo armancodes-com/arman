@@ -11,6 +11,7 @@ import Footer from "@/components/ui/Footer";
 import { ubuntu } from "./fonts";
 import { toolbarLinks } from "@/constants/toolbarlinks.constants";
 import JsonLd from "@/components/seo/JsonLd";
+import ManifestLink from "@/components/ManifestLink";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -35,6 +36,8 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Arman Ahmadi", url: "https://armancodes.com" }],
   creator: "Arman Ahmadi",
+  // Use a static manifest file with credentials instead of Next.js auto link.
+  manifest: null,
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -110,6 +113,7 @@ export default async function RootLayout({
 
           {/* Global Person Schema */}
           <JsonLd data={personSchema} />
+          <ManifestLink />
         </ThemeProvider>
       </body>
     </html>
