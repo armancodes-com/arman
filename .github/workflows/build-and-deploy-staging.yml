@@ -37,6 +37,7 @@ jobs:
           load: true
           build-args: |
             NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID=${{ secrets.GOOGLE_ANALYTICS_MEASUREMENT_ID }}
+            NEXT_PUBLIC_BASE_URL=${{ secrets.NEXT_PUBLIC_BASE_URL }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
