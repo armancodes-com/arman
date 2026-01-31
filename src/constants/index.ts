@@ -7,7 +7,8 @@ import WHITE_LOGO_SVG from "../../public/images/white-logo.svg";
 import DARK_LOGO_SVG from "../../public/images/dark-logo.svg";
 
 export const IS_PRODUCTION = process.env.NODE_ENV === "production";
-export const SITE_URL = "https://armancodes.com";
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://armancodes.com";
 
 export {
   heroImage,
