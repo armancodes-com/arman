@@ -4,7 +4,12 @@ import ArticleSeries from "../ArticleSeries";
 describe("ArticleSeries Component Tests Suite", () => {
   const seriesLinks = [
     { title: "Episode One", link: "/articles/ep1", episode: 1 },
-    { title: "Episode Two", link: "/articles/ep2", episode: 2, isCurrent: true },
+    {
+      title: "Episode Two",
+      link: "/articles/ep2",
+      episode: 2,
+      isCurrent: true,
+    },
   ];
 
   it("should toggle the series list when clicked", async () => {

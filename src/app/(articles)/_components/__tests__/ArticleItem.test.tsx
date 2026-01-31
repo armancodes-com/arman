@@ -28,7 +28,9 @@ describe("ArticleItem Component Tests Suite", () => {
       category: undefined,
     } as ArticleType;
 
-    const { container } = render(<ArticleItem data={draftArticle} readTime={0} />);
+    const { container } = render(
+      <ArticleItem data={draftArticle} readTime={0} />,
+    );
 
     const article = container.querySelector("article");
     expect(article).toHaveClass("line-through");
