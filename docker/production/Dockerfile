@@ -25,7 +25,6 @@ COPY . .
 # Accept build arguments and set them as environment variables
 ARG NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID
 ENV NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID=${NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID}
-ENV VERCEL_ENV=production
 
 
 # Next.js collects completely anonymous telemetry data about general usage.
@@ -45,7 +44,6 @@ FROM base AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
-ENV VERCEL_ENV=production
 
 
 # Uncomment the following line in case you want to disable telemetry during runtime.
