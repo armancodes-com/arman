@@ -4,6 +4,9 @@ export default function useHash() {
   const [hash, setHash] = useState("");
 
   useEffect(() => {
+    // Initialize hash from current URL on mount
+    setHash(window.location.hash);
+
     const onHashChange = () => {
       setHash(window.location.hash);
     };
