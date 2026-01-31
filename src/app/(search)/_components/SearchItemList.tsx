@@ -8,7 +8,7 @@ interface ISearchILtemListProps {
 const SearchItemList: React.FC<ISearchILtemListProps> = ({ results }) => {
   if (typeof results === "string") {
     return (
-      <span className="inline-block w-full text-center text-caption1 text-text-primary md:text-body2">
+      <span className="text-caption1 text-text-primary md:text-body2 inline-block w-full text-center">
         Please start searching for a query ...
       </span>
     );

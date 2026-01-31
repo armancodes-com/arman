@@ -10,7 +10,7 @@ interface IBackLinkProps {
 const BackLink: React.FC<IBackLinkProps> = ({ children, href }) => {
   return (
     <Link
-      className="group flex w-max cursor-pointer items-center gap-2 text-body2 font-light text-gray-2"
+      className="group text-body2 text-gray-2 flex w-max cursor-pointer items-center gap-2 font-light"
       href={href}
     >
       <IconArrowLeftThin className="transition-all duration-100 ease-linear group-hover:-translate-x-1" />

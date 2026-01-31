@@ -17,25 +17,25 @@ const ArticleHeader: React.FC<IArticleHeaderProps> = ({
   readTime,
 }) => {
   return (
-    <header className="mb-11 mt-12 space-y-2 md:mb-12 md:mt-14 md:space-y-5">
+    <header className="mt-12 mb-11 space-y-2 md:mt-14 md:mb-12 md:space-y-5">
       <h1 className="text-body2 text-primary md:text-title2">{title}</h1>
 
-      <div className="flex items-center justify-between border-y border-border-articles py-2 md:py-4">
+      <div className="border-border-articles flex items-center justify-between border-y py-2 md:py-4">
         <div className="flex items-center gap-6">
-          <p className="space-x-2 text-text-primary">
-            <span className="text-xs font-bold tracking-wide md:text-caption2">
+          <p className="text-text-primary space-x-2">
+            <span className="md:text-caption2 text-xs font-bold tracking-wide">
               Date
             </span>
-            <span className="text-xs font-light md:text-caption2">
+            <span className="md:text-caption2 text-xs font-light">
               {formatPublishedDateHandler(publishedAt)}
             </span>
           </p>
           {readTime && readTime !== 0 && (
-            <p className="space-x-2 text-text-primary">
-              <span className="text-xs font-bold tracking-wide md:text-caption2">
+            <p className="text-text-primary space-x-2">
+              <span className="md:text-caption2 text-xs font-bold tracking-wide">
                 Read
               </span>
-              <span className="text-xs font-light md:text-caption2">
+              <span className="md:text-caption2 text-xs font-light">
                 {`${readTime} ${readTime > 1 ? "Mins" : "Min"}`}
               </span>
             </p>
@@ -47,7 +47,7 @@ const ArticleHeader: React.FC<IArticleHeaderProps> = ({
           {isLikeArticleFeatureReleased && (
             <IconHeart
               viewBox="0 0 32 32"
-              className="h-6 w-6 cursor-pointer md:h-8 md:w-8 [&_path]:stroke-text-primary"
+              className="[&_path]:stroke-text-primary h-6 w-6 cursor-pointer md:h-8 md:w-8"
             />
           )}
         </div>

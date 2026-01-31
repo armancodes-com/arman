@@ -26,7 +26,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="mt-25 border-t border-border-articles bg-bgColor px-4 py-5 md:mt-45 md:px-0 md:py-8">
+    <footer className="border-border-articles bg-bgColor mt-25 border-t px-4 py-5 md:mt-45 md:px-0 md:py-8">
       <div className="mx-auto max-w-[800px] space-y-12">
         <div className="flex justify-between">
           <div>
@@ -42,7 +42,7 @@ const Footer = () => {
                 <Image src={DARK_LOGO_SVG} alt="logo" width={40} height={40} />
               )}
 
-              <p className="text-body2 font-bold capitalize text-text-primary">
+              <p className="text-body2 text-text-primary font-bold capitalize">
                 {FOOTER_TITLE}
               </p>
               <Link
@@ -57,7 +57,7 @@ const Footer = () => {
           {/* socials */}
           <div className="w-full max-w-max space-y-4">
             <h2
-              className={`${alexandria.className} text-start text-body1 font-semibold sm:text-title3 sm:font-bold`}
+              className={`${alexandria.className} text-body1 sm:text-title3 text-start font-semibold sm:font-bold`}
             >
               Media
             </h2>
@@ -67,7 +67,7 @@ const Footer = () => {
                 className="group"
                 target="_blank"
               >
-                <GithubIcon className="h-6 w-6 transition-all duration-100 ease-in [&_path]:fill-text-primary group-hover:[&_path]:fill-primary" />
+                <GithubIcon className="[&_path]:fill-text-primary group-hover:[&_path]:fill-primary h-6 w-6 transition-all duration-100 ease-in" />
                 <span aria-label="github profile" className="sr-only">
                   github profile
                 </span>
@@ -75,9 +75,9 @@ const Footer = () => {
               <Link
                 href={"https://www.linkedin.com/in/armancodes/"}
                 target="_blank"
-                className="group "
+                className="group"
               >
-                <IconLinkedIn className="h-6 w-6 transition-all duration-100 ease-in [&_path]:stroke-text-primary group-hover:[&_path]:stroke-primary" />
+                <IconLinkedIn className="[&_path]:stroke-text-primary group-hover:[&_path]:stroke-primary h-6 w-6 transition-all duration-100 ease-in" />
                 <span className="sr-only">linkedin profile</span>
               </Link>
               <Link
@@ -87,14 +87,14 @@ const Footer = () => {
               >
                 <IconMedium
                   viewBox="0 0 48 48"
-                  className="h-7 w-7 transition-all duration-100 ease-in [&_path]:fill-text-primary group-hover:[&_path]:fill-primary"
+                  className="[&_path]:fill-text-primary group-hover:[&_path]:fill-primary h-7 w-7 transition-all duration-100 ease-in"
                 />
                 <span className="sr-only">medium profile</span>
               </Link>
               <Link href={"/rss.xml"} target="_blank" className="group">
                 <IconRss
                   viewBox="0 0 32 32"
-                  className="h-7 w-7 transition-all duration-100 ease-in [&_path]:fill-text-primary group-hover:[&_path]:fill-primary"
+                  className="[&_path]:fill-text-primary group-hover:[&_path]:fill-primary h-7 w-7 transition-all duration-100 ease-in"
                 />
                 <span className="sr-only">rss feed</span>
               </Link>
@@ -103,7 +103,7 @@ const Footer = () => {
         </div>
 
         <div
-          className={`text-xs leading-4 text-text-primary md:text-body2 ${alexandria.className} text-center`}
+          className={`text-text-primary md:text-body2 text-xs leading-4 ${alexandria.className} text-center`}
         >
           <span>© 2024 Arman Ahmadi. All rights reserved.</span>
         </div>

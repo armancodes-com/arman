@@ -20,7 +20,7 @@ const SidebarLink: React.FC<ISidebarLinkItemProps> = ({ children, href }) => {
 
   return (
     <li
-      className={`text-caption2 capitalize leading-7 transition-all duration-200 ease-linear hover:text-text-primary ${hash === href ? "text-text-primary" : "text-text-link"}`}
+      className={`text-caption2 hover:text-text-primary leading-7 capitalize transition-all duration-200 ease-linear ${hash === href ? "text-text-primary" : "text-text-link"}`}
     >
       <Link href={href} onClick={() => scrollToSection(href.split("#")[1])}>
         {children}

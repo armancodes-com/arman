@@ -15,7 +15,7 @@ const SectionHeader: React.FC<ISectionHeaderProps> = ({
       data-testid="section-header-component"
     >
       <h2
-        className={`${firaCode.className} text-body1 font-bold capitalize md:text-title3`}
+        className={`${firaCode.className} text-body1 md:text-title3 font-bold capitalize`}
       >
         {title}
       </h2>

@@ -48,7 +48,7 @@ const NotFoundLayout: React.FC<INotFoundLayoutProps> = ({
         href={buttonLink}
         className="inline-flex w-full items-center justify-center"
       >
-        <button className="flex w-full items-center justify-center rounded-80 border border-primary px-4 py-2 text-body2 font-medium capitalize text-primary md:w-[300px]">
+        <button className="rounded-80 border-primary text-body2 text-primary flex w-full items-center justify-center border px-4 py-2 font-medium capitalize md:w-[300px]">
           {buttonTitle}
         </button>
       </Link>

@@ -9,7 +9,7 @@ const ToolbarLinks: React.FC<IToolbarLinksProps> = ({ links }) => {
   return (
     <div className="absolute top-14 hidden h-full xl:-left-28 xl:block">
       <aside
-        className="sticky top-36 flex flex-col gap-y-8 rounded-40 border border-primary px-3 py-2"
+        className="rounded-40 border-primary sticky top-36 flex flex-col gap-y-8 border px-3 py-2"
         data-testid="toolbar-lins-wrapper"
       >
         {links?.map((link) => (

@@ -36,9 +36,9 @@ const ArticleSeries: React.FC<IArticleSeriesProps> = ({ seriesLinks }) => {
   }, [isSeriesBoxOpen]);
 
   return (
-    <div className="rounded-10 bg-tertiary-bg-2 px-2 py-4 transition-all delay-150 duration-150 ease-linear md:pl-6 md:pr-8">
+    <div className="rounded-10 bg-tertiary-bg-2 px-2 py-4 transition-all delay-150 duration-150 ease-linear md:pr-8 md:pl-6">
       <div
-        className={`flex justify-between ${isSeriesBoxOpen && "border-b border-[#9269BA] pb-6 pt-4"} cursor-pointer transition-all delay-150 duration-150 ease-linear`}
+        className={`flex justify-between ${isSeriesBoxOpen && "border-b border-[#9269BA] pt-4 pb-6"} cursor-pointer transition-all delay-150 duration-150 ease-linear`}
         onClick={handleOpenSeriesBox}
         onKeyDown={handleOpenSeriesBox}
         role="button"
@@ -46,12 +46,12 @@ const ArticleSeries: React.FC<IArticleSeriesProps> = ({ seriesLinks }) => {
       >
         <div className="flex flex-col space-y-6">
           <span
-            className={`${alexandria.className} text-caption2 font-medium capitalize text-[#9269BA] md:text-body2`}
+            className={`${alexandria.className} text-caption2 md:text-body2 font-medium text-[#9269BA] capitalize`}
           >
             series
           </span>
           <span
-            className={`${alexandria.className} text-caption2 font-medium md:text-caption1`}
+            className={`${alexandria.className} text-caption2 md:text-caption1 font-medium`}
           >
             {textEllipsisFormatter(currentArticleOfSeries?.title as string, 30)}{" "}
             |{" "}

@@ -14,7 +14,7 @@ const ArticleSeriesLink: React.FC<ISeriesLinkItemProps> = ({
   if (href) {
     return (
       <li
-        className={`${alexandria.className} text-caption2 underline underline-offset-4 transition-all duration-150 ease-linear hover:text-primary`}
+        className={`${alexandria.className} text-caption2 hover:text-primary underline underline-offset-4 transition-all duration-150 ease-linear`}
       >
         <Link href={href}>{children}</Link>
       </li>
@@ -24,7 +24,7 @@ const ArticleSeriesLink: React.FC<ISeriesLinkItemProps> = ({
   if (!href) {
     return (
       <li
-        className={`${alexandria.className} cursor-not-allowed text-caption2 text-text-link-2 transition-all duration-150 ease-linear`}
+        className={`${alexandria.className} text-caption2 text-text-link-2 cursor-not-allowed transition-all duration-150 ease-linear`}
       >
         {children}
       </li>

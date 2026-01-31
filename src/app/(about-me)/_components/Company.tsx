@@ -15,7 +15,7 @@ const Company: React.FC<ICompanyInfoProps> = ({
       className="group flex h-full items-center gap-x-6"
       data-testid="company-component"
     >
-      <figure className="relative h-[50px] w-[50px] overflow-hidden rounded-full border-primary transition-all duration-150 ease-linear group-hover:border-2 md:h-[80px] md:w-[80px]">
+      <figure className="border-primary relative h-[50px] w-[50px] overflow-hidden rounded-full transition-all duration-150 ease-linear group-hover:border-2 md:h-[80px] md:w-[80px]">
         <Image
           src={image}
           alt={`${companyName} logo`}
@@ -25,18 +25,18 @@ const Company: React.FC<ICompanyInfoProps> = ({
       </figure>
 
       <div className="flex flex-[6] flex-col justify-between gap-y-2 sm:flex-row">
-        <p className="text-caption2 font-light md:text-caption1">
-          <span className="group-hover:font-bold group-hover:text-primary md:font-medium">
+        <p className="text-caption2 md:text-caption1 font-light">
+          <span className="group-hover:text-primary group-hover:font-bold md:font-medium">
             {role} at {companyName}
           </span>
-          <span className="hidden text-text-primary sm:inline-block"> - </span>
-          <span className="inline-block w-full text-text-secondary sm:w-fit">
+          <span className="text-text-primary hidden sm:inline-block"> - </span>
+          <span className="text-text-secondary inline-block w-full sm:w-fit">
             {" "}
             {location} · {jobType}
           </span>
         </p>
 
-        <span className="inline-flex w-full max-w-28 text-caption2 font-light text-text-primary group-hover:font-bold sm:m-0 sm:justify-end md:max-w-40 md:text-caption1 md:font-normal">
+        <span className="text-caption2 text-text-primary md:text-caption1 inline-flex w-full max-w-28 font-light group-hover:font-bold sm:m-0 sm:justify-end md:max-w-40 md:font-normal">
           {startDate} - {endData}
         </span>
       </div>

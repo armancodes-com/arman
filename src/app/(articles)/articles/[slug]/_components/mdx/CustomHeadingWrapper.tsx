@@ -11,10 +11,10 @@ const CustomHeadingWrapper: React.FC<{
 
       {tooltip && (
         <div
-          className={`absolute -left-3 top-[120%] z-20 hidden whitespace-nowrap rounded-5 bg-gray-2 p-2 text-caption2 font-light text-white md:-left-12 lg:block ${alexandria.className}`}
+          className={`rounded-5 bg-gray-2 text-caption2 absolute top-[120%] -left-3 z-20 hidden p-2 font-light whitespace-nowrap text-white md:-left-12 lg:block ${alexandria.className}`}
         >
           copied
-          <div className="absolute bottom-full left-3 -ml-1 rotate-180 !border-[5px] border-t border-transparent border-t-gray-2 md:left-8"></div>
+          <div className="border-t-gray-2 absolute bottom-full left-3 -ml-1 rotate-180 !border-[5px] border-t border-transparent md:left-8"></div>
         </div>
       )}
     </div>

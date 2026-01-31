@@ -8,7 +8,7 @@ interface ISearchItemProps {
 
 const SearchItem: React.FC<ISearchItemProps> = ({ item }) => {
   return (
-    <article className="border-b border-border-gray pb-8">
+    <article className="border-border-gray border-b pb-8">
       <header className="space-y-2">
         <Link
           href={`/articles/${item?.slug}`}
@@ -19,7 +19,7 @@ const SearchItem: React.FC<ISearchItemProps> = ({ item }) => {
           </h2>
         </Link>
 
-        <span className="text-xs font-light text-text-primary md:text-caption2">
+        <span className="text-text-primary md:text-caption2 text-xs font-light">
           {formatPublishedDateHandler(item?.publishedAt)}
         </span>
       </header>

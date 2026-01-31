@@ -36,7 +36,7 @@ const SearchMainSection = () => {
 
       <Section type="common" className="!px-0">
         {debouncedSearchQuery && (
-          <header className="mb-10 mt-6 md:mb-12 md:mt-16">
+          <header className="mt-6 mb-10 md:mt-16 md:mb-12">
             <span className="text-caption2 text-gray-2">
               {`Found ${searchResults?.length} results for '${debouncedSearchQuery}'`}
             </span>
@@ -48,7 +48,7 @@ const SearchMainSection = () => {
         )}
 
         {searchResults && searchResults.length === 0 && (
-          <span className="inline-block w-full text-center text-caption1 text-text-primary md:text-body2">
+          <span className="text-caption1 text-text-primary md:text-body2 inline-block w-full text-center">
             No article was found!
           </span>
         )}
