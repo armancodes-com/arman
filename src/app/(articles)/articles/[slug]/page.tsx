@@ -36,10 +36,10 @@ const DynamicSidebarLinks = nextDynamic(
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }): Promise<Metadata> {
-  // read route params - await params in Next.js 15+
-  const { slug } = await params;
+  // read route params
+  const { slug } = params;
 
   // finding article data
   const articleData = allArticles?.find((article) => article.slug === slug);
@@ -81,13 +81,9 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  // await params in Next.js 15+
-  const { slug } = await params;
+export default async function Page({ params }: { params: { slug: string } }) {
+  // read route params
+  const { slug } = params;
 
   const article = allArticles.find((post: ArticleType) => post.slug === slug);
   const isArticleDraft = IS_PRODUCTION && article?.isDraft;
