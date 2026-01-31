@@ -35,6 +35,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Arman Ahmadi", url: "https://armancodes.com" }],
   creator: "Arman Ahmadi",
+  manifest: null,
   openGraph: {
     type: "website",
     locale: "en_US",
