@@ -99,14 +99,14 @@ export default function Page({ params }: { params: { slug: string } }) {
     author: {
       "@type": "Person",
       name: "Arman Ahmadi",
-      url: "https://armancodes.com/",
+      url: `${SITE_URL}/`,
     },
     publisher: {
       "@type": "Organization",
       name: "armancodes.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://armancodes.com/images/dark-logo.png",
+        url: `${SITE_URL}/images/dark-logo.png`,
       },
     },
     headline: article?.title,
@@ -126,13 +126,13 @@ export default function Page({ params }: { params: { slug: string } }) {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://armancodes.com",
+        item: SITE_URL,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Articles",
-        item: "https://armancodes.com/articles",
+        item: `${SITE_URL}/articles`,
       },
       {
         "@type": "ListItem",

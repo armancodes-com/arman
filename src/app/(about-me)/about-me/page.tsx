@@ -6,22 +6,23 @@ import AboutMeHeroSection from "../_components/AboutMeHero";
 import JsonLd from "@/components/seo/JsonLd";
 import ConnectSection from "../_components/ConnectSection";
 import WorkExperienceSection from "../_components/WorkExperienceSection";
+import { SITE_URL } from "@/constants";
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi - About me",
   description:
     "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Urban Sports Club Nederland (formerly OneFit).",
-  authors: [{ name: "Arman Ahmadi", url: "https://armancodes.com" }],
+  authors: [{ name: "Arman Ahmadi", url: SITE_URL }],
   keywords: ["php", "software engineering", "backend"],
   alternates: {
-    canonical: "https://armancodes.com/about-me",
+    canonical: `${SITE_URL}/about-me`,
   },
   openGraph: {
     title: "Arman Ahmadi - About me",
     description:
       "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Urban Sports Club Nederland (formerly OneFit).",
-    images: ["https://armancodes.com/images/new-hero.jpeg"],
-    url: "https://armancodes.com/about-me",
+    images: [`${SITE_URL}/images/new-hero.jpeg`],
+    url: `${SITE_URL}/about-me`,
     type: "website",
     siteName: "Arman Ahmadi",
     locale: "en_US",
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     title: "Arman Ahmadi - About me",
     description:
       "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Urban Sports Club Nederland (formerly OneFit).",
-    images: ["https://armancodes.com/images/new-hero.jpeg"],
+    images: [`${SITE_URL}/images/new-hero.jpeg`],
   },
 };
 
@@ -44,10 +45,10 @@ const Page = () => {
     mainEntity: {
       "@type": "Person",
       name: "Arman Ahmadi",
-      image: "https://armancodes.com/images/hero-img.webp",
+      image: `${SITE_URL}/images/hero-img.webp`,
       description:
         "Hi, I'm Arman! I'm based in the Netherlands and work as a backend engineer at Urban Sports Club Nederland (formerly OneFit).",
-      url: "https://armancodes.com",
+      url: SITE_URL,
       jobTitle: "Backend Engineer",
     },
   };

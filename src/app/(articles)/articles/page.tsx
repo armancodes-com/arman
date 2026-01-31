@@ -7,24 +7,24 @@ import ArticlesList from "../_components/ArticlesList";
 import Section from "@/components/ui/Section";
 import Pagination from "@/components/Navigation/Pagination";
 import { SHOW_PER_PAGE } from "@/constants/Pagination.constants";
-import { IS_PRODUCTION } from "@/constants";
+import { IS_PRODUCTION, SITE_URL } from "@/constants";
 import reverseArrayHandler from "@/utils/reverse-array";
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi - Articles",
-  authors: [{ name: "Arman Ahmadi", url: "https://armancodes.com" }],
+  authors: [{ name: "Arman Ahmadi", url: SITE_URL }],
   description:
     "Here you can find blogs that Arman writes about tech, and lifestyle articles",
   keywords: ["php", "engineer", "tech", "personal weblog"],
   alternates: {
-    canonical: "https://armancodes.com/articles",
+    canonical: `${SITE_URL}/articles`,
   },
   openGraph: {
     title: "Arman Ahmadi - Articles",
     description:
       "Here you can find blogs that Arman writes about tech, and lifestyle articles",
-    images: ["https://armancodes.com/images/new-hero.jpeg"],
-    url: "https://armancodes.com/articles",
+    images: [`${SITE_URL}/images/new-hero.jpeg`],
+    url: `${SITE_URL}/articles`,
     type: "website",
     siteName: "Arman Ahmadi",
     locale: "en_US",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "Arman Ahmadi - Articles",
     description:
       "Here you can find blogs that Arman writes about tech, and lifestyle articles",
-    images: ["https://armancodes.com/images/new-hero.jpeg"],
+    images: [`${SITE_URL}/images/new-hero.jpeg`],
   },
 };
 
