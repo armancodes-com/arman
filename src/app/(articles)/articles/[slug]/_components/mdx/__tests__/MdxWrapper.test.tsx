@@ -46,7 +46,6 @@ const SIMPLE_MDX_CODE = `
 `;
 
 describe("MdxWrapper Component Tests Suite", () => {
-
   it("should render the MDX wrapper component with proper styling classes", () => {
     const { container } = render(<MdxWrapper code={SIMPLE_MDX_CODE} />);
 
@@ -143,10 +142,9 @@ describe("MdxWrapper Component Tests Suite", () => {
     ).toBeInTheDocument();
   });
 
-  it("should handle React internals polyfill errors without crashing", () => {
-    // This test verifies that the component doesn't crash even if React internals change
-    // or the evaluated MDX code throws. The try-catch in getMDXComponent should handle
-    // any errors gracefully.
+  it("should throw when MDX component throws during render", () => {
+    // This test verifies that errors in MDX components are properly propagated
+    // Component errors during render should throw, which can be caught by error boundaries
     const codeWithError = `
       return {
         default: function BrokenComponent() {
@@ -155,12 +153,10 @@ describe("MdxWrapper Component Tests Suite", () => {
       };
     `;
 
-    // Rendering should not throw, even though the component itself throws when invoked.
-    // The error-handling in getMDXComponent is expected to catch this.
-    const { container } = render(<MdxWrapper code={codeWithError} />);
-
-    // We only assert that the render completed and a container exists; specific fallback UI,
-    // if any, is handled within MdxWrapper and is not asserted here to avoid coupling to implementation details.
-    expect(container).toBeTruthy();
+    // Rendering a component that throws should propagate the error
+    // In production, this would be caught by an error boundary
+    expect(() => render(<MdxWrapper code={codeWithError} />)).toThrow(
+      "Simulated React internals failure",
+    );
   });
 });

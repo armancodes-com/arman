@@ -1,4 +1,4 @@
-import { render, screen } from "../../../../../../../utilities";
+import { render, screen } from "@/utilities";
 import SidebarLink from "../SidebarLink";
 
 vi.mock("@/hooks/useHash", () => ({

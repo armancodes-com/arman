@@ -1,4 +1,4 @@
-import { render } from "../../../utilities";
+import { render } from "@/utilities";
 import ThemeProvider from "../ThemeProvider";
 import Footer from "../ui/Footer";
 

@@ -1,4 +1,4 @@
-import { render } from "../../../utilities";
+import { render } from "@/utilities";
 import ManifestLink, { ensureManifestLink } from "../ManifestLink";
 
 describe("ManifestLink", () => {

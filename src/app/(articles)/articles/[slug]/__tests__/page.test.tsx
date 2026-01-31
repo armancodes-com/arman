@@ -1,4 +1,4 @@
-import { render, screen } from "../../../../../../utilities";
+import { render, screen } from "@/utilities";
 import { vi } from "vitest";
 import type { ReactNode } from "react";
 import Page from "../page";

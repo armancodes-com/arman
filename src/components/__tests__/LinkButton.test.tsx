@@ -1,5 +1,5 @@
 import IconEmail from "@/assets/icons/EmailIcon";
-import { render } from "../../../utilities";
+import { render } from "@/utilities";
 import LinkButton from "../ui/LinkButton";
 import { screen } from "@testing-library/react";
 
