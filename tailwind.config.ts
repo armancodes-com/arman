@@ -13,7 +13,7 @@ const config: Config = {
         "text-link-2": "var(--text-link-2)",
         primary: "var(--primary-color)",
         "dark-color": "#282C33",
-        "purple-2": "var(--purple-2)",
+        "purple-2": "var(--gray-2)",
         "border-articles": "var(--border-color)",
         "text-secondary": "var(--text-secondary)",
         "tertiary-bg": "var(--bg-tertiary)",
