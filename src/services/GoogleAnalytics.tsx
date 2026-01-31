@@ -20,23 +20,29 @@ declare global {
 
 const GoogleAnalytics: React.FC<IGoogleAnalyticsProps> = ({ nonce }) => {
   const pathname = usePathname();
+  const measurementId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID;
 
   useEffect(() => {
-    if (typeof window.gtag !== "undefined") {
+    if (typeof window.gtag !== "undefined" && measurementId) {
       window.gtag(
         "config",
-        process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID as string,
+        measurementId,
         {
           page_path: pathname,
         },
       );
     }
-  }, [pathname]);
+  }, [pathname, measurementId]);
+
+  // Don't render if measurement ID is not configured
+  if (!measurementId) {
+    return null;
+  }
 
   return (
     <>
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
         strategy="afterInteractive"
         nonce={nonce}
         async
@@ -45,12 +51,13 @@ const GoogleAnalytics: React.FC<IGoogleAnalyticsProps> = ({ nonce }) => {
         id="google-tag-manager"
         async
         strategy="afterInteractive"
+        nonce={nonce}
         dangerouslySetInnerHTML={{
           __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID}', {
+              gtag('config', '${measurementId}', {
                 page_path: window.location.pathname,
               });
           `,

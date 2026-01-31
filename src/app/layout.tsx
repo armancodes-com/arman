@@ -1,6 +1,7 @@
 import "./globals.css";
 
 import type { Metadata, Viewport } from "next";
+import { headers } from "next/headers";
 
 import NextTopLoader from "nextjs-toploader";
 
@@ -13,6 +14,7 @@ import { toolbarLinks } from "@/constants/toolbarlinks.constants";
 import JsonLd from "@/components/seo/JsonLd";
 import { SITE_URL } from "@/constants";
 import ManifestLink from "@/components/ManifestLink";
+import GoogleAnalytics from "@/services/GoogleAnalytics";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -70,6 +72,8 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const nonce = (await headers()).get("x-nonce");
+  
   // Person Schema for SEO
   const personSchema = {
     "@context": "https://schema.org",
@@ -88,6 +92,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className="light" suppressHydrationWarning>
       <body className={`${ubuntu.className} bg-bgColor`}>
+        <GoogleAnalytics nonce={nonce!} />
         <ThemeProvider attribute="class" enableSystem defaultTheme="light">
           <NextTopLoader
             color="#7127ba"
