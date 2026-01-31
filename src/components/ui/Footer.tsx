@@ -21,6 +21,7 @@ const Footer = () => {
   const [logoImage, setLogoImage] = useState<string>(DARK_LOGO_SVG);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLogoImage(WHITE_LOGO_SVG);
   }, []);
 

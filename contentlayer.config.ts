@@ -115,5 +115,9 @@ export default makeSource({
         },
       ],
     ],
+    esbuild: {
+      target: "es2020",
+      external: ["react", "react-dom"],
+    },
   },
 });

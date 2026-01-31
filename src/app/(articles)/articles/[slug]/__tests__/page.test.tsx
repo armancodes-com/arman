@@ -7,8 +7,8 @@ vi.mock("next/navigation", () => ({
   notFound: vi.fn(),
 }));
 
-vi.mock("next-contentlayer/hooks", () => ({
-  useMDXComponent: () => () => <div data-testid="mdx-component" />,
+vi.mock("../_components/mdx/MdxContent", () => ({
+  default: () => <div data-testid="mdx-component" />,
 }));
 
 vi.mock("../_components/ArticleHeader", () => ({

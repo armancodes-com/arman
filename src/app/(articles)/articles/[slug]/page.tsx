@@ -7,7 +7,7 @@ import { allArticles } from "contentlayer/generated";
 
 import BackLink from "@/components/ui/BackLink";
 import ArticleHeader from "./_components/ArticleHeader";
-import MdxWrapper from "./_components/mdx/MdxWrapper";
+import MdxContent from "./_components/mdx/MdxContent";
 import readingTime from "@/utils/reading-time";
 import { IS_PRODUCTION, SITE_URL } from "@/constants";
 import JsonLd from "@/components/seo/JsonLd";
@@ -202,7 +202,7 @@ export default async function Page({
               <DynamicArticlesSeries seriesLinks={article?.blogSeriesLinks} />
             )}
 
-            <MdxWrapper code={article?.body?.code as string} />
+            <MdxContent code={article?.body?.code as string} />
           </div>
 
           {/* SIDEBAR OF SINGLE ARTICLES */}
