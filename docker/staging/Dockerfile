@@ -54,6 +54,12 @@ WORKDIR /app
 
 ENV NODE_ENV production
 
+# Accept build arguments and set them as environment variables for runtime
+ARG NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID
+ENV NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID=${NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID}
+
+ARG NEXT_PUBLIC_BASE_URL
+ENV NEXT_PUBLIC_BASE_URL=${NEXT_PUBLIC_BASE_URL}
 
 # Uncomment the following line in case you want to disable telemetry during runtime.
 # ENV NEXT_TELEMETRY_DISABLED 1
