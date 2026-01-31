@@ -52,5 +52,9 @@ export const allArticles = [
     tags: ["PHP"],
     hasSeries: false,
     hasSidebarLinks: false,
+    image: "/images/article.png",
+    category: "Testing",
+    metaDescription: "Test meta description",
+    robots: "index,follow",
   },
 ];
