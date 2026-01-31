@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { MetadataRoute } from "next";
 import { allArticles, Article as ArticleType } from "contentlayer/generated";
+import { SITE_URL } from "@/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const publishedArticles: ArticleType[] = allArticles?.filter(
@@ -18,19 +19,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: "https://armancodes.com",
+      url: SITE_URL,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 1,
     },
     {
-      url: "https://armancodes.com/about-me",
+      url: `${SITE_URL}/about-me`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
-      url: "https://armancodes.com/articles",
+      url: `${SITE_URL}/articles`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.9,
