@@ -1,4 +1,4 @@
-import { render, screen } from "../../../../../utilities";
+import { render, screen } from "@/utilities";
 import ArticleItem from "../ArticleItem";
 import type { Article as ArticleType } from "contentlayer/generated";
 

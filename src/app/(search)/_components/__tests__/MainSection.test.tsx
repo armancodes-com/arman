@@ -1,4 +1,4 @@
-import { render, screen } from "../../../../../utilities";
+import { render, screen } from "@/utilities";
 import SearchMainSection from "../MainSection";
 
 describe("SearchMainSection Component Tests Suite", () => {

@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { render } from "../../../utilities";
+import { render } from "@/utilities";
 import NavList from "../Navigation/NavList";
 import { NAVIGATION_LINKS } from "@/constants/Navigation.constants";
 

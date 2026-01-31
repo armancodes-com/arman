@@ -1,4 +1,4 @@
-import { render } from "../../../utilities";
+import { render } from "@/utilities";
 import { cleanup, screen } from "@testing-library/react";
 import ShareButton from "../ui/ShareButton";
 

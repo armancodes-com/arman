@@ -1,4 +1,4 @@
-import { render } from "../../../utilities";
+import { render } from "@/utilities";
 import NavLink from "../Navigation/NavLink";
 import { screen } from "@testing-library/react";
 

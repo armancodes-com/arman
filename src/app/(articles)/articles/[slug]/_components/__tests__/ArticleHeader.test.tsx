@@ -1,4 +1,4 @@
-import { render, screen } from "../../../../../../../utilities";
+import { render, screen } from "@/utilities";
 import ArticleHeader from "../ArticleHeader";
 
 vi.mock("@/constants/FeatureFlag.constants", () => ({

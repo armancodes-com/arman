@@ -1,4 +1,4 @@
-import { render } from "../../../../utilities";
+import { render } from "@/utilities";
 import { screen } from "@testing-library/react";
 import AboutMeHeroSection from "../_components/AboutMeHero";
 

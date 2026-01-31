@@ -1,4 +1,4 @@
-import { render, screen } from "../../../../../../../utilities";
+import { render, screen } from "@/utilities";
 import ArticleImage from "../ArticleImage";
 
 describe("ArticleImage Component Tests Suite", () => {

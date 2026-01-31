@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { render } from "../../../utilities";
+import { render } from "@/utilities";
 import SectionHeader from "../ui/SectionHeader";
 
 describe("SectionHeader Tests Suite", () => {

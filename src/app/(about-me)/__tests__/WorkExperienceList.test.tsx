@@ -1,4 +1,4 @@
-import { render } from "../../../../utilities";
+import { render } from "@/utilities";
 import { screen } from "@testing-library/react";
 import WorkExperienceList from "../_components/WorkExperienceList";
 import { COMPANIES_DATA } from "@/constants/Companies.constants";
