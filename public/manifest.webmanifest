@@ -14,15 +14,29 @@
     },
     {
       "src": "/images/dark-logo.png",
-      "sizes": "192x192",
+      "sizes": "500x500",
       "type": "image/png",
       "purpose": "any"
     },
     {
       "src": "/images/dark-logo-1000px.jpg",
-      "sizes": "512x512",
+      "sizes": "1000x1000",
       "type": "image/jpeg",
       "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/dark-logo.png",
+      "sizes": "500x500",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/images/dark-logo-1000px.jpg",
+      "sizes": "1000x1000",
+      "type": "image/jpeg",
+      "form_factor": "wide"
     }
   ]
 }
