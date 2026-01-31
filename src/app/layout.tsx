@@ -84,6 +84,13 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className="light" suppressHydrationWarning>
+      <head>
+        <link
+          rel="manifest"
+          href="/manifest.webmanifest"
+          crossOrigin="use-credentials"
+        />
+      </head>
       <body className={`${ubuntu.className} bg-bgColor`}>
         <ThemeProvider attribute="class" enableSystem defaultTheme="light">
           <NextTopLoader
