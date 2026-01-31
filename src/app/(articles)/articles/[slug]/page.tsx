@@ -9,10 +9,8 @@ import BackLink from "@/components/ui/BackLink";
 import ArticleHeader from "./_components/ArticleHeader";
 import MdxWrapper from "./_components/mdx/MdxWrapper";
 import readingTime from "@/utils/reading-time";
-import { IS_PRODUCTION } from "@/constants";
+import { IS_PRODUCTION, SITE_URL } from "@/constants";
 import JsonLd from "@/components/seo/JsonLd";
-
-export const dynamic = "force-dynamic";
 
 const DynamicTagListComponent = nextDynamic(
   () => import("./_components/TagsList"),
@@ -46,12 +44,12 @@ export async function generateMetadata({
   // finding article data
   const articleData = allArticles?.find((article) => article.slug === slug);
 
-  const baseUrl = articleData?.baseUrl?.replace(/\/$/, ""); // Remove trailing slash
+  const baseUrl = articleData?.baseUrl?.replace(/\/$/, "") || SITE_URL; // Remove trailing slash if present
   const shareLink = articleData?.shareLink?.replace(/^\//, ""); // Remove leading slash
   const canonicalUrl = `${baseUrl}/${shareLink}`;
 
   return {
-    metadataBase: new globalThis.URL(articleData?.baseUrl || ""),
+    metadataBase: new globalThis.URL(articleData?.baseUrl || SITE_URL),
     title: `Arman Ahmadi - ${articleData?.title}`,
     description: articleData?.metaDescription,
     authors: [{ name: articleData?.author }],
@@ -101,14 +99,14 @@ export default function Page({ params }: { params: { slug: string } }) {
     author: {
       "@type": "Person",
       name: "Arman Ahmadi",
-      url: "https://armancodes.com/",
+      url: `${SITE_URL}/`,
     },
     publisher: {
       "@type": "Organization",
       name: "armancodes.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://armancodes.com/images/dark-logo.png",
+        url: `${SITE_URL}/images/dark-logo.png`,
       },
     },
     headline: article?.title,
@@ -128,13 +126,13 @@ export default function Page({ params }: { params: { slug: string } }) {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://armancodes.com",
+        item: SITE_URL,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Articles",
-        item: "https://armancodes.com/articles",
+        item: `${SITE_URL}/articles`,
       },
       {
         "@type": "ListItem",

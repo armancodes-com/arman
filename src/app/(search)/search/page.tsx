@@ -4,19 +4,20 @@ import { notFound } from "next/navigation";
 import BackLink from "@/components/ui/BackLink";
 import { isSearchSystemReleased } from "@/constants/FeatureFlag.constants";
 import SearchMainSection from "../_components/MainSection";
+import { SITE_URL } from "@/constants";
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi - Search",
   description: "Search articles by Arman for topics you want to read.",
-  authors: [{ name: "Arman Ahmadi", url: "https://armancodes.com" }],
+  authors: [{ name: "Arman Ahmadi", url: SITE_URL }],
   alternates: {
-    canonical: "https://armancodes.com/search",
+    canonical: `${SITE_URL}/search`,
   },
   openGraph: {
     title: "Arman Ahmadi - Search",
     description: "Search articles by Arman for topics you want to read.",
-    images: ["https://armancodes.com/images/new-hero.jpeg"],
-    url: "https://armancodes.com/search",
+    images: [`${SITE_URL}/images/new-hero.jpeg`],
+    url: `${SITE_URL}/search`,
     type: "website",
     siteName: "Arman Ahmadi",
     locale: "en_US",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     creator: "@armancodes",
     title: "Arman Ahmadi - Search",
     description: "Search articles by Arman for topics you want to read.",
-    images: ["https://armancodes.com/images/new-hero.jpeg"],
+    images: [`${SITE_URL}/images/new-hero.jpeg`],
   },
 };
 

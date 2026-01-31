@@ -11,6 +11,7 @@ import Footer from "@/components/ui/Footer";
 import { ubuntu } from "./fonts";
 import { toolbarLinks } from "@/constants/toolbarlinks.constants";
 import JsonLd from "@/components/seo/JsonLd";
+import { SITE_URL } from "@/constants";
 import ManifestLink from "@/components/ManifestLink";
 
 export const viewport: Viewport = {
@@ -20,7 +21,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://armancodes.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Arman Ahmadi - Backend Engineer",
     template: "%s | Arman Ahmadi",
@@ -34,14 +35,14 @@ export const metadata: Metadata = {
     "Web Development",
     "Design Patterns",
   ],
-  authors: [{ name: "Arman Ahmadi", url: "https://armancodes.com" }],
+  authors: [{ name: "Arman Ahmadi", url: SITE_URL }],
   creator: "Arman Ahmadi",
   // Use a static manifest file with credentials instead of Next.js auto link.
   manifest: null,
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://armancodes.com",
+    url: SITE_URL,
     siteName: "Arman Ahmadi",
     title: "Arman Ahmadi - Backend Engineer",
     description:
@@ -74,7 +75,7 @@ export default async function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Arman Ahmadi",
-    url: "https://armancodes.com",
+    url: SITE_URL,
     jobTitle: "Backend Engineer",
     description:
       "Backend engineer specializing in PHP and software engineering",
