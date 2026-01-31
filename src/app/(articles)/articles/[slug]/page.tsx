@@ -46,8 +46,7 @@ export async function generateMetadata({
   // finding article data
   const articleData = allArticles?.find((article) => article.slug === slug);
 
-  const baseUrl =
-    articleData?.baseUrl?.replace(/\/$/, "") || DEFAULT_BASE_URL; // Remove trailing slash if present
+  const baseUrl = articleData?.baseUrl?.replace(/\/$/, "") || DEFAULT_BASE_URL; // Remove trailing slash if present
   const shareLink = articleData?.shareLink?.replace(/^\//, ""); // Remove leading slash
   const canonicalUrl = `${baseUrl}/${shareLink}`;
 
