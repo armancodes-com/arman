@@ -12,7 +12,7 @@ COPY scripts ./scripts
 # Copy contentlayer config and dependencies needed for postinstall
 COPY contentlayer.config.ts ./
 COPY tsconfig.json ./
-COPY src/utils/text-ellipsis.ts ./src/utils/text-ellipsis.ts
+COPY src/utils ./src/utils
 COPY src/content ./src/content
 RUN \
   if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
