@@ -29,6 +29,7 @@ html {
     --bg-tertiary-2: #f9f3ff;
     --text-link: #9c8aae;
     --text-link-2: #5f6571;
+    --sample-bg-color: #ffffff;
 
     --gray-3: #f0f0f0;
     --gray-4: #e8e8e8;
@@ -57,7 +58,7 @@ html {
     --text-link: #9c8aae;
     --text-link-2: #5f6571;
 
-    --sample: #ffffff;
+    --sample-bg-color: #ffffff;
 
     --gray-3: #222;
     --gray-4: #2a2a2a;
@@ -69,6 +70,12 @@ html {
     --gray-10: #7b7b7b;
     --gray-11: #b4b4b4;
     --gray-12: #eee;
+
+    .highlight-line {
+      background-color: transparent;
+      border-left: none;
+      padding-left: 28px;
+    }
   }
 
   body {
@@ -163,7 +170,7 @@ div[data-rehype-pretty-code-fragment] {
   overflow: hidden;
 
   /* stylist preferences */
-  background-color: rgb(248, 17, 17);
+  background-color: #f5f5f5;
   border-radius: 0.5rem;
 }
 
@@ -198,13 +205,7 @@ div[data-rehype-pretty-code-fragment] pre {
   border-left: 3px solid #3b9eff; /* Set highlight accent border color */
 }
 
-:root[class="dark"] {
-  .highlight-line {
-    background-color: transparent;
-    border-left: none;
-    padding-left: 28px;
-  }
-}
+
 
 .line-number::before {
   display: inline-flex;
