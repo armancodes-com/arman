@@ -40,7 +40,7 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^5.0.0",
     "@opentelemetry/api": "1.9.0",
-    "@storybook/addon-onboarding": "^10.2.3",
+    "@storybook/addon-onboarding": "^10.3.1",
     "@storybook/nextjs": "^10.2.3",
     "@storybook/react": "^10.2.3",
     "@tailwindcss/postcss": "^4.1.18",
