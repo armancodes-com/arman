@@ -7,6 +7,8 @@ import Header from "@/components/ui/Header";
 import HomePageArticlesList from "./_components/HomePageArticlesList";
 import { SITE_URL } from "@/constants";
 
+export const revalidate = 604800;
+
 export const metadata: Metadata = {
   title: "Arman Ahmadi - Backend Engineer",
   description: `Hey there! This is where I share my journey through software engineering, personal anecdotes, and articles covering a wide range of topics.`,

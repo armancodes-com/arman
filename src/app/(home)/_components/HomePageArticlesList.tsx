@@ -1,7 +1,6 @@
 import type { Article as ArticleType } from "contentlayer/generated";
 
 import { IS_PRODUCTION } from "@/constants";
-import readingTime from "@/utils/reading-time";
 import reverseArrayHandler from "@/utils/reverse-array";
 import ArticleItem from "@/app/(articles)/_components/ArticleItem";
 
@@ -21,14 +20,14 @@ const HomePageArticlesList: React.FC<IArticlesListProps> = ({ articles }) => {
             <ArticleItem
               key={article?.title}
               data={article}
-              readTime={readingTime(article?.body?.raw).minutes}
+              readTime={article.readingTime}
             />
           ))
         : allArticlesReversed?.map((article) => (
             <ArticleItem
               key={article?.title}
               data={article}
-              readTime={readingTime(article?.body?.raw).minutes}
+              readTime={article.readingTime}
             />
           ))}
     </div>
