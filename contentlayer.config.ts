@@ -8,6 +8,7 @@ import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
 import textEllipsisFormatter from "./src/utils/text-ellipsis";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import readingTime from "./src/utils/reading-time";
 
 // computing some values from docs
 const getSlug = (doc: any) =>
@@ -41,6 +42,10 @@ const articleComputedFields: ComputedFields = {
   twitterDescription: {
     type: "string",
     resolve: (doc) => `${textEllipsisFormatter(doc?.summary, 130)}`,
+  },
+  readingTime: {
+    type: "number",
+    resolve: (doc) => readingTime(doc?.body?.raw).minutes,
   },
 };
 
