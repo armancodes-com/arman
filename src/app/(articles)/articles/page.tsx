@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 
 const Page = () => {
   const displayedArticles = allArticles
-    .filter((article) => !IS_PRODUCTION || !article?.isDraft)
+    .filter((article) => (IS_PRODUCTION ? !article?.isDraft : true))
     .slice()
     .reverse();
 
