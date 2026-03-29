@@ -8,7 +8,6 @@ import Section from "@/components/ui/Section";
 import Pagination from "@/components/Navigation/Pagination";
 import { SHOW_PER_PAGE } from "@/constants/Pagination.constants";
 import { IS_PRODUCTION, SITE_URL } from "@/constants";
-import reverseArrayHandler from "@/utils/reverse-array";
 
 export const metadata: Metadata = {
   title: "Arman Ahmadi - Articles",
@@ -40,13 +39,10 @@ export const metadata: Metadata = {
 };
 
 const Page = () => {
-  const publishedArticles = allArticles?.filter((article) => !article?.isDraft);
-  const allArticlesReversed = reverseArrayHandler(allArticles);
-  const publishedArticlesReversed = reverseArrayHandler(publishedArticles);
-
-  const displayedArticles = IS_PRODUCTION
-    ? publishedArticlesReversed
-    : allArticlesReversed;
+  const displayedArticles = allArticles
+    .filter((article) => (IS_PRODUCTION ? !article?.isDraft : true))
+    .slice()
+    .reverse();
 
   return (
     <main>

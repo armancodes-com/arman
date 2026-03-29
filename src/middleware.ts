@@ -1,32 +1,27 @@
 import { NextRequest, NextResponse } from "next/server";
 
+const buildContentSecurityPolicy = (nonce: string) =>
+  [
+    `default-src 'self' 'strict-dynamic' 'unsafe-inline' 'nonce-${nonce}'`,
+    `script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com 'unsafe-eval' 'unsafe-inline' 'strict-dynamic' 'nonce-${nonce}'`,
+    "img-src 'self' blob: data: https://www.google-analytics.com",
+    "style-src 'self' 'unsafe-inline'",
+    "script-src-elem 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline'",
+    "font-src 'self'",
+    "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com 'unsafe-inline'",
+    "media-src 'self'",
+    "object-src 'self'",
+    "frame-src 'self'",
+    "frame-ancestors 'self'",
+    "form-action 'self'",
+    "base-uri 'self'",
+    "upgrade-insecure-requests",
+  ].join("; ");
+
 export function middleware(request: NextRequest) {
   // creating a new nonce  each time page is visited
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
-
-  // script-src 'self' 'nonce-${nonce}' 'unsafe-inline';
-  // style-src 'self' 'nonce-${nonce}' 'unsafe-inline';
-  const cspHeader = `
-    default-src 'self' 'strict-dynamic' 'unsafe-inline' 'nonce-${nonce}'; 
-    script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com 'unsafe-eval' 'unsafe-inline' 'strict-dynamic' 'nonce-${nonce}'; 
-    img-src 'self' blob: data: https://www.google-analytics.com; 
-    style-src 'self' 'unsafe-inline';
-    script-src-elem 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline';
-    font-src 'self'; 
-    connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com 'unsafe-inline'; 
-    media-src 'self'; 
-    object-src 'self'; 
-    frame-src 'self'; 
-    frame-ancestors 'self'; 
-    form-action 'self'; 
-    base-uri 'self';
-    upgrade-insecure-requests; 
-  `;
-
-  // Replace newline characters and spaces
-  const contentSecurityPolicyHeaderValue = cspHeader
-    ?.replace(/\s{2,}/g, " ")
-    .trim();
+  const contentSecurityPolicyHeaderValue = buildContentSecurityPolicy(nonce);
 
   // making a header object from headers we receive each time requests hit the pages
   const requestHeaders = new Headers(request?.headers);

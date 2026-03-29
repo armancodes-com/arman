@@ -3,7 +3,6 @@
 import type { Article as ArticleType } from "contentlayer/generated";
 
 import ArticleItem from "./ArticleItem";
-import readingTime from "@/utils/reading-time";
 import useQueryString from "@/hooks/useQueryString";
 import { useEffect, useState, useMemo } from "react";
 import { SHOW_PER_PAGE } from "@/constants/Pagination.constants";
@@ -32,7 +31,7 @@ const ArticlesList: React.FC<IArticlesListProps> = ({ articles }) => {
     () =>
       articles.slice(startIdx, endIdx).map((article) => ({
         article,
-        readTime: readingTime(article?.body?.raw).minutes,
+        readTime: article.readingTime,
       })),
     [articles, startIdx, endIdx],
   );
