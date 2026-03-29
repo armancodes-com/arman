@@ -7,6 +7,7 @@ import Header from "@/components/ui/Header";
 import HomePageArticlesList from "./_components/HomePageArticlesList";
 import { SITE_URL } from "@/constants";
 
+// Keep home page content cached for up to 7 days, matching article listing freshness.
 export const revalidate = 604800;
 
 export const metadata: Metadata = {
