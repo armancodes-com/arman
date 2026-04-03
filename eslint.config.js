@@ -3,9 +3,7 @@ import typescript from "@typescript-eslint/eslint-plugin";
 import typescriptParser from "@typescript-eslint/parser";
 import reactHooks from "eslint-plugin-react-hooks";
 import prettier from "eslint-config-prettier";
-import tanstackQuery from "@tanstack/eslint-plugin-query";
 import storybook from "eslint-plugin-storybook";
-import jsxA11y from "eslint-plugin-jsx-a11y";
 import reactRefresh from "eslint-plugin-react-refresh";
 import globals from "globals";
 
@@ -47,15 +45,12 @@ export default [
     plugins: {
       "@typescript-eslint": typescript,
       "react-hooks": reactHooks,
-      "@tanstack/query": tanstackQuery,
       storybook: storybook,
-      "jsx-a11y": jsxA11y,
       "react-refresh": reactRefresh,
     },
     rules: {
       ...typescript.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
-      ...jsxA11y.configs.recommended.rules,
       "@typescript-eslint/no-empty-object-type": "warn",
       "react-hooks/set-state-in-effect": "warn",
       "react-hooks/static-components": "warn",
