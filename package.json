@@ -42,7 +42,7 @@
     "@opentelemetry/api": "1.9.1",
     "@storybook/addon-onboarding": "^10.2.3",
     "@storybook/nextjs-vite": "^10.3.3",
-    "@storybook/react": "^10.2.3",
+    "@storybook/react": "^10.3.5",
     "@tailwindcss/postcss": "^4.1.18",
     "@tailwindcss/typography": "^0.5.19",
     "@eslint/js": "^10.0.1",
