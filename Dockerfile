@@ -1,79 +1,108 @@
-# ===============================
-# Base
-# ===============================
-FROM node:22-slim AS base
-WORKDIR /app
+###############################################################################
+# ========================== BASE IMAGE CONFIG ===============================
+###############################################################################
+# You can override this in your CI/CD pipeline with:
+#   docker build --build-arg BASE_IMAGE=node:22-bullseye-slim .
+ARG BASE_IMAGE="node:22-bullseye-slim"
+FROM ${BASE_IMAGE} AS base
 
-# Enable Corepack (needed for pnpm/yarn if used)
-RUN corepack enable
+WORKDIR /usr/src/app
 
-# ===============================
-# Dependencies (cached layer)
-# ===============================
+# Optional pre-commands (for registry config, environment setup, etc.)
+ARG PRE_COMMAND="echo 'No pre-command provided'"
+RUN ${PRE_COMMAND}
+
+###############################################################################
+# ======================== DEPENDENCIES INSTALLATION ==========================
+###############################################################################
 FROM base AS deps
 
-COPY package.json package-lock.json* yarn.lock* pnpm-lock.yaml* ./
+# Copy package manager lockfiles for proper dependency resolution
+COPY --chown=node:node package.json yarn.lock* package-lock.json* pnpm-lock.yaml* .npmrc* ./
 
-# Install dependencies (full install for build safety)
+# Optional installation flags (for CI/CD customizations)
+ARG INSTALL_FLAGS=""
+
+# Install dependencies based on available lockfile
 RUN \
-  if [ -f package-lock.json ]; then npm ci; \
-  elif [ -f yarn.lock ]; then yarn install --frozen-lockfile; \
-  elif [ -f pnpm-lock.yaml ]; then pnpm install --frozen-lockfile; \
-  else echo "No lockfile found" && exit 1; \
-  fi
+    if [ -f yarn.lock ]; then yarn install --frozen-lockfile $INSTALL_FLAGS; \
+    elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm install --frozen-lockfile; \
+    elif [ -f package-lock.json ]; then npm ci $INSTALL_FLAGS; \
+    elif [ -f package.json ]; then npm install $INSTALL_FLAGS; \
+    else echo "No lockfile found. Aborting." && exit 1; \
+    fi
 
-# ===============================
-# Builder
-# ===============================
+# Clean up npmrc to prevent leaking registry credentials
+RUN rm -f .npmrc
+
+###############################################################################
+# ============================== BUILD STAGE ==================================
+###############################################################################
 FROM base AS builder
-WORKDIR /app
 
-# Copy dependencies
-COPY --from=deps /app/node_modules ./node_modules
+# Set environment for optimized builds
+ENV NODE_ENV=production
 
-# Copy everything (needed for Contentlayer + build scripts)
+# Copy dependencies from previous stage
+COPY --from=deps /usr/src/app/node_modules ./node_modules
+
+# Copy the rest of the application source
 COPY . .
 
-# Environment build args
-ARG NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID
-ARG NEXT_PUBLIC_BASE_URL
+# Optional build flags for CI/CD
+ARG BUILD_FLAGS=""
 
-ENV NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID=$NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID
-ENV NEXT_PUBLIC_BASE_URL=$NEXT_PUBLIC_BASE_URL
+# Force Next.js to generate standalone output
+ENV NEXT_PRIVATE_STANDALONE="true"
 
-# IMPORTANT:
-# Your package.json already handles:
-# contentlayer-build.cjs + next build
-RUN npm run build
+# Build the application
+RUN \
+    if [ -f yarn.lock ]; then yarn build $BUILD_FLAGS; \
+    elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm build $BUILD_FLAGS; \
+    elif [ -f package-lock.json ]; then npm run build $BUILD_FLAGS; \
+    else echo "No lockfile found. Aborting build." && exit 1; \
+    fi
 
-# ===============================
-# Runtime (minimal production image)
-# ===============================
-FROM node:22-slim AS runner
-WORKDIR /app
+###############################################################################
+# ========================== EXPORT STAGE (Nginx) =============================
+###############################################################################
+FROM nginx:alpine AS export
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
+WORKDIR /var/www/html
+COPY --from=builder /usr/src/app/out ./
+CMD ["nginx", "-g", "daemon off;"]
 
+###############################################################################
+# ========================== DEFAULT STAGE (Node) =============================
+###############################################################################
+FROM base AS default
+WORKDIR /var/www/html
+COPY --from=builder /usr/src/app /var/www/html
+ENV PORT=3000
+CMD ["npm", "run", "start", "--", "--port=$PORT"]
+
+###############################################################################
+# ============================== RUNNER STAGE =================================
+###############################################################################
+FROM ${BASE_IMAGE} AS runner
+
+# Run as non-root user for better security
+USER node
+
+WORKDIR /usr/src/app
+
+# Copy only the minimal runtime output from the builder
+COPY --from=builder --chown=node:node /usr/src/app/public ./public
+COPY --from=builder --chown=node:node /usr/src/app/.next/standalone ./
+COPY --from=builder --chown=node:node /usr/src/app/.next/static ./.next/static
+
+# Default runtime environment
 ENV NODE_ENV=production
 ENV PORT=3000
 
-# Create non-root user
-RUN addgroup --system nodejs && adduser --system nextjs --ingroup nodejs
-
-# Copy Next standalone output
-COPY --from=builder /app/public ./public
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
-USER nextjs
-
+# Expose the Next.js app port
 EXPOSE 3000
+ENV HOSTNAME=0.0.0.0
 
-# ===============================
-# Healthcheck (Coolify friendly)
-# ===============================
-HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
-  CMD node -e "fetch('http://localhost:3000').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
-
-# ===============================
-# Start server (Next standalone)
-# ===============================
+# Start the app using Next.js standalone server
 CMD ["node", "server.js"]
