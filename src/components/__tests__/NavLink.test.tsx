@@ -17,18 +17,15 @@ describe("NavLink Tests Suite", () => {
     render(<NavLink href="/about-me">about me</NavLink>);
   });
 
-  it.todo(
-    "should not render the active styles initially when routing does not match",
-    () => {
-      render(<NavLink href="/about-me">about me</NavLink>);
+  it("should not render the active styles initially when routing does not match", () => {
+    render(<NavLink href="/about-me">about me</NavLink>);
 
-      const activeStyles = "font-bold text-primary";
-      const linkElement = screen.getByRole("link");
+    const activeStyles = "font-bold text-primary";
+    const linkElement = screen.getByRole("link");
 
-      expect(linkElement).toHaveAttribute("href", `/about-me`);
-      expect(linkElement).not.toHaveClass(activeStyles);
-    },
-  );
+    expect(linkElement).toHaveAttribute("href", `/about-me`);
+    expect(linkElement).not.toHaveClass(activeStyles);
+  });
 
   it("should render the active styles when routing matches", () => {
     mockUsePathname.mockImplementation(() => "/about-me");

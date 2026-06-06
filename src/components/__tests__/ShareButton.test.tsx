@@ -36,7 +36,7 @@ describe("ShareButton Component Tests Suite", () => {
     const tooltipElement = screen.getByTestId("share-button-tooltip");
 
     expect(tooltipElement).toBeInTheDocument();
-    expect(writeTextMock).toHaveBeenCalledOnce();
+    expect(writeTextMock).toHaveBeenCalledTimes(1);
     expect(writeTextMock).toHaveBeenCalledWith(expectedUrl);
   });
 

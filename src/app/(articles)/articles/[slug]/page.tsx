@@ -64,7 +64,7 @@ export async function generateMetadata({
       locale: "en_US",
       publishedTime: articleData?.publishedAt,
       modifiedTime: articleData?.updatedAt || articleData?.publishedAt,
-      authors: [articleData?.author],
+      authors: articleData?.author ? [articleData.author] : undefined,
       tags: articleData?.tags as string[],
     },
     robots: articleData?.robots,

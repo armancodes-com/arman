@@ -31,7 +31,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Optional but very useful in real Next.js projects
+      # Required step to catch TypeScript regressions early
       - name: Type check
         run: npm run type-check
         continue-on-error: false
@@ -41,7 +41,7 @@ jobs:
 
       # IMPORTANT: this should be a CHECK, not auto-fix
       - name: Format check
-        run: npm run format:check
+        run: npm exec -- prettier --check --ignore-path .gitignore .
 
       - name: Build Next.js app
         run: npm run build

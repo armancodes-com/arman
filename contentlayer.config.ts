@@ -4,6 +4,7 @@ import {
   defineDocumentType,
   makeSource,
 } from "contentlayer/source-files";
+import type { MDXOptions } from "@contentlayer/core";
 import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
 import textEllipsisFormatter from "./src/utils/text-ellipsis";
@@ -90,6 +91,34 @@ export const Article = defineDocumentType(() => ({
   computedFields: articleComputedFields,
 }));
 
+const mdxEsbuildConfig = {
+  target: "es2020",
+  jsx: "automatic",
+  jsxImportSource: "react",
+  external: [
+    "react",
+    "react-dom",
+    "react/jsx-runtime",
+    "react/jsx-dev-runtime",
+  ],
+};
+
+const mdxConfig: MDXOptions & { esbuild: typeof mdxEsbuildConfig } = {
+  rehypePlugins: [
+    rehypePrism,
+    rehypeSlug,
+    [
+      rehypeAutolinkHeadings,
+      {
+        properties: {
+          className: ["anchor"],
+        },
+      },
+    ],
+  ],
+  esbuild: mdxEsbuildConfig,
+};
+
 export default makeSource({
   contentDirPath: "src/content",
   markdown: {
@@ -107,29 +136,5 @@ export default makeSource({
     ], // adding id tag automatically to headings (h1-h6)
   },
   documentTypes: [Article],
-  mdx: {
-    rehypePlugins: [
-      rehypePrism,
-      rehypeSlug,
-      [
-        rehypeAutolinkHeadings,
-        {
-          properties: {
-            className: ["anchor"],
-          },
-        },
-      ],
-    ],
-    esbuild: {
-      target: "es2020",
-      jsx: "automatic",
-      jsxImportSource: "react",
-      external: [
-        "react",
-        "react-dom",
-        "react/jsx-runtime",
-        "react/jsx-dev-runtime",
-      ],
-    },
-  },
+  mdx: mdxConfig,
 });
