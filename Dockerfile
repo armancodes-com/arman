@@ -16,7 +16,7 @@ COPY package.json package-lock.json* yarn.lock* pnpm-lock.yaml* ./
 
 # Install dependencies (full install for build safety)
 RUN \
-  if [ -f package-lock.json ]; then npm ci; \
+  if [ -f package-lock.json ]; then npm pkg set scripts.postinstall="echo Skipping postinstall during deps stage" && npm ci; \
   elif [ -f yarn.lock ]; then yarn install --frozen-lockfile; \
   elif [ -f pnpm-lock.yaml ]; then pnpm install --frozen-lockfile; \
   else echo "No lockfile found" && exit 1; \
