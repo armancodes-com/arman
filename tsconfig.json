@@ -6,6 +6,7 @@
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
     "skipLibCheck": true,
+    "ignoreDeprecations": "6.0",
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -28,7 +29,7 @@
       "test/*": ["./test/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     },
-    "types": ["vitest", "jsdom", "node", "@testing-library/jest-dom"]
+    "types": ["vitest/globals", "jsdom", "node", "@testing-library/jest-dom"]
   },
   "include": [
     "next-env.d.ts",

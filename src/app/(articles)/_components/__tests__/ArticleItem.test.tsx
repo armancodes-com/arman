@@ -26,7 +26,7 @@ describe("ArticleItem Component Tests Suite", () => {
       ...baseArticle,
       isDraft: true,
       category: undefined,
-    } as ArticleType;
+    } as unknown as ArticleType;
 
     const { container } = render(
       <ArticleItem data={draftArticle} readTime={0} />,
