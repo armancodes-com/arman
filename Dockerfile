@@ -27,7 +27,7 @@ ARG INSTALL_FLAGS=""
 RUN \
     if [ -f yarn.lock ]; then yarn install --frozen-lockfile $INSTALL_FLAGS; \
     elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm install --frozen-lockfile; \
-    elif [ -f package-lock.json ]; then npm ci $INSTALL_FLAGS; \
+    elif [ -f package-lock.json ]; then --ignore-scripts npm ci $INSTALL_FLAGS; \
     elif [ -f package.json ]; then npm install $INSTALL_FLAGS; \
     else echo "No lockfile found. Aborting." && exit 1; \
     fi
