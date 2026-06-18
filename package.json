@@ -39,7 +39,7 @@
     "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^5.1.2",
+    "@chromatic-com/storybook": "^5.2.1",
     "@eslint/js": "^10.0.1",
     "@opentelemetry/api": "1.9.1",
     "@storybook/addon-onboarding": "^10.3.6",
